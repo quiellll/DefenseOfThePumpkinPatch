@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &18958800
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +351,7 @@ GameObject:
   - component: {fileID: 18958803}
   - component: {fileID: 18958802}
   - component: {fileID: 18958804}
+  - component: {fileID: 18958805}
   m_Layer: 0
   m_Name: Decoration Cell (116)
   m_TagString: Untagged
@@ -435,6 +437,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &18958805
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18958800}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &26636157
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 1
 --- !u!1 &34831582
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &36189970
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &58706702
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,6 +850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &73113374
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &75847136
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,6 +961,7 @@ GameObject:
   - component: {fileID: 75847139}
   - component: {fileID: 75847138}
   - component: {fileID: 75847140}
+  - component: {fileID: 75847141}
   m_Layer: 0
   m_Name: Decoration Cell (110)
   m_TagString: Untagged
@@ -1017,6 +1047,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &75847141
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75847136}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &78978228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1081,7 @@ GameObject:
   - component: {fileID: 78978231}
   - component: {fileID: 78978230}
   - component: {fileID: 78978232}
+  - component: {fileID: 78978233}
   m_Layer: 0
   m_Name: Decoration Cell (99)
   m_TagString: Untagged
@@ -1114,6 +1167,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &78978233
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78978228}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &81545034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,6 +1286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &88168162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,6 +1384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &97119126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,6 +1397,7 @@ GameObject:
   - component: {fileID: 97119129}
   - component: {fileID: 97119128}
   - component: {fileID: 97119130}
+  - component: {fileID: 97119131}
   m_Layer: 0
   m_Name: Decoration Cell (92)
   m_TagString: Untagged
@@ -1405,6 +1483,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &97119131
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97119126}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &104306028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,6 +1517,7 @@ GameObject:
   - component: {fileID: 104306031}
   - component: {fileID: 104306030}
   - component: {fileID: 104306032}
+  - component: {fileID: 104306033}
   m_Layer: 0
   m_Name: Decoration Cell (128)
   m_TagString: Untagged
@@ -1502,6 +1603,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &104306033
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104306028}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &105702709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,6 +1637,7 @@ GameObject:
   - component: {fileID: 105702712}
   - component: {fileID: 105702711}
   - component: {fileID: 105702713}
+  - component: {fileID: 105702714}
   m_Layer: 0
   m_Name: Decoration Cell (17)
   m_TagString: Untagged
@@ -1599,6 +1723,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &105702714
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105702709}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &107735319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,6 +1842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &111071799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,6 +1940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &113841907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,6 +2038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &116996165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,6 +2051,7 @@ GameObject:
   - component: {fileID: 116996168}
   - component: {fileID: 116996167}
   - component: {fileID: 116996169}
+  - component: {fileID: 116996170}
   m_Layer: 0
   m_Name: Decoration Cell (127)
   m_TagString: Untagged
@@ -1987,6 +2137,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &116996170
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116996165}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &126788976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,6 +2171,7 @@ GameObject:
   - component: {fileID: 126788979}
   - component: {fileID: 126788978}
   - component: {fileID: 126788980}
+  - component: {fileID: 126788981}
   m_Layer: 0
   m_Name: Decoration Cell (13)
   m_TagString: Untagged
@@ -2084,6 +2257,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &126788981
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126788976}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &129343258
 GameObject:
   m_ObjectHideFlags: 0
@@ -2096,6 +2291,7 @@ GameObject:
   - component: {fileID: 129343261}
   - component: {fileID: 129343260}
   - component: {fileID: 129343262}
+  - component: {fileID: 129343263}
   m_Layer: 0
   m_Name: Decoration Cell (71)
   m_TagString: Untagged
@@ -2181,6 +2377,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &129343263
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129343258}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &151081594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2278,6 +2496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &163756408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2375,6 +2594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &164586282
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,6 +2607,7 @@ GameObject:
   - component: {fileID: 164586285}
   - component: {fileID: 164586284}
   - component: {fileID: 164586286}
+  - component: {fileID: 164586287}
   m_Layer: 0
   m_Name: Decoration Cell (103)
   m_TagString: Untagged
@@ -2472,6 +2693,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &164586287
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164586282}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &167051450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2727,7 @@ GameObject:
   - component: {fileID: 167051453}
   - component: {fileID: 167051452}
   - component: {fileID: 167051454}
+  - component: {fileID: 167051455}
   m_Layer: 0
   m_Name: Decoration Cell (138)
   m_TagString: Untagged
@@ -2569,6 +2813,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &167051455
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167051450}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &167392536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,6 +2932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &175356250
 GameObject:
   m_ObjectHideFlags: 0
@@ -2763,6 +3030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &176771810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,6 +3128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &178000432
 GameObject:
   m_ObjectHideFlags: 0
@@ -2872,6 +3141,7 @@ GameObject:
   - component: {fileID: 178000435}
   - component: {fileID: 178000434}
   - component: {fileID: 178000436}
+  - component: {fileID: 178000437}
   m_Layer: 0
   m_Name: Decoration Cell (26)
   m_TagString: Untagged
@@ -2957,6 +3227,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &178000437
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178000432}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &180123811
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,6 +3346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &182178832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3201,6 +3494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &187468575
 GameObject:
   m_ObjectHideFlags: 0
@@ -3213,6 +3507,7 @@ GameObject:
   - component: {fileID: 187468578}
   - component: {fileID: 187468577}
   - component: {fileID: 187468579}
+  - component: {fileID: 187468580}
   m_Layer: 0
   m_Name: Decoration Cell (132)
   m_TagString: Untagged
@@ -3298,6 +3593,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &187468580
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187468575}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &192062282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3395,6 +3712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &193538856
 GameObject:
   m_ObjectHideFlags: 0
@@ -3407,6 +3725,7 @@ GameObject:
   - component: {fileID: 193538859}
   - component: {fileID: 193538858}
   - component: {fileID: 193538860}
+  - component: {fileID: 193538861}
   m_Layer: 0
   m_Name: Decoration Cell (94)
   m_TagString: Untagged
@@ -3492,6 +3811,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &193538861
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193538856}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &194987759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3504,6 +3845,7 @@ GameObject:
   - component: {fileID: 194987762}
   - component: {fileID: 194987761}
   - component: {fileID: 194987763}
+  - component: {fileID: 194987764}
   m_Layer: 0
   m_Name: Decoration Cell (53)
   m_TagString: Untagged
@@ -3589,6 +3931,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &194987764
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194987759}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &196442056
 GameObject:
   m_ObjectHideFlags: 0
@@ -3601,6 +3965,7 @@ GameObject:
   - component: {fileID: 196442059}
   - component: {fileID: 196442058}
   - component: {fileID: 196442060}
+  - component: {fileID: 196442061}
   m_Layer: 0
   m_Name: Decoration Cell (85)
   m_TagString: Untagged
@@ -3686,6 +4051,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &196442061
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196442056}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &201989166
 GameObject:
   m_ObjectHideFlags: 0
@@ -3698,6 +4085,7 @@ GameObject:
   - component: {fileID: 201989169}
   - component: {fileID: 201989168}
   - component: {fileID: 201989170}
+  - component: {fileID: 201989171}
   m_Layer: 0
   m_Name: Decoration Cell (93)
   m_TagString: Untagged
@@ -3783,6 +4171,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &201989171
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201989166}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &205076545
 GameObject:
   m_ObjectHideFlags: 0
@@ -3880,6 +4290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 1
 --- !u!1 &210412691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3892,6 +4303,7 @@ GameObject:
   - component: {fileID: 210412694}
   - component: {fileID: 210412693}
   - component: {fileID: 210412695}
+  - component: {fileID: 210412696}
   m_Layer: 0
   m_Name: Decoration Cell (137)
   m_TagString: Untagged
@@ -3977,6 +4389,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &210412696
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210412691}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &213349390
 GameObject:
   m_ObjectHideFlags: 0
@@ -3989,6 +4423,7 @@ GameObject:
   - component: {fileID: 213349393}
   - component: {fileID: 213349392}
   - component: {fileID: 213349394}
+  - component: {fileID: 213349395}
   m_Layer: 0
   m_Name: Decoration Cell (54)
   m_TagString: Untagged
@@ -4074,6 +4509,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &213349395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213349390}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &214540215
 GameObject:
   m_ObjectHideFlags: 0
@@ -4086,6 +4543,7 @@ GameObject:
   - component: {fileID: 214540218}
   - component: {fileID: 214540217}
   - component: {fileID: 214540219}
+  - component: {fileID: 214540220}
   m_Layer: 0
   m_Name: Decoration Cell (37)
   m_TagString: Untagged
@@ -4171,6 +4629,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &214540220
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214540215}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &216281056
 GameObject:
   m_ObjectHideFlags: 0
@@ -4268,6 +4748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &226521665
 GameObject:
   m_ObjectHideFlags: 0
@@ -4365,6 +4846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &228429443
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,6 +4859,7 @@ GameObject:
   - component: {fileID: 228429446}
   - component: {fileID: 228429445}
   - component: {fileID: 228429447}
+  - component: {fileID: 228429448}
   m_Layer: 0
   m_Name: Decoration Cell (123)
   m_TagString: Untagged
@@ -4462,6 +4945,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &228429448
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228429443}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &246778559
 GameObject:
   m_ObjectHideFlags: 0
@@ -4474,6 +4979,7 @@ GameObject:
   - component: {fileID: 246778562}
   - component: {fileID: 246778561}
   - component: {fileID: 246778563}
+  - component: {fileID: 246778564}
   m_Layer: 0
   m_Name: Decoration Cell (114)
   m_TagString: Untagged
@@ -4559,6 +5065,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &246778564
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246778559}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &253481749
 GameObject:
   m_ObjectHideFlags: 0
@@ -4571,6 +5099,7 @@ GameObject:
   - component: {fileID: 253481752}
   - component: {fileID: 253481751}
   - component: {fileID: 253481753}
+  - component: {fileID: 253481754}
   m_Layer: 0
   m_Name: Decoration Cell (119)
   m_TagString: Untagged
@@ -4656,6 +5185,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &253481754
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253481749}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &253636889
 GameObject:
   m_ObjectHideFlags: 0
@@ -4753,6 +5304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &254389597
 GameObject:
   m_ObjectHideFlags: 0
@@ -4765,6 +5317,7 @@ GameObject:
   - component: {fileID: 254389600}
   - component: {fileID: 254389599}
   - component: {fileID: 254389601}
+  - component: {fileID: 254389602}
   m_Layer: 0
   m_Name: Decoration Cell (35)
   m_TagString: Untagged
@@ -4850,6 +5403,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &254389602
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254389597}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &264233681
 GameObject:
   m_ObjectHideFlags: 0
@@ -4862,6 +5437,7 @@ GameObject:
   - component: {fileID: 264233684}
   - component: {fileID: 264233683}
   - component: {fileID: 264233685}
+  - component: {fileID: 264233686}
   m_Layer: 0
   m_Name: Decoration Cell (10)
   m_TagString: Untagged
@@ -4947,6 +5523,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &264233686
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264233681}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &266022134
 GameObject:
   m_ObjectHideFlags: 0
@@ -4959,6 +5557,7 @@ GameObject:
   - component: {fileID: 266022137}
   - component: {fileID: 266022136}
   - component: {fileID: 266022138}
+  - component: {fileID: 266022139}
   m_Layer: 0
   m_Name: Decoration Cell (65)
   m_TagString: Untagged
@@ -5044,6 +5643,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &266022139
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266022134}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &267276983
 GameObject:
   m_ObjectHideFlags: 0
@@ -5056,6 +5677,7 @@ GameObject:
   - component: {fileID: 267276986}
   - component: {fileID: 267276985}
   - component: {fileID: 267276987}
+  - component: {fileID: 267276988}
   m_Layer: 0
   m_Name: Decoration Cell (91)
   m_TagString: Untagged
@@ -5141,6 +5763,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &267276988
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267276983}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &271108896
 GameObject:
   m_ObjectHideFlags: 0
@@ -5238,6 +5882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &272980778
 GameObject:
   m_ObjectHideFlags: 0
@@ -5250,6 +5895,7 @@ GameObject:
   - component: {fileID: 272980781}
   - component: {fileID: 272980780}
   - component: {fileID: 272980782}
+  - component: {fileID: 272980783}
   m_Layer: 0
   m_Name: Decoration Cell (57)
   m_TagString: Untagged
@@ -5335,6 +5981,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &272980783
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272980778}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &274383189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5432,6 +6100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &274615980
 GameObject:
   m_ObjectHideFlags: 0
@@ -5529,6 +6198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &294084265
 GameObject:
   m_ObjectHideFlags: 0
@@ -5626,6 +6296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &297965681
 GameObject:
   m_ObjectHideFlags: 0
@@ -5638,6 +6309,7 @@ GameObject:
   - component: {fileID: 297965684}
   - component: {fileID: 297965683}
   - component: {fileID: 297965685}
+  - component: {fileID: 297965686}
   m_Layer: 0
   m_Name: Decoration Cell (134)
   m_TagString: Untagged
@@ -5723,6 +6395,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &297965686
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297965681}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &300129690
 GameObject:
   m_ObjectHideFlags: 0
@@ -5820,6 +6514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &305655287
 GameObject:
   m_ObjectHideFlags: 0
@@ -5917,6 +6612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &309955106
 GameObject:
   m_ObjectHideFlags: 0
@@ -5929,6 +6625,7 @@ GameObject:
   - component: {fileID: 309955109}
   - component: {fileID: 309955108}
   - component: {fileID: 309955110}
+  - component: {fileID: 309955111}
   m_Layer: 0
   m_Name: Decoration Cell (38)
   m_TagString: Untagged
@@ -6014,6 +6711,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &309955111
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309955106}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &310554923
 GameObject:
   m_ObjectHideFlags: 0
@@ -6111,6 +6830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &328280927
 GameObject:
   m_ObjectHideFlags: 0
@@ -6208,6 +6928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &337833271
 GameObject:
   m_ObjectHideFlags: 0
@@ -6305,6 +7026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &341367575
 GameObject:
   m_ObjectHideFlags: 0
@@ -6317,6 +7039,7 @@ GameObject:
   - component: {fileID: 341367578}
   - component: {fileID: 341367577}
   - component: {fileID: 341367579}
+  - component: {fileID: 341367580}
   m_Layer: 0
   m_Name: Decoration Cell (33)
   m_TagString: Untagged
@@ -6402,6 +7125,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &341367580
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341367575}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &351758768
 GameObject:
   m_ObjectHideFlags: 0
@@ -6414,6 +7159,7 @@ GameObject:
   - component: {fileID: 351758771}
   - component: {fileID: 351758770}
   - component: {fileID: 351758772}
+  - component: {fileID: 351758773}
   m_Layer: 0
   m_Name: Decoration Cell (97)
   m_TagString: Untagged
@@ -6499,6 +7245,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &351758773
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351758768}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &357486658
 GameObject:
   m_ObjectHideFlags: 0
@@ -6511,6 +7279,7 @@ GameObject:
   - component: {fileID: 357486661}
   - component: {fileID: 357486660}
   - component: {fileID: 357486662}
+  - component: {fileID: 357486663}
   m_Layer: 0
   m_Name: Decoration Cell (115)
   m_TagString: Untagged
@@ -6596,6 +7365,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &357486663
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357486658}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &381287708
 GameObject:
   m_ObjectHideFlags: 0
@@ -6608,6 +7399,7 @@ GameObject:
   - component: {fileID: 381287711}
   - component: {fileID: 381287710}
   - component: {fileID: 381287712}
+  - component: {fileID: 381287713}
   m_Layer: 0
   m_Name: Decoration Cell (109)
   m_TagString: Untagged
@@ -6693,6 +7485,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &381287713
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381287708}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &385119509
 GameObject:
   m_ObjectHideFlags: 0
@@ -6861,6 +7675,7 @@ GameObject:
   - component: {fileID: 387150419}
   - component: {fileID: 387150418}
   - component: {fileID: 387150420}
+  - component: {fileID: 387150421}
   m_Layer: 0
   m_Name: Decoration Cell (72)
   m_TagString: Untagged
@@ -6946,6 +7761,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &387150421
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387150416}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &390458972
 GameObject:
   m_ObjectHideFlags: 0
@@ -6958,6 +7795,7 @@ GameObject:
   - component: {fileID: 390458975}
   - component: {fileID: 390458974}
   - component: {fileID: 390458976}
+  - component: {fileID: 390458977}
   m_Layer: 0
   m_Name: Decoration Cell (52)
   m_TagString: Untagged
@@ -7043,6 +7881,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &390458977
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390458972}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &397832785
 GameObject:
   m_ObjectHideFlags: 0
@@ -7055,6 +7915,7 @@ GameObject:
   - component: {fileID: 397832788}
   - component: {fileID: 397832787}
   - component: {fileID: 397832789}
+  - component: {fileID: 397832790}
   m_Layer: 0
   m_Name: Decoration Cell (18)
   m_TagString: Untagged
@@ -7140,6 +8001,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &397832790
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397832785}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &412682649
 GameObject:
   m_ObjectHideFlags: 0
@@ -7237,6 +8120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &430375082
 GameObject:
   m_ObjectHideFlags: 0
@@ -7249,6 +8133,7 @@ GameObject:
   - component: {fileID: 430375085}
   - component: {fileID: 430375084}
   - component: {fileID: 430375086}
+  - component: {fileID: 430375087}
   m_Layer: 0
   m_Name: Decoration Cell (5)
   m_TagString: Untagged
@@ -7334,6 +8219,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &430375087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430375082}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &431849214
 GameObject:
   m_ObjectHideFlags: 0
@@ -7346,6 +8253,7 @@ GameObject:
   - component: {fileID: 431849217}
   - component: {fileID: 431849216}
   - component: {fileID: 431849218}
+  - component: {fileID: 431849219}
   m_Layer: 0
   m_Name: Decoration Cell (90)
   m_TagString: Untagged
@@ -7431,6 +8339,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &431849219
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431849214}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &434794221
 GameObject:
   m_ObjectHideFlags: 0
@@ -7528,6 +8458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &440305227
 GameObject:
   m_ObjectHideFlags: 0
@@ -7625,6 +8556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &447121593
 GameObject:
   m_ObjectHideFlags: 0
@@ -7722,6 +8654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &469317396
 GameObject:
   m_ObjectHideFlags: 0
@@ -7819,6 +8752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &478219048
 GameObject:
   m_ObjectHideFlags: 0
@@ -7831,6 +8765,7 @@ GameObject:
   - component: {fileID: 478219051}
   - component: {fileID: 478219050}
   - component: {fileID: 478219052}
+  - component: {fileID: 478219053}
   m_Layer: 0
   m_Name: Decoration Cell (118)
   m_TagString: Untagged
@@ -7916,6 +8851,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &478219053
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478219048}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &479693113
 GameObject:
   m_ObjectHideFlags: 0
@@ -8013,6 +8970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &487185907
 GameObject:
   m_ObjectHideFlags: 0
@@ -8110,6 +9068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &489700798
 GameObject:
   m_ObjectHideFlags: 0
@@ -8207,6 +9166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &493935847
 GameObject:
   m_ObjectHideFlags: 0
@@ -8219,6 +9179,7 @@ GameObject:
   - component: {fileID: 493935850}
   - component: {fileID: 493935849}
   - component: {fileID: 493935851}
+  - component: {fileID: 493935852}
   m_Layer: 0
   m_Name: Decoration Cell (67)
   m_TagString: Untagged
@@ -8304,6 +9265,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &493935852
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493935847}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &496431514
 GameObject:
   m_ObjectHideFlags: 0
@@ -8401,6 +9384,112 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
+--- !u!1 &502971597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 502971598}
+  - component: {fileID: 502971601}
+  - component: {fileID: 502971600}
+  - component: {fileID: 502971599}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &502971598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502971597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.4}
+  m_LocalScale: {x: 0.5, y: 0.15, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1343568089}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &502971599
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502971597}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &502971600
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502971597}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 24dcb838dd513ba4885f098a997d3764, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &502971601
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502971597}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &508235658
 GameObject:
   m_ObjectHideFlags: 0
@@ -8413,6 +9502,7 @@ GameObject:
   - component: {fileID: 508235661}
   - component: {fileID: 508235660}
   - component: {fileID: 508235662}
+  - component: {fileID: 508235663}
   m_Layer: 0
   m_Name: Decoration Cell (78)
   m_TagString: Untagged
@@ -8498,6 +9588,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &508235663
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508235658}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &515035880
 GameObject:
   m_ObjectHideFlags: 0
@@ -8510,6 +9622,7 @@ GameObject:
   - component: {fileID: 515035883}
   - component: {fileID: 515035882}
   - component: {fileID: 515035884}
+  - component: {fileID: 515035885}
   m_Layer: 0
   m_Name: Decoration Cell (63)
   m_TagString: Untagged
@@ -8595,6 +9708,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &515035885
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515035880}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &517860642
 GameObject:
   m_ObjectHideFlags: 0
@@ -8607,6 +9742,7 @@ GameObject:
   - component: {fileID: 517860645}
   - component: {fileID: 517860644}
   - component: {fileID: 517860646}
+  - component: {fileID: 517860647}
   m_Layer: 0
   m_Name: Decoration Cell (1)
   m_TagString: Untagged
@@ -8692,6 +9828,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &517860647
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517860642}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &525790790
 GameObject:
   m_ObjectHideFlags: 0
@@ -8704,6 +9862,7 @@ GameObject:
   - component: {fileID: 525790793}
   - component: {fileID: 525790792}
   - component: {fileID: 525790794}
+  - component: {fileID: 525790795}
   m_Layer: 0
   m_Name: Decoration Cell (3)
   m_TagString: Untagged
@@ -8789,6 +9948,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &525790795
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525790790}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &526047794
 GameObject:
   m_ObjectHideFlags: 0
@@ -8886,6 +10067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &540006333
 GameObject:
   m_ObjectHideFlags: 0
@@ -8898,6 +10080,7 @@ GameObject:
   - component: {fileID: 540006336}
   - component: {fileID: 540006335}
   - component: {fileID: 540006337}
+  - component: {fileID: 540006338}
   m_Layer: 0
   m_Name: Decoration Cell (14)
   m_TagString: Untagged
@@ -8983,6 +10166,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &540006338
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540006333}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &556386990
 GameObject:
   m_ObjectHideFlags: 0
@@ -9080,6 +10285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &564979787
 GameObject:
   m_ObjectHideFlags: 0
@@ -9177,6 +10383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &576069534
 GameObject:
   m_ObjectHideFlags: 0
@@ -9189,6 +10396,7 @@ GameObject:
   - component: {fileID: 576069537}
   - component: {fileID: 576069536}
   - component: {fileID: 576069538}
+  - component: {fileID: 576069539}
   m_Layer: 0
   m_Name: Decoration Cell (83)
   m_TagString: Untagged
@@ -9274,6 +10482,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &576069539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576069534}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &577348654
 GameObject:
   m_ObjectHideFlags: 0
@@ -9286,6 +10516,7 @@ GameObject:
   - component: {fileID: 577348657}
   - component: {fileID: 577348656}
   - component: {fileID: 577348658}
+  - component: {fileID: 577348659}
   m_Layer: 0
   m_Name: Decoration Cell (105)
   m_TagString: Untagged
@@ -9371,6 +10602,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &577348659
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577348654}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &594803405
 GameObject:
   m_ObjectHideFlags: 0
@@ -9468,6 +10721,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
+--- !u!1 &598389899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 598389901}
+  - component: {fileID: 598389900}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &598389900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598389899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6243314d139e344d8e87a2b5a00da0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 2
+  _rotationSpeed: 300
+--- !u!4 &598389901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598389899}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: -8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1343568089}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &610995798
 GameObject:
   m_ObjectHideFlags: 0
@@ -9565,6 +10866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &625830958
 GameObject:
   m_ObjectHideFlags: 0
@@ -9577,6 +10879,7 @@ GameObject:
   - component: {fileID: 625830961}
   - component: {fileID: 625830960}
   - component: {fileID: 625830962}
+  - component: {fileID: 625830963}
   m_Layer: 0
   m_Name: Decoration Cell (23)
   m_TagString: Untagged
@@ -9662,6 +10965,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &625830963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625830958}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &639748814
 GameObject:
   m_ObjectHideFlags: 0
@@ -9759,6 +11084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &641177791
 GameObject:
   m_ObjectHideFlags: 0
@@ -9856,6 +11182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &654524041
 GameObject:
   m_ObjectHideFlags: 0
@@ -9953,6 +11280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &656043847
 GameObject:
   m_ObjectHideFlags: 0
@@ -10050,6 +11378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &660062852
 GameObject:
   m_ObjectHideFlags: 0
@@ -10062,6 +11391,7 @@ GameObject:
   - component: {fileID: 660062855}
   - component: {fileID: 660062854}
   - component: {fileID: 660062856}
+  - component: {fileID: 660062857}
   m_Layer: 0
   m_Name: Decoration Cell (80)
   m_TagString: Untagged
@@ -10147,6 +11477,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &660062857
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660062852}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &660622713
 GameObject:
   m_ObjectHideFlags: 0
@@ -10244,6 +11596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &664034988
 GameObject:
   m_ObjectHideFlags: 0
@@ -10341,6 +11694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &669725726
 GameObject:
   m_ObjectHideFlags: 0
@@ -10438,6 +11792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &683235019
 GameObject:
   m_ObjectHideFlags: 0
@@ -10535,6 +11890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &685070291
 GameObject:
   m_ObjectHideFlags: 0
@@ -10632,6 +11988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 1
 --- !u!1 &687585714
 GameObject:
   m_ObjectHideFlags: 0
@@ -10729,6 +12086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &697202636
 GameObject:
   m_ObjectHideFlags: 0
@@ -10826,6 +12184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &705323567
 GameObject:
   m_ObjectHideFlags: 0
@@ -10838,6 +12197,7 @@ GameObject:
   - component: {fileID: 705323570}
   - component: {fileID: 705323569}
   - component: {fileID: 705323571}
+  - component: {fileID: 705323572}
   m_Layer: 0
   m_Name: Decoration Cell (81)
   m_TagString: Untagged
@@ -10923,6 +12283,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &705323572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705323567}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &708735960
 GameObject:
   m_ObjectHideFlags: 0
@@ -10935,6 +12317,7 @@ GameObject:
   - component: {fileID: 708735963}
   - component: {fileID: 708735962}
   - component: {fileID: 708735964}
+  - component: {fileID: 708735965}
   m_Layer: 0
   m_Name: Decoration Cell (11)
   m_TagString: Untagged
@@ -11020,6 +12403,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &708735965
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708735960}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &718449327
 GameObject:
   m_ObjectHideFlags: 0
@@ -11117,6 +12522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &724950798
 GameObject:
   m_ObjectHideFlags: 0
@@ -11214,6 +12620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &726088739
 GameObject:
   m_ObjectHideFlags: 0
@@ -11226,6 +12633,7 @@ GameObject:
   - component: {fileID: 726088742}
   - component: {fileID: 726088741}
   - component: {fileID: 726088743}
+  - component: {fileID: 726088744}
   m_Layer: 0
   m_Name: Decoration Cell (130)
   m_TagString: Untagged
@@ -11311,6 +12719,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &726088744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726088739}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &732707891
 GameObject:
   m_ObjectHideFlags: 0
@@ -11408,6 +12838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &742784977
 GameObject:
   m_ObjectHideFlags: 0
@@ -11505,6 +12936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &751502043
 GameObject:
   m_ObjectHideFlags: 0
@@ -11602,6 +13034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &756883011
 GameObject:
   m_ObjectHideFlags: 0
@@ -11699,6 +13132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &777124879
 GameObject:
   m_ObjectHideFlags: 0
@@ -11711,6 +13145,7 @@ GameObject:
   - component: {fileID: 777124882}
   - component: {fileID: 777124881}
   - component: {fileID: 777124883}
+  - component: {fileID: 777124884}
   m_Layer: 0
   m_Name: Decoration Cell (42)
   m_TagString: Untagged
@@ -11796,6 +13231,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &777124884
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777124879}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &779425875
 GameObject:
   m_ObjectHideFlags: 0
@@ -11893,6 +13350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &795403694
 GameObject:
   m_ObjectHideFlags: 0
@@ -11905,6 +13363,7 @@ GameObject:
   - component: {fileID: 795403697}
   - component: {fileID: 795403696}
   - component: {fileID: 795403698}
+  - component: {fileID: 795403699}
   m_Layer: 0
   m_Name: Decoration Cell (25)
   m_TagString: Untagged
@@ -11990,6 +13449,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &795403699
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795403694}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &798633690
 GameObject:
   m_ObjectHideFlags: 0
@@ -12087,6 +13568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &799672720
 GameObject:
   m_ObjectHideFlags: 0
@@ -12184,6 +13666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &802545015
 GameObject:
   m_ObjectHideFlags: 0
@@ -12281,6 +13764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &821944639
 GameObject:
   m_ObjectHideFlags: 0
@@ -12293,6 +13777,7 @@ GameObject:
   - component: {fileID: 821944642}
   - component: {fileID: 821944641}
   - component: {fileID: 821944643}
+  - component: {fileID: 821944644}
   m_Layer: 0
   m_Name: Decoration Cell (122)
   m_TagString: Untagged
@@ -12378,6 +13863,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &821944644
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821944639}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &822367028
 GameObject:
   m_ObjectHideFlags: 0
@@ -12390,6 +13897,7 @@ GameObject:
   - component: {fileID: 822367031}
   - component: {fileID: 822367030}
   - component: {fileID: 822367032}
+  - component: {fileID: 822367033}
   m_Layer: 0
   m_Name: Decoration Cell (133)
   m_TagString: Untagged
@@ -12475,6 +13983,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &822367033
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822367028}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &845149877
 GameObject:
   m_ObjectHideFlags: 0
@@ -12487,6 +14017,7 @@ GameObject:
   - component: {fileID: 845149880}
   - component: {fileID: 845149879}
   - component: {fileID: 845149881}
+  - component: {fileID: 845149882}
   m_Layer: 0
   m_Name: Decoration Cell (4)
   m_TagString: Untagged
@@ -12572,6 +14103,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &845149882
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845149877}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &849945719
 GameObject:
   m_ObjectHideFlags: 0
@@ -12669,6 +14222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &861468806
 GameObject:
   m_ObjectHideFlags: 0
@@ -12681,6 +14235,7 @@ GameObject:
   - component: {fileID: 861468809}
   - component: {fileID: 861468808}
   - component: {fileID: 861468810}
+  - component: {fileID: 861468811}
   m_Layer: 0
   m_Name: Decoration Cell (125)
   m_TagString: Untagged
@@ -12766,6 +14321,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &861468811
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861468806}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &865393526
 GameObject:
   m_ObjectHideFlags: 0
@@ -12863,6 +14440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &873570372
 GameObject:
   m_ObjectHideFlags: 0
@@ -12875,6 +14453,7 @@ GameObject:
   - component: {fileID: 873570375}
   - component: {fileID: 873570374}
   - component: {fileID: 873570376}
+  - component: {fileID: 873570377}
   m_Layer: 0
   m_Name: Decoration Cell (88)
   m_TagString: Untagged
@@ -12960,6 +14539,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &873570377
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873570372}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &878521461
 GameObject:
   m_ObjectHideFlags: 0
@@ -13057,6 +14658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &884130573
 GameObject:
   m_ObjectHideFlags: 0
@@ -13154,6 +14756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &892965346
 GameObject:
   m_ObjectHideFlags: 0
@@ -13166,6 +14769,7 @@ GameObject:
   - component: {fileID: 892965349}
   - component: {fileID: 892965348}
   - component: {fileID: 892965350}
+  - component: {fileID: 892965351}
   m_Layer: 0
   m_Name: Decoration Cell (8)
   m_TagString: Untagged
@@ -13251,6 +14855,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &892965351
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892965346}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &893332407
 GameObject:
   m_ObjectHideFlags: 0
@@ -13263,6 +14889,7 @@ GameObject:
   - component: {fileID: 893332410}
   - component: {fileID: 893332409}
   - component: {fileID: 893332411}
+  - component: {fileID: 893332412}
   m_Layer: 0
   m_Name: Decoration Cell (34)
   m_TagString: Untagged
@@ -13348,6 +14975,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &893332412
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893332407}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &902376023
 GameObject:
   m_ObjectHideFlags: 0
@@ -13445,6 +15094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &925890289
 GameObject:
   m_ObjectHideFlags: 0
@@ -13542,6 +15192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &936268828
 GameObject:
   m_ObjectHideFlags: 0
@@ -13554,6 +15205,7 @@ GameObject:
   - component: {fileID: 936268831}
   - component: {fileID: 936268830}
   - component: {fileID: 936268832}
+  - component: {fileID: 936268833}
   m_Layer: 0
   m_Name: Decoration Cell (64)
   m_TagString: Untagged
@@ -13639,6 +15291,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &936268833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936268828}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &938186107
 GameObject:
   m_ObjectHideFlags: 0
@@ -13736,6 +15410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &939182992
 GameObject:
   m_ObjectHideFlags: 0
@@ -13833,6 +15508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &939412342
 GameObject:
   m_ObjectHideFlags: 0
@@ -13930,6 +15606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &952112387
 GameObject:
   m_ObjectHideFlags: 0
@@ -13942,6 +15619,7 @@ GameObject:
   - component: {fileID: 952112390}
   - component: {fileID: 952112389}
   - component: {fileID: 952112391}
+  - component: {fileID: 952112392}
   m_Layer: 0
   m_Name: Decoration Cell (104)
   m_TagString: Untagged
@@ -14027,6 +15705,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &952112392
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952112387}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &953632365
 GameObject:
   m_ObjectHideFlags: 0
@@ -14124,6 +15824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &956957189
 GameObject:
   m_ObjectHideFlags: 0
@@ -14221,6 +15922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &957121049
 GameObject:
   m_ObjectHideFlags: 0
@@ -14318,6 +16020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &969424522
 GameObject:
   m_ObjectHideFlags: 0
@@ -14552,6 +16255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &977985035
 GameObject:
   m_ObjectHideFlags: 0
@@ -14649,6 +16353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &978538376
 GameObject:
   m_ObjectHideFlags: 0
@@ -14746,6 +16451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &982166709
 GameObject:
   m_ObjectHideFlags: 0
@@ -14843,6 +16549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &988022137
 GameObject:
   m_ObjectHideFlags: 0
@@ -14855,6 +16562,7 @@ GameObject:
   - component: {fileID: 988022140}
   - component: {fileID: 988022139}
   - component: {fileID: 988022141}
+  - component: {fileID: 988022142}
   m_Layer: 0
   m_Name: Decoration Cell (131)
   m_TagString: Untagged
@@ -14940,6 +16648,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &988022142
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988022137}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &990322797
 GameObject:
   m_ObjectHideFlags: 0
@@ -14952,6 +16682,7 @@ GameObject:
   - component: {fileID: 990322800}
   - component: {fileID: 990322799}
   - component: {fileID: 990322801}
+  - component: {fileID: 990322802}
   m_Layer: 0
   m_Name: Decoration Cell (112)
   m_TagString: Untagged
@@ -15037,6 +16768,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &990322802
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990322797}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &995351084
 GameObject:
   m_ObjectHideFlags: 0
@@ -15049,6 +16802,7 @@ GameObject:
   - component: {fileID: 995351087}
   - component: {fileID: 995351086}
   - component: {fileID: 995351088}
+  - component: {fileID: 995351089}
   m_Layer: 0
   m_Name: Decoration Cell (30)
   m_TagString: Untagged
@@ -15134,6 +16888,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &995351089
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995351084}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1001557484
 GameObject:
   m_ObjectHideFlags: 0
@@ -15146,6 +16922,7 @@ GameObject:
   - component: {fileID: 1001557487}
   - component: {fileID: 1001557486}
   - component: {fileID: 1001557488}
+  - component: {fileID: 1001557489}
   m_Layer: 0
   m_Name: Decoration Cell (96)
   m_TagString: Untagged
@@ -15231,6 +17008,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1001557489
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001557484}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1003403287
 GameObject:
   m_ObjectHideFlags: 0
@@ -15392,6 +17191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 1
 --- !u!1 &1016746491
 GameObject:
   m_ObjectHideFlags: 0
@@ -15404,6 +17204,7 @@ GameObject:
   - component: {fileID: 1016746494}
   - component: {fileID: 1016746493}
   - component: {fileID: 1016746495}
+  - component: {fileID: 1016746496}
   m_Layer: 0
   m_Name: Decoration Cell (46)
   m_TagString: Untagged
@@ -15489,6 +17290,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1016746496
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016746491}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1022572931
 GameObject:
   m_ObjectHideFlags: 0
@@ -15501,6 +17324,7 @@ GameObject:
   - component: {fileID: 1022572934}
   - component: {fileID: 1022572933}
   - component: {fileID: 1022572935}
+  - component: {fileID: 1022572936}
   m_Layer: 0
   m_Name: Decoration Cell (82)
   m_TagString: Untagged
@@ -15586,6 +17410,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1022572936
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022572931}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1030398843
 GameObject:
   m_ObjectHideFlags: 0
@@ -15683,6 +17529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1040452740
 GameObject:
   m_ObjectHideFlags: 0
@@ -15695,6 +17542,7 @@ GameObject:
   - component: {fileID: 1040452743}
   - component: {fileID: 1040452742}
   - component: {fileID: 1040452744}
+  - component: {fileID: 1040452745}
   m_Layer: 0
   m_Name: Decoration Cell (12)
   m_TagString: Untagged
@@ -15780,6 +17628,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1040452745
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040452740}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1043212850
 GameObject:
   m_ObjectHideFlags: 0
@@ -15877,6 +17747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1044075654
 GameObject:
   m_ObjectHideFlags: 0
@@ -15974,6 +17845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1046999204
 GameObject:
   m_ObjectHideFlags: 0
@@ -15986,6 +17858,7 @@ GameObject:
   - component: {fileID: 1046999207}
   - component: {fileID: 1046999206}
   - component: {fileID: 1046999208}
+  - component: {fileID: 1046999209}
   m_Layer: 0
   m_Name: Decoration Cell (124)
   m_TagString: Untagged
@@ -16071,6 +17944,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1046999209
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046999204}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1052875759
 GameObject:
   m_ObjectHideFlags: 0
@@ -16083,6 +17978,7 @@ GameObject:
   - component: {fileID: 1052875762}
   - component: {fileID: 1052875761}
   - component: {fileID: 1052875763}
+  - component: {fileID: 1052875764}
   m_Layer: 0
   m_Name: Decoration Cell (117)
   m_TagString: Untagged
@@ -16168,6 +18064,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1052875764
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052875759}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1075392378
 GameObject:
   m_ObjectHideFlags: 0
@@ -16180,6 +18098,7 @@ GameObject:
   - component: {fileID: 1075392381}
   - component: {fileID: 1075392380}
   - component: {fileID: 1075392382}
+  - component: {fileID: 1075392383}
   m_Layer: 0
   m_Name: Decoration Cell (2)
   m_TagString: Untagged
@@ -16265,6 +18184,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1075392383
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075392378}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1098278207
 GameObject:
   m_ObjectHideFlags: 0
@@ -16277,6 +18218,7 @@ GameObject:
   - component: {fileID: 1098278210}
   - component: {fileID: 1098278209}
   - component: {fileID: 1098278211}
+  - component: {fileID: 1098278212}
   m_Layer: 0
   m_Name: Decoration Cell (140)
   m_TagString: Untagged
@@ -16362,6 +18304,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1098278212
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098278207}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1107643882
 GameObject:
   m_ObjectHideFlags: 0
@@ -16374,6 +18338,7 @@ GameObject:
   - component: {fileID: 1107643885}
   - component: {fileID: 1107643884}
   - component: {fileID: 1107643886}
+  - component: {fileID: 1107643887}
   m_Layer: 0
   m_Name: Decoration Cell (15)
   m_TagString: Untagged
@@ -16459,6 +18424,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1107643887
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107643882}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1115530916
 GameObject:
   m_ObjectHideFlags: 0
@@ -16556,6 +18543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1121524861
 GameObject:
   m_ObjectHideFlags: 0
@@ -16568,6 +18556,7 @@ GameObject:
   - component: {fileID: 1121524864}
   - component: {fileID: 1121524863}
   - component: {fileID: 1121524865}
+  - component: {fileID: 1121524866}
   m_Layer: 0
   m_Name: Decoration Cell (126)
   m_TagString: Untagged
@@ -16653,6 +18642,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1121524866
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121524861}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1123839665
 GameObject:
   m_ObjectHideFlags: 0
@@ -16665,6 +18676,7 @@ GameObject:
   - component: {fileID: 1123839668}
   - component: {fileID: 1123839667}
   - component: {fileID: 1123839669}
+  - component: {fileID: 1123839670}
   m_Layer: 0
   m_Name: Decoration Cell (74)
   m_TagString: Untagged
@@ -16750,6 +18762,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1123839670
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123839665}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1126488416
 GameObject:
   m_ObjectHideFlags: 0
@@ -16762,6 +18796,7 @@ GameObject:
   - component: {fileID: 1126488419}
   - component: {fileID: 1126488418}
   - component: {fileID: 1126488420}
+  - component: {fileID: 1126488421}
   m_Layer: 0
   m_Name: Decoration Cell (98)
   m_TagString: Untagged
@@ -16847,6 +18882,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1126488421
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126488416}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1134661594
 GameObject:
   m_ObjectHideFlags: 0
@@ -16944,6 +19001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1149092249
 GameObject:
   m_ObjectHideFlags: 0
@@ -17041,6 +19099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1178102144
 GameObject:
   m_ObjectHideFlags: 0
@@ -17138,6 +19197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1180571163
 GameObject:
   m_ObjectHideFlags: 0
@@ -17235,6 +19295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1188212675
 GameObject:
   m_ObjectHideFlags: 0
@@ -17495,6 +19556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1205949890
 GameObject:
   m_ObjectHideFlags: 0
@@ -17592,6 +19654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1238706640
 GameObject:
   m_ObjectHideFlags: 0
@@ -17689,6 +19752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1274593597
 GameObject:
   m_ObjectHideFlags: 0
@@ -17786,6 +19850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1278209289
 GameObject:
   m_ObjectHideFlags: 0
@@ -17883,6 +19948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1282111032
 GameObject:
   m_ObjectHideFlags: 0
@@ -17980,6 +20046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1287446324
 GameObject:
   m_ObjectHideFlags: 0
@@ -17992,6 +20059,7 @@ GameObject:
   - component: {fileID: 1287446327}
   - component: {fileID: 1287446326}
   - component: {fileID: 1287446328}
+  - component: {fileID: 1287446329}
   m_Layer: 0
   m_Name: Decoration Cell (60)
   m_TagString: Untagged
@@ -18077,6 +20145,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1287446329
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287446324}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1289269303
 GameObject:
   m_ObjectHideFlags: 0
@@ -18174,6 +20264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 1
 --- !u!1 &1292354941
 GameObject:
   m_ObjectHideFlags: 0
@@ -18271,6 +20362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1292550972
 GameObject:
   m_ObjectHideFlags: 0
@@ -18368,6 +20460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1308568590
 GameObject:
   m_ObjectHideFlags: 0
@@ -18380,6 +20473,7 @@ GameObject:
   - component: {fileID: 1308568593}
   - component: {fileID: 1308568592}
   - component: {fileID: 1308568594}
+  - component: {fileID: 1308568595}
   m_Layer: 0
   m_Name: Decoration Cell (101)
   m_TagString: Untagged
@@ -18465,6 +20559,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1308568595
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308568590}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1313528240
 GameObject:
   m_ObjectHideFlags: 0
@@ -18477,6 +20593,7 @@ GameObject:
   - component: {fileID: 1313528243}
   - component: {fileID: 1313528242}
   - component: {fileID: 1313528244}
+  - component: {fileID: 1313528245}
   m_Layer: 0
   m_Name: Decoration Cell (19)
   m_TagString: Untagged
@@ -18562,6 +20679,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1313528245
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313528240}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1322132587
 GameObject:
   m_ObjectHideFlags: 0
@@ -18659,6 +20798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1327642909
 GameObject:
   m_ObjectHideFlags: 0
@@ -18756,6 +20896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1329551144
 GameObject:
   m_ObjectHideFlags: 0
@@ -18768,6 +20909,7 @@ GameObject:
   - component: {fileID: 1329551147}
   - component: {fileID: 1329551146}
   - component: {fileID: 1329551148}
+  - component: {fileID: 1329551149}
   m_Layer: 0
   m_Name: Decoration Cell (24)
   m_TagString: Untagged
@@ -18853,6 +20995,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1329551149
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329551144}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1331834944
 GameObject:
   m_ObjectHideFlags: 0
@@ -18865,6 +21029,7 @@ GameObject:
   - component: {fileID: 1331834947}
   - component: {fileID: 1331834946}
   - component: {fileID: 1331834948}
+  - component: {fileID: 1331834949}
   m_Layer: 0
   m_Name: Decoration Cell (106)
   m_TagString: Untagged
@@ -18950,6 +21115,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1331834949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331834944}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1336378810
 GameObject:
   m_ObjectHideFlags: 0
@@ -19047,6 +21234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1343568085
 GameObject:
   m_ObjectHideFlags: 0
@@ -19107,7 +21295,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 04bbdfa1830d7824aa4d050595ce3faa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19145,12 +21333,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343568085}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.52, z: -7.89}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 0}
+  m_Children:
+  - {fileID: 502971598}
+  m_Father: {fileID: 598389901}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1345236790
 GameObject:
@@ -19249,6 +21438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1350535929
 GameObject:
   m_ObjectHideFlags: 0
@@ -19261,6 +21451,7 @@ GameObject:
   - component: {fileID: 1350535932}
   - component: {fileID: 1350535931}
   - component: {fileID: 1350535933}
+  - component: {fileID: 1350535934}
   m_Layer: 0
   m_Name: Decoration Cell (29)
   m_TagString: Untagged
@@ -19346,6 +21537,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1350535934
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350535929}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1369632456
 GameObject:
   m_ObjectHideFlags: 0
@@ -19358,6 +21571,7 @@ GameObject:
   - component: {fileID: 1369632459}
   - component: {fileID: 1369632458}
   - component: {fileID: 1369632460}
+  - component: {fileID: 1369632461}
   m_Layer: 0
   m_Name: Decoration Cell (76)
   m_TagString: Untagged
@@ -19443,6 +21657,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1369632461
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369632456}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1392781414
 GameObject:
   m_ObjectHideFlags: 0
@@ -19540,6 +21776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1397712717
 GameObject:
   m_ObjectHideFlags: 0
@@ -19552,6 +21789,7 @@ GameObject:
   - component: {fileID: 1397712720}
   - component: {fileID: 1397712719}
   - component: {fileID: 1397712721}
+  - component: {fileID: 1397712722}
   m_Layer: 0
   m_Name: Decoration Cell (9)
   m_TagString: Untagged
@@ -19637,6 +21875,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1397712722
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397712717}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1412213394
 GameObject:
   m_ObjectHideFlags: 0
@@ -19734,6 +21994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1414483323
 GameObject:
   m_ObjectHideFlags: 0
@@ -19746,6 +22007,7 @@ GameObject:
   - component: {fileID: 1414483326}
   - component: {fileID: 1414483325}
   - component: {fileID: 1414483327}
+  - component: {fileID: 1414483328}
   m_Layer: 0
   m_Name: Decoration Cell (22)
   m_TagString: Untagged
@@ -19831,6 +22093,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1414483328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414483323}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1415661051
 GameObject:
   m_ObjectHideFlags: 0
@@ -19928,6 +22212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1423098500
 GameObject:
   m_ObjectHideFlags: 0
@@ -20025,6 +22310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1437545690
 GameObject:
   m_ObjectHideFlags: 0
@@ -20122,6 +22408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1452344169
 GameObject:
   m_ObjectHideFlags: 0
@@ -20219,6 +22506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1454436664
 GameObject:
   m_ObjectHideFlags: 0
@@ -20316,6 +22604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1463088092
 GameObject:
   m_ObjectHideFlags: 0
@@ -20413,6 +22702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1472264618
 GameObject:
   m_ObjectHideFlags: 0
@@ -20425,6 +22715,7 @@ GameObject:
   - component: {fileID: 1472264621}
   - component: {fileID: 1472264620}
   - component: {fileID: 1472264622}
+  - component: {fileID: 1472264623}
   m_Layer: 0
   m_Name: Decoration Cell (100)
   m_TagString: Untagged
@@ -20510,6 +22801,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1472264623
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472264618}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1473876902
 GameObject:
   m_ObjectHideFlags: 0
@@ -20607,6 +22920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1480829419
 GameObject:
   m_ObjectHideFlags: 0
@@ -20619,6 +22933,7 @@ GameObject:
   - component: {fileID: 1480829422}
   - component: {fileID: 1480829421}
   - component: {fileID: 1480829423}
+  - component: {fileID: 1480829424}
   m_Layer: 0
   m_Name: Decoration Cell (48)
   m_TagString: Untagged
@@ -20704,6 +23019,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1480829424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480829419}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1481469857
 GameObject:
   m_ObjectHideFlags: 0
@@ -20801,6 +23138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1491917523
 GameObject:
   m_ObjectHideFlags: 0
@@ -20898,6 +23236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1492525357
 GameObject:
   m_ObjectHideFlags: 0
@@ -20910,6 +23249,7 @@ GameObject:
   - component: {fileID: 1492525360}
   - component: {fileID: 1492525359}
   - component: {fileID: 1492525361}
+  - component: {fileID: 1492525362}
   m_Layer: 0
   m_Name: Decoration Cell (79)
   m_TagString: Untagged
@@ -20995,6 +23335,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1492525362
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492525357}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1494749734
 GameObject:
   m_ObjectHideFlags: 0
@@ -21092,6 +23454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1497601567
 GameObject:
   m_ObjectHideFlags: 0
@@ -21104,6 +23467,7 @@ GameObject:
   - component: {fileID: 1497601570}
   - component: {fileID: 1497601569}
   - component: {fileID: 1497601571}
+  - component: {fileID: 1497601572}
   m_Layer: 0
   m_Name: Decoration Cell (50)
   m_TagString: Untagged
@@ -21189,6 +23553,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1497601572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497601567}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1513810366
 GameObject:
   m_ObjectHideFlags: 0
@@ -21201,6 +23587,7 @@ GameObject:
   - component: {fileID: 1513810369}
   - component: {fileID: 1513810368}
   - component: {fileID: 1513810370}
+  - component: {fileID: 1513810371}
   m_Layer: 0
   m_Name: Decoration Cell (111)
   m_TagString: Untagged
@@ -21286,6 +23673,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1513810371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513810366}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1514726321
 GameObject:
   m_ObjectHideFlags: 0
@@ -21298,6 +23707,7 @@ GameObject:
   - component: {fileID: 1514726324}
   - component: {fileID: 1514726323}
   - component: {fileID: 1514726325}
+  - component: {fileID: 1514726326}
   m_Layer: 0
   m_Name: Decoration Cell (139)
   m_TagString: Untagged
@@ -21383,6 +23793,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1514726326
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514726321}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1516147969
 GameObject:
   m_ObjectHideFlags: 0
@@ -21480,6 +23912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1520099727
 GameObject:
   m_ObjectHideFlags: 0
@@ -21492,6 +23925,7 @@ GameObject:
   - component: {fileID: 1520099730}
   - component: {fileID: 1520099729}
   - component: {fileID: 1520099731}
+  - component: {fileID: 1520099732}
   m_Layer: 0
   m_Name: Decoration Cell (108)
   m_TagString: Untagged
@@ -21577,6 +24011,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1520099732
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520099727}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1524710029
 GameObject:
   m_ObjectHideFlags: 0
@@ -21674,6 +24130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1538173014
 GameObject:
   m_ObjectHideFlags: 0
@@ -21686,6 +24143,7 @@ GameObject:
   - component: {fileID: 1538173017}
   - component: {fileID: 1538173016}
   - component: {fileID: 1538173018}
+  - component: {fileID: 1538173019}
   m_Layer: 0
   m_Name: Decoration Cell (95)
   m_TagString: Untagged
@@ -21771,6 +24229,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1538173019
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538173014}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1540077103
 GameObject:
   m_ObjectHideFlags: 0
@@ -21783,6 +24263,7 @@ GameObject:
   - component: {fileID: 1540077106}
   - component: {fileID: 1540077105}
   - component: {fileID: 1540077107}
+  - component: {fileID: 1540077108}
   m_Layer: 0
   m_Name: Decoration Cell (121)
   m_TagString: Untagged
@@ -21868,6 +24349,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1540077108
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540077103}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1541457643
 GameObject:
   m_ObjectHideFlags: 0
@@ -21880,6 +24383,7 @@ GameObject:
   - component: {fileID: 1541457646}
   - component: {fileID: 1541457645}
   - component: {fileID: 1541457647}
+  - component: {fileID: 1541457648}
   m_Layer: 0
   m_Name: Decoration Cell (32)
   m_TagString: Untagged
@@ -21965,6 +24469,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1541457648
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541457643}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1542250927
 GameObject:
   m_ObjectHideFlags: 0
@@ -21977,6 +24503,7 @@ GameObject:
   - component: {fileID: 1542250930}
   - component: {fileID: 1542250929}
   - component: {fileID: 1542250931}
+  - component: {fileID: 1542250932}
   m_Layer: 0
   m_Name: Decoration Cell (47)
   m_TagString: Untagged
@@ -22062,6 +24589,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1542250932
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542250927}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1543645593
 GameObject:
   m_ObjectHideFlags: 0
@@ -22074,6 +24623,7 @@ GameObject:
   - component: {fileID: 1543645596}
   - component: {fileID: 1543645595}
   - component: {fileID: 1543645597}
+  - component: {fileID: 1543645598}
   m_Layer: 0
   m_Name: Decoration Cell (89)
   m_TagString: Untagged
@@ -22159,6 +24709,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1543645598
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543645593}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1545344861
 GameObject:
   m_ObjectHideFlags: 0
@@ -22256,6 +24828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1553058033
 GameObject:
   m_ObjectHideFlags: 0
@@ -22268,6 +24841,7 @@ GameObject:
   - component: {fileID: 1553058036}
   - component: {fileID: 1553058035}
   - component: {fileID: 1553058037}
+  - component: {fileID: 1553058038}
   m_Layer: 0
   m_Name: Decoration Cell (84)
   m_TagString: Untagged
@@ -22353,6 +24927,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1553058038
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553058033}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1556583574
 GameObject:
   m_ObjectHideFlags: 0
@@ -22365,6 +24961,7 @@ GameObject:
   - component: {fileID: 1556583577}
   - component: {fileID: 1556583576}
   - component: {fileID: 1556583578}
+  - component: {fileID: 1556583579}
   m_Layer: 0
   m_Name: Decoration Cell (69)
   m_TagString: Untagged
@@ -22450,6 +25047,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1556583579
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556583574}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1561192057
 GameObject:
   m_ObjectHideFlags: 0
@@ -22547,6 +25166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1565682824
 GameObject:
   m_ObjectHideFlags: 0
@@ -22644,6 +25264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1581607697
 GameObject:
   m_ObjectHideFlags: 0
@@ -22741,6 +25362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1588849001
 GameObject:
   m_ObjectHideFlags: 0
@@ -22753,6 +25375,7 @@ GameObject:
   - component: {fileID: 1588849004}
   - component: {fileID: 1588849003}
   - component: {fileID: 1588849005}
+  - component: {fileID: 1588849006}
   m_Layer: 0
   m_Name: Decoration Cell (6)
   m_TagString: Untagged
@@ -22838,6 +25461,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1588849006
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588849001}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1591276673
 GameObject:
   m_ObjectHideFlags: 0
@@ -22850,6 +25495,7 @@ GameObject:
   - component: {fileID: 1591276676}
   - component: {fileID: 1591276675}
   - component: {fileID: 1591276677}
+  - component: {fileID: 1591276678}
   m_Layer: 0
   m_Name: Decoration Cell (49)
   m_TagString: Untagged
@@ -22935,6 +25581,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1591276678
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591276673}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1592315626
 GameObject:
   m_ObjectHideFlags: 0
@@ -23032,6 +25700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1596126770
 GameObject:
   m_ObjectHideFlags: 0
@@ -23044,6 +25713,7 @@ GameObject:
   - component: {fileID: 1596126773}
   - component: {fileID: 1596126772}
   - component: {fileID: 1596126774}
+  - component: {fileID: 1596126775}
   m_Layer: 0
   m_Name: Decoration Cell (20)
   m_TagString: Untagged
@@ -23129,6 +25799,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1596126775
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596126770}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1618460279
 GameObject:
   m_ObjectHideFlags: 0
@@ -23226,6 +25918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1632517681
 GameObject:
   m_ObjectHideFlags: 0
@@ -23323,6 +26016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1644168984
 GameObject:
   m_ObjectHideFlags: 0
@@ -23420,6 +26114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1649521944
 GameObject:
   m_ObjectHideFlags: 0
@@ -23432,6 +26127,7 @@ GameObject:
   - component: {fileID: 1649521947}
   - component: {fileID: 1649521946}
   - component: {fileID: 1649521948}
+  - component: {fileID: 1649521949}
   m_Layer: 0
   m_Name: Decoration Cell (113)
   m_TagString: Untagged
@@ -23517,6 +26213,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1649521949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649521944}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1664443167
 GameObject:
   m_ObjectHideFlags: 0
@@ -23614,6 +26332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 1
 --- !u!1 &1668235804
 GameObject:
   m_ObjectHideFlags: 0
@@ -23626,6 +26345,7 @@ GameObject:
   - component: {fileID: 1668235807}
   - component: {fileID: 1668235806}
   - component: {fileID: 1668235808}
+  - component: {fileID: 1668235809}
   m_Layer: 0
   m_Name: Decoration Cell (68)
   m_TagString: Untagged
@@ -23711,6 +26431,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1668235809
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668235804}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1668746938
 GameObject:
   m_ObjectHideFlags: 0
@@ -23808,6 +26550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1671152548
 GameObject:
   m_ObjectHideFlags: 0
@@ -23905,6 +26648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1679014662
 GameObject:
   m_ObjectHideFlags: 0
@@ -23917,6 +26661,7 @@ GameObject:
   - component: {fileID: 1679014665}
   - component: {fileID: 1679014664}
   - component: {fileID: 1679014666}
+  - component: {fileID: 1679014667}
   m_Layer: 0
   m_Name: Decoration Cell (27)
   m_TagString: Untagged
@@ -24002,6 +26747,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1679014667
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679014662}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1701197323
 GameObject:
   m_ObjectHideFlags: 0
@@ -24014,6 +26781,7 @@ GameObject:
   - component: {fileID: 1701197326}
   - component: {fileID: 1701197325}
   - component: {fileID: 1701197327}
+  - component: {fileID: 1701197328}
   m_Layer: 0
   m_Name: Decoration Cell (31)
   m_TagString: Untagged
@@ -24099,6 +26867,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1701197328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701197323}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1711512463
 GameObject:
   m_ObjectHideFlags: 0
@@ -24196,6 +26986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1723133081
 GameObject:
   m_ObjectHideFlags: 0
@@ -24208,6 +26999,7 @@ GameObject:
   - component: {fileID: 1723133084}
   - component: {fileID: 1723133083}
   - component: {fileID: 1723133085}
+  - component: {fileID: 1723133086}
   m_Layer: 0
   m_Name: Decoration Cell (51)
   m_TagString: Untagged
@@ -24293,6 +27085,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1723133086
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723133081}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1731052421
 GameObject:
   m_ObjectHideFlags: 0
@@ -24305,6 +27119,7 @@ GameObject:
   - component: {fileID: 1731052424}
   - component: {fileID: 1731052423}
   - component: {fileID: 1731052425}
+  - component: {fileID: 1731052426}
   m_Layer: 0
   m_Name: Decoration Cell (66)
   m_TagString: Untagged
@@ -24390,6 +27205,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1731052426
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731052421}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1732951298
 GameObject:
   m_ObjectHideFlags: 0
@@ -24402,6 +27239,7 @@ GameObject:
   - component: {fileID: 1732951301}
   - component: {fileID: 1732951300}
   - component: {fileID: 1732951302}
+  - component: {fileID: 1732951303}
   m_Layer: 0
   m_Name: Decoration Cell (87)
   m_TagString: Untagged
@@ -24487,6 +27325,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1732951303
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732951298}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1740540742
 GameObject:
   m_ObjectHideFlags: 0
@@ -24584,6 +27444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1746095269
 GameObject:
   m_ObjectHideFlags: 0
@@ -24596,6 +27457,7 @@ GameObject:
   - component: {fileID: 1746095272}
   - component: {fileID: 1746095271}
   - component: {fileID: 1746095273}
+  - component: {fileID: 1746095274}
   m_Layer: 0
   m_Name: Decoration Cell (28)
   m_TagString: Untagged
@@ -24681,6 +27543,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1746095274
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746095269}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1755718971
 GameObject:
   m_ObjectHideFlags: 0
@@ -24778,6 +27662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1759936471
 GameObject:
   m_ObjectHideFlags: 0
@@ -24875,6 +27760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1762182324
 GameObject:
   m_ObjectHideFlags: 0
@@ -24972,6 +27858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1763256220
 GameObject:
   m_ObjectHideFlags: 0
@@ -25069,6 +27956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1776099700
 GameObject:
   m_ObjectHideFlags: 0
@@ -25081,6 +27969,7 @@ GameObject:
   - component: {fileID: 1776099703}
   - component: {fileID: 1776099702}
   - component: {fileID: 1776099704}
+  - component: {fileID: 1776099705}
   m_Layer: 0
   m_Name: Decoration Cell (7)
   m_TagString: Untagged
@@ -25166,6 +28055,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1776099705
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776099700}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1793090292
 GameObject:
   m_ObjectHideFlags: 0
@@ -25178,6 +28089,7 @@ GameObject:
   - component: {fileID: 1793090295}
   - component: {fileID: 1793090294}
   - component: {fileID: 1793090296}
+  - component: {fileID: 1793090297}
   m_Layer: 0
   m_Name: Decoration Cell (107)
   m_TagString: Untagged
@@ -25263,6 +28175,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1793090297
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793090292}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1794116981
 GameObject:
   m_ObjectHideFlags: 0
@@ -25275,6 +28209,7 @@ GameObject:
   - component: {fileID: 1794116984}
   - component: {fileID: 1794116983}
   - component: {fileID: 1794116985}
+  - component: {fileID: 1794116986}
   m_Layer: 0
   m_Name: Decoration Cell (62)
   m_TagString: Untagged
@@ -25360,6 +28295,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1794116986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794116981}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1802173852
 GameObject:
   m_ObjectHideFlags: 0
@@ -25372,6 +28329,7 @@ GameObject:
   - component: {fileID: 1802173855}
   - component: {fileID: 1802173854}
   - component: {fileID: 1802173856}
+  - component: {fileID: 1802173857}
   m_Layer: 0
   m_Name: Decoration Cell (75)
   m_TagString: Untagged
@@ -25457,6 +28415,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1802173857
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802173852}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1806981623
 GameObject:
   m_ObjectHideFlags: 0
@@ -25554,6 +28534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1815355946
 GameObject:
   m_ObjectHideFlags: 0
@@ -25566,6 +28547,7 @@ GameObject:
   - component: {fileID: 1815355949}
   - component: {fileID: 1815355948}
   - component: {fileID: 1815355950}
+  - component: {fileID: 1815355951}
   m_Layer: 0
   m_Name: Decoration Cell (39)
   m_TagString: Untagged
@@ -25651,6 +28633,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1815355951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815355946}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1818394252
 GameObject:
   m_ObjectHideFlags: 0
@@ -25748,6 +28752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1823037848
 GameObject:
   m_ObjectHideFlags: 0
@@ -25760,6 +28765,7 @@ GameObject:
   - component: {fileID: 1823037851}
   - component: {fileID: 1823037850}
   - component: {fileID: 1823037852}
+  - component: {fileID: 1823037853}
   m_Layer: 0
   m_Name: Decoration Cell (21)
   m_TagString: Untagged
@@ -25845,6 +28851,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1823037853
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823037848}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1830009497
 GameObject:
   m_ObjectHideFlags: 0
@@ -25942,6 +28970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1833671896
 GameObject:
   m_ObjectHideFlags: 0
@@ -25954,6 +28983,7 @@ GameObject:
   - component: {fileID: 1833671899}
   - component: {fileID: 1833671898}
   - component: {fileID: 1833671900}
+  - component: {fileID: 1833671901}
   m_Layer: 0
   m_Name: Decoration Cell (77)
   m_TagString: Untagged
@@ -26039,6 +29069,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1833671901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833671896}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1834097938
 GameObject:
   m_ObjectHideFlags: 0
@@ -26051,6 +29103,7 @@ GameObject:
   - component: {fileID: 1834097941}
   - component: {fileID: 1834097940}
   - component: {fileID: 1834097942}
+  - component: {fileID: 1834097943}
   m_Layer: 0
   m_Name: Decoration Cell (86)
   m_TagString: Untagged
@@ -26136,6 +29189,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1834097943
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834097938}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1835574701
 GameObject:
   m_ObjectHideFlags: 0
@@ -26148,6 +29223,7 @@ GameObject:
   - component: {fileID: 1835574704}
   - component: {fileID: 1835574703}
   - component: {fileID: 1835574705}
+  - component: {fileID: 1835574706}
   m_Layer: 0
   m_Name: Decoration Cell (73)
   m_TagString: Untagged
@@ -26233,6 +29309,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1835574706
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835574701}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1839246177
 GameObject:
   m_ObjectHideFlags: 0
@@ -26245,6 +29343,7 @@ GameObject:
   - component: {fileID: 1839246180}
   - component: {fileID: 1839246179}
   - component: {fileID: 1839246181}
+  - component: {fileID: 1839246182}
   m_Layer: 0
   m_Name: Decoration Cell (102)
   m_TagString: Untagged
@@ -26330,6 +29429,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1839246182
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839246177}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1843803466
 GameObject:
   m_ObjectHideFlags: 0
@@ -26342,6 +29463,7 @@ GameObject:
   - component: {fileID: 1843803469}
   - component: {fileID: 1843803468}
   - component: {fileID: 1843803470}
+  - component: {fileID: 1843803471}
   m_Layer: 0
   m_Name: Decoration Cell (129)
   m_TagString: Untagged
@@ -26427,6 +29549,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1843803471
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843803466}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1853754330
 GameObject:
   m_ObjectHideFlags: 0
@@ -26524,6 +29668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1857704811
 GameObject:
   m_ObjectHideFlags: 0
@@ -26536,6 +29681,7 @@ GameObject:
   - component: {fileID: 1857704814}
   - component: {fileID: 1857704813}
   - component: {fileID: 1857704815}
+  - component: {fileID: 1857704816}
   m_Layer: 0
   m_Name: Decoration Cell (120)
   m_TagString: Untagged
@@ -26621,6 +29767,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1857704816
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857704811}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1869443636
 GameObject:
   m_ObjectHideFlags: 0
@@ -26718,6 +29886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1871456801
 GameObject:
   m_ObjectHideFlags: 0
@@ -26730,6 +29899,7 @@ GameObject:
   - component: {fileID: 1871456804}
   - component: {fileID: 1871456803}
   - component: {fileID: 1871456805}
+  - component: {fileID: 1871456806}
   m_Layer: 0
   m_Name: Decoration Cell (36)
   m_TagString: Untagged
@@ -26815,6 +29985,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1871456806
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871456801}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1873650971
 GameObject:
   m_ObjectHideFlags: 0
@@ -26912,6 +30104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1879461154
 GameObject:
   m_ObjectHideFlags: 0
@@ -26924,6 +30117,7 @@ GameObject:
   - component: {fileID: 1879461157}
   - component: {fileID: 1879461156}
   - component: {fileID: 1879461158}
+  - component: {fileID: 1879461159}
   m_Layer: 0
   m_Name: Decoration Cell (45)
   m_TagString: Untagged
@@ -27009,6 +30203,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1879461159
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879461154}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1899937138
 GameObject:
   m_ObjectHideFlags: 0
@@ -27106,6 +30322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1904969417
 GameObject:
   m_ObjectHideFlags: 0
@@ -27203,6 +30420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1920618973
 GameObject:
   m_ObjectHideFlags: 0
@@ -27215,6 +30433,7 @@ GameObject:
   - component: {fileID: 1920618976}
   - component: {fileID: 1920618975}
   - component: {fileID: 1920618977}
+  - component: {fileID: 1920618978}
   m_Layer: 0
   m_Name: Decoration Cell (70)
   m_TagString: Untagged
@@ -27300,6 +30519,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1920618978
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920618973}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1923411111
 GameObject:
   m_ObjectHideFlags: 0
@@ -27397,6 +30638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1929445354
 GameObject:
   m_ObjectHideFlags: 0
@@ -27494,6 +30736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1969073731
 GameObject:
   m_ObjectHideFlags: 0
@@ -27506,6 +30749,7 @@ GameObject:
   - component: {fileID: 1969073734}
   - component: {fileID: 1969073733}
   - component: {fileID: 1969073735}
+  - component: {fileID: 1969073736}
   m_Layer: 0
   m_Name: Decoration Cell (136)
   m_TagString: Untagged
@@ -27591,6 +30835,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1969073736
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969073731}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1977249959
 GameObject:
   m_ObjectHideFlags: 0
@@ -27688,6 +30954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 0
 --- !u!1 &1977410020
 GameObject:
   m_ObjectHideFlags: 0
@@ -27700,6 +30967,7 @@ GameObject:
   - component: {fileID: 1977410023}
   - component: {fileID: 1977410022}
   - component: {fileID: 1977410024}
+  - component: {fileID: 1977410025}
   m_Layer: 0
   m_Name: Decoration Cell (16)
   m_TagString: Untagged
@@ -27785,6 +31053,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &1977410025
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977410020}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &1984224495
 GameObject:
   m_ObjectHideFlags: 0
@@ -27882,6 +31172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &1999288970
 GameObject:
   m_ObjectHideFlags: 0
@@ -27979,6 +31270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 1
 --- !u!1 &2007685229
 GameObject:
   m_ObjectHideFlags: 0
@@ -28076,6 +31368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &2026524313
 GameObject:
   m_ObjectHideFlags: 0
@@ -28173,6 +31466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &2038464375
 GameObject:
   m_ObjectHideFlags: 0
@@ -28270,6 +31564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &2047358172
 GameObject:
   m_ObjectHideFlags: 0
@@ -28282,6 +31577,7 @@ GameObject:
   - component: {fileID: 2047358175}
   - component: {fileID: 2047358174}
   - component: {fileID: 2047358176}
+  - component: {fileID: 2047358177}
   m_Layer: 0
   m_Name: Decoration Cell (61)
   m_TagString: Untagged
@@ -28367,6 +31663,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &2047358177
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047358172}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &2066133898
 GameObject:
   m_ObjectHideFlags: 0
@@ -28464,6 +31782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &2069421427
 GameObject:
   m_ObjectHideFlags: 0
@@ -28476,6 +31795,7 @@ GameObject:
   - component: {fileID: 2069421430}
   - component: {fileID: 2069421429}
   - component: {fileID: 2069421431}
+  - component: {fileID: 2069421432}
   m_Layer: 0
   m_Name: Decoration Cell (135)
   m_TagString: Untagged
@@ -28561,6 +31881,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
+  _isWaypoint: 0
+--- !u!65 &2069421432
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069421427}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.099999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0.049999997, z: 0}
 --- !u!1 &2093018625
 GameObject:
   m_ObjectHideFlags: 0
@@ -28658,6 +32000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &2095224761
 GameObject:
   m_ObjectHideFlags: 0
@@ -28755,6 +32098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &2112858590
 GameObject:
   m_ObjectHideFlags: 0
@@ -28852,6 +32196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &2121195238
 GameObject:
   m_ObjectHideFlags: 0
@@ -28949,6 +32294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  _isWaypoint: 0
 --- !u!1 &2134143125
 GameObject:
   m_ObjectHideFlags: 0
@@ -29046,6 +32392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
+  _isWaypoint: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -29053,4 +32400,4 @@ SceneRoots:
   - {fileID: 969424525}
   - {fileID: 3561513}
   - {fileID: 182178833}
-  - {fileID: 1343568089}
+  - {fileID: 598389901}
