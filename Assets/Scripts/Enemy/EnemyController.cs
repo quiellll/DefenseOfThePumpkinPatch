@@ -10,17 +10,19 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext
     public IState State { get => _currentState; set => ChangeState(value as AEnemyState); }
 
     //esto es temporal luego se hace un scriptableobject flyweight
-    [SerializeField] private float _moveSpeed;
-    [SerializeField] private float _rotationSpeed;
+    [SerializeField] private EnemyStats _stats;
 
     private Transform _body; //modelo hijo del obj de este script (para que la rotacion + traslacion no se rompa)
 
     private AEnemyState _currentState;
 
+    private int _currentHealth;
+
 
     private void Awake()
     {
         _body = GetComponentInChildren<MeshRenderer>().transform;
+        _currentHealth = _stats.Health;
     }
 
     private void Start()
@@ -45,10 +47,10 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext
         {
             var targetRotation = Quaternion.LookRotation(direction, Vector3.up);
             _body.localRotation = 
-                Quaternion.RotateTowards(_body.localRotation, targetRotation, _rotationSpeed * Time.deltaTime);
+                Quaternion.RotateTowards(_body.localRotation, targetRotation, _stats.RotationSpeed * Time.deltaTime);
         }
         //movimiento
-        transform.Translate(direction * _moveSpeed * Time.deltaTime);
+        transform.Translate(direction * _stats.MoveSpeed * Time.deltaTime);
     }
 
     private void ChangeState(AEnemyState newState)
@@ -60,5 +62,21 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext
         _currentState = newState;
 
         _currentState?.Enter(lastState);
+    }
+
+
+    public void TakeDamage(int damage)
+    {
+        _currentHealth = Mathf.Max(_currentHealth - damage, 0);
+
+        if(_currentHealth == 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
