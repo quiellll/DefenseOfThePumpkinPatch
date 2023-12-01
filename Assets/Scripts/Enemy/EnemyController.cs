@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class EnemyController : MonoBehaviour, IEnemyStateContext
+public class EnemyController : MonoBehaviour, IEnemyStateContext, IPoolObject
 {
     public GameObject GameObject { get => gameObject; }
     //getter/setter para los estados
     public IState State { get => _currentState; set => ChangeState(value as AEnemyState); }
+    public bool Active { get => gameObject.activeSelf; set => gameObject.SetActive(value); }
+    public ObjectPool Pool { private get; set; }
 
     //esto es temporal luego se hace un scriptableobject flyweight
     [SerializeField] private EnemyStats _stats;
@@ -27,7 +29,7 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext
 
     private void Start()
     {
-        State = new MoveForward(this);
+        SetInitialState(new MoveForward(this));
     }
 
     private void Update()
@@ -53,8 +55,15 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext
         transform.Translate(direction * _stats.MoveSpeed * Time.deltaTime);
     }
 
-    private void ChangeState(AEnemyState newState)
+    private void ChangeState(AEnemyState newState, bool isInitial = false)
     {
+        if(isInitial)
+        {
+            _currentState = newState;
+            _currentState.Enter(null);
+            return;
+        }
+
         _currentState?.Exit(newState);
 
         var lastState = _currentState;
@@ -64,6 +73,9 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext
         _currentState?.Enter(lastState);
     }
 
+    private void SetInitialState(AEnemyState state) => ChangeState(state, true);
+
+    void OnMouseDown() => TakeDamage(1);
 
     public void TakeDamage(int damage)
     {
@@ -77,6 +89,21 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext
 
     private void Die()
     {
-        Destroy(gameObject);
+        Pool.Return(this);
+    }
+
+    public IPoolObject Clone(ObjectPool pool, Transform parent = null, bool active = false)
+    {
+        IPoolObject clone = parent ? Instantiate(this) : Instantiate(this, parent);
+        
+        clone.Active = active;
+        clone.Pool = pool;
+        return clone;
+    }
+
+    public void Reset()
+    {
+        _currentHealth = _stats.Health;
+        SetInitialState(new MoveForward(this));
     }
 }
