@@ -9,12 +9,13 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext, IPoolObject
     //getter/setter para los estados
     public IState State { get => _currentState; set => ChangeState(value as AEnemyState); }
     public bool Active { get => gameObject.activeSelf; set => gameObject.SetActive(value); }
-    public ObjectPool Pool { private get; set; }
+    public bool IsAlive { get; private set; }
+    public WaveSpawner Spawner { get; set; }
 
-    //esto es temporal luego se hace un scriptableobject flyweight
     [SerializeField] private EnemyStats _stats;
 
-    private Transform _body; //modelo hijo del obj de este script (para que la rotacion + traslacion no se rompa)
+    //modelo hijo del obj de este script (para que la rotacion + traslacion no se rompa)
+    private Transform _body; 
 
     private AEnemyState _currentState;
 
@@ -25,6 +26,7 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext, IPoolObject
     {
         _body = GetComponentInChildren<MeshRenderer>().transform;
         _currentHealth = _stats.Health;
+        IsAlive = true;
     }
 
     private void Start()
@@ -89,21 +91,22 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext, IPoolObject
 
     private void Die()
     {
-        Pool.Return(this);
+        IsAlive = false;
+        Spawner.DespawnEnemy(this);
     }
 
-    public IPoolObject Clone(ObjectPool pool, Transform parent = null, bool active = false)
+    public IPoolObject Clone(Transform parent = null, bool active = false)
     {
         IPoolObject clone = parent ? Instantiate(this) : Instantiate(this, parent);
         
         clone.Active = active;
-        clone.Pool = pool;
         return clone;
     }
 
     public void Reset()
     {
         _currentHealth = _stats.Health;
+        IsAlive = true;
         SetInitialState(new MoveForward(this));
     }
 }

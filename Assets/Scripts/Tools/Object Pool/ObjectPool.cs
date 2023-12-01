@@ -16,7 +16,8 @@ public class ObjectPool
     private List<IPoolObject> _pool;
 
 
-    public ObjectPool(IPoolObject prototype, int poolSize, bool allowAddNew = false, Transform parent = null)
+    public ObjectPool
+        (IPoolObject prototype, int poolSize, bool allowAddNew = false, Transform parent = null)
     {
         _prototype = prototype;
         _poolSize = poolSize;
@@ -26,7 +27,7 @@ public class ObjectPool
 
         _pool = new(_poolSize);
 
-        for (int i = 0; i < _poolSize; i++) _pool.Add(_prototype.Clone(this, _parent));
+        for (int i = 0; i < _poolSize; i++) _pool.Add(_prototype.Clone(_parent));
     }
 
     public IPoolObject Get()
@@ -42,7 +43,7 @@ public class ObjectPool
 
         if (!_allowAddNew) return null;
 
-        var newObj = _prototype.Clone(this, _parent, true);
+        var newObj = _prototype.Clone(_parent, true);
         _pool.Add(newObj);
         _activeObjects++;
         _poolSize++;
