@@ -15,3 +15,5 @@ MonoBehaviour:
   _health: 5
   _moveSpeed: 2
   _rotationSpeed: 300
+  _gravePrefab: {fileID: 2126682428481223955, guid: 004a862347d5fed4f8d9278abf704ded,
+    type: 3}

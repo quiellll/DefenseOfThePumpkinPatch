@@ -102,8 +102,12 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext, IPoolObject
     private void Die()
     {
         IsAlive = false;
-        Spawner.DespawnEnemy(this);
+        Instantiate(_stats.GravePrefab, new(XY.x, 0f, XY.y), _body.rotation);
+        Despawn();
     }
+
+    public void Despawn() => Spawner.DespawnEnemy(this);
+
 
     public IPoolObject Clone(Transform parent = null, bool active = false)
     {
