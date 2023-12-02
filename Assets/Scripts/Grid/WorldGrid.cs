@@ -52,7 +52,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
 
     public int GeIndexOfPathCell(GridCell cell)
     {
-        if (cell.Type != GridCell.CellType.Path) return -1;
+        if (cell == null || cell.Type != GridCell.CellType.Path) return -1;
 
         return Array.IndexOf(_path, cell);
     }
