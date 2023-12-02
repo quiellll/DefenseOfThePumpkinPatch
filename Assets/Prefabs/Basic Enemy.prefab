@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 146462831137700690}
   - component: {fileID: 1582296268153721981}
   - component: {fileID: 5821808853044953390}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 5673841065532917588}
   - component: {fileID: 2980590727112605772}
   - component: {fileID: 3215130759533984181}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Basic Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 8858749153220513456}
   - component: {fileID: 871371676135667408}
   - component: {fileID: 5269997260024150220}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
