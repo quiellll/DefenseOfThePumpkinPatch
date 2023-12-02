@@ -11,9 +11,10 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private float _spawnDelay;
 
     private ObjectPool _pool;
-    private int _enemiesSpawned = 0;
     private bool _spawnFinished = false;
-    private int _enemiesAlive = 0;
+    private int _spawnedEnemies = 0;
+    private int _aliveEnemies = 0;
+    private int _activeEnemies = 0;
 
 
     private void Awake()
@@ -36,14 +37,15 @@ public class WaveSpawner : MonoBehaviour
         enemy.transform.SetPositionAndRotation(_spawnPoint.position, _spawnPoint.rotation);
         enemy.Spawner = this;
 
-        _enemiesSpawned++;
-        _enemiesAlive++;
+        _spawnedEnemies++;
+        _aliveEnemies++;
+        _activeEnemies++;
 
-        if(_enemiesSpawned >= _enemiesPerWave)
+        if(_spawnedEnemies >= _enemiesPerWave)
         {
-            //lanzar evento de fin de spawn
+            //fin de spawn
             _spawnFinished = true;
-            Debug.Log("fin de spawn de waveee");
+            Debug.Log("fin de spawn");
         }
 
         else Invoke(nameof(SpawnWave), _spawnDelay);
@@ -52,13 +54,14 @@ public class WaveSpawner : MonoBehaviour
     public void DespawnEnemy(EnemyController enemy)
     {
         _pool.Return(enemy);
-        if (enemy.IsAlive) return; 
+        _activeEnemies--;
 
-        _enemiesAlive--;
-        if(_spawnFinished && _enemiesAlive >= 0)
+        if (!enemy.IsAlive) _aliveEnemies--;
+
+        if (_spawnFinished && _activeEnemies >= 0)
         {
-            //evento de fin de oleada (victoria)
-            Debug.Log("Ganaste la waveee");
+            //fin de oleada 
+            Debug.Log("fin de wave");
         }
     }
 }
