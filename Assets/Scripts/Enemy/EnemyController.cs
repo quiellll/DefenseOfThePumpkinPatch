@@ -11,8 +11,6 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext, IPoolObject
     public bool Active { get => gameObject.activeSelf; set => gameObject.SetActive(value); }
     public bool IsAlive { get; private set; }
     public WaveSpawner Spawner { get; set; }
-    public GridCell CurrentCell { get; private set; }
-    public Vector2 XY { get => new (transform.position.x, transform.position.z); }
 
     [SerializeField] private EnemyStats _stats;
 
@@ -57,14 +55,6 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext, IPoolObject
         }
         //movimiento
         transform.Translate(direction * _stats.MoveSpeed * Time.deltaTime);
-
-        UpdateCurrentCell();
-    }
-
-    private void UpdateCurrentCell()
-    {
-        Vector2 roundedPos = new (Mathf.Round(transform.position.x), Mathf.Round(transform.position.z));
-        CurrentCell = WorldGrid.Instance.GetCellAt(roundedPos);
     }
 
     private void ChangeState(AEnemyState newState, bool isInitial = false)
