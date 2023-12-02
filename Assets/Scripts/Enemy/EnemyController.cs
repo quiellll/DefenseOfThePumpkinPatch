@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext, IPoolObject
     public GridCell CurrentCell { get; private set; }
     public Vector2 XY { get => new (transform.position.x, transform.position.z); }
 
-    [SerializeField] private EnemyStats _stats;
+    [SerializeField] private Enemy _stats;
 
     //modelo hijo del obj de este script (para que la rotacion + traslacion no se rompa)
     private Transform _body; 
