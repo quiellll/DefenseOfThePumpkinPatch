@@ -8,6 +8,9 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext
     public GameObject GameObject { get => gameObject; }
     //getter/setter para los estados
     public IState State { get => _currentState; set => ChangeState(value as AEnemyState); }
+    public GridCell CurrentCell { get; private set; }
+
+    public Vector2 XY { get => new (transform.position.x, transform.position.z); }
 
     //esto es temporal luego se hace un scriptableobject flyweight
     [SerializeField] private EnemyStats _stats;
@@ -51,6 +54,14 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext
         }
         //movimiento
         transform.Translate(direction * _stats.MoveSpeed * Time.deltaTime);
+
+        UpdateCurrentCell();
+    }
+
+    private void UpdateCurrentCell()
+    {
+        Vector2 roundedPos = new (Mathf.Round(transform.position.x), Mathf.Round(transform.position.z));
+        CurrentCell = WorldGrid.Instance.GetCellAt(roundedPos);
     }
 
     private void ChangeState(AEnemyState newState)
