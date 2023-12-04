@@ -10912,7 +10912,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 969424527}
+      - m_Target: {fileID: 560122141}
         m_TargetAssemblyTypeName: CameraMovement, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
@@ -10928,7 +10928,7 @@ MonoBehaviour:
     m_ActionName: Camera/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 969424527}
+      - m_Target: {fileID: 560122141}
         m_TargetAssemblyTypeName: CameraMovement, Assembly-CSharp
         m_MethodName: Zoom
         m_Mode: 0
@@ -10984,7 +10984,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 969424527}
+      - m_Target: {fileID: 560122141}
         m_TargetAssemblyTypeName: CameraMovement, Assembly-CSharp
         m_MethodName: Rotate
         m_Mode: 0
@@ -15175,6 +15175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 560122140}
+  - component: {fileID: 560122141}
   m_Layer: 0
   m_Name: Camera Axis
   m_TagString: Untagged
@@ -15198,6 +15199,24 @@ Transform:
   - {fileID: 969424525}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &560122141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560122139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0968c3d969b1de144b0b07515679c738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 20
+  _maxDistanceFromOrigin: 15
+  _zoomSpeed: 45
+  _minYPos: 2
+  _maxYPos: 18
+  _rotationSpeed: 100
 --- !u!1 &564979787
 GameObject:
   m_ObjectHideFlags: 0
@@ -24100,7 +24119,6 @@ GameObject:
   - component: {fileID: 969424524}
   - component: {fileID: 969424523}
   - component: {fileID: 969424526}
-  - component: {fileID: 969424527}
   - component: {fileID: 969424528}
   m_Layer: 0
   m_Name: Main Camera
@@ -24227,24 +24245,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &969424527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969424522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0968c3d969b1de144b0b07515679c738, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 20
-  _maxDistanceFromOrigin: 18
-  _zoomSpeed: 45
-  _minYPos: 2
-  _maxYPos: 18
-  _rotationSpeed: 100
 --- !u!114 &969424528
 MonoBehaviour:
   m_ObjectHideFlags: 0
