@@ -13,6 +13,7 @@ public class TurretController : MonoBehaviour
     [SerializeField] private LayerMask _enemyMask;
     // Velocidad rotacion
     [SerializeField] private float _rotationSpeed;
+    [SerializeField] private Transform _partToRotate;
 
     private EnemyController _currentTarget;
     private Collider[] _enemyCollidersInRange;
@@ -47,9 +48,9 @@ public class TurretController : MonoBehaviour
         }
 
         //Rotar hacia el target
-        float newAngle = Quaternion.LookRotation(_currentTarget.transform.position - transform.position, Vector3.up).eulerAngles.y;
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, newAngle, 0)), _rotationSpeed * Time.deltaTime);
-        Debug.DrawLine(transform.position, _currentTarget.transform.position);
+        float newAngle = Quaternion.LookRotation(_currentTarget.transform.position - _partToRotate.position, Vector3.up).eulerAngles.y;
+        _partToRotate.rotation = Quaternion.Lerp(_partToRotate.rotation, Quaternion.Euler(new Vector3(0, newAngle, 0)), _rotationSpeed * Time.deltaTime);
+        Debug.DrawLine(_partToRotate.position, _currentTarget.transform.position);
 
     }
 
