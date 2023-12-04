@@ -58,7 +58,7 @@ public class WaveSpawner : MonoBehaviour
 
         if (!enemy.IsAlive) _aliveEnemies--;
 
-        if (_spawnFinished && _activeEnemies >= 0)
+        if (_spawnFinished && _activeEnemies == 0)
         {
             //fin de oleada 
             Debug.Log("fin de wave");

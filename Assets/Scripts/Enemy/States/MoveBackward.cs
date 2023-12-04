@@ -20,6 +20,6 @@ public class MoveBackward : AEnemyMoveState
             return;
         }
 
-        _enemy.State = new MoveForward(_enemy);
+        _enemy.Despawn();
     }
 }

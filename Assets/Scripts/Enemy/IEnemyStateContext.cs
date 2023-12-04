@@ -6,4 +6,5 @@ public interface IEnemyStateContext : IStateContext
 {
     public GameObject GameObject { get; }
     public void Move(Vector3 direction);
+    public void Despawn();
 }
