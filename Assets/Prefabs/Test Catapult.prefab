@@ -31,6 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9159072722476195255}
+  - {fileID: 5769192332426044625}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6880515889515560279
@@ -45,12 +46,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f0fe14be80e15478c112fb9a8aabfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _turret: {fileID: 11400000, guid: a4d6a357e5b7f8c4c81e6ff0364e014c, type: 2}
   _radius: 3.5
   _enemyMask:
     serializedVersion: 2
     m_Bits: 512
   _rotationSpeed: 15
+  _fireRate: 0
   _partToRotate: {fileID: 9055312722301133217}
+  _projectileSpawnPoint: {fileID: 5769192332426044625}
+--- !u!1 &8599300932398790627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5769192332426044625}
+  m_Layer: 8
+  m_Name: Projectile Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5769192332426044625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8599300932398790627}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.771, z: -0.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2089210753951521732}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3393113017104088779
 PrefabInstance:
   m_ObjectHideFlags: 0

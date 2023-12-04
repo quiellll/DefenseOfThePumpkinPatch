@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class TurretController : MonoBehaviour
 {
-
+    [SerializeField] private Turret _turret;
     // Posiciones
     // Radio (Rango)
     [SerializeField] private float _radius;
@@ -13,15 +14,36 @@ public class TurretController : MonoBehaviour
     [SerializeField] private LayerMask _enemyMask;
     // Velocidad rotacion
     [SerializeField] private float _rotationSpeed;
+    [SerializeField] private float _fireRate;
     [SerializeField] private Transform _partToRotate;
+    [SerializeField] private Transform _projectileSpawnPoint;
+    private float _fireDelay;
+    private float _fireDelayTimer = 0f;
 
     private EnemyController _currentTarget;
     private Collider[] _enemyCollidersInRange;
+
+    private TurretProjectileSpawner _projectileSpawner;
+
 
     private void Awake()
     {
         // CAMBIAR A NUMERO OPTIMO DE ENEMIGOS !!!!!!!!
         _enemyCollidersInRange = new Collider[30];
+
+
+        foreach(TurretProjectileSpawner spawner in FindObjectsOfType<TurretProjectileSpawner>())
+        {
+            // Si el spawner de balas es igual que la bala de mi torreta
+            if(spawner.ProjectileType == _turret.ProjectilePrefab.GetType()) 
+            { 
+                _projectileSpawner = spawner;
+                break;
+            }
+        }
+
+        _fireDelay = 1.0f / _fireRate;
+        _fireDelayTimer = _fireDelay;
     }
 
     private void Start()
@@ -33,6 +55,8 @@ public class TurretController : MonoBehaviour
 
     private void Update()
     {
+        _fireDelayTimer += Time.deltaTime; //actualizamosel contador de tiempo entre disparos
+
         if(!_currentTarget)
         {
             FindTarget();
@@ -48,10 +72,15 @@ public class TurretController : MonoBehaviour
         }
 
         //Rotar hacia el target
-        float newAngle = Quaternion.LookRotation(_currentTarget.transform.position - _partToRotate.position, Vector3.up).eulerAngles.y;
-        _partToRotate.rotation = Quaternion.Lerp(_partToRotate.rotation, Quaternion.Euler(new Vector3(0, newAngle, 0)), _rotationSpeed * Time.deltaTime);
-        Debug.DrawLine(_partToRotate.position, _currentTarget.transform.position);
+        RotateTowardsTarget();
 
+        //disparamos al target
+        //si hay enemigo en el rango, comprobamos si se ha esperado el delay , y seteamos el timer a 0 para dispararle
+        if (_fireDelayTimer >= _fireDelay)
+        {
+            Fire();
+            _fireDelayTimer = 0.0f;
+        }
     }
 
 
@@ -130,5 +159,19 @@ public class TurretController : MonoBehaviour
         }
 
         return best;
+    }
+
+    private void RotateTowardsTarget()
+    {
+        float newAngle = Quaternion.LookRotation(_currentTarget.transform.position - _partToRotate.position, Vector3.up).eulerAngles.y;
+        _partToRotate.rotation = Quaternion.Lerp(_partToRotate.rotation, Quaternion.Euler(new Vector3(0, newAngle, 0)), _rotationSpeed * Time.deltaTime);
+        Debug.DrawLine(_partToRotate.position, _currentTarget.transform.position);
+    }
+
+    private void Fire()
+    {
+        Debug.Log("BUM");
+        var projectile = _projectileSpawner.SpawnProjectile();
+        projectile.Init(_projectileSpawner, _currentTarget, _projectileSpawnPoint.position);
     }
 }
