@@ -17,6 +17,12 @@ public class CameraMovement : MonoBehaviour
     private int _yInput = 0;
     private Vector2 _xzInput = Vector2.zero;
     private int _rotationInput = 0;
+    private Transform _cam;
+
+    private void Awake()
+    {
+        _cam = GetComponentInChildren<Camera>().transform;
+    }
 
     public void Zoom(InputAction.CallbackContext context)
     {
@@ -43,21 +49,24 @@ public class CameraMovement : MonoBehaviour
             transform.forward * _xzInput.y * _moveSpeed * Time.deltaTime;
         newPos.y = 0;
         newPos = Vector3.ClampMagnitude(newPos, _maxDistanceFromOrigin);
-
-        //zoom
-        newPos.y = 
-            Mathf.Clamp(transform.position.y - _yInput * _zoomSpeed * Time.deltaTime, _minYPos, _maxYPos);
-
+        
         transform.position = newPos;
 
+        //zoom
+        newPos = _cam.position;
+        newPos.y = 
+            Mathf.Clamp(_cam.position.y - _yInput * _zoomSpeed * Time.deltaTime, _minYPos, _maxYPos);
+
+        _cam.position = newPos;
 
         if (_xzInput.sqrMagnitude > 0) return;
 
+
         //rotation
-        Vector3 newRot = transform.parent.rotation.eulerAngles;
+        Vector3 newRot = transform.rotation.eulerAngles;
         newRot.y -= _rotationInput * _rotationSpeed * Time.deltaTime;
 
-        transform.parent.rotation = Quaternion.Euler(newRot);
+        transform.rotation = Quaternion.Euler(newRot);
 
 
     }
