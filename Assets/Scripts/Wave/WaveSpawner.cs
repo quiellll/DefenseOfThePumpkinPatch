@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public UnityEvent WaveFinished;
 
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private EnemyController _enemyPrefab;
@@ -22,13 +24,17 @@ public class WaveSpawner : MonoBehaviour
         _pool = new ObjectPool(_enemyPrefab, _enemiesPerWave, false, transform);
     }
 
-    private void Start()
+    public void SpawnWave()
     {
-        SpawnWave();
+        _spawnFinished = false;
+        _spawnedEnemies = 0;
+        _aliveEnemies = 0;
+        _activeEnemies = 0;
+
+        SpawnEnemy();
     }
 
-
-    private void SpawnWave()
+    private void SpawnEnemy()
     {
         var enemy = _pool.Get() as EnemyController;
 
@@ -45,10 +51,9 @@ public class WaveSpawner : MonoBehaviour
         {
             //fin de spawn
             _spawnFinished = true;
-            Debug.Log("fin de spawn");
         }
 
-        else Invoke(nameof(SpawnWave), _spawnDelay);
+        else Invoke(nameof(SpawnEnemy), _spawnDelay);
     }
 
     public void DespawnEnemy(EnemyController enemy)
@@ -61,7 +66,7 @@ public class WaveSpawner : MonoBehaviour
         if (_spawnFinished && _activeEnemies == 0)
         {
             //fin de oleada 
-            Debug.Log("fin de wave");
+            WaveFinished.Invoke();
         }
     }
 }

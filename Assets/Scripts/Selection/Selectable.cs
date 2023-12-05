@@ -25,7 +25,6 @@ public class Selectable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log(GameManager.Instance);
         GameManager.Instance.SetSelectedObject(this);
         _outline.enabled = true;
     }
@@ -38,7 +37,7 @@ public class Selectable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log(gameObject.name);
+        //Debug.Log(gameObject.name);
     }
 
 
