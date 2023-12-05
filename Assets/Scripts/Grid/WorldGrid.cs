@@ -8,7 +8,6 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
     //getters de los arrays para que sus elementos sean readonly
     public IReadOnlyList<GridCell> Path { get => _path; }
     public IReadOnlyList<GridCell> Waypoints { get => _waypoints; }
-    public GridCell CellOnPointer { get => _cellOnPointer; }
 
 
     [SerializeField] private Transform _pathCellContainer;
@@ -19,7 +18,6 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
     private GridCell[] _path;
     private GridCell[] _waypoints;
     private LayerMask _gridCells;
-    private GridCell _cellOnPointer = null;
 
     protected override void Awake()
     {
@@ -57,16 +55,5 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
 
         return Array.IndexOf(_path, cell);
     }
-
-    public void PointerOnCell(GridCell cell)
-    {
-        _cellOnPointer = cell;
-    }
-
-    public void PointerOffCell(GridCell cell)
-    {
-        _cellOnPointer = null;
-    }
-
 
 }

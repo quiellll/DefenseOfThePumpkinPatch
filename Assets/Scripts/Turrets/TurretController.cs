@@ -18,15 +18,13 @@ public class TurretController : MonoBehaviour
     private EnemyController _currentTarget;
     private Collider[] _enemyCollidersInRange;
 
+
     private void Awake()
     {
         // CAMBIAR A NUMERO OPTIMO DE ENEMIGOS !!!!!!!!
         _enemyCollidersInRange = new Collider[30];
     }
 
-    private void Start()
-    {
-    }
 
     private void OnDrawGizmos() => Gizmos.DrawWireSphere(new Vector3(transform.position.x, 0.1f, transform.position.z), _radius);
 
