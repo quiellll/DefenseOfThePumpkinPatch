@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BuildMode : AGameState
 {
-    AGameState _previousState;
+    private bool _nextStateIsDay;
 
     public BuildMode(GameManager g): base(g) { }
 
     public override void Enter(IState previousState)
     {
-        _previousState = previousState as AGameState;
+        _nextStateIsDay = previousState == null || previousState as NightDefenseMode != null;
         _gameManager.HUD.StartWave.AddListener(OnStartWave);
         _gameManager.HUD.StartWaveButton.SetActive(true);
     }
@@ -18,6 +18,7 @@ public class BuildMode : AGameState
     private void OnStartWave()
     {
         _gameManager.HUD.StartWave?.RemoveListener(OnStartWave);
-        _gameManager.GameState = new DefenseMode(_gameManager);
+        _gameManager.GameState = 
+            _nextStateIsDay ? new DayDefenseMode(_gameManager) : new NightDefenseMode(_gameManager);
     }
 }

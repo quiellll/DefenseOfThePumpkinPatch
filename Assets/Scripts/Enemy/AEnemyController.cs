@@ -3,47 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class EnemyController : MonoBehaviour, IEnemyStateContext, IPoolObject
+public abstract class AEnemyController : MonoBehaviour, IStateContext, IPoolObject
 {
-    public GameObject GameObject { get => gameObject; }
     //getter/setter para los estados
     public IState State { get => _currentState; set => ChangeState(value as AEnemyState); }
     public bool Active { get => gameObject.activeSelf; set => gameObject.SetActive(value); }
     public bool IsAlive { get; private set; }
-    public WaveSpawner Spawner { get; set; }
     public GridCell CurrentCell { get; private set; }
     public Vector2 XY { get => new (transform.position.x, transform.position.z); }
 
-    [SerializeField] private Enemy _stats;
-
+    [SerializeField] protected Enemy _stats;
     //modelo hijo del obj de este script (para que la rotacion + traslacion no se rompa)
-    private Transform _body; 
+    [SerializeField] protected Transform _body; 
 
     private AEnemyState _currentState;
-
     private int _currentHealth;
+    private Vector2 _gridPos;
+    private WaveSpawner _spawner;
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
-        _body = GetComponentInChildren<MeshRenderer>().transform;
         _currentHealth = _stats.Health;
         IsAlive = true;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
-        SetInitialState(new MoveForward(this));
+        UpdateCurrentCell();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         _currentState?.Update();
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         _currentState?.FixedUpdate();
+    }
+
+    public virtual void InitEnemy(Vector3 pos, Quaternion rot, WaveSpawner spawner)
+    {
+        _spawner = spawner;
+        transform.SetPositionAndRotation(pos, rot);
+        UpdateCurrentCell();
     }
 
     public void Move(Vector3 direction)
@@ -61,13 +65,19 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext, IPoolObject
         UpdateCurrentCell();
     }
 
-    private void UpdateCurrentCell()
+    public void Despawn() => _spawner.DespawnEnemy(this);
+
+    protected void UpdateCurrentCell()
     {
+        if (!WorldGrid.Instance) return;
+
         Vector2 roundedPos = new (Mathf.Round(transform.position.x), Mathf.Round(transform.position.z));
-        CurrentCell = WorldGrid.Instance.GetCellAt(roundedPos);
+        if (_gridPos == roundedPos) return;
+        _gridPos = roundedPos;
+        CurrentCell = WorldGrid.Instance.GetCellAt(_gridPos);
     }
 
-    private void ChangeState(AEnemyState newState, bool isInitial = false)
+    protected virtual void ChangeState(AEnemyState newState, bool isInitial = false)
     {
         if(isInitial)
         {
@@ -85,11 +95,11 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext, IPoolObject
         _currentState?.Enter(lastState);
     }
 
-    private void SetInitialState(AEnemyState state) => ChangeState(state, true);
+    protected void SetInitialState(AEnemyState state) => ChangeState(state, true);
 
-    void OnMouseDown() => TakeDamage(1);
+    void OnMouseDown() => TakeDamage(_stats.Health); //debug
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         _currentHealth = Mathf.Max(_currentHealth - damage, 0);
 
@@ -99,28 +109,26 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext, IPoolObject
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         IsAlive = false;
-        Instantiate(_stats.GravePrefab, new(XY.x, 0f, XY.y), _body.rotation);
         Despawn();
     }
 
-    public void Despawn() => Spawner.DespawnEnemy(this);
 
 
     public IPoolObject Clone(Transform parent = null, bool active = false)
     {
-        IPoolObject clone = parent ? Instantiate(this) : Instantiate(this, parent);
+        IPoolObject clone = parent ? Instantiate(this, parent) : Instantiate(this);
         
         clone.Active = active;
         return clone;
     }
 
-    public void Reset()
+    public virtual void Reset()
     {
         _currentHealth = _stats.Health;
         IsAlive = true;
-        SetInitialState(new MoveForward(this));
     }
+
 }

@@ -15,7 +15,7 @@ public class TurretController : MonoBehaviour
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private Transform _partToRotate;
 
-    private EnemyController _currentTarget;
+    private AEnemyController _currentTarget;
     private Collider[] _enemyCollidersInRange;
 
 
@@ -68,7 +68,7 @@ public class TurretController : MonoBehaviour
 
         else if (targetCount == 1) 
         {
-            _currentTarget = _enemyCollidersInRange[0].GetComponentInParent<EnemyController>();
+            _currentTarget = _enemyCollidersInRange[0].GetComponentInParent<AEnemyController>();
             return true;
         }
 
@@ -79,24 +79,24 @@ public class TurretController : MonoBehaviour
 
     private struct EnemyAtPath
     {
-        public EnemyController Enemy;
+        public AEnemyController Enemy;
         public int PathIndex;
-        public EnemyAtPath(EnemyController enemy, int pathIndex)
+        public EnemyAtPath(AEnemyController enemy, int pathIndex)
         {
             Enemy = enemy;
             PathIndex = pathIndex;
         }
     }
 
-    private EnemyController FindFirstEnemyInGroup(int numberOfEnemies)
+    private AEnemyController FindFirstEnemyInGroup(int numberOfEnemies)
     {
         EnemyAtPath[] enemiesAtPath = new EnemyAtPath[numberOfEnemies];
         int maxIndex = -1;
 
         for (int i = 0; i < numberOfEnemies; i++)
         {
-            var enemy = _enemyCollidersInRange[i].GetComponentInParent<EnemyController>();
-            enemiesAtPath[i] = new EnemyAtPath(enemy, WorldGrid.Instance.GeIndexOfPathCell(enemy.CurrentCell));
+            var enemy = _enemyCollidersInRange[i].GetComponentInParent<AEnemyController>();
+            enemiesAtPath[i] = new EnemyAtPath(enemy, WorldGrid.Instance.GetIndexOfPathCell(enemy.CurrentCell));
 
             if (enemiesAtPath[i].PathIndex > maxIndex) maxIndex = enemiesAtPath[i].PathIndex;
             
@@ -115,7 +115,7 @@ public class TurretController : MonoBehaviour
         Vector2 nextCellPos = WorldGrid.Instance.Path[nextCellIndex].XY;
 
         float minDistanceToNextCell = float.MaxValue;
-        EnemyController best = null;
+        AEnemyController best = null;
 
         foreach(var c in candidates) 
         {

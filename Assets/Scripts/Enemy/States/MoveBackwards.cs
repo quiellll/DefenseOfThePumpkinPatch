@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveBackward : AEnemyMoveState
+public class MoveBackwards : AEnemyMoveState
 {
-    public MoveBackward(IEnemyStateContext enemy) : base(enemy)
+    public MoveBackwards(AEnemyController enemy) : base(enemy)
     {
         _currentWaypointIndex = WorldGrid.Instance.Waypoints.Count - 1;
         _currentWaypoint = WorldGrid.Instance.Waypoints[_currentWaypointIndex];

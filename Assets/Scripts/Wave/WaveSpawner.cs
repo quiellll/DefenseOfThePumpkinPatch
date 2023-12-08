@@ -6,9 +6,10 @@ using UnityEngine.Events;
 public class WaveSpawner : MonoBehaviour
 {
     public UnityEvent WaveFinished;
+    public AEnemyController EnemyPrefab { get => _enemyPrefab; }
 
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private EnemyController _enemyPrefab;
+    [SerializeField] private AEnemyController _enemyPrefab;
     [SerializeField] private int _enemiesPerWave;
     [SerializeField] private float _spawnDelay;
 
@@ -36,12 +37,11 @@ public class WaveSpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        var enemy = _pool.Get() as EnemyController;
+        var enemy = _pool.Get() as AEnemyController;
 
         if (!enemy) return;
 
-        enemy.transform.SetPositionAndRotation(_spawnPoint.position, _spawnPoint.rotation);
-        enemy.Spawner = this;
+        enemy.InitEnemy(_spawnPoint.position, _spawnPoint.rotation, this);
 
         _spawnedEnemies++;
         _aliveEnemies++;
@@ -56,7 +56,7 @@ public class WaveSpawner : MonoBehaviour
         else Invoke(nameof(SpawnEnemy), _spawnDelay);
     }
 
-    public void DespawnEnemy(EnemyController enemy)
+    public void DespawnEnemy(AEnemyController enemy)
     {
         _pool.Return(enemy);
         _activeEnemies--;

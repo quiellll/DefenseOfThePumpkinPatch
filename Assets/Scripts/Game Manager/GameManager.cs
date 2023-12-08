@@ -10,7 +10,8 @@ public class GameManager : Singleton<GameManager>
     public AGameState GameState { get => _gameState;  set => ChangeState(value); }
     public bool IsOnDefense { get => _gameState.GetType() != typeof(BuildMode); }
     public Turret TurretToBuild {get => _turretToBuild; set => SetTurretToBuild(value); }
-    public WaveSpawner WaveSpawner { get; private set; }
+    public WaveSpawner FarmerWaveSpawner { get; private set; }
+    public WaveSpawner GhostWaveSpawner { get; private set; }
     public HUDMenu HUD { get; private set; }
 
     public Selectable SelectedObject { get; private set; }
@@ -29,10 +30,15 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
 
-        WaveSpawner = transform.parent.GetComponentInChildren<WaveSpawner>();
         HUD = transform.parent.GetComponentInChildren<HUDMenu>();
 
         _testTxt = GameObject.Find("TestGMSelected").GetComponent<TextMeshProUGUI>();
+
+        foreach(var s in transform.parent.GetComponentsInChildren<WaveSpawner>())
+        {
+            if (s.EnemyPrefab as GhostController) GhostWaveSpawner = s;
+            else if(s.EnemyPrefab as FarmerController) FarmerWaveSpawner = s;
+        }
     }
 
     private void Start()
