@@ -46164,6 +46164,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3972030588747880408, guid: 4bfabe2b7413f5047918e1725855a389,
         type: 3}
+      propertyPath: _projectilePrefab
+      value: 
+      objectReference: {fileID: -2405113080270641295, guid: a6b2167aa264d414fb3df054e7e99450,
+        type: 3}
+    - target: {fileID: 3972030588747880408, guid: 4bfabe2b7413f5047918e1725855a389,
+        type: 3}
       propertyPath: _maxProjectileInScene
       value: 10
       objectReference: {fileID: 0}

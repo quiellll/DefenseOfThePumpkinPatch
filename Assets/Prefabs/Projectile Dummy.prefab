@@ -147,8 +147,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5827650114872355216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4f31fe0622ffc745956969a00e8f6da, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e7ed5cd995b8a4498a54f006a013b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileDamage: 1
-  _projectileSpeed: 5
+  _projectileSpeed: 7

@@ -18,7 +18,8 @@ public class TestProjectile : ATurretProjectile
 
     private void Update()
     {
-        _direction = (EnemyTarget.transform.position - transform.position).normalized;
+        if(!EnemyTarget.IsAlive) _direction = transform.forward;
+        else _direction = (EnemyTarget.transform.position - transform.position).normalized;
         transform.Translate(_projectileSpeed * Time.deltaTime * _direction, Space.World);
 
         CheckCollisions();
