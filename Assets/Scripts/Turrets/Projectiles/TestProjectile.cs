@@ -18,7 +18,7 @@ public class TestProjectile : ATurretProjectile
 
     private void Update()
     {
-        if(!EnemyTarget.IsAlive) _direction = transform.forward;
+        if(!EnemyTarget.IsAlive || !EnemyTarget.gameObject.activeSelf) _direction = transform.forward;
         else _direction = (EnemyTarget.transform.position - transform.position).normalized;
         transform.Translate(_projectileSpeed * Time.deltaTime * _direction, Space.World);
 
@@ -35,7 +35,7 @@ public class TestProjectile : ATurretProjectile
             if (_overlaps[i].GetComponent<TurretController>() != null) continue;
 
 
-            if (_overlaps[i].TryGetComponent<EnemyController>(out var e)) Damage(e);
+            if (_overlaps[i].TryGetComponent<AEnemyController>(out var e)) Damage(e);
 
             Debug.Log("despawneado");
             DespawnProjectile();

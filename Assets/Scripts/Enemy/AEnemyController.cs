@@ -47,6 +47,7 @@ public abstract class AEnemyController : MonoBehaviour, IStateContext, IPoolObje
     {
         _spawner = spawner;
         transform.SetPositionAndRotation(pos, rot);
+        IsAlive = true;
         UpdateCurrentCell();
     }
 
@@ -128,7 +129,7 @@ public abstract class AEnemyController : MonoBehaviour, IStateContext, IPoolObje
     public virtual void Reset()
     {
         _currentHealth = _stats.Health;
-        IsAlive = true;
+        transform.position = Vector3.one * 300f;
     }
 
 }

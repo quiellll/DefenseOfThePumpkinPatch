@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class ATurretProjectile : MonoBehaviour, IPoolObject
 {
     public TurretProjectileSpawner Spawner { get; private set; }
-    public EnemyController EnemyTarget { get; private set; }
+    public AEnemyController EnemyTarget { get; private set; }
 
     [SerializeField] protected int _projectileDamage;
     //[SerializeField] protected int _projectileRadius;
@@ -26,7 +26,7 @@ public abstract class ATurretProjectile : MonoBehaviour, IPoolObject
         // no deberia de resetearse todo cada vez q aparece(?
     }
 
-    public virtual void Init(TurretProjectileSpawner spawner, EnemyController target, Vector3 projectileSpawnPos) 
+    public virtual void Init(TurretProjectileSpawner spawner, AEnemyController target, Vector3 projectileSpawnPos) 
     {
         Spawner = spawner;
         EnemyTarget = target;
@@ -35,7 +35,7 @@ public abstract class ATurretProjectile : MonoBehaviour, IPoolObject
         Debug.Log("proyectil spawneado");
     }
 
-    protected void Damage(EnemyController enemy) 
+    protected void Damage(AEnemyController enemy) 
     {
         enemy.TakeDamage(_projectileDamage);
     }
