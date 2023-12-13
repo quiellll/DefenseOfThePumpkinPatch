@@ -21,7 +21,7 @@ public class TurretProjectileSpawner : MonoBehaviour
     {
         _projectilePool = new ObjectPool(_projectilePrefab, _maxProjectileInScene, true, transform);
 
-        ProjectileType = _projectilePrefab.GetType();
+        ProjectileType = _projectilePrefab.GetType(); // DA ERROR
     }
 
     public ATurretProjectile SpawnProjectile() => _projectilePool.Get() as ATurretProjectile;

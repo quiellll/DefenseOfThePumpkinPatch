@@ -7,8 +7,8 @@ public abstract class ATurretProjectile : MonoBehaviour, IPoolObject
     public TurretProjectileSpawner Spawner { get; private set; }
     public EnemyController EnemyTarget { get; private set; }
 
-    [SerializeField] private int _projectileDamage;
-    [SerializeField] private int _projectileRadius;
+    [SerializeField] protected int _projectileDamage;
+    //[SerializeField] protected int _projectileRadius;
 
     public bool Active { get => gameObject.activeSelf; set => gameObject.SetActive(value); }
 
@@ -22,7 +22,8 @@ public abstract class ATurretProjectile : MonoBehaviour, IPoolObject
 
     public virtual void Reset()
     {
-        throw new System.NotImplementedException();
+        // Poner la velocidad a 0 (?
+        // no deberia de resetearse todo cada vez q aparece(?
     }
 
     public virtual void Init(TurretProjectileSpawner spawner, EnemyController target, Vector3 projectileSpawnPos) 
@@ -30,6 +31,8 @@ public abstract class ATurretProjectile : MonoBehaviour, IPoolObject
         Spawner = spawner;
         EnemyTarget = target;
         transform.SetPositionAndRotation(projectileSpawnPos, Quaternion.LookRotation(target.transform.position - projectileSpawnPos));
+
+        Debug.Log("proyectil spawneado");
     }
 
     protected void Damage(EnemyController enemy) 

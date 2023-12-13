@@ -35,7 +35,7 @@ public class TurretController : MonoBehaviour
         foreach(TurretProjectileSpawner spawner in FindObjectsOfType<TurretProjectileSpawner>())
         {
             // Si el spawner de balas es igual que la bala de mi torreta
-            if(spawner.ProjectileType == _turret.ProjectilePrefab.GetType()) 
+            if(spawner.ProjectileType == _turret.ProjectilePrefab.GetType()) // DA ERROR
             { 
                 _projectileSpawner = spawner;
                 break;
@@ -44,10 +44,6 @@ public class TurretController : MonoBehaviour
 
         _fireDelay = 1.0f / _fireRate;
         _fireDelayTimer = _fireDelay;
-    }
-
-    private void Start()
-    {
     }
 
     private void OnDrawGizmos() => Gizmos.DrawWireSphere(new Vector3(transform.position.x, 0.1f, transform.position.z), _radius);
@@ -170,7 +166,6 @@ public class TurretController : MonoBehaviour
 
     private void Fire()
     {
-        Debug.Log("BUM");
         var projectile = _projectileSpawner.SpawnProjectile();
         projectile.Init(_projectileSpawner, _currentTarget, _projectileSpawnPoint.position);
     }

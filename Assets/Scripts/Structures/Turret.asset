@@ -16,3 +16,5 @@ MonoBehaviour:
     type: 3}
   _dummyPrefab: {fileID: 6913165160548119631, guid: b02173b7203e06541b0554cd335e3743,
     type: 3}
+  _projectilePrefab: {fileID: -2405113080270641295, guid: a6b2167aa264d414fb3df054e7e99450,
+    type: 3}
