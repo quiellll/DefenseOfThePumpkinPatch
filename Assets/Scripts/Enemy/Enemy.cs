@@ -8,10 +8,10 @@ public class Enemy : ScriptableObject
     public int Health { get => _health; }
     public float MoveSpeed { get => _moveSpeed; }
     public float RotationSpeed { get => _rotationSpeed; }
-    public EnemyController Prefab { get => _enemyPrefab; }
+    public AEnemyController Prefab { get => _enemyPrefab; }
     public GameObject GravePrefab { get => _gravePrefab; }
 
-    [SerializeField] private EnemyController _enemyPrefab;
+    [SerializeField] private AEnemyController _enemyPrefab;
     [SerializeField] private int _health;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed;

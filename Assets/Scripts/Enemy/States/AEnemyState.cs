@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class AEnemyState : IState
 {
-    protected IEnemyStateContext _enemy; //referencia al contexto para poder acceder a sus metodos (moverse, etc)
+    protected AEnemyController _enemy; //referencia al contexto para poder acceder a sus metodos (moverse, etc)
 
-    public AEnemyState(IEnemyStateContext enemy)
+    public AEnemyState(AEnemyController enemy)
     {
         _enemy = enemy;
     }

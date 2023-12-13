@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8901930683471611503}
   - component: {fileID: 146462831137700690}
   - component: {fileID: 1582296268153721981}
-  - component: {fileID: 5821808853044953390}
   m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
@@ -62,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 24dcb838dd513ba4885f098a997d3764, type: 2}
+  - {fileID: 2100000, guid: 5ce580fe4ab2ca94eaf5e33c30cb4503, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5821808853044953390
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3061436864396466866}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3339435341775500968
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,10 +92,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5673841065532917588}
-  - component: {fileID: 2980590727112605772}
+  - component: {fileID: 9143861632827266439}
   - component: {fileID: 3215130759533984181}
   m_Layer: 9
-  m_Name: Basic Enemy
+  m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +117,7 @@ Transform:
   - {fileID: 4318095423151542137}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2980590727112605772
+--- !u!114 &9143861632827266439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,10 +126,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3339435341775500968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6243314d139e344d8e87a2b5a00da0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1275fb414ecc93441bc13dbf39091b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: 7e343f64f238b3249b904e00670a501c, type: 2}
+  _stats: {fileID: 11400000, guid: dc3cea80f6030664ab99fda9ed9c7265, type: 2}
+  _body: {fileID: 4318095423151542137}
 --- !u!65 &3215130759533984181
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -171,7 +150,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.61, y: 0.65, z: 0.69}
+  m_Size: {x: 0.3, y: 0.3, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6089606070446729751
 GameObject:
@@ -184,7 +163,6 @@ GameObject:
   - component: {fileID: 4318095423151542137}
   - component: {fileID: 8858749153220513456}
   - component: {fileID: 871371676135667408}
-  - component: {fileID: 5269997260024150220}
   m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
@@ -202,7 +180,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8901930683471611503}
@@ -236,7 +214,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 04bbdfa1830d7824aa4d050595ce3faa, type: 2}
+  - {fileID: 2100000, guid: 18dcfbf3b2e24d3478ed92bfbaa73e79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -258,24 +236,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5269997260024150220
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6089606070446729751}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
