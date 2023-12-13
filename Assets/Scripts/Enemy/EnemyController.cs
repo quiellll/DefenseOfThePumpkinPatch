@@ -111,7 +111,7 @@ public class EnemyController : MonoBehaviour, IEnemyStateContext, IPoolObject
 
     public IPoolObject Clone(Transform parent = null, bool active = false)
     {
-        IPoolObject clone = parent ? Instantiate(this) : Instantiate(this, parent);
+        IPoolObject clone = parent ? Instantiate(this, parent) : Instantiate(this);
         
         clone.Active = active;
         return clone;

@@ -8,7 +8,10 @@ public class Turret : ScriptableObject
 {
     public GameObject Prefab { get => _turretPrefab; }
     public GameObject Dummy { get => _dummyPrefab; }
+    public ATurretProjectile ProjectilePrefab { get => _projectilePrefab; }
 
     [SerializeField] private GameObject _turretPrefab;
     [SerializeField] private GameObject _dummyPrefab;
+
+    [SerializeField] private ATurretProjectile _projectilePrefab;
 }
