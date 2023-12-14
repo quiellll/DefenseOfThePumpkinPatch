@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostController : AEnemyController
+public class GhostController : AEnemyController //controlador del fantasma que hereda del comun abstracto
 {
     protected override void Start()
     {

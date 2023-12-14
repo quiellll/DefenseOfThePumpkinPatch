@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-public abstract class AEnemyController : MonoBehaviour, IStateContext, IPoolObject
+//controlador del enemigo, funcionalidades comunes de todos los enemigos que se agrupan en la clase abstracta
+public abstract class AEnemyController : MonoBehaviour, IPoolObject
 {
     //getter/setter para los estados
     public IState State { get => _currentState; set => ChangeState(value as AEnemyState); }
+    //para activar-desactivar objeto usando la interfaz IPoolObject
     public bool Active { get => gameObject.activeSelf; set => gameObject.SetActive(value); }
-    public bool IsAlive { get; private set; }
-    public GridCell CurrentCell { get; private set; }
+    public bool IsAlive { get; private set; } //si esta vivo
+    public GridCell CurrentCell { get; private set; } //la celda actual del camino donde esta
+    //su posicion en el plano xz
     public Vector2 XY { get => new (transform.position.x, transform.position.z); }
 
-    [SerializeField] protected Enemy _stats;
+    [SerializeField] protected Enemy _stats; //scriptableobject flyweight con los parametros comunes
     //modelo hijo del obj de este script (para que la rotacion + traslacion no se rompa)
     [SerializeField] protected Transform _body; 
 
     private AEnemyState _currentState;
     private int _currentHealth;
-    private Vector2 _gridPos;
+    private Vector2 _gridPos; //posicion redondead para saber en que celda esta
     private WaveSpawner _spawner;
 
 
@@ -51,6 +54,7 @@ public abstract class AEnemyController : MonoBehaviour, IStateContext, IPoolObje
         UpdateCurrentCell();
     }
 
+    //funcion de movimiento llamada por los estados de movimiento
     public void Move(Vector3 direction)
     {
         //rotacion (del modelo hijo para no afectar el movimiento del padre)
@@ -68,6 +72,7 @@ public abstract class AEnemyController : MonoBehaviour, IStateContext, IPoolObje
 
     public void Despawn() => _spawner.DespawnEnemy(this);
 
+    //actualiza la celda actual si ha cambiado
     protected void UpdateCurrentCell()
     {
         if (!WorldGrid.Instance) return;
@@ -78,6 +83,7 @@ public abstract class AEnemyController : MonoBehaviour, IStateContext, IPoolObje
         CurrentCell = WorldGrid.Instance.GetCellAt(_gridPos);
     }
 
+    //cambia de estado (funcion llamada solo por el setter de State)
     protected virtual void ChangeState(AEnemyState newState, bool isInitial = false)
     {
         if(isInitial)
@@ -98,8 +104,9 @@ public abstract class AEnemyController : MonoBehaviour, IStateContext, IPoolObje
 
     protected void SetInitialState(AEnemyState state) => ChangeState(state, true);
 
-    void OnMouseDown() => TakeDamage(_stats.Health); //debug
+    void OnMouseDown() => TakeDamage(_stats.Health); //solo para debug
 
+    //funcion publica para recibir daño
     public virtual void TakeDamage(int damage)
     {
         _currentHealth = Mathf.Max(_currentHealth - damage, 0);
@@ -110,13 +117,13 @@ public abstract class AEnemyController : MonoBehaviour, IStateContext, IPoolObje
         }
     }
 
-    protected virtual void Die()
+    protected virtual void Die() //morir
     {
         IsAlive = false;
         Despawn();
     }
 
-
+    //instanciar un objeto a paertir de este (para el Object Pool)
 
     public IPoolObject Clone(Transform parent = null, bool active = false)
     {
@@ -126,10 +133,9 @@ public abstract class AEnemyController : MonoBehaviour, IStateContext, IPoolObje
         return clone;
     }
 
-    public virtual void Reset()
+    public virtual void Reset() //funcion de IPoolObject para "limpiar" el objeto cuando vuelve a la pool
     {
         _currentHealth = _stats.Health;
-        transform.position = Vector3.one * 300f;
     }
 
 }

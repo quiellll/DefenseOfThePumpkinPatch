@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Flyweight del enemigo, stats comunes
 [CreateAssetMenu(menuName = "ScriptableObjects/Enemy")]
 public class Enemy : ScriptableObject
 {

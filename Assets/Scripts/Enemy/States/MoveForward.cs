@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveForward : AEnemyMoveState
+public class MoveForward : AEnemyMoveState //estado de moverse hacia delante por el path (para el granjero de momento)
 {
     public MoveForward(AEnemyController enemy) : base(enemy) { }
 
@@ -10,6 +10,7 @@ public class MoveForward : AEnemyMoveState
     {
         base.Enter(previousState);
 
+        //busca el waypoint mas cercano
         _currentWaypointIndex = -1;
         int wpIndex = -1, cellIndex = 0;
 

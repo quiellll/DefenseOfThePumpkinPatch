@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NightDefenseMode : ADefenseMode
+public class NightDefenseMode : ADefenseMode //defensa de noche (fantasmas)
 {
     public NightDefenseMode(GameManager g) : base(g) { }
 

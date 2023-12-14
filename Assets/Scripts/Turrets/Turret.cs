@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObjects/Turret")]
 
+//flyweight de la torreta con los stats comunes
+[CreateAssetMenu(menuName = "ScriptableObjects/Turret")]
 public class Turret : ScriptableObject
 {
     public GameObject Prefab { get => _turretPrefab; }

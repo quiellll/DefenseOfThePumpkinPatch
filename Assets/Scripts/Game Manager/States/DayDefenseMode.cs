@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DayDefenseMode : ADefenseMode
+public class DayDefenseMode : ADefenseMode //defensa de dia (granjeros)
 {
     public DayDefenseMode(GameManager g) : base(g) { }
 
