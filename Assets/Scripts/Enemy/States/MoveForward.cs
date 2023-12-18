@@ -2,12 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveForward : AEnemyMoveState
+public class MoveForward : AEnemyMoveState //estado de moverse hacia delante por el path (para el granjero de momento)
 {
-    public MoveForward(IEnemyStateContext enemy) : base(enemy)
+    public MoveForward(AEnemyController enemy) : base(enemy) { }
+
+    public override void Enter(IState previousState)
     {
-        _currentWaypointIndex = 0;
-        _currentWaypoint = WorldGrid.Instance.Waypoints[0];
+        base.Enter(previousState);
+
+        //busca el waypoint mas cercano
+        _currentWaypointIndex = -1;
+        int wpIndex = -1, cellIndex = 0;
+
+        while (wpIndex < cellIndex)
+        {
+            _currentWaypoint = WorldGrid.Instance.Waypoints[++_currentWaypointIndex];
+            wpIndex = WorldGrid.Instance.GetIndexOfPathCell(_currentWaypoint);
+            cellIndex = WorldGrid.Instance.GetIndexOfPathCell(_enemy.CurrentCell);
+        }
     }
 
     protected override void NextWaypoint() //hace que se mueva por el camino hacia delante
@@ -20,6 +32,6 @@ public class MoveForward : AEnemyMoveState
             return;
         }
 
-        _enemy.State = new MoveBackward(_enemy);
+        _enemy.State = new MoveBackwards(_enemy);
     }
 }

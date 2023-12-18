@@ -6,8 +6,7 @@ public class TurretConstructionButton : MonoBehaviour
 {
     [SerializeField] private Turret _turret;
 
-    public void SelectTurret()
-    {
-        GameManager.Instance.TurretToBuild = _turret;
-    }
+    //al pulsar un boton de torreta, asigna la torreta a construir que tenga en _turret
+    public void SelectTurret() => GameManager.Instance.TurretToBuild = _turret;
+    
 }

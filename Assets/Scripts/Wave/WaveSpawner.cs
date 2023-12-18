@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class WaveSpawner : MonoBehaviour
+public class WaveSpawner : MonoBehaviour //spawner de enemigos
 {
-    public UnityEvent WaveFinished;
 
-    [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private EnemyController _enemyPrefab;
-    [SerializeField] private int _enemiesPerWave;
-    [SerializeField] private float _spawnDelay;
+    //evento llamado cuando no queden enemigos por spawnear ni activos
+    public UnityEvent WaveFinished; 
+    public AEnemyController EnemyPrefab { get => _enemyPrefab; } //prefab a spawnear
+
+    [SerializeField] private Transform _spawnPoint; //punto donde spawnean
+    [SerializeField] private AEnemyController _enemyPrefab;
+    [SerializeField] private int _enemiesPerWave; //enemigos a spawnear en la oleada
+    [SerializeField] private float _spawnDelay; //tiempo entre cada spawn
 
     private ObjectPool _pool;
     private bool _spawnFinished = false;
@@ -21,10 +24,10 @@ public class WaveSpawner : MonoBehaviour
 
     private void Awake()
     {
-        _pool = new ObjectPool(_enemyPrefab, _enemiesPerWave, false, transform);
+        _pool = new ObjectPool(_enemyPrefab, _enemiesPerWave, false, _spawnPoint);
     }
 
-    public void SpawnWave()
+    public void SpawnWave() //se llama desde los estados de juego
     {
         _spawnFinished = false;
         _spawnedEnemies = 0;
@@ -34,14 +37,15 @@ public class WaveSpawner : MonoBehaviour
         SpawnEnemy();
     }
 
+    //funcion recursiva que spawnea un enemigo, espera el delay y se llama a si misma,
+    //Asi hasta spawnear todos los enemigos que le toca
     private void SpawnEnemy()
     {
-        var enemy = _pool.Get() as EnemyController;
+        var enemy = _pool.Get() as AEnemyController;
 
         if (!enemy) return;
 
-        enemy.transform.SetPositionAndRotation(_spawnPoint.position, _spawnPoint.rotation);
-        enemy.Spawner = this;
+        enemy.InitEnemy(_spawnPoint.position, _spawnPoint.rotation, this);
 
         _spawnedEnemies++;
         _aliveEnemies++;
@@ -56,8 +60,11 @@ public class WaveSpawner : MonoBehaviour
         else Invoke(nameof(SpawnEnemy), _spawnDelay);
     }
 
-    public void DespawnEnemy(EnemyController enemy)
+    //funcion que invocan los enemigos al morir o hacer todo su recorrido
+    //que los devuelve a la pool y limpia
+    public void DespawnEnemy(AEnemyController enemy)
     {
+        enemy.transform.position = _spawnPoint.position;
         _pool.Return(enemy);
         _activeEnemies--;
 

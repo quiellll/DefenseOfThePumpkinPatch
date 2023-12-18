@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AEnemyState : IState
+public abstract class AEnemyState : IState //clase para agrupar cosas comunes de todos los estados de los enemigos
 {
-    protected IEnemyStateContext _enemy; //referencia al contexto para poder acceder a sus metodos (moverse, etc)
+    protected AEnemyController _enemy; //referencia al enemig para poder acceder a sus metodos (moverse, etc)
 
-    public AEnemyState(IEnemyStateContext enemy)
+    public AEnemyState(AEnemyController enemy)
     {
         _enemy = enemy;
     }

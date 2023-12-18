@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AGameState : IState
+public abstract class AGameState : IState //clase comun para los estados del juego
 {
     protected GameManager _gameManager;
     public AGameState(GameManager gameManager)

@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildMode : AGameState
+public class BuildMode : AGameState //estado de construccion
 {
-    AGameState _previousState;
+    private bool _nextStateIsDay; //para saber a que estado de defensa cambiar, dia o noche
 
     public BuildMode(GameManager g): base(g) { }
 
     public override void Enter(IState previousState)
     {
-        _previousState = previousState as AGameState;
+        //si este es el estado inicial, o el estado anterior era noche, cambiar a dia el siguiente
+        _nextStateIsDay = previousState == null || previousState as NightDefenseMode != null;
         _gameManager.HUD.StartWave.AddListener(OnStartWave);
         _gameManager.HUD.StartWaveButton.SetActive(true);
     }
 
-    private void OnStartWave()
+    private void OnStartWave() //cuando se pulsa el boton de empezar oleada, se cambia al estado de defensa
     {
         _gameManager.HUD.StartWave?.RemoveListener(OnStartWave);
-        _gameManager.GameState = new DefenseMode(_gameManager);
+        _gameManager.GameState = 
+            _nextStateIsDay ? new DayDefenseMode(_gameManager) : new NightDefenseMode(_gameManager);
     }
 }
