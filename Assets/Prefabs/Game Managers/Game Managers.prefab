@@ -291,6 +291,37 @@ Transform:
   - {fileID: 6172241890558426906}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &953688846540291816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1917769577223191165}
+  m_Layer: 0
+  m_Name: Pumpkin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1917769577223191165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953688846540291816}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1883723093519117223}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1963913715511610846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,6 +1890,7 @@ Transform:
   - {fileID: 7570523799264638983}
   - {fileID: 8190775783327954290}
   - {fileID: 4232534459691910167}
+  - {fileID: 1917769577223191165}
   m_Father: {fileID: 2683540747870480309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &649401493968447871
@@ -1879,6 +1911,7 @@ MonoBehaviour:
   _pathCellContainer: {fileID: 8190775783327954290}
   _turretCellContainer: {fileID: 4232534459691910167}
   _decorationCellContainer: {fileID: 7570523799264638983}
+  _pumpkinCellContainer: {fileID: 1917769577223191165}
 --- !u!1 &7792708350151850436
 GameObject:
   m_ObjectHideFlags: 0

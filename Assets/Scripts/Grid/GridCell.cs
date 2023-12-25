@@ -10,7 +10,7 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
     public int Y { get => (int)transform.position.z; }
     public Vector2 XY { get => new (X,Y); }
 
-    public enum CellType { Path, Turret, Decoration } //tipo de celda
+    public enum CellType { Path, Turret, Decoration, Pumpkin} //tipo de celda
     public CellType Type { get => _type; }
     public bool IsWaypoint {  get => _isWaypoint; } //solo tiene sentido si es de tipo Path
     public GameObject ElementOnTop { get => _elementOnTop; } //objeto sobre la celda, de momento solo torreta

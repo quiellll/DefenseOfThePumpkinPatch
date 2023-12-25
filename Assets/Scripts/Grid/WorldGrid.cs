@@ -15,6 +15,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
     [SerializeField] private Transform _pathCellContainer;
     [SerializeField] private Transform _turretCellContainer;
     [SerializeField] private Transform _decorationCellContainer;
+    [SerializeField] private Transform _pumpkinCellContainer;
 
     //arrays del camino y los waypoints (esquinas del camino + inicio + fin, en orden)
     private GridCell[] _path;
