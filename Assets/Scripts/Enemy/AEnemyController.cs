@@ -14,6 +14,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     public GridCell CurrentCell { get; private set; } //la celda actual del camino donde esta
     //su posicion en el plano xz
     public Vector2 XY { get => new (transform.position.x, transform.position.z); }
+    public Vector3 Direction { get; private set; }
 
     [SerializeField] protected Enemy _stats; //scriptableobject flyweight con los parametros comunes
     //modelo hijo del obj de este script (para que la rotacion + traslacion no se rompa)
@@ -57,6 +58,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     //funcion de movimiento llamada por los estados de movimiento
     public void Move(Vector3 direction)
     {
+        Direction = direction;
         //rotacion (del modelo hijo para no afectar el movimiento del padre)
         if(Vector3.SignedAngle(_body.forward , direction, Vector3.up) != 0)
         {

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9b11dc829691c41b736db3c30f1fc3, type: 3}
+  m_Name: Catapult
+  m_EditorClassIdentifier: 
+  _turretPrefab: {fileID: 6891146182113863401, guid: 7bee8ab66f3dfbc45b293ff47142064d,
+    type: 3}
+  _dummyPrefab: {fileID: 6891146182113863401, guid: 138738bae82994144988356d714175f8,
+    type: 3}
+  _projectilePrefab: {fileID: 2913397219277726697, guid: 194c0bec540536d4e8a73f07c20159dd,
+    type: 3}
+  _rotationSpeed: 15
+  _innerRadius: 3
+  _outerRadius: 8
+  _fireRate: 0.5
+  _projectileMoveSpeed: 5
+  _projectileDamage: 1
+  _maxProjectileHeight: 0.3

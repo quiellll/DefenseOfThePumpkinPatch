@@ -13,8 +13,22 @@ public class Turret : ScriptableObject
     public GameObject Dummy { get => _dummyPrefab; }
     // Prefab del proyectil a disparar
     public ATurretProjectile ProjectilePrefab { get => _projectilePrefab; }
+    public float RotationSpeed { get => _rotationSpeed; } //velocidad de rotacion
+    //los enemigos a menos de este radio no son targeteados
+    public float InnerRadius { get => _innerRadius; } 
+    //los enemigos a mas de este radio no son targeteados
+    public float OuterRadius { get => _outerRadius; }
+    public float FireRate { get => _fireRate; } //disparos por segundo
+    public float ProjectileMoveSpeed {  get => _projectileMoveSpeed; }
+    public int ProjectileDamage { get => _projectileDamage; }
 
     [SerializeField] private GameObject _turretPrefab;
     [SerializeField] private GameObject _dummyPrefab;
     [SerializeField] private ATurretProjectile _projectilePrefab;
+    [SerializeField] private float _rotationSpeed;
+    [SerializeField] private float _innerRadius;
+    [SerializeField] private float _outerRadius;
+    [SerializeField] private float _fireRate;
+    [SerializeField] private float _projectileMoveSpeed;
+    [SerializeField] private int _projectileDamage;
 }

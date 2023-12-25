@@ -34,6 +34,11 @@ public class TurretProjectileSpawner : MonoBehaviour
     // Método para eliminar un proyectil de la escena y guardarlo en la Pool
     public void DespawnProjectile(ATurretProjectile projectile)
     {
+        if(!projectile.Active)
+        {
+            //Debug.Log("ya esta despawneado el proyectil");
+            return;
+        }
         _projectilePool.Return(projectile);
     }
 }

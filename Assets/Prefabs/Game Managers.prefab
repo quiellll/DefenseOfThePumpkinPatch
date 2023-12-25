@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b142510f4611bb04f8f5cdf5d21354da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _turret: {fileID: 11400000, guid: a4d6a357e5b7f8c4c81e6ff0364e014c, type: 2}
+  _turret: {fileID: 11400000, guid: 2782564eaf0be6e40b8cb162880ad361, type: 2}
 --- !u!1 &257671149034227294
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4281605333099664016}
+      - m_Target: {fileID: 8407833256259945153}
         m_TargetAssemblyTypeName: TurretConstructionButton, Assembly-CSharp
         m_MethodName: SelectTurret
         m_Mode: 1
@@ -1348,7 +1348,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4281605333099664016}
+      - m_Target: {fileID: 6456185515158081817}
         m_TargetAssemblyTypeName: TurretConstructionButton, Assembly-CSharp
         m_MethodName: SelectTurret
         m_Mode: 1
@@ -1953,6 +1953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6172241890558426906}
   - component: {fileID: 3972030588747880408}
+  - component: {fileID: 5549747085884564768}
   m_Layer: 0
   m_Name: Projectile Spawner
   m_TagString: Untagged
@@ -1989,7 +1990,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectilePrefab: {fileID: -2405113080270641295, guid: a6b2167aa264d414fb3df054e7e99450,
     type: 3}
-  _maxProjectileInScene: 0
+  _maxProjectileInScene: 10
+--- !u!114 &5549747085884564768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7975886650488314185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbdf7b26dd596684ebc5a3cf3f5d56a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectilePrefab: {fileID: 2913397219277726697, guid: 194c0bec540536d4e8a73f07c20159dd,
+    type: 3}
+  _maxProjectileInScene: 10
 --- !u!1 &8079279053248092834
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c30e0aaa60516b4c9ae036d06d271c7, type: 3}
-  m_Name: Turret
+  m_Name: Ballista
   m_EditorClassIdentifier: 
   _turretPrefab: {fileID: 6891146182113863401, guid: f7e8f012657f99c4a8dbc191cdb06395,
     type: 3}
@@ -18,3 +18,9 @@ MonoBehaviour:
     type: 3}
   _projectilePrefab: {fileID: -2405113080270641295, guid: a6b2167aa264d414fb3df054e7e99450,
     type: 3}
+  _rotationSpeed: 15
+  _innerRadius: 0
+  _outerRadius: 3.5
+  _fireRate: 1
+  _projectileMoveSpeed: 7
+  _projectileDamage: 1

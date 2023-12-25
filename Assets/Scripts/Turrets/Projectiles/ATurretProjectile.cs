@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +9,12 @@ public abstract class ATurretProjectile : MonoBehaviour, IPoolObject
     public TurretProjectileSpawner Spawner { get; private set; }
     // Referencia al enemigo al que debe perseguir
     public AEnemyController EnemyTarget { get; private set; }
+    public bool Active { get => gameObject.activeSelf; set => gameObject.SetActive(value); }
 
-    // Daño que realiza el proyectil
-    [SerializeField] protected int _projectileDamage;
+    protected Turret _turret;
+    protected ATurretController _controller;
 
     // Método de PoolObject para conocer su estado
-    public bool Active { get => gameObject.activeSelf; set => gameObject.SetActive(value); }
 
     // Método de PoolObject para clonar una instancia del objeto
     public IPoolObject Clone(Transform parent = null, bool active = false)
@@ -28,20 +29,24 @@ public abstract class ATurretProjectile : MonoBehaviour, IPoolObject
     public virtual void Reset() {}
 
     // Método de PoolObject para inicializar el objeto
-    public virtual void Init(TurretProjectileSpawner spawner, AEnemyController target, Vector3 projectileSpawnPos) 
+    public virtual void Init (TurretProjectileSpawner spawner, AEnemyController target, 
+        Vector3 spawnPos, Turret turret, ATurretController controller) 
     {
         Spawner = spawner;
         EnemyTarget = target;
         // Se coloca el proyectil en la posición del spawner de la torre (punta del cañón, base de la ballesta, cuchara de la catapulta...)
         // Y se rota para que su vector forward apunte hacia el enemigo.
-        transform.SetPositionAndRotation(projectileSpawnPos, Quaternion.LookRotation(target.transform.position - projectileSpawnPos));
+        transform.SetPositionAndRotation(spawnPos, Quaternion.LookRotation(target.transform.position - spawnPos));
+
+        _turret = turret;
+        _controller = controller;
     }
 
     // Método para dañar al enemigo
     protected void Damage(AEnemyController enemy) 
     {
         // Indica al enemigo cuánto daño debe recibir en función del proyectil
-        enemy.TakeDamage(_projectileDamage);
+        enemy.TakeDamage(_turret.ProjectileDamage);
     }
 
     // Método de PoolObject para sacar un objeto de la escena
@@ -51,3 +56,4 @@ public abstract class ATurretProjectile : MonoBehaviour, IPoolObject
     }
 
 }
+
