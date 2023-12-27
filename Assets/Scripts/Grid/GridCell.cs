@@ -13,7 +13,8 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
     public enum CellType { Path, Turret, Decoration, Pumpkin} //tipo de celda
     public CellType Type { get => _type; }
     public bool IsWaypoint {  get => _isWaypoint; } //solo tiene sentido si es de tipo Path
-    public GameObject ElementOnTop { get => _elementOnTop; } //objeto sobre la celda, de momento solo torreta
+    //objeto sobre la celda, de momento torreta o calabaza
+    public GameObject ElementOnTop { get => _elementOnTop && _elementOnTop.activeSelf ? _elementOnTop : null; } 
 
     [SerializeField] private CellType _type;
     [SerializeField] private bool _isWaypoint;
@@ -21,22 +22,57 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
     private GameObject _elementOnTop;
     private BoxCollider _collider;
 
-
+    private void Awake()
+    {
+        if(Type == CellType.Pumpkin)
+        {
+            _elementOnTop = transform.childCount > 0 ? transform.GetChild(0).gameObject : null;
+        }
+    }
 
     public bool BuildTurret(Turret turret) //instancia una torreta sobre la celda
     {
         if (_elementOnTop || Type != CellType.Turret) return false;
 
-        _elementOnTop = Instantiate(turret.Prefab, transform.position, turret.Prefab.transform.rotation);
+        _elementOnTop = Instantiate(turret.Prefab, transform.position, turret.Prefab.transform.rotation, transform);
         _elementOnTop.transform.Translate(0f, .1f, 0f);
         return true;
     }
 
-    public void BuildGrave(GameObject grave, Vector3 position, Quaternion rotation) //instancia una tumba sobre la celda
+    public void BuildGrave(GameObject gravePrefab, Vector3 position, Quaternion rotation) //instancia una tumba sobre la celda
     {
-        if(Type != CellType.Path) return;
+        if(Type != CellType.Path) return; //puede morir en pumpkin???
 
-        var gt = Instantiate(grave, position, rotation).transform;
+        var gt = Instantiate(gravePrefab, position, rotation, transform).transform;
         WorldGrid.Instance.AddGrave(gt, this);
+    }
+
+    public bool BuildPumpkin(GameObject pumpkinPrefab)
+    {
+        if(Type != CellType.Pumpkin) return false;
+        if (ElementOnTop) return false; //si el top no es nulo y esta activado
+
+        //si no es nulo y no returneamos antes, significa que ya existe un top pero esta desactivado 
+        if(_elementOnTop)
+        {
+            _elementOnTop.SetActive(true);
+            WorldGrid.Instance.AddPumpkin(this);
+            return true;
+        }
+        //si no existe lo instanciamos
+        _elementOnTop = Instantiate(pumpkinPrefab, transform.position, pumpkinPrefab.transform.rotation, transform);
+        _elementOnTop.transform.Translate(0f, .1f, 0f);
+        WorldGrid.Instance.AddPumpkin(this);
+        return true;
+    }
+
+    public bool DestroyPumpkin()
+    {
+        if (Type != CellType.Pumpkin) return false;
+        if(!ElementOnTop) return false;
+
+        _elementOnTop.SetActive(false);
+        WorldGrid.Instance.RemovePumpkin(this);
+        return true;
     }
 }

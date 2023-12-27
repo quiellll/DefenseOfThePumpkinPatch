@@ -20,9 +20,9 @@ MonoBehaviour:
   _rotationSpeed: 15
   _innerRadius: 0
   _outerRadius: 4
-  _fireRate: 0.5
+  _fireRate: 0.75
   _projectileMoveSpeed: 0
-  _projectileDamage: 0
+  _projectileDamage: 1
   _beamColor: {r: 1, g: 0.6745283, b: 0.77783036, a: 1}
   _attackColor: {r: 0.8679245, g: 0.1500664, b: 0.13510147, a: 1}
-  _attackColorDuration: 0.5
+  _attackColorDuration: 0.2
