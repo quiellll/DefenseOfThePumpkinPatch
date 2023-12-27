@@ -100,7 +100,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
         _graves.Add(g);
     }
 
-    public GraveAtPath GetNearestGrave() => _graves[0];
+    public GraveAtPath GetNearestGrave() => _graves.Count > 0 ? _graves[0] : null;
     
 
     //quita una tumba de la lista y llama al evento para actualizar a los fantasmas

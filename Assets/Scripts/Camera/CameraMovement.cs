@@ -54,11 +54,12 @@ public class CameraMovement : MonoBehaviour
         transform.position = newPos;
 
         //zoom con el input (en el zoom se mueve la camara en vez del padre)
-        newPos = _cam.position;
-        newPos.y = //se clampea para evitar salirse de los limites del zoom
-            Mathf.Clamp(_cam.position.y - _yInput * _zoomSpeed * Time.deltaTime, _minYPos, _maxYPos);
 
-        _cam.position = newPos;
+        //se clampea para evitar salirse de los limites del zoom
+        //newPos.y = Mathf.Clamp(_cam.position.y - _yInput * _zoomSpeed * Time.deltaTime, _minYPos, _maxYPos);
+
+        newPos = _cam.position + _cam.forward * _yInput * _zoomSpeed * Time.deltaTime;
+        if(newPos.y > _minYPos && newPos.y < _maxYPos) _cam.position = newPos;
 
         //si hay input de movimiento, no se rota la camara (para evitar transformaciones raras)
         if (_xzInput.sqrMagnitude > 0) return; 
