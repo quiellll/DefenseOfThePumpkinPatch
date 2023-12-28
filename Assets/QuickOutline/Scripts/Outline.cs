@@ -85,6 +85,14 @@ public class Outline : MonoBehaviour {
     // Cache renderers
     renderers = GetComponentsInChildren<Renderer>();
 
+    var renderersList = new List<Renderer>();
+        foreach(var r in renderers)
+        {
+            if(r.gameObject.name != "Range") renderersList.Add(r);
+        }
+
+        renderers = renderersList.ToArray();
+
     // Instantiate outline materials
     outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineMask"));
     outlineFillMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineFill"));
@@ -102,8 +110,8 @@ public class Outline : MonoBehaviour {
   void OnEnable() {
     foreach (var renderer in renderers) {
 
-      // Append outline shaders
-      var materials = renderer.sharedMaterials.ToList();
+
+            var materials = renderer.sharedMaterials.ToList();
 
       materials.Add(outlineMaskMaterial);
       materials.Add(outlineFillMaterial);
@@ -140,8 +148,9 @@ public class Outline : MonoBehaviour {
   void OnDisable() {
     foreach (var renderer in renderers) {
 
-      // Remove outline shaders
-      var materials = renderer.sharedMaterials.ToList();
+
+            // Remove outline shaders
+            var materials = renderer.sharedMaterials.ToList();
 
       materials.Remove(outlineMaskMaterial);
       materials.Remove(outlineFillMaterial);
@@ -164,8 +173,10 @@ public class Outline : MonoBehaviour {
 
     foreach (var meshFilter in GetComponentsInChildren<MeshFilter>()) {
 
-      // Skip duplicates
-      if (!bakedMeshes.Add(meshFilter.sharedMesh)) {
+
+
+            // Skip duplicates
+            if (!bakedMeshes.Add(meshFilter.sharedMesh)) {
         continue;
       }
 
@@ -181,6 +192,8 @@ public class Outline : MonoBehaviour {
 
     // Retrieve or generate smooth normals
     foreach (var meshFilter in GetComponentsInChildren<MeshFilter>()) {
+
+
 
       // Skip if smooth normals have already been adopted
       if (!registeredMeshes.Add(meshFilter.sharedMesh)) {

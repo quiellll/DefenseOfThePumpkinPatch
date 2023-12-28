@@ -80,7 +80,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         if (!_turretDummy.activeSelf) _turretDummy.SetActive(true);
-        _turretDummy.transform.position = _selectedCell.transform.position;
+        _turretDummy.transform.position = _selectedCell.transform.position + Vector3.up * 0.1f;
     }
 
     //se llama con el setter de TurretToBuild, instancia el dummy cuando se decide connstruir una torreta

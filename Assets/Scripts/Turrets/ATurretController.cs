@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using UnityEngine;
 
+[RequireComponent(typeof(TurretRange))]
 public abstract class ATurretController : MonoBehaviour
 {
     //su posicion en el plano xz
@@ -28,6 +29,7 @@ public abstract class ATurretController : MonoBehaviour
     // Capa en la que se encuentran los enemigos
     private LayerMask _enemyMask;
 
+
     protected virtual void Awake()
     {
         // CAMBIAR A NUMERO OPTIMO DE ENEMIGOS !!!!!!!!
@@ -39,6 +41,7 @@ public abstract class ATurretController : MonoBehaviour
 
         //inicializar la layermask de enemigos
         _enemyMask = LayerMask.GetMask("Enemy");
+
     }
 
     // DEBUG. Para dibujar la esfera que muestra el rango de ataque
