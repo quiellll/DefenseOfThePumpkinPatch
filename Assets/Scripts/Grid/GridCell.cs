@@ -20,13 +20,21 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
     [SerializeField] private bool _isWaypoint;
 
     private GameObject _elementOnTop;
-    private BoxCollider _collider;
 
     private void Awake()
     {
         if(Type == CellType.Pumpkin)
         {
-            _elementOnTop = transform.childCount > 0 ? transform.GetChild(0).gameObject : null;
+            if(transform.childCount == 0)
+            {
+                _elementOnTop = null;
+                return;
+            }
+
+            //le quitamos la calabaza de hija para que pueda ser seleccionada
+            _elementOnTop = transform.GetChild(0).gameObject;
+            _elementOnTop.transform.SetParent(null);
+
         }
     }
 
@@ -34,8 +42,17 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
     {
         if (_elementOnTop || Type != CellType.Turret) return false;
 
-        _elementOnTop = Instantiate(turret.Prefab, transform.position, turret.Prefab.transform.rotation, transform);
+        _elementOnTop = Instantiate(turret.Prefab, transform.position, turret.Prefab.transform.rotation);
         _elementOnTop.transform.Translate(0f, .1f, 0f);
+        return true;
+    }
+
+    public bool SellTurret()
+    {
+        if (!ElementOnTop || Type != CellType.Turret) return false;
+
+        Destroy(_elementOnTop);
+        _elementOnTop = null;
         return true;
     }
 
@@ -60,7 +77,7 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
             return true;
         }
         //si no existe lo instanciamos
-        _elementOnTop = Instantiate(pumpkinPrefab, transform.position, pumpkinPrefab.transform.rotation, transform);
+        _elementOnTop = Instantiate(pumpkinPrefab, transform.position, pumpkinPrefab.transform.rotation);
         _elementOnTop.transform.Translate(0f, .1f, 0f);
         WorldGrid.Instance.AddPumpkin(this);
         return true;

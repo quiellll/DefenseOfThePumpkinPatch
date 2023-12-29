@@ -86,6 +86,11 @@ public class GameManager : Singleton<GameManager>
     //se llama con el setter de TurretToBuild, instancia el dummy cuando se decide connstruir una torreta
     private void SetTurretToBuild(Turret turret)
     {
+        if(_turretDummy != null)
+        {
+            Destroy(_turretDummy);
+        }
+
         _turretToBuild = turret;
         _turretDummy = Instantiate(turret.Dummy, Vector3.zero, turret.Dummy.transform.rotation);
 
@@ -100,7 +105,7 @@ public class GameManager : Singleton<GameManager>
 
     //se llama cuando se hace clic para construir en un sitio valido, construye la torreta y
     //destruye el dummy
-    public void Build(InputAction.CallbackContext context)
+    public void BuildTurret(InputAction.CallbackContext context)
     {
         if (!context.started) return;
         if(!_turretToBuild || !_turretDummy || !_turretDummy.activeSelf || !_selectedCell) return;
@@ -114,6 +119,21 @@ public class GameManager : Singleton<GameManager>
         _turretDummy = null;
         _turretToBuild = null;
     }
+
+    public void CancelBuildTurret()
+    {
+        if (_turretDummy == null || _turretToBuild == null) return;
+
+        _turretToBuild = null;
+        Destroy(_turretDummy);
+        _turretDummy = null;
+    }
+
+    public void SellTurret(GridCell turretCell)
+    {
+        turretCell.SellTurret();
+    }
+
     #endregion
 
 
