@@ -11,7 +11,7 @@ public class GameManager : Singleton<GameManager>
 {
     public AGameState GameState { get => _gameState; set => ChangeState(value); }
     public bool IsOnDefense { get => _gameState.GetType() != typeof(BuildMode); }
-    public Turret TurretToBuild { get => _turretToBuild; set => SetTurretToBuild(value); } //torreta establecida para construir
+    public Turret TurretToBuild { get => _turretToBuild;} //torreta establecida para construir
     
     //spawners de cada tipo de enemigo
     public WaveSpawner FarmerWaveSpawner { get; private set; }
@@ -84,7 +84,7 @@ public class GameManager : Singleton<GameManager>
     }
 
     //se llama con el setter de TurretToBuild, instancia el dummy cuando se decide connstruir una torreta
-    private void SetTurretToBuild(Turret turret)
+    public void SetTurretToBuild(Turret turret)
     {
         if(_turretDummy != null)
         {
@@ -103,6 +103,15 @@ public class GameManager : Singleton<GameManager>
         _turretDummy.SetActive(false);
     }
 
+    public void RemoveTurretToBuild()
+    {
+        if(_turretDummy == null || _turretToBuild == null) return;
+
+        Destroy(_turretDummy);
+        _turretDummy = null;
+        _turretToBuild = null;
+    }
+
     //se llama cuando se hace clic para construir en un sitio valido, construye la torreta y
     //destruye el dummy
     public void BuildTurret(InputAction.CallbackContext context)
@@ -110,28 +119,13 @@ public class GameManager : Singleton<GameManager>
         if (!context.started) return;
         if(!_turretToBuild || !_turretDummy || !_turretDummy.activeSelf || !_selectedCell) return;
 
+        if(_selectedCell.ElementOnTop || _selectedCell.Type != GridCell.CellType.Turret) return;
 
-        bool built = _selectedCell.BuildTurret(_turretToBuild);
-
-        if (!built) return;
+        CommandManager.ExecuteCommand(new BuildTurret(_turretToBuild, _selectedCell));
 
         Destroy(_turretDummy);
         _turretDummy = null;
         _turretToBuild = null;
-    }
-
-    public void CancelBuildTurret()
-    {
-        if (_turretDummy == null || _turretToBuild == null) return;
-
-        _turretToBuild = null;
-        Destroy(_turretDummy);
-        _turretDummy = null;
-    }
-
-    public void SellTurret(GridCell turretCell)
-    {
-        turretCell.SellTurret();
     }
 
     #endregion

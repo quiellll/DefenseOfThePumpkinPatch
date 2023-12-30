@@ -9,8 +9,7 @@ public class TurretConstructionButton : MonoBehaviour
     //al pulsar un boton de torreta, asigna la torreta a construir que tenga en _turret
     public void SelectTurret()
     {
-        //Debug.Log(_turret.name);
-        GameManager.Instance.TurretToBuild = _turret;
+        CommandManager.ExecuteCommand(new SetTurretToBuy(_turret));
     }
     
 }

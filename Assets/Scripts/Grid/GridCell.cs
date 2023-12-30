@@ -47,7 +47,7 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
         return true;
     }
 
-    public bool SellTurret()
+    public bool RemoveTurret()
     {
         if (!ElementOnTop || Type != CellType.Turret) return false;
 

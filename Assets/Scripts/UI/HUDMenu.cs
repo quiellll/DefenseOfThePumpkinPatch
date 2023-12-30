@@ -6,6 +6,11 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
+//en esta clase se guardan las referencias a todos los menus y botones para poder
+//desactivarlos y activarlos desde otras clases cuando corresponda
+//en esta clase se deberian implementar los callbacks de todos los botones del hud como:
+//empezar oleada, cambiar la vel. del tiempo, deshacer accion, mostrar/ocultar tienda, etc
+//tambien de las cosas del hud como el contador de oro, de calabazas, etc
 public class HUDMenu : MonoBehaviour
 {
     //boton de iniciar oleada
