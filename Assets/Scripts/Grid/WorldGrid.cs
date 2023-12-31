@@ -88,8 +88,6 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
     public class GraveAtPath
     {
         public Transform Grave; public int PathIndex;
-        internal Transform position;
-
         public GraveAtPath(Transform grave, int index)
         {
             Grave = grave;
