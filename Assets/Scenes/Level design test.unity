@@ -14857,11 +14857,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 257671149034227294, guid: 4bfabe2b7413f5047918e1725855a389,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 649401493968447871, guid: 4bfabe2b7413f5047918e1725855a389,
         type: 3}
       propertyPath: _pumpkinCellContainer
