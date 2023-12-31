@@ -5,10 +5,13 @@ using System.Linq;
 using System.Threading;
 using UnityEngine;
 
+[RequireComponent(typeof(TurretRange))]
 public abstract class ATurretController : MonoBehaviour
 {
     //su posicion en el plano xz
     public Vector2 XY { get => new(transform.position.x, transform.position.z); }
+
+    public GridCell Cell { get; private set; }
 
     // Referencia al ScriptableObject de la torreta
     [SerializeField] protected Turret _turret;
@@ -28,6 +31,7 @@ public abstract class ATurretController : MonoBehaviour
     // Capa en la que se encuentran los enemigos
     private LayerMask _enemyMask;
 
+
     protected virtual void Awake()
     {
         // CAMBIAR A NUMERO OPTIMO DE ENEMIGOS !!!!!!!!
@@ -39,6 +43,13 @@ public abstract class ATurretController : MonoBehaviour
 
         //inicializar la layermask de enemigos
         _enemyMask = LayerMask.GetMask("Enemy");
+
+
+    }
+
+    private void Start()
+    {
+        Cell = WorldGrid.Instance.GetCellAt(XY);
     }
 
     // DEBUG. Para dibujar la esfera que muestra el rango de ataque

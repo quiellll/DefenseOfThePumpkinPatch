@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
     public IReadOnlyList<GridCell> Path { get => _path; }
     public IReadOnlyList<GridCell> Waypoints { get => _waypoints; }
     public UnityEvent<GraveAtPath> GravesUpdated;
+    public UnityEvent<GridCell> PumpkinsUpdated;
 
     //objetos contenedores de las celdas de cada tipo
     [SerializeField] private Transform _pathCellContainer;
@@ -22,12 +24,19 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
     private GridCell[] _waypoints;
     private List<GraveAtPath> _graves = new(); //array con las tumbas en orden
     private LayerMask _gridCells;
+    private List<PumpkinDistance> _pumpkins;
 
     protected override void Awake()
     {
         base.Awake();
         InitPath();
+
         _gridCells = LayerMask.GetMask("Cell");
+    }
+
+    private void Start()
+    {
+        InitPumpkins();
     }
 
     private void InitPath() //guarda el camino y los waypoints en los arrays
@@ -93,7 +102,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
         _graves.Add(g);
     }
 
-    public GraveAtPath GetNearestGrave() => _graves[0];
+    public GraveAtPath GetNearestGrave() => _graves.Count > 0 ? _graves[0] : null;
     
 
     //quita una tumba de la lista y llama al evento para actualizar a los fantasmas
@@ -112,4 +121,80 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
 
     #endregion
 
+    #region Pumpkins
+
+    private class PumpkinDistance
+    {
+        public GridCell Cell { get; private set; }
+        public float Distance { get; private set; }
+
+        public PumpkinDistance(GridCell cell)
+        {
+            Cell = cell;
+            Distance = Vector2.Distance(cell.XY,
+                Instance._waypoints[WorldGrid.Instance._waypoints.Length - 1].XY);
+        }
+ 
+    }
+
+    private void InitPumpkins()
+    {
+        _pumpkins = new();
+        for (int i = 0; i < _pumpkinCellContainer.childCount; i++)
+        {
+            var cell = _pumpkinCellContainer.GetChild(i).GetComponent<GridCell>();
+            if (!cell.ElementOnTop) continue;
+
+            //_pumpkins.Add(new PumpkinDistance(cell));
+            AddPumpkin(cell);
+        }
+
+        //_pumpkins = _pumpkins.OrderBy(p => p.Distance).ToList();
+
+    }
+
+    public bool AddPumpkin(GridCell cell)
+    {
+        if(cell.Type != GridCell.CellType.Pumpkin || !cell.ElementOnTop) return false;
+
+        var pumpkin = new PumpkinDistance(cell);
+
+
+        for (int i = 0; i < _pumpkins.Count; i++)
+        {
+            if (_pumpkins[i].Distance < pumpkin.Distance) continue;
+            if (_pumpkins[i].Cell == cell) return false;
+
+            _pumpkins.Insert(i, pumpkin);
+            PumpkinsUpdated.Invoke(_pumpkins[0].Cell);
+            return true;
+        }
+
+        _pumpkins.Add(pumpkin);
+        PumpkinsUpdated.Invoke(_pumpkins[0].Cell);
+        return true;
+    }
+
+    public GridCell GetNearestPumpkinCell() => _pumpkins[0].Cell;
+
+    public bool RemovePumpkin(GridCell cell)
+    {
+        if (cell.Type != GridCell.CellType.Pumpkin || cell.ElementOnTop) return false;
+
+        for (int i = 0; i < _pumpkins.Count; i++)
+        {
+            if(cell == _pumpkins[i].Cell)   
+            {
+                _pumpkins.RemoveAt(i);
+                PumpkinsUpdated.Invoke(_pumpkins[0].Cell);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+
+    #endregion
 }

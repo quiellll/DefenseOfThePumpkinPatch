@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostMoveForward : AEnemyMoveState //estado de movimiento hacia delante del fantasma
+public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia delante del fantasma
 {
     private WorldGrid.GraveAtPath _grave; //tumba hacia la que el fantasma se mueve
     private GridCell _graveCell; //celda en la que esta la tumbs

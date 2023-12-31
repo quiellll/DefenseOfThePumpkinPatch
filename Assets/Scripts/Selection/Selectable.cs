@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Outline), typeof(Collider))]
 public class Selectable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
+    public UnityEvent Selected, Deselected;
     private Outline _outline;
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class Selectable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         GameManager.Instance.SetSelectedObject(this);
         _outline.enabled = true;
+        Selected.Invoke();
     }
 
     //cuando salga el raton del objeto quitarlo como seleccionado
@@ -34,6 +37,7 @@ public class Selectable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         GameManager.Instance.RemoveSelectedObject(this);
         _outline.enabled = false;
+        Deselected.Invoke();
     }
 
     public void OnPointerDown(PointerEventData eventData)

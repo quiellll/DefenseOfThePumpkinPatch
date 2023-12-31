@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveBackwards : AEnemyMoveState //estado de moverse hacia atras en el path (tanto para granjero como para fantasma de momento)
+public class MoveBackwards : AEnemyPathState //estado de moverse hacia atras en el path (tanto para granjero como para fantasma de momento)
 {
     public MoveBackwards(AEnemyController enemy) : base(enemy) { }
 

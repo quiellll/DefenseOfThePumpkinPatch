@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AEnemyMoveState : AEnemyState //clase para agrupar func. comunes de todos los estados de movimiento
+public abstract class AEnemyPathState : AEnemyState //clase para agrupar func. comunes de todos los estados de movimiento
 {
     protected GridCell _currentWaypoint; //waypoint actual
     protected int _currentWaypointIndex; //indice en el array de waypoint de worldgrid del waypoint actual
@@ -11,7 +11,7 @@ public abstract class AEnemyMoveState : AEnemyState //clase para agrupar func. c
     private Transform _transform; //ref al transform del enemigo
     private Vector2 _gridPosition, _gridDirection; //posicion y direccion en el plano xz (sin la y)
 
-    public AEnemyMoveState(AEnemyController enemy) : base(enemy) { }
+    public AEnemyPathState(AEnemyController enemy) : base(enemy) { }
 
     public override void Enter(IState previousState)
     {
