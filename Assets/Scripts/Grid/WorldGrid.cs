@@ -39,7 +39,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
 
     private void Start()
     {
-        InitPumpkins();
+        //InitPumpkins();
     }
 
 
@@ -151,17 +151,17 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
         }
     }
 
-    private void InitPumpkins()
-    {
-        _pumpkins = new();
-        for (int i = 0; i < _pumpkinCellContainer.childCount; i++)
-        {
-            var cell = _pumpkinCellContainer.GetChild(i).GetComponent<GridCell>();
-            if (!cell.ElementOnTop || cell.ElementOnTop.TryGetComponent<PumpkinSprout>(out _)) continue;
+    //private void InitPumpkins()
+    //{
+    //    _pumpkins = new();
+    //    for (int i = 0; i < _pumpkinCellContainer.childCount; i++)
+    //    {
+    //        var cell = _pumpkinCellContainer.GetChild(i).GetComponent<GridCell>();
+    //        if (!cell.ElementOnTop || cell.ElementOnTop.TryGetComponent<PumpkinSprout>(out _)) continue;
 
-            AddPumpkin(cell);
-        }
-    }
+    //        AddPumpkin(cell);
+    //    }
+    //}
 
     //funciones llamadas por las GridCell, no llamarlas directamente
     //si se quiere crear/destruir una calabaza, se hace desde la gridcell correspondiente o con un command
@@ -177,6 +177,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
             if (_pumpkins[i].Cell == cell) return false;
 
             _pumpkins.Insert(i, pumpkin);
+            GameManager.Instance.Pumpkins++;
             PumpkinsUpdated.Invoke(_pumpkins[0].Cell);
             return true;
         }
@@ -197,6 +198,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
             if(cell == _pumpkins[i].Cell)   
             {
                 _pumpkins.RemoveAt(i);
+                GameManager.Instance.Pumpkins--;
                 PumpkinsUpdated.Invoke(_pumpkins[0].Cell);
                 return true;
             }

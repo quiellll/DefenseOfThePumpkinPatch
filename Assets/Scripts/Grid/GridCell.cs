@@ -73,7 +73,6 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
         Destroy(_elementOnTop); //se destruye el brote
         _elementOnTop = Instantiate(pumpkin.PumpkinPrefab, transform.position, pumpkin.PumpkinPrefab.transform.rotation);
         _elementOnTop.transform.Translate(0f, .1f, 0f);
-        WorldGrid.Instance.AddPumpkin(this);
         return true;
     }
 
@@ -84,7 +83,6 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
         if (Type != CellType.Pumpkin || !ElementOnTop || ElementOnTop.TryGetComponent<PumpkinSprout>(out _)) return false;
 
         Destroy(_elementOnTop);
-        WorldGrid.Instance.RemovePumpkin(this);
         return true;
     }
 

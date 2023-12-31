@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 7165104059384119454}
   - component: {fileID: 654910396458833937}
   - component: {fileID: 4310659870136395140}
+  - component: {fileID: 7374483024978516787}
   m_Layer: 10
   m_Name: Pumpkin
   m_TagString: Untagged
@@ -175,3 +176,15 @@ MonoBehaviour:
   Deselected:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7374483024978516787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602090943131839029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3605081e0d306a84c8ccca4172204d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

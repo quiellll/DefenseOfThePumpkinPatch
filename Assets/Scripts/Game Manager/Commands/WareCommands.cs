@@ -14,7 +14,9 @@ public abstract class ASetWareToBuy : ICommand
     }
     public bool Execute()
     {
-        GameManager.Instance.SetWareToBuild(_ware); return true;
+        if (GameManager.Instance.Gold - _ware.BuyPrice < 0) return false;
+        GameManager.Instance.SetWareToBuild(_ware);
+        return true;
     }
     public void Undo() { }
 }
@@ -52,6 +54,7 @@ public abstract class ABuildWare : ICommand
         if(Build())
         {
             GameManager.Instance.RemoveWareToBuild();
+            GameManager.Instance.Gold -= _ware.BuyPrice;
             return true;
         }
 
@@ -60,6 +63,7 @@ public abstract class ABuildWare : ICommand
     public void Undo()
     {
         _cell.DestroyWare();
+        GameManager.Instance.Gold += _ware.BuyPrice;
     }
 
     protected abstract bool Build();
@@ -80,11 +84,17 @@ public abstract class ASellWare : ICommand
 
     public virtual bool Execute()
     {
-        return _cell.DestroyWare();
+        if (_cell.DestroyWare())
+        {
+            GameManager.Instance.Gold += _ware.SellPrice;
+            return true;
+        }
+        return false;
     }
     public void Undo()
     {
         Build();
+        GameManager.Instance.Gold -= _ware.SellPrice;
     }
 
     protected abstract void Build();
