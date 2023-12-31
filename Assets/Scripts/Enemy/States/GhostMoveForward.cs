@@ -60,8 +60,8 @@ public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia del
             WorldGrid.Instance.DestroyGrave(_grave); //destuimos la tumba
             _grave = null;
             Exit(null);
+            (_enemy as GhostController).SpawnZombie();
             _enemy.Despawn(); //despawneamos al fantasma
-            //aqui falta spawnear un zombie
             return;
         }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class WaveSpawner : MonoBehaviour //spawner de enemigos
+public class WaveSpawner : MonoBehaviour, IEnemySpawner //spawner de enemigos
 {
 
     //evento llamado cuando no queden enemigos por spawnear ni activos

@@ -1,21 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FarmerController : AEnemyController ///controlador del granjero que hereda del controlador comun
+public class ZombieController : AEnemyController
 {
     protected override void Start()
     {
         base.Start();
-
-        //SetInitialState(new MoveForward(this));
+        SetInitialState(new MoveForward(this));
     }
 
     protected override void Die()
     {
-        //al morir spawnea una tumba
-        WorldGrid.Instance.BuildGrave(_stats.GravePrefab, CurrentCell, new(XY.x, 0f, XY.y), _body.rotation);
-
         base.Die();
     }
 
@@ -29,4 +26,5 @@ public class FarmerController : AEnemyController ///controlador del granjero que
     {
         base.Reset();
     }
+
 }
