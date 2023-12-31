@@ -6,6 +6,8 @@ public class CommandManager
 
     public bool ExecuteCommand(ICommand command)
     {
+        if(command == null) return false;
+
         var executed = command.Execute();
 
         if(!executed) return false;

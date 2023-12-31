@@ -158,8 +158,9 @@ GameObject:
   - component: {fileID: 542308582142769892}
   - component: {fileID: 2683068894625837502}
   - component: {fileID: 8199176404378172859}
+  - component: {fileID: 4702971111055099117}
   m_Layer: 0
-  m_Name: Wave Spawner
+  m_Name: Enemy Spawners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,6 +222,23 @@ MonoBehaviour:
     type: 3}
   _enemiesPerWave: 10
   _spawnDelay: 2
+--- !u!114 &4702971111055099117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257671149034227294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66da120ac7339e948a53eed72e5b9022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaveFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  _spawnPoint: {fileID: 6942624434610498263}
+  _zombiePrefab: {fileID: 0}
 --- !u!1 &500072313568805886
 GameObject:
   m_ObjectHideFlags: 0

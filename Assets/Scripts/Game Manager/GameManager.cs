@@ -16,22 +16,20 @@ public class GameManager : Singleton<GameManager>
     public WaveSpawner FarmerWaveSpawner { get; private set; }
     public WaveSpawner GhostWaveSpawner { get; private set; }
     public HUDMenu HUD { get; private set; } //ref al hud (botones de empezar oleada y construir torretas de momento)
-
-    public Selectable SelectedObject { get; private set; } //obeto seleccionable seleccionado 
+    public SelectionManager SelectionManager { get => _selectionManager; }
     public CommandManager CommandManager { get => _commandManager; }
     public int Gold { get => _gold; }
 
     private IWare _wareToBuild;
     private GameObject _dummy; //figura de la torreta o brote de calabaza semitransparente para elegir donde construirla
-
-    private GridCell _selectedCell; //celda seleccionada para construir la torreta
-
-    private TextMeshProUGUI _testTxt; //texto de debug para saber que objerto esta seleccionado actualmente
+    
 
     
     private AGameState _gameState;
 
+    private SelectionManager _selectionManager;
     private CommandManager _commandManager;
+
 
     private int _gold;
 
@@ -41,7 +39,7 @@ public class GameManager : Singleton<GameManager>
 
         HUD = transform.parent.GetComponentInChildren<HUDMenu>();
 
-        _testTxt = GameObject.Find("TestGMSelected").GetComponent<TextMeshProUGUI>();
+
 
         foreach(var spawner in transform.parent.GetComponentsInChildren<WaveSpawner>())
         {
@@ -49,6 +47,7 @@ public class GameManager : Singleton<GameManager>
             else if(spawner.EnemyPrefab as FarmerController) FarmerWaveSpawner = spawner;
         }
 
+        _selectionManager = new();
         _commandManager = new();
     }
 
@@ -59,8 +58,6 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        _testTxt.text = $"Selected Object: {SelectedObject}"; //debug
-
         DummyPlacing();
     }
 
@@ -79,14 +76,14 @@ public class GameManager : Singleton<GameManager>
     {
         if (!_dummy) return;
 
-        if (!_selectedCell)
+        if (!_selectionManager.SelectedCell)
         {
             if (_dummy.activeSelf) _dummy.SetActive(false);
             return;
         }
 
         if (!_dummy.activeSelf) _dummy.SetActive(true);
-        _dummy.transform.position = _selectedCell.transform.position + Vector3.up * 0.1f;
+        _dummy.transform.position = _selectionManager.SelectedCell.transform.position + Vector3.up * 0.1f;
     }
 
     //instancia el dummy cuando se decide connstruir una torreta
@@ -101,9 +98,10 @@ public class GameManager : Singleton<GameManager>
         _dummy = Instantiate(ware.Dummy, Vector3.zero, ware.Dummy.transform.rotation);
 
 
-        if (SelectedObject && SelectedObject.TryGetComponent<GridCell>(out var cell) && cell.Type == _wareToBuild.CellType)
+        if (_selectionManager.SelectedObject && _selectionManager.SelectedCell
+            && _selectionManager.SelectedCell.Type == _wareToBuild.CellType)
         {
-            _dummy.transform.position = cell.transform.position;
+            _dummy.transform.position = _selectionManager.SelectedCell.transform.position;
             return;
         }
 
@@ -122,8 +120,9 @@ public class GameManager : Singleton<GameManager>
 
     public bool CanBuildWare(IWare ware)
     {
-        return _wareToBuild != null && _wareToBuild == ware && _dummy != null && _dummy.activeSelf && _selectedCell != null
-            && _selectedCell.ElementOnTop == null && _selectedCell.Type == _wareToBuild.CellType;
+        return _wareToBuild != null && _wareToBuild == ware && _dummy != null && _dummy.activeSelf && 
+            _selectionManager.SelectedCell != null && _selectionManager.SelectedCell.ElementOnTop == null && 
+            _selectionManager.SelectedCell.Type == _wareToBuild.CellType;
     }
 
     //#region Turrets
@@ -144,25 +143,6 @@ public class GameManager : Singleton<GameManager>
     //}
     //#endregion
 
-    #region Selection
-    //cuando se pasa el raton sobre un objeto seleccionable, se establece como el objeto seleccionado
-    public void SetSelectedObject(Selectable selectable)
-    {
-        SelectedObject = selectable;
-        if(SelectedObject.TryGetComponent<GridCell>(out var cell))
-            _selectedCell = cell;
-        else _selectedCell = null;
-    }
 
-    //cuando se hace quita el raton de un seleccionable, se quita
-    public bool RemoveSelectedObject(Selectable selectable)
-    {
-        if(SelectedObject != selectable) return false;
-
-        SelectedObject = null;
-        _selectedCell = null;
-        return true;
-    }
-    #endregion
 
 }
