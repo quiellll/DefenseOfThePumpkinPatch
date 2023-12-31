@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a830b4c082c80fc438443ff69a5118ac, type: 3}
+  m_Name: Zombie
+  m_EditorClassIdentifier: 
+  _enemyPrefab: {fileID: 5971208074875656737, guid: 7c97b2270a17d6847a2dc3255efeb385,
+    type: 3}
+  _health: 5
+  _moveSpeed: 2
+  _rotationSpeed: 300
+  _gravePrefab: {fileID: 2126682428481223955, guid: 004a862347d5fed4f8d9278abf704ded,
+    type: 3}
