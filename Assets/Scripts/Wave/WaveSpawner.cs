@@ -7,7 +7,8 @@ public class WaveSpawner : MonoBehaviour, IEnemySpawner //spawner de enemigos
 {
 
     //evento llamado cuando no queden enemigos por spawnear ni activos
-    public UnityEvent WaveFinished; 
+    public UnityEvent WaveFinished;
+    public int TransformedEnemies {  get; private set; }
     public AEnemyController EnemyPrefab { get => _enemyPrefab; } //prefab a spawnear
 
     [SerializeField] private Transform _spawnPoint; //punto donde spawnean
@@ -22,6 +23,7 @@ public class WaveSpawner : MonoBehaviour, IEnemySpawner //spawner de enemigos
     private int _activeEnemies = 0;
 
 
+
     private void Awake()
     {
         _pool = new ObjectPool(_enemyPrefab, _enemiesPerWave, false, _spawnPoint);
@@ -33,6 +35,7 @@ public class WaveSpawner : MonoBehaviour, IEnemySpawner //spawner de enemigos
         _spawnedEnemies = 0;
         _aliveEnemies = 0;
         _activeEnemies = 0;
+        TransformedEnemies = 0;
 
         SpawnEnemy();
     }
@@ -64,6 +67,10 @@ public class WaveSpawner : MonoBehaviour, IEnemySpawner //spawner de enemigos
     //que los devuelve a la pool y limpia
     public void DespawnEnemy(AEnemyController enemy)
     {
+        if (enemy as GhostController && (enemy as GhostController).Transformed)
+        {
+            TransformedEnemies++;
+        }
         enemy.transform.position = _spawnPoint.position;
         _pool.Return(enemy);
         _activeEnemies--;

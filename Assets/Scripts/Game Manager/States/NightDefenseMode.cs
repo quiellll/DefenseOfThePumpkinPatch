@@ -9,13 +9,13 @@ public class NightDefenseMode : ADefenseMode //defensa de noche (fantasmas)
     public override void Enter(IState previousState)
     {
         base.Enter(previousState);
-
-        _gameManager.GhostWaveSpawner.WaveFinished.AddListener(OnWaveFinished);
+        _gameManager.ZombieSpawner.WaveFinished.AddListener(OnWaveFinished);
         _gameManager.GhostWaveSpawner.SpawnWave();
     }
 
     public override void Exit(IState nextState)
     {
-        _gameManager.GhostWaveSpawner.WaveFinished?.RemoveListener(OnWaveFinished);
+        _gameManager.ZombieSpawner.WaveFinished?.RemoveListener(OnWaveFinished);
+
     }
 }
