@@ -15,6 +15,7 @@ public class GameManager : Singleton<GameManager>
     //spawners de cada tipo de enemigo
     public WaveSpawner FarmerWaveSpawner { get; private set; }
     public WaveSpawner GhostWaveSpawner { get; private set; }
+    public ZombieSpawner ZombieSpawner { get; private set; }
     public HUDMenu HUD { get; private set; } //ref al hud (botones de empezar oleada y construir torretas de momento)
     public SelectionManager SelectionManager { get => _selectionManager; }
     public CommandManager CommandManager { get => _commandManager; }
@@ -39,13 +40,13 @@ public class GameManager : Singleton<GameManager>
 
         HUD = transform.parent.GetComponentInChildren<HUDMenu>();
 
-
-
         foreach(var spawner in transform.parent.GetComponentsInChildren<WaveSpawner>())
         {
             if (spawner.EnemyPrefab as GhostController) GhostWaveSpawner = spawner;
             else if(spawner.EnemyPrefab as FarmerController) FarmerWaveSpawner = spawner;
         }
+
+        ZombieSpawner = transform.parent.GetComponentInChildren<ZombieSpawner>();
 
         _selectionManager = new();
         _commandManager = new();

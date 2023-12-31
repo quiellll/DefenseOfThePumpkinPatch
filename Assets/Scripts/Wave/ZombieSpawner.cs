@@ -11,17 +11,13 @@ public class ZombieSpawner : MonoBehaviour, IEnemySpawner
 
     [SerializeField] private Transform _spawnPoint; //punto donde agrupar a los enemigos
     [SerializeField] private ZombieController _zombiePrefab; //prefab del zombie
-    
+    [SerializeField] private WaveSpawner _ghostSpawner;
+
     private int _reachedGraves; // fantasmas que han llegado a la tumba;
-
-    private WorldGrid.GraveAtPath _grave; //tumba
-
-    private GridCell _graveCell; //celda en la que esta la tumbs
-    private bool _reachedDestination = false; //si ha llegado al destino (tumba o ultimo waypoint del camino)
 
     private ObjectPool _zombiePool;
 
-    private bool _spawnFinished = false;
+    private bool _ghostWaveFinished = false;
     private int _aliveEnemies = 0;
     private int _activeEnemies = 0;
 
@@ -29,6 +25,11 @@ public class ZombieSpawner : MonoBehaviour, IEnemySpawner
     {
         //Inicializa el pool de zombies
         _zombiePool = new ObjectPool(_zombiePrefab, _reachedGraves, false, _spawnPoint);
+    }
+
+    private void Start()
+    {
+        _ghostSpawner.WaveFinished.AddListener(OnGhostWaveFinished);
     }
 
     // Método para spawnear un zombie en una posición específica
@@ -43,13 +44,6 @@ public class ZombieSpawner : MonoBehaviour, IEnemySpawner
         zombie.InitEnemy(spawnPos, rotation, this);
         _aliveEnemies++;
         _activeEnemies++;
-
-        // Si no hay tumbas ni fantasmas se termina el spawn
-        if (!_spawnFinished)
-        {
-            _spawnFinished = true; // Fin de spawn
-            WaveFinished.Invoke();
-        }
     }
   
     // Método que se llama cuando un zombie muere o completa su recorrido
@@ -60,9 +54,21 @@ public class ZombieSpawner : MonoBehaviour, IEnemySpawner
 
         if (!zombie.IsAlive) _aliveEnemies--;
 
-        if (_spawnFinished && _activeEnemies == 0)
+        if (_ghostWaveFinished && _activeEnemies == 0)
         {
+            _ghostWaveFinished = false;
+            _aliveEnemies = 0;
             WaveFinished.Invoke();//fin de la oleada 
         }
+    }
+
+    private void OnGhostWaveFinished()
+    {
+        _ghostWaveFinished = true;
+    }
+
+    private void OnDestroy()
+    {
+        _ghostSpawner.WaveFinished.RemoveListener(OnGhostWaveFinished);
     }
 }
