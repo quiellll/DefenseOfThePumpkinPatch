@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 6538792262432606367}
   - component: {fileID: 354794978472316952}
   m_Layer: 8
-  m_Name: Magic Tower Level 1
+  m_Name: Magic Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

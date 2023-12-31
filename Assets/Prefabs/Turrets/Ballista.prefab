@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 6538792262432606367}
   - component: {fileID: 8519731202022007121}
   m_Layer: 8
-  m_Name: Ballista Level 1
+  m_Name: Ballista
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

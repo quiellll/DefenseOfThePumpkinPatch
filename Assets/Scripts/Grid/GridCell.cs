@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.GraphicsBuffer;
 
 public class GridCell : MonoBehaviour //clase de cada celda del mapa
 {
@@ -14,7 +15,8 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
     public CellType Type { get => _type; }
     public bool IsWaypoint {  get => _isWaypoint; } //solo tiene sentido si es de tipo Path
     //objeto sobre la celda, de momento torreta o calabaza
-    public GameObject ElementOnTop { get => _elementOnTop && _elementOnTop.activeSelf ? _elementOnTop : null; } 
+    //public GameObject ElementOnTop { get => _elementOnTop && _elementOnTop.activeSelf ? _elementOnTop : null; } 
+    public GameObject ElementOnTop { get => _elementOnTop; } 
 
     [SerializeField] private CellType _type;
     [SerializeField] private bool _isWaypoint;
@@ -38,58 +40,53 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
         }
     }
 
-    public bool BuildTurret(Turret turret) //instancia una torreta sobre la celda
+    public bool BuildWare(IWare ware, GameObject prefab = null)
     {
-        if (_elementOnTop || Type != CellType.Turret) return false;
+        if (_elementOnTop || Type != ware.CellType) return false;
 
-        _elementOnTop = Instantiate(turret.Prefab, transform.position, turret.Prefab.transform.rotation);
+        prefab = prefab == null ? ware.Prefab : prefab;
+
+        _elementOnTop = Instantiate(prefab, transform.position, prefab.transform.rotation);
         _elementOnTop.transform.Translate(0f, .1f, 0f);
         return true;
     }
 
-    public bool RemoveTurret()
+    public bool DestroyWare()
     {
-        if (!ElementOnTop || Type != CellType.Turret) return false;
+        if (!ElementOnTop) return false;
 
         Destroy(_elementOnTop);
         _elementOnTop = null;
         return true;
     }
 
-    public void BuildGrave(GameObject gravePrefab, Vector3 position, Quaternion rotation) //instancia una tumba sobre la celda
+
+    #region Pumpkins
+
+
+    //la llama el brote para cosntruir uan calabaza y destruir el brote
+    public bool BuildPumpkin(Pumpkin pumpkin)
     {
-        if(Type != CellType.Path) return; //puede morir en pumpkin???
+        if(Type != CellType.Pumpkin || !ElementOnTop) return false;
+        if(!ElementOnTop.TryGetComponent<PumpkinSprout>(out _)) return false;
 
-        var gt = Instantiate(gravePrefab, position, rotation, transform).transform;
-        WorldGrid.Instance.AddGrave(gt, this);
-    }
-
-    public bool BuildPumpkin(GameObject pumpkinPrefab)
-    {
-        if(Type != CellType.Pumpkin) return false;
-        if (ElementOnTop) return false; //si el top no es nulo y esta activado
-
-        //si no es nulo y no returneamos antes, significa que ya existe un top pero esta desactivado 
-        if(_elementOnTop)
-        {
-            _elementOnTop.SetActive(true);
-            WorldGrid.Instance.AddPumpkin(this);
-            return true;
-        }
-        //si no existe lo instanciamos
-        _elementOnTop = Instantiate(pumpkinPrefab, transform.position, pumpkinPrefab.transform.rotation);
+        Destroy(_elementOnTop); //se destruye el brote
+        _elementOnTop = Instantiate(pumpkin.PumpkinPrefab, transform.position, pumpkin.PumpkinPrefab.transform.rotation);
         _elementOnTop.transform.Translate(0f, .1f, 0f);
         WorldGrid.Instance.AddPumpkin(this);
         return true;
     }
 
+    //esta se usa para cuando los enemigos destruyen la calabaza, para venderla se usa el command SellPumpkin
+    //por tanto solo se debe llamar en modo defensa y no debe interferir con los commands nunca
     public bool DestroyPumpkin()
     {
-        if (Type != CellType.Pumpkin) return false;
-        if(!ElementOnTop) return false;
+        if (Type != CellType.Pumpkin || !ElementOnTop || ElementOnTop.TryGetComponent<PumpkinSprout>(out _)) return false;
 
-        _elementOnTop.SetActive(false);
+        Destroy(_elementOnTop);
         WorldGrid.Instance.RemovePumpkin(this);
         return true;
     }
+
+    #endregion
 }

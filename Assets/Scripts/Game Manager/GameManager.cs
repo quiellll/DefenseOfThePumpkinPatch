@@ -11,17 +11,18 @@ public class GameManager : Singleton<GameManager>
 {
     public AGameState GameState { get => _gameState; set => ChangeState(value); }
     public bool IsOnDefense { get => _gameState.GetType() != typeof(BuildMode); }
-    public Turret TurretToBuild { get => _turretToBuild;} //torreta establecida para construir
-    
+    public IWare WareToBuild { get => _wareToBuild; }
     //spawners de cada tipo de enemigo
     public WaveSpawner FarmerWaveSpawner { get; private set; }
     public WaveSpawner GhostWaveSpawner { get; private set; }
     public HUDMenu HUD { get; private set; } //ref al hud (botones de empezar oleada y construir torretas de momento)
 
     public Selectable SelectedObject { get; private set; } //obeto seleccionable seleccionado 
+    public CommandManager CommandManager { get => _commandManager; }
+    public int Gold { get => _gold; }
 
-    private Turret _turretToBuild;
-    private GameObject _turretDummy; //figura de la torreta semitransparente para elegir donde construirla
+    private IWare _wareToBuild;
+    private GameObject _dummy; //figura de la torreta o brote de calabaza semitransparente para elegir donde construirla
 
     private GridCell _selectedCell; //celda seleccionada para construir la torreta
 
@@ -29,6 +30,10 @@ public class GameManager : Singleton<GameManager>
 
     
     private AGameState _gameState;
+
+    private CommandManager _commandManager;
+
+    private int _gold;
 
     protected override void Awake()
     {
@@ -43,6 +48,8 @@ public class GameManager : Singleton<GameManager>
             if (spawner.EnemyPrefab as GhostController) GhostWaveSpawner = spawner;
             else if(spawner.EnemyPrefab as FarmerController) FarmerWaveSpawner = spawner;
         }
+
+        _commandManager = new();
     }
 
     private void Start()
@@ -54,7 +61,7 @@ public class GameManager : Singleton<GameManager>
     {
         _testTxt.text = $"Selected Object: {SelectedObject}"; //debug
 
-        TurretPlacing();
+        DummyPlacing();
     }
 
     //cambia de estado de juego
@@ -66,70 +73,76 @@ public class GameManager : Singleton<GameManager>
         _gameState.Enter(lastState);
     }
 
-    #region Turrets
 
     //comprueba si se ha elegido construir una torreta y mueve el dummy, lo desactiva o activa segun corresponda
-    private void TurretPlacing()
+    private void DummyPlacing()
     {
-        if (!_turretToBuild || !_turretDummy) return;
+        if (!_dummy) return;
 
         if (!_selectedCell)
         {
-            if (_turretDummy.activeSelf) _turretDummy.SetActive(false);
+            if (_dummy.activeSelf) _dummy.SetActive(false);
             return;
         }
 
-        if (!_turretDummy.activeSelf) _turretDummy.SetActive(true);
-        _turretDummy.transform.position = _selectedCell.transform.position + Vector3.up * 0.1f;
+        if (!_dummy.activeSelf) _dummy.SetActive(true);
+        _dummy.transform.position = _selectedCell.transform.position + Vector3.up * 0.1f;
     }
 
-    //se llama con el setter de TurretToBuild, instancia el dummy cuando se decide connstruir una torreta
-    public void SetTurretToBuild(Turret turret)
+    //instancia el dummy cuando se decide connstruir una torreta
+    public void SetWareToBuild(IWare ware)
     {
-        if(_turretDummy != null)
+        if (_dummy != null)
         {
-            Destroy(_turretDummy);
+            Destroy(_dummy);
         }
 
-        _turretToBuild = turret;
-        _turretDummy = Instantiate(turret.Dummy, Vector3.zero, turret.Dummy.transform.rotation);
+        _wareToBuild = ware;
+        _dummy = Instantiate(ware.Dummy, Vector3.zero, ware.Dummy.transform.rotation);
 
-        if(SelectedObject && SelectedObject.TryGetComponent<GridCell>(out var cell))
+
+        if (SelectedObject && SelectedObject.TryGetComponent<GridCell>(out var cell) && cell.Type == _wareToBuild.CellType)
         {
-            _turretDummy.transform.position = cell.transform.position;
+            _dummy.transform.position = cell.transform.position;
             return;
-        }        
-        
-        _turretDummy.SetActive(false);
+        }
+
+        _dummy.SetActive(false);
     }
 
-    public void RemoveTurretToBuild()
+    public void RemoveWareToBuild()
     {
-        if(_turretDummy == null || _turretToBuild == null) return;
-
-        Destroy(_turretDummy);
-        _turretDummy = null;
-        _turretToBuild = null;
+        if (_dummy != null)
+        {
+            Destroy(_dummy);
+            _dummy = null;
+        }
+        _wareToBuild = null;
     }
 
+    public bool CanBuildWare(IWare ware)
+    {
+        return _wareToBuild != null && _wareToBuild == ware && _dummy != null && _dummy.activeSelf && _selectedCell != null
+            && _selectedCell.ElementOnTop == null && _selectedCell.Type == _wareToBuild.CellType;
+    }
+
+    //#region Turrets
     //se llama cuando se hace clic para construir en un sitio valido, construye la torreta y
     //destruye el dummy
-    public void BuildTurret(InputAction.CallbackContext context)
-    {
-        if (!context.started) return;
-        if(!_turretToBuild || !_turretDummy || !_turretDummy.activeSelf || !_selectedCell) return;
+    //public void BuildTurret(InputAction.CallbackContext context)
+    //{
+    //    if (!context.started) return;
+    //    if(!_turretToBuild || !_turretDummy || !_turretDummy.activeSelf || !_selectedCell) return;
 
-        if(_selectedCell.ElementOnTop || _selectedCell.Type != GridCell.CellType.Turret) return;
+    //    if(_selectedCell.ElementOnTop || _selectedCell.Type != GridCell.CellType.Turret) return;
 
-        CommandManager.ExecuteCommand(new BuildTurret(_turretToBuild, _selectedCell));
+    //    CommandManager.ExecuteCommand(new BuildTurret(_turretToBuild, _selectedCell));
 
-        Destroy(_turretDummy);
-        _turretDummy = null;
-        _turretToBuild = null;
-    }
-
-    #endregion
-
+    //    Destroy(_turretDummy);
+    //    _turretDummy = null;
+    //    _turretToBuild = null;
+    //}
+    //#endregion
 
     #region Selection
     //cuando se pasa el raton sobre un objeto seleccionable, se establece como el objeto seleccionado

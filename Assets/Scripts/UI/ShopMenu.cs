@@ -8,6 +8,6 @@ public class ShopMenu : MonoBehaviour
     public void BuyTurret(Turret turret)
     {
         //comprobar dinero primero (falta)
-        
+        GameManager.Instance.CommandManager.ExecuteCommand(new SetTurretToBuy(turret));
     }
 }

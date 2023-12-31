@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9b11dc829691c41b736db3c30f1fc3, type: 3}
   m_Name: Catapult
   m_EditorClassIdentifier: 
+  _buyPrice: 100
   _turretPrefab: {fileID: 6891146182113863401, guid: 7bee8ab66f3dfbc45b293ff47142064d,
     type: 3}
   _dummyPrefab: {fileID: 6891146182113863401, guid: 138738bae82994144988356d714175f8,
@@ -23,5 +24,5 @@ MonoBehaviour:
   _outerRadius: 8
   _fireRate: 0.5
   _projectileMoveSpeed: 5
-  _projectileDamage: 1
+  _damage: 1
   _maxProjectileHeight: 0.3

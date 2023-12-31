@@ -1,79 +1,138 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 
-public class SetTurretToBuy : ICommand
+public abstract class ASetWareToBuy : ICommand
 {
     public bool Undoable { get => false; }
-    private Turret _turret;
-    public SetTurretToBuy(Turret turret)
+    private IWare _ware;
+    public ASetWareToBuy(IWare Ware)
     {
-        _turret = turret;
+        _ware = Ware;
     }
-    public void Execute()
+    public bool Execute()
     {
-        GameManager.Instance.SetTurretToBuild(_turret);
+        GameManager.Instance.SetWareToBuild(_ware); return true;
     }
     public void Undo() { }
 }
 
 
-public class RemoveTurretToBuy : ICommand
+public abstract class ARemoveWareToBuy : ICommand
 {
     public bool Undoable { get => false; }
 
-    public void Execute()
+    public bool Execute()
     {
-        GameManager.Instance.RemoveTurretToBuild();
+        GameManager.Instance.RemoveWareToBuild(); return true;
     }
     public void Undo() { }
 }
 
 
 
-public class BuildTurret : ICommand
+public abstract class ABuildWare : ICommand
 {
     public bool Undoable { get => true; }
-    private Turret _turret;
-    private GridCell _cell;
+    protected IWare _ware;
+    protected GridCell _cell;
 
-    public BuildTurret(Turret turret, GridCell cell)
+    public ABuildWare(IWare Ware, GridCell cell)
     {
-        _turret = turret;
+        _ware = Ware;
         _cell = cell;
     }
 
-    public void Execute()
+    public bool Execute()
     {
-        _cell.BuildTurret(_turret);
+        if (!GameManager.Instance.CanBuildWare(_ware)) return false;
+
+        if(Build())
+        {
+            GameManager.Instance.RemoveWareToBuild();
+            return true;
+        }
+
+        return false;
     }
     public void Undo()
     {
-        _cell.RemoveTurret();
+        _cell.DestroyWare();
     }
+
+    protected abstract bool Build();
 }
 
 
-public class SellTurret : ICommand
+public abstract class ASellWare : ICommand
 {
     public bool Undoable { get => true; }
-    private Turret _turret;
-    private GridCell _cell;
+    protected IWare _ware;
+    protected GridCell _cell;
 
-    public SellTurret(Turret turret, GridCell cell)
+    public ASellWare(IWare Ware, GridCell cell)
     {
-        _turret = turret;
+        _ware = Ware;
         _cell = cell;
     }
 
-    public void Execute()
+    public virtual bool Execute()
     {
-        _cell.RemoveTurret();
+        return _cell.DestroyWare();
     }
     public void Undo()
     {
-        _cell.BuildTurret(_turret);
+        Build();
+    }
+
+    protected abstract void Build();
+}
+
+
+
+
+public class SetTurretToBuy : ASetWareToBuy { public SetTurretToBuy(Turret turret) : base(turret) { } }
+
+public class RemoveTurretToBuy : ARemoveWareToBuy { public RemoveTurretToBuy() : base() { } }
+
+public class BuildTurret : ABuildWare
+{
+    public BuildTurret(Turret turret, GridCell cell) : base(turret, cell) { }
+    protected override bool Build() => _cell.BuildWare(_ware);
+}
+
+public class SellTurret : ASellWare
+{
+    public SellTurret(Turret turret, GridCell cell) : base(turret, cell) { }
+    protected override void Build() => _cell.BuildWare(_ware);
+}
+
+
+public class SetPumpkinSproutToBuy : ASetWareToBuy { public SetPumpkinSproutToBuy(Pumpkin pumpkin) : base(pumpkin) { } }
+
+public class RemovePumpkinSproutToBuy : ARemoveWareToBuy { public RemovePumpkinSproutToBuy() : base() { } }
+
+public class BuildPumpkinSprout : ABuildWare
+{
+    public BuildPumpkinSprout(Pumpkin pumpkin, GridCell cell) : base(pumpkin, cell) { }
+    protected override bool Build() => _cell.BuildWare(_ware);
+}
+
+public class SellPumpkin : ASellWare
+{
+    public SellPumpkin(Pumpkin pumpkin, GridCell cell) : base(pumpkin, cell) { }
+    protected override void Build() => _cell.BuildWare(_ware, (_ware as Pumpkin).PumpkinPrefab);
+
+    public override bool Execute()
+    {
+        if (_cell.Type != GridCell.CellType.Pumpkin || !_cell.ElementOnTop ||
+            _cell.ElementOnTop.TryGetComponent<PumpkinSprout>(out _)) return false;
+
+        if(!base.Execute()) return false;
+
+        WorldGrid.Instance.RemovePumpkin(_cell);
+        return true;
     }
 }
- 

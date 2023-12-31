@@ -1,17 +1,21 @@
 using System.Collections.Generic;
 
-public static class CommandManager
+public class CommandManager
 {
-    private static Stack<ICommand> executedCommands = new();
+    private Stack<ICommand> executedCommands = new();
 
-    public static void ExecuteCommand(ICommand command)
+    public bool ExecuteCommand(ICommand command)
     {
-        command.Execute();
+        var executed = command.Execute();
+
+        if(!executed) return false;
 
         if(command.Undoable) executedCommands.Push(command);
+
+        return true;
     }
 
-    public static bool UndoLastCommand()
+    public bool UndoLastCommand()
     {
         if(executedCommands.Count == 0) return false;
 
@@ -19,7 +23,7 @@ public static class CommandManager
         return true;
     }
 
-    public static bool RemoveLastCommand()
+    public bool RemoveLastCommand()
     {
         if (executedCommands.Count == 0) return false;
 
@@ -27,7 +31,7 @@ public static class CommandManager
         return true;
     }
 
-    public static void ClearCommands()
+    public void ClearCommands()
     {
         executedCommands.Clear();
     }
