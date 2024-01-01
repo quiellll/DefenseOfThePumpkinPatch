@@ -36,7 +36,7 @@ public class MagicTowerController : ATurretController
 
     protected override void Fire()
     {
-        _currentTarget.TakeDamage(_turret.ProjectileDamage);
+        _currentTarget.TakeDamage(_turret.Damage);
 
         _hasAttackColor = true;
         _beam.startColor = _magicTower.AttackColor;

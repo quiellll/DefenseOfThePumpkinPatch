@@ -1,35 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using TMPro;
-using UnityEngine.XR;
+
 
 //singleton que se encarga de manejar todo el juego, cambiar estados de juego, construir torretas,
 //establecer el obj seleccionado
 public class GameManager : Singleton<GameManager>
 {
     public AGameState GameState { get => _gameState; set => ChangeState(value); }
+    public int Gold { get => _gold; set => SetGold(value); }
+    public int Pumpkins { get => _pumpkins; set => SetPumpkins(value); }
     public bool IsOnDefense { get => _gameState.GetType() != typeof(BuildMode); }
-    public Turret TurretToBuild { get => _turretToBuild; set => SetTurretToBuild(value); } //torreta establecida para construir
-    
+    public IWare WareToBuild { get => _wareToBuild; }
     //spawners de cada tipo de enemigo
     public WaveSpawner FarmerWaveSpawner { get; private set; }
     public WaveSpawner GhostWaveSpawner { get; private set; }
     public ZombieSpawner ZombieSpawner { get; private set; }
     public HUDMenu HUD { get; private set; } //ref al hud (botones de empezar oleada y construir torretas de momento)
+    public SelectionManager SelectionManager { get => _selectionManager; }
+    public CommandManager CommandManager { get => _commandManager; }
 
-    public Selectable SelectedObject { get; private set; } //obeto seleccionable seleccionado 
 
-    private Turret _turretToBuild;
-    private GameObject _turretDummy; //figura de la torreta semitransparente para elegir donde construirla
-
-    private GridCell _selectedCell; //celda seleccionada para construir la torreta
-
-    private TextMeshProUGUI _testTxt; //texto de debug para saber que objerto esta seleccionado actualmente
-
+    private IWare _wareToBuild;
+    private GameObject _dummy; //figura de la torreta o brote de calabaza semitransparente para elegir donde construirla
     
     private AGameState _gameState;
+    private int _gold;
+    private int _pumpkins;
+
+    private SelectionManager _selectionManager;
+    private CommandManager _commandManager;
+
 
     protected override void Awake()
     {
@@ -37,14 +38,18 @@ public class GameManager : Singleton<GameManager>
 
         HUD = transform.parent.GetComponentInChildren<HUDMenu>();
 
-        _testTxt = GameObject.Find("TestGMSelected").GetComponent<TextMeshProUGUI>();
-
         foreach(var spawner in transform.parent.GetComponentsInChildren<WaveSpawner>())
         {
             if (spawner.EnemyPrefab as GhostController) GhostWaveSpawner = spawner;
             else if(spawner.EnemyPrefab as FarmerController) FarmerWaveSpawner = spawner;
         }
+
         ZombieSpawner = transform.parent.GetComponentInChildren<ZombieSpawner>();
+
+        _selectionManager = new();
+        _commandManager = new();
+
+        Gold = 200;
     }
 
     private void Start()
@@ -54,9 +59,8 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        _testTxt.text = $"Selected Object: {SelectedObject}"; //debug
-
-        TurretPlacing();
+        DummyPlacing();
+        Debug.Log(Gold);
     }
 
     //cambia de estado de juego
@@ -68,96 +72,83 @@ public class GameManager : Singleton<GameManager>
         _gameState.Enter(lastState);
     }
 
-    #region Turrets
-
-    //comprueba si se ha elegido construir una torreta y mueve el dummy, lo desactiva o activa segun corresponda
-    private void TurretPlacing()
+    private void SetGold(int amount)
     {
-        if (!_turretToBuild || !_turretDummy) return;
+        if (amount < 0) return;
 
-        if (!_selectedCell)
+        _gold = amount;
+    }
+
+    private void SetPumpkins(int amount)
+    {
+        if(amount < 0) return;
+        _pumpkins = amount;
+
+        if(_pumpkins == 0)
         {
-            if (_turretDummy.activeSelf) _turretDummy.SetActive(false);
+            //game over
+        }
+    }
+
+
+    //comprueba si se ha elegido construir una torreta o calabaza y mueve el dummy, lo desactiva o activa segun corresponda
+    private void DummyPlacing()
+    {
+        if (!_dummy) return;
+
+        if (!_selectionManager.SelectedCell)
+        {
+            if (_dummy.activeSelf) _dummy.SetActive(false);
             return;
         }
 
-        if (!_turretDummy.activeSelf) _turretDummy.SetActive(true);
-        _turretDummy.transform.position = _selectedCell.transform.position + Vector3.up * 0.1f;
+        if (!_dummy.activeSelf) _dummy.SetActive(true);
+        _dummy.transform.position = _selectionManager.SelectedCell.transform.position + Vector3.up * 0.1f;
     }
 
-    //se llama con el setter de TurretToBuild, instancia el dummy cuando se decide connstruir una torreta
-    private void SetTurretToBuild(Turret turret)
+    //instancia el dummy cuando se decide construir una torreta o calabaza
+    public void SetWareToBuild(IWare ware)
     {
-        if(_turretDummy != null)
+        if (_dummy != null)
         {
-            Destroy(_turretDummy);
+            Destroy(_dummy);
         }
 
-        _turretToBuild = turret;
-        _turretDummy = Instantiate(turret.Dummy, Vector3.zero, turret.Dummy.transform.rotation);
+        _wareToBuild = ware;
+        _dummy = Instantiate(ware.Dummy, Vector3.zero, ware.Dummy.transform.rotation);
 
-        if(SelectedObject && SelectedObject.TryGetComponent<GridCell>(out var cell))
+
+        if (_selectionManager.SelectedObject && _selectionManager.SelectedCell
+            && _selectionManager.SelectedCell.Type == _wareToBuild.CellType)
         {
-            _turretDummy.transform.position = cell.transform.position;
+            _dummy.transform.position = _selectionManager.SelectedCell.transform.position;
             return;
-        }        
-        
-        _turretDummy.SetActive(false);
+        }
+
+        _dummy.SetActive(false);
     }
 
-    //se llama cuando se hace clic para construir en un sitio valido, construye la torreta y
-    //destruye el dummy
-    public void BuildTurret(InputAction.CallbackContext context)
+    public void RemoveWareToBuild()
     {
-        if (!context.started) return;
-        if(!_turretToBuild || !_turretDummy || !_turretDummy.activeSelf || !_selectedCell) return;
-
-
-        bool built = _selectedCell.BuildTurret(_turretToBuild);
-
-        if (!built) return;
-
-        Destroy(_turretDummy);
-        _turretDummy = null;
-        _turretToBuild = null;
+        if (_dummy != null)
+        {
+            Destroy(_dummy);
+            _dummy = null;
+        }
+        _wareToBuild = null;
     }
 
-    public void CancelBuildTurret()
+    public bool CanBuildWare(IWare ware)
     {
-        if (_turretDummy == null || _turretToBuild == null) return;
-
-        _turretToBuild = null;
-        Destroy(_turretDummy);
-        _turretDummy = null;
+        return 
+            _wareToBuild != null && 
+            _wareToBuild == ware && 
+            _dummy != null && 
+            _dummy.activeSelf && 
+            _selectionManager.SelectedCell != null && 
+            _selectionManager.SelectedCell.ElementOnTop == null && 
+            _selectionManager.SelectedCell.Type == _wareToBuild.CellType && 
+            (Gold - _wareToBuild.BuyPrice) >= 0;
     }
-
-    public void SellTurret(GridCell turretCell)
-    {
-        turretCell.SellTurret();
-    }
-
-    #endregion
-
-
-    #region Selection
-    //cuando se pasa el raton sobre un objeto seleccionable, se establece como el objeto seleccionado
-    public void SetSelectedObject(Selectable selectable)
-    {
-        SelectedObject = selectable;
-        if(SelectedObject.TryGetComponent<GridCell>(out var cell))
-            _selectedCell = cell;
-        else _selectedCell = null;
-    }
-
-    //cuando se hace quita el raton de un seleccionable, se quita
-    public bool RemoveSelectedObject(Selectable selectable)
-    {
-        if(SelectedObject != selectable) return false;
-
-        SelectedObject = null;
-        _selectedCell = null;
-        return true;
-    }
-    #endregion
 
 }

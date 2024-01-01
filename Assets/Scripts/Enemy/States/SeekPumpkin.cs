@@ -30,7 +30,6 @@ public class SeekPumpkin : AEnemyState
         {
             _currentPumpkin.DestroyPumpkin();
 
-            Debug.Log("Cogio calabaza");
             //nuevo estado de volver con la calabaza al waypoint
             _enemy.State = new ReturnToPath(_enemy);
             return;

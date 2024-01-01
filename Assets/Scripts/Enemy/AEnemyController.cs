@@ -122,6 +122,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     protected virtual void Die() //morir
     {
         IsAlive = false;
+        GameManager.Instance.Gold += State is MoveBackwards ? _stats.LootWithPumpkin : _stats.Loot;
         Despawn();
     }
 

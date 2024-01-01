@@ -9,6 +9,8 @@ public abstract class ADefenseMode : AGameState //clase comun para los estados d
     public override void Enter(IState previousState)
     {
         _gameManager.HUD.StartWaveButton.SetActive(false); //se desactiva el boton de empezar oleada (ya empezo)
+
+        _gameManager.CommandManager.ClearCommands(); //se limpia el historial
     }
 
     protected virtual void OnWaveFinished()

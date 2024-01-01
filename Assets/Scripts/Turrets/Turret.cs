@@ -5,12 +5,21 @@ using UnityEngine;
 
 //flyweight de la torreta con los stats comunes
 [CreateAssetMenu(menuName = "ScriptableObjects/Turret")]
-public class Turret : ScriptableObject
+public class Turret : ScriptableObject, IWare
 {
+    //IWare
+    public static readonly int SellPercentage = 75;
+
+    public int BuyPrice { get => _buyPrice; }
+    public int SellPrice { get => Mathf.FloorToInt(_buyPrice * SellPercentage / 100f); }
     // Prefab de la torreta
     public GameObject Prefab { get => _turretPrefab; }
     // Prefab de placeholder
     public GameObject Dummy { get => _dummyPrefab; }
+    public GridCell.CellType CellType { get => GridCell.CellType.Turret; }
+
+
+
     // Prefab del proyectil a disparar
     public ATurretProjectile ProjectilePrefab { get => _projectilePrefab; }
     public float RotationSpeed { get => _rotationSpeed; } //velocidad de rotacion
@@ -20,8 +29,10 @@ public class Turret : ScriptableObject
     public float OuterRadius { get => _outerRadius; }
     public float FireRate { get => _fireRate; } //disparos por segundo
     public float ProjectileMoveSpeed {  get => _projectileMoveSpeed; }
-    public int ProjectileDamage { get => _projectileDamage; }
+    public int Damage { get => _damage; }
 
+
+    [SerializeField] private int _buyPrice;
     [SerializeField] private GameObject _turretPrefab;
     [SerializeField] private GameObject _dummyPrefab;
     [SerializeField] private ATurretProjectile _projectilePrefab;
@@ -30,5 +41,5 @@ public class Turret : ScriptableObject
     [SerializeField] private float _outerRadius;
     [SerializeField] private float _fireRate;
     [SerializeField] private float _projectileMoveSpeed;
-    [SerializeField] private int _projectileDamage;
+    [SerializeField] private int _damage;
 }

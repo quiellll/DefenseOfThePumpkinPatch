@@ -10,14 +10,15 @@ using UnityEngine.UI;
 public class Selectable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     public UnityEvent Selected, Deselected;
+
+    private SelectionManager _selectionManager;
     private Outline _outline;
-    private void Awake()
-    {
-        _outline = GetComponent<Outline>();
-    }
 
     private void Start() //configuracion del outline
     {
+        _selectionManager = GameManager.Instance.SelectionManager;
+
+        _outline = GetComponent<Outline>();
         _outline.OutlineMode = Outline.Mode.OutlineAll;
         _outline.OutlineColor = Color.white;
         _outline.OutlineWidth = 8f;
@@ -27,7 +28,7 @@ public class Selectable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //cuando el raton este sobre el objeto establecerlo como el seleccionado
     public void OnPointerEnter(PointerEventData eventData)
     {
-        GameManager.Instance.SetSelectedObject(this);
+        _selectionManager.SetSelectedObject(this);
         _outline.enabled = true;
         Selected.Invoke();
     }
@@ -35,13 +36,14 @@ public class Selectable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //cuando salga el raton del objeto quitarlo como seleccionado
     public void OnPointerExit(PointerEventData eventData)
     {
-        GameManager.Instance.RemoveSelectedObject(this);
+        _selectionManager.RemoveSelectedObject(this);
         _outline.enabled = false;
         Deselected.Invoke();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        _selectionManager.ClickSelectedObject(this);
     }
 
 
