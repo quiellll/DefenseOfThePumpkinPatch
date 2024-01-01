@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4142998577631059234}
   - component: {fileID: 2126263387524679944}
   - component: {fileID: 8522107509051031015}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 654910396458833937}
   - component: {fileID: 4310659870136395140}
   - component: {fileID: 7236010415003348309}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Pumpkin Sprout
   m_TagString: Untagged
   m_Icon: {fileID: 0}

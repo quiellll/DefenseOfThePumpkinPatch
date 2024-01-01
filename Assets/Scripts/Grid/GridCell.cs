@@ -15,13 +15,10 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
     public CellType Type { get => _type; }
     public bool IsWaypoint {  get => _isWaypoint; } //solo tiene sentido si es de tipo Path
     //objeto sobre la celda, de momento torreta o calabaza
-    //public GameObject ElementOnTop { get => _elementOnTop && _elementOnTop.activeSelf ? _elementOnTop : null; } 
-    public GameObject ElementOnTop { get => _elementOnTop; } 
+    public GameObject ElementOnTop { get; private set; } 
 
     [SerializeField] private CellType _type;
     [SerializeField] private bool _isWaypoint;
-
-    private GameObject _elementOnTop;
 
     private void Awake()
     {
@@ -29,34 +26,38 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
         {
             if(transform.childCount == 0)
             {
-                _elementOnTop = null;
+                ElementOnTop = null;
                 return;
             }
 
             //le quitamos la calabaza de hija para que pueda ser seleccionada
-            _elementOnTop = transform.GetChild(0).gameObject;
-            _elementOnTop.transform.SetParent(null);
+            ElementOnTop = transform.GetChild(0).gameObject;
+            ElementOnTop.transform.SetParent(null);
 
         }
     }
 
+    //construye un brote o torreta, o calabaza (solo para deshacer venderla)
     public bool BuildWare(IWare ware, GameObject prefab = null)
     {
-        if (_elementOnTop || Type != ware.CellType) return false;
+        if (ElementOnTop || Type != ware.CellType) return false;
 
         prefab = prefab == null ? ware.Prefab : prefab;
 
-        _elementOnTop = Instantiate(prefab, transform.position, prefab.transform.rotation);
-        _elementOnTop.transform.Translate(0f, .1f, 0f);
+        ElementOnTop = Instantiate(prefab, transform.position, prefab.transform.rotation);
+        ElementOnTop.transform.Translate(0f, .1f, 0f);
         return true;
     }
 
+    //destruye torreta o calabaza
     public bool DestroyWare()
     {
         if (!ElementOnTop) return false;
 
-        Destroy(_elementOnTop);
-        _elementOnTop = null;
+        if (ElementOnTop.TryGetComponent<PumpkinController>(out var pc)) pc.DestroyPumpkin();
+        else Destroy(ElementOnTop);
+
+        ElementOnTop = null;
         return true;
     }
 
@@ -64,15 +65,15 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
     #region Pumpkins
 
 
-    //la llama el brote para cosntruir uan calabaza y destruir el brote
+    //la llama el brote para construir una calabaza y destruir el brote
     public bool BuildPumpkin(Pumpkin pumpkin)
     {
         if(Type != CellType.Pumpkin || !ElementOnTop) return false;
         if(!ElementOnTop.TryGetComponent<PumpkinSprout>(out _)) return false;
 
-        Destroy(_elementOnTop); //se destruye el brote
-        _elementOnTop = Instantiate(pumpkin.PumpkinPrefab, transform.position, pumpkin.PumpkinPrefab.transform.rotation);
-        _elementOnTop.transform.Translate(0f, .1f, 0f);
+        Destroy(ElementOnTop); //se destruye el brote
+        ElementOnTop = Instantiate(pumpkin.PumpkinPrefab, transform.position, pumpkin.PumpkinPrefab.transform.rotation);
+        ElementOnTop.transform.Translate(0f, .1f, 0f);
         return true;
     }
 
@@ -80,9 +81,12 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
     //por tanto solo se debe llamar en modo defensa y no debe interferir con los commands nunca
     public bool DestroyPumpkin()
     {
-        if (Type != CellType.Pumpkin || !ElementOnTop || ElementOnTop.TryGetComponent<PumpkinSprout>(out _)) return false;
+        if (Type != CellType.Pumpkin || !ElementOnTop || !ElementOnTop.TryGetComponent<PumpkinController>(out var pc))
+            return false;
 
-        Destroy(_elementOnTop);
+        pc.DestroyPumpkin();
+        ElementOnTop = null;
+
         return true;
     }
 

@@ -15,7 +15,7 @@ public class PumpkinSprout : MonoBehaviour
     {
         _cell = WorldGrid.Instance.GetCellAt(XY);
 
-        GameManager.Instance.HUD.StartWave.AddListener(OnStartWave);
+        GameManager.Instance.HUD.WaveStarted.AddListener(OnStartWave);
     }
 
     private void OnStartWave()
@@ -26,7 +26,7 @@ public class PumpkinSprout : MonoBehaviour
 
     private void GrowPumpkin()
     {
-        GameManager.Instance.HUD.StartWave.RemoveListener(OnStartWave);
+        GameManager.Instance.HUD.WaveStarted.RemoveListener(OnStartWave);
 
         _cell.BuildPumpkin(_pumpkin);
     }

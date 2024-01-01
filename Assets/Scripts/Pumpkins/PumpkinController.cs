@@ -12,8 +12,9 @@ public class PumpkinController : MonoBehaviour
         WorldGrid.Instance.AddPumpkin(_cell);
     }
 
-    private void OnDestroy()
+    public void DestroyPumpkin()
     {
         WorldGrid.Instance.RemovePumpkin(_cell);
+        Destroy(gameObject);
     }
 }
