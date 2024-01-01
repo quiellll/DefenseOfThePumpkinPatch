@@ -83,6 +83,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 10772e0f4f5c2fb4cbced89bf62919bf, type: 2}
+    - target: {fileID: -3905333034154340499, guid: 17c0fee754cede94db0350ba80311800,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: -2202892853515455343, guid: 17c0fee754cede94db0350ba80311800,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -93,10 +98,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 10772e0f4f5c2fb4cbced89bf62919bf, type: 2}
+    - target: {fileID: 656012262743543446, guid: 17c0fee754cede94db0350ba80311800,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 17c0fee754cede94db0350ba80311800,
         type: 3}
       propertyPath: m_Name
       value: Core Crystal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318639771806334449, guid: 17c0fee754cede94db0350ba80311800,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.727
       objectReference: {fileID: 0}
     - target: {fileID: 5955824637679129403, guid: 17c0fee754cede94db0350ba80311800,
         type: 3}
