@@ -18,7 +18,7 @@ public class BuildManager
     {
         if (!Dummy) return;
 
-        if (!_selectionManager.SelectedCell)
+        if (!_selectionManager.SelectedCell || _selectionManager.SelectedCell.Type != WareToBuild.CellType)
         {
             if (Dummy.activeSelf) Dummy.SetActive(false);
             return;

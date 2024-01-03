@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2089210753951521732}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Catapult Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6824664968345648520}
   - component: {fileID: 8828682072265337208}
   - component: {fileID: 6948173143620151235}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}

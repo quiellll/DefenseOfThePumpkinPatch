@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1834512379356014348}
   - component: {fileID: 3218186535788582255}
   - component: {fileID: 3792635453166358086}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2089210753951521732}
   - component: {fileID: 7140167540266399256}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Magic Tower Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
