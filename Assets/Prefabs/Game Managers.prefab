@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2321262619801024005}
   - component: {fileID: 1505482990933519781}
   - component: {fileID: 6889630256011490847}
-  - component: {fileID: 4281605333099664016}
   m_Layer: 5
   m_Name: Turret 3
   m_TagString: Untagged
@@ -122,31 +121,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4281605333099664016}
-        m_TargetAssemblyTypeName: TurretConstructionButton, Assembly-CSharp
-        m_MethodName: SelectTurret
-        m_Mode: 1
+      - m_Target: {fileID: 3319956099666172786}
+        m_TargetAssemblyTypeName: ShopMenu, Assembly-CSharp
+        m_MethodName: BuyTurret
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 2782564eaf0be6e40b8cb162880ad361,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Turret, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4281605333099664016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223527830659172040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b142510f4611bb04f8f5cdf5d21354da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _turret: {fileID: 11400000, guid: 2782564eaf0be6e40b8cb162880ad361, type: 2}
 --- !u!1 &257671149034227294
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +340,6 @@ GameObject:
   - component: {fileID: 1341072968052123122}
   - component: {fileID: 1733157988994376860}
   - component: {fileID: 5825555686062340180}
-  - component: {fileID: 8407833256259945153}
   m_Layer: 5
   m_Name: Turret 2
   m_TagString: Untagged
@@ -463,31 +449,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8407833256259945153}
-        m_TargetAssemblyTypeName: TurretConstructionButton, Assembly-CSharp
-        m_MethodName: SelectTurret
-        m_Mode: 1
+      - m_Target: {fileID: 3319956099666172786}
+        m_TargetAssemblyTypeName: ShopMenu, Assembly-CSharp
+        m_MethodName: BuyTurret
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: b400564d4c3bfdd4aac5ebc79f4b68b6,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Turret, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8407833256259945153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963913715511610846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b142510f4611bb04f8f5cdf5d21354da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _turret: {fileID: 11400000, guid: b400564d4c3bfdd4aac5ebc79f4b68b6, type: 2}
 --- !u!1 &2518841682333280489
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,30 +660,22 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 0b25c90909bb10e4e943c4863c02ab83,
     type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_PointAction: {fileID: 5652526207220087800, guid: 0b25c90909bb10e4e943c4863c02ab83,
     type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_MoveAction: {fileID: 0}
+  m_SubmitAction: {fileID: 0}
+  m_CancelAction: {fileID: 0}
+  m_LeftClickAction: {fileID: 9218415016001964657, guid: 0b25c90909bb10e4e943c4863c02ab83,
     type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
   m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
+  m_PointerBehavior: 1
   m_CursorLockBehavior: 0
 --- !u!1 &2777694526024748932
 GameObject:
@@ -758,7 +724,7 @@ MonoBehaviour:
   m_Actions: {fileID: -944628639613478452, guid: 0b25c90909bb10e4e943c4863c02ab83,
     type: 3}
   m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
+  m_UIInputModule: {fileID: 6566700561309347990}
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -859,9 +825,9 @@ MonoBehaviour:
     m_ActionName: Camera/Rotate[/Keyboard/q,/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6385712036904695252}
-        m_TargetAssemblyTypeName: TurretConstructionMenu, Assembly-CSharp
-        m_MethodName: OnMenuButtonPressed
+      - m_Target: {fileID: 3319956099666172786}
+        m_TargetAssemblyTypeName: ShopMenu, Assembly-CSharp
+        m_MethodName: ToggleShop
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -874,19 +840,7 @@ MonoBehaviour:
     m_ActionId: ec02b760-37cc-4233-b115-330c5db2c974
     m_ActionName: Default/ToggleTurretConstructionMenu[/Keyboard/t]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8975688226903963507}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: BuildTurret
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 64a8df89-7a27-4c69-b92d-09c2a317d0bd
     m_ActionName: Default/Build[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
@@ -1240,10 +1194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73f4d7f5138b224e865ad4b8bf1e714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartWave:
+  WaveStarted:
     m_PersistentCalls:
       m_Calls: []
-  _turretConstructionUIPanel: {fileID: 8363275827108955421}
   _startWaveButton: {fileID: 9210429471171705354}
 --- !u!1 &5099828162250351641
 GameObject:
@@ -1257,7 +1210,6 @@ GameObject:
   - component: {fileID: 3123964374620713874}
   - component: {fileID: 7357833599182385024}
   - component: {fileID: 3782717025742614185}
-  - component: {fileID: 6456185515158081817}
   m_Layer: 5
   m_Name: Turret 1
   m_TagString: Untagged
@@ -1367,31 +1319,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6456185515158081817}
-        m_TargetAssemblyTypeName: TurretConstructionButton, Assembly-CSharp
-        m_MethodName: SelectTurret
-        m_Mode: 1
+      - m_Target: {fileID: 3319956099666172786}
+        m_TargetAssemblyTypeName: ShopMenu, Assembly-CSharp
+        m_MethodName: BuyTurret
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: a4d6a357e5b7f8c4c81e6ff0364e014c,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Turret, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6456185515158081817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5099828162250351641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b142510f4611bb04f8f5cdf5d21354da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _turret: {fileID: 11400000, guid: a4d6a357e5b7f8c4c81e6ff0364e014c, type: 2}
 --- !u!1 &5255831880741324846
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,8 +2115,9 @@ GameObject:
   - component: {fileID: 5555224171261681617}
   - component: {fileID: 1822234989500471048}
   - component: {fileID: 8328547364801896903}
+  - component: {fileID: 3319956099666172786}
   m_Layer: 5
-  m_Name: Turret Construction Panel
+  m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2243,6 +2184,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3319956099666172786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8363275827108955421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483ace5f1e4aa024e925448e64244e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8749418908323453137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,7 +2453,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6385712036904695252}
         m_TargetAssemblyTypeName: HUDMenu, Assembly-CSharp
-        m_MethodName: OnStartWaveButtonPressed
+        m_MethodName: StartWave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

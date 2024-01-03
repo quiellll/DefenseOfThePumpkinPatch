@@ -12,13 +12,13 @@ public class BuildMode : AGameState //estado de construccion
     {
         //si este es el estado inicial, o el estado anterior era noche, cambiar a dia el siguiente
         _nextStateIsDay = previousState == null || previousState as NightDefenseMode != null;
-        _gameManager.HUD.StartWave.AddListener(OnStartWave);
+        _gameManager.HUD.WaveStarted.AddListener(OnStartWave);
         _gameManager.HUD.StartWaveButton.SetActive(true);
     }
 
     private void OnStartWave() //cuando se pulsa el boton de empezar oleada, se cambia al estado de defensa
     {
-        _gameManager.HUD.StartWave?.RemoveListener(OnStartWave);
+        _gameManager.HUD.WaveStarted?.RemoveListener(OnStartWave);
         _gameManager.GameState = 
             _nextStateIsDay ? new DayDefenseMode(_gameManager) : new NightDefenseMode(_gameManager);
     }

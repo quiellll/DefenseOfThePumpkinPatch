@@ -26,7 +26,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
     private GridCell[] _waypoints;
     private List<GraveAtPath> _graves = new(); //array con las tumbas en orden
     private LayerMask _gridCells;
-    private List<PumpkinDistance> _pumpkins;
+    private List<PumpkinDistance> _pumpkins = new();
     private Collider[] _overlaps = new Collider[4];
 
     protected override void Awake()

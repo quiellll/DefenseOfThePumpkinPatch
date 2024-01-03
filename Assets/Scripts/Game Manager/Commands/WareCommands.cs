@@ -142,7 +142,7 @@ public class SellPumpkin : ASellWare
 
         if(!base.Execute()) return false;
 
-        WorldGrid.Instance.RemovePumpkin(_cell);
+        //WorldGrid.Instance.RemovePumpkin(_cell);
         return true;
     }
 }
