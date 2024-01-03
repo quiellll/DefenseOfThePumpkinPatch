@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveForward : AEnemyMoveState //estado de moverse hacia delante por el path (para el granjero de momento)
+public class MoveForward : AEnemyPathState //estado de moverse hacia delante por el path (para el granjero de momento)
 {
     public MoveForward(AEnemyController enemy) : base(enemy) { }
 
@@ -32,6 +32,7 @@ public class MoveForward : AEnemyMoveState //estado de moverse hacia delante por
             return;
         }
 
-        _enemy.State = new MoveBackwards(_enemy);
+        //_enemy.State = new MoveBackwards(_enemy);
+        _enemy.State = new SeekPumpkin(_enemy);
     }
 }

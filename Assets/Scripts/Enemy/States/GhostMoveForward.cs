@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostMoveForward : AEnemyMoveState //estado de movimiento hacia delante del fantasma
+public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia delante del fantasma
 {
     private WorldGrid.GraveAtPath _grave; //tumba hacia la que el fantasma se mueve
     private GridCell _graveCell; //celda en la que esta la tumbs
@@ -57,11 +57,13 @@ public class GhostMoveForward : AEnemyMoveState //estado de movimiento hacia del
         {
             //hemos llegado a la tumba!
             _reachedDestination = true;
-            WorldGrid.Instance.RemoveGrave(_grave); //destuimos la tumba
+            WorldGrid.Instance.DestroyGrave(_grave); //destuimos la tumba
             _grave = null;
             Exit(null);
+            (_enemy as GhostController).SpawnZombie();
+            (_enemy as GhostController).Transformed = true;
+            
             _enemy.Despawn(); //despawneamos al fantasma
-            //aqui falta spawnear un zombie
             return;
         }
 

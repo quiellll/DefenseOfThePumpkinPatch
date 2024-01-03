@@ -1,61 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using TMPro;
-using UnityEngine.XR;
+
 
 //singleton que se encarga de manejar todo el juego, cambiar estados de juego, construir torretas,
 //establecer el obj seleccionado
 public class GameManager : Singleton<GameManager>
 {
     public AGameState GameState { get => _gameState; set => ChangeState(value); }
+    public int Gold { get => _gold; set => SetGold(value); }
+    public int Pumpkins { get => _pumpkins; set => SetPumpkins(value); }
     public bool IsOnDefense { get => _gameState.GetType() != typeof(BuildMode); }
-    public Turret TurretToBuild { get => _turretToBuild; set => SetTurretToBuild(value); } //torreta establecida para construir
-    
+    public int TimeScale { get; private set; }
+
     //spawners de cada tipo de enemigo
     public WaveSpawner FarmerWaveSpawner { get; private set; }
     public WaveSpawner GhostWaveSpawner { get; private set; }
+    public ZombieSpawner ZombieSpawner { get; private set; }
     public HUDMenu HUD { get; private set; } //ref al hud (botones de empezar oleada y construir torretas de momento)
+    public SelectionManager SelectionManager { get; private set; }
+    public CommandManager CommandManager { get; private set; }
+    public BuildManager BuildManager { get; private set; }
+    public ContextMenuManager ContextMenuManager { get; private set; }
 
-    public Selectable SelectedObject { get; private set; } //obeto seleccionable seleccionado 
 
-    private Turret _turretToBuild;
-    private GameObject _turretDummy; //figura de la torreta semitransparente para elegir donde construirla
-
-    private GridCell _selectedCell; //celda seleccionada para construir la torreta
-
-    private TextMeshProUGUI _testTxt; //texto de debug para saber que objerto esta seleccionado actualmente
-
-    
     private AGameState _gameState;
+    private int _gold;
+    private int _pumpkins;
+
 
     protected override void Awake()
     {
         base.Awake();
 
         HUD = transform.parent.GetComponentInChildren<HUDMenu>();
-
-        _testTxt = GameObject.Find("TestGMSelected").GetComponent<TextMeshProUGUI>();
+        ContextMenuManager = transform.parent.GetComponentInChildren<ContextMenuManager>();
 
         foreach(var spawner in transform.parent.GetComponentsInChildren<WaveSpawner>())
         {
             if (spawner.EnemyPrefab as GhostController) GhostWaveSpawner = spawner;
             else if(spawner.EnemyPrefab as FarmerController) FarmerWaveSpawner = spawner;
         }
+
+        ZombieSpawner = transform.parent.GetComponentInChildren<ZombieSpawner>();
+
+        SelectionManager = new();
+        CommandManager = new();
+        BuildManager = new(SelectionManager);
+
+        Gold = 200;
+        TimeScale = 1;
     }
 
     private void Start()
     {
-        GameState = new BuildMode(this); //inicia en contruccion
+        GameState = new BuildMode(this); //inicia en construccion
     }
 
     private void Update()
     {
-        _testTxt.text = $"Selected Object: {SelectedObject}"; //debug
-
-        TurretPlacing();
+        BuildManager.DummyPlacing();
+        Debug.Log(Gold);
     }
+
+
 
     //cambia de estado de juego
     private void ChangeState(AGameState newState)
@@ -66,76 +74,31 @@ public class GameManager : Singleton<GameManager>
         _gameState.Enter(lastState);
     }
 
-    #region Turrets
-
-    //comprueba si se ha elegido construir una torreta y mueve el dummy, lo desactiva o activa segun corresponda
-    private void TurretPlacing()
+    private void SetGold(int amount)
     {
-        if (!_turretToBuild || !_turretDummy) return;
+        if (amount < 0) return;
 
-        if (!_selectedCell)
+        _gold = amount;
+    }
+
+    private void SetPumpkins(int amount)
+    {
+        if(amount < 0) return;
+        _pumpkins = amount;
+
+        if(_pumpkins == 0)
         {
-            if (_turretDummy.activeSelf) _turretDummy.SetActive(false);
-            return;
+            //game over
         }
-
-        if (!_turretDummy.activeSelf) _turretDummy.SetActive(true);
-        _turretDummy.transform.position = _selectedCell.transform.position;
     }
 
-    //se llama con el setter de TurretToBuild, instancia el dummy cuando se decide connstruir una torreta
-    private void SetTurretToBuild(Turret turret)
+    public void ToggleTimeScale()
     {
-        _turretToBuild = turret;
-        _turretDummy = Instantiate(turret.Dummy, Vector3.zero, turret.Dummy.transform.rotation);
-
-        if(SelectedObject && SelectedObject.TryGetComponent<GridCell>(out var cell))
-        {
-            _turretDummy.transform.position = cell.transform.position;
-            return;
-        }        
-        
-        _turretDummy.SetActive(false);
+        TimeScale = TimeScale == 1 ? 2 : 1;
+        Time.timeScale = TimeScale;
     }
 
-    //se llama cuando se hace clic para construir en un sitio valido, construye la torreta y
-    //destruye el dummy
-    public void Build(InputAction.CallbackContext context)
-    {
-        if (!context.started) return;
-        if(!_turretToBuild || !_turretDummy || !_turretDummy.activeSelf || !_selectedCell) return;
-
-
-        bool built = _selectedCell.BuildTurret(_turretToBuild);
-
-        if (!built) return;
-
-        Destroy(_turretDummy);
-        _turretDummy = null;
-        _turretToBuild = null;
-    }
-    #endregion
-
-
-    #region Selection
-    //cuando se pasa el raton sobre un objeto seleccionable, se establece como el objeto seleccionado
-    public void SetSelectedObject(Selectable selectable)
-    {
-        SelectedObject = selectable;
-        if(SelectedObject.TryGetComponent<GridCell>(out var cell))
-            _selectedCell = cell;
-        else _selectedCell = null;
-    }
-
-    //cuando se hace quita el raton de un seleccionable, se quita
-    public bool RemoveSelectedObject(Selectable selectable)
-    {
-        if(SelectedObject != selectable) return false;
-
-        SelectedObject = null;
-        _selectedCell = null;
-        return true;
-    }
-    #endregion
+    public GameObject SpawnDummy(GameObject prefab) => Instantiate(prefab, Vector3.zero, prefab.transform.rotation);
+    public void DestroyDummy(GameObject dummy) => Destroy(dummy);
 
 }

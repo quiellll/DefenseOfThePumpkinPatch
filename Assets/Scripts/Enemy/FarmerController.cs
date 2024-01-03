@@ -14,12 +14,12 @@ public class FarmerController : AEnemyController ///controlador del granjero que
     protected override void Die()
     {
         //al morir spawnea una tumba
-        CurrentCell.BuildGrave(_stats.GravePrefab, new(XY.x, 0f, XY.y), _body.rotation);
+        WorldGrid.Instance.BuildGrave(_stats.GravePrefab, CurrentCell, new(XY.x, 0f, XY.y), _body.rotation);
 
         base.Die();
     }
 
-    public override void InitEnemy(Vector3 pos, Quaternion rot, WaveSpawner spawner)
+    public override void InitEnemy(Vector3 pos, Quaternion rot, IEnemySpawner spawner)
     {
         base.InitEnemy(pos, rot, spawner);
         SetInitialState(new MoveForward(this));

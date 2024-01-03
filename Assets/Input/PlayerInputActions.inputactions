@@ -33,7 +33,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ToggleTurretConstructionMenu",
+                    "name": "ToggleShop",
                     "type": "Button",
                     "id": "ec02b760-37cc-4233-b115-330c5db2c974",
                     "expectedControlType": "Button",
@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Build",
+                    "name": "Click",
                     "type": "Button",
                     "id": "64a8df89-7a27-4c69-b92d-09c2a317d0bd",
                     "expectedControlType": "Button",
@@ -235,7 +235,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "ToggleTurretConstructionMenu",
+                    "action": "ToggleShop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -246,7 +246,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Build",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -46,7 +46,7 @@ public abstract class ATurretProjectile : MonoBehaviour, IPoolObject
     protected void Damage(AEnemyController enemy) 
     {
         // Indica al enemigo cuánto daño debe recibir en función del proyectil
-        enemy.TakeDamage(_turret.ProjectileDamage);
+        enemy.TakeDamage(_turret.Damage);
     }
 
     // Método de PoolObject para sacar un objeto de la escena

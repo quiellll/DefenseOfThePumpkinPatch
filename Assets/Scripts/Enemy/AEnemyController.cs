@@ -23,7 +23,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     private AEnemyState _currentState;
     private int _currentHealth;
     private Vector2 _gridPos; //posicion redondead para saber en que celda esta
-    private WaveSpawner _spawner;
+    private IEnemySpawner _spawner;
 
 
     protected virtual void Awake()
@@ -47,7 +47,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
         _currentState?.FixedUpdate();
     }
 
-    public virtual void InitEnemy(Vector3 pos, Quaternion rot, WaveSpawner spawner)
+    public virtual void InitEnemy(Vector3 pos, Quaternion rot, IEnemySpawner spawner)
     {
         _spawner = spawner;
         transform.SetPositionAndRotation(pos, rot);
@@ -122,6 +122,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     protected virtual void Die() //morir
     {
         IsAlive = false;
+        GameManager.Instance.Gold += State is MoveBackwards ? _stats.LootWithPumpkin : _stats.Loot;
         Despawn();
     }
 
