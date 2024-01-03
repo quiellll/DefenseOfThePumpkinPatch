@@ -18,7 +18,7 @@ MonoBehaviour:
   _dummyPrefab: {fileID: 6891146182113863401, guid: 6d262a346e7a91a42b1c3bf8ac85eb7c,
     type: 3}
   _projectilePrefab: {fileID: 0}
-  _rotationSpeed: 15
+  _rotationSpeed: 150
   _innerRadius: 0
   _outerRadius: 4
   _fireRate: 0.75
