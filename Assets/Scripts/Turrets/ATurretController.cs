@@ -12,6 +12,7 @@ public abstract class ATurretController : MonoBehaviour
     public Vector2 XY { get => new(transform.position.x, transform.position.z); }
 
     public GridCell Cell { get; private set; }
+    public Turret Turret { get => _turret; }
 
     // Referencia al ScriptableObject de la torreta
     [SerializeField] protected Turret _turret;

@@ -19,6 +19,9 @@ public class Pumpkin : ScriptableObject, IWare
     public GameObject PumpkinPrefab { get => _pumpkinPrefab; }
     public int SproutGrowthPeriod { get => _sproutGrowthPeriod; }
 
+    public Sprite PumpkinIcon { get => _pumpkinIcon; }
+    public Sprite SproutIcon { get => _sproutIcon; }
+
 
 
     [SerializeField] private int _buyPrice;
@@ -26,4 +29,6 @@ public class Pumpkin : ScriptableObject, IWare
     [SerializeField] private GameObject _pumpkinPrefab;
     [SerializeField] private GameObject _sproutPrefab;
     [SerializeField] private GameObject _sproutDummy;
+    [SerializeField] private Sprite _pumpkinIcon;
+    [SerializeField] private Sprite _sproutIcon;
 }

@@ -11,25 +11,22 @@ public class GameManager : Singleton<GameManager>
     public int Gold { get => _gold; set => SetGold(value); }
     public int Pumpkins { get => _pumpkins; set => SetPumpkins(value); }
     public bool IsOnDefense { get => _gameState.GetType() != typeof(BuildMode); }
-    public IWare WareToBuild { get => _wareToBuild; }
+    public int TimeScale { get; private set; }
+
     //spawners de cada tipo de enemigo
     public WaveSpawner FarmerWaveSpawner { get; private set; }
     public WaveSpawner GhostWaveSpawner { get; private set; }
     public ZombieSpawner ZombieSpawner { get; private set; }
     public HUDMenu HUD { get; private set; } //ref al hud (botones de empezar oleada y construir torretas de momento)
-    public SelectionManager SelectionManager { get => _selectionManager; }
-    public CommandManager CommandManager { get => _commandManager; }
+    public SelectionManager SelectionManager { get; private set; }
+    public CommandManager CommandManager { get; private set; }
+    public BuildManager BuildManager { get; private set; }
+    public ContextMenuManager ContextMenuManager { get; private set; }
 
 
-    private IWare _wareToBuild;
-    private GameObject _dummy; //figura de la torreta o brote de calabaza semitransparente para elegir donde construirla
-    
     private AGameState _gameState;
     private int _gold;
     private int _pumpkins;
-
-    private SelectionManager _selectionManager;
-    private CommandManager _commandManager;
 
 
     protected override void Awake()
@@ -37,6 +34,7 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
 
         HUD = transform.parent.GetComponentInChildren<HUDMenu>();
+        ContextMenuManager = transform.parent.GetComponentInChildren<ContextMenuManager>();
 
         foreach(var spawner in transform.parent.GetComponentsInChildren<WaveSpawner>())
         {
@@ -46,22 +44,26 @@ public class GameManager : Singleton<GameManager>
 
         ZombieSpawner = transform.parent.GetComponentInChildren<ZombieSpawner>();
 
-        _selectionManager = new();
-        _commandManager = new();
+        SelectionManager = new();
+        CommandManager = new();
+        BuildManager = new(SelectionManager);
 
         Gold = 200;
+        TimeScale = 1;
     }
 
     private void Start()
     {
-        GameState = new BuildMode(this); //inicia en contruccion
+        GameState = new BuildMode(this); //inicia en construccion
     }
 
     private void Update()
     {
-        DummyPlacing();
+        BuildManager.DummyPlacing();
         Debug.Log(Gold);
     }
+
+
 
     //cambia de estado de juego
     private void ChangeState(AGameState newState)
@@ -90,65 +92,13 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-
-    //comprueba si se ha elegido construir una torreta o calabaza y mueve el dummy, lo desactiva o activa segun corresponda
-    private void DummyPlacing()
+    public void ToggleTimeScale()
     {
-        if (!_dummy) return;
-
-        if (!_selectionManager.SelectedCell)
-        {
-            if (_dummy.activeSelf) _dummy.SetActive(false);
-            return;
-        }
-
-        if (!_dummy.activeSelf) _dummy.SetActive(true);
-        _dummy.transform.position = _selectionManager.SelectedCell.transform.position + Vector3.up * 0.1f;
+        TimeScale = TimeScale == 1 ? 2 : 1;
+        Time.timeScale = TimeScale;
     }
 
-    //instancia el dummy cuando se decide construir una torreta o calabaza
-    public void SetWareToBuild(IWare ware)
-    {
-        if (_dummy != null)
-        {
-            Destroy(_dummy);
-        }
-
-        _wareToBuild = ware;
-        _dummy = Instantiate(ware.Dummy, Vector3.zero, ware.Dummy.transform.rotation);
-
-
-        if (_selectionManager.SelectedObject && _selectionManager.SelectedCell
-            && _selectionManager.SelectedCell.Type == _wareToBuild.CellType)
-        {
-            _dummy.transform.position = _selectionManager.SelectedCell.transform.position;
-            return;
-        }
-
-        _dummy.SetActive(false);
-    }
-
-    public void RemoveWareToBuild()
-    {
-        if (_dummy != null)
-        {
-            Destroy(_dummy);
-            _dummy = null;
-        }
-        _wareToBuild = null;
-    }
-
-    public bool CanBuildWare(IWare ware)
-    {
-        return 
-            _wareToBuild != null && 
-            _wareToBuild == ware && 
-            _dummy != null && 
-            _dummy.activeSelf && 
-            _selectionManager.SelectedCell != null && 
-            _selectionManager.SelectedCell.ElementOnTop == null && 
-            _selectionManager.SelectedCell.Type == _wareToBuild.CellType && 
-            (Gold - _wareToBuild.BuyPrice) >= 0;
-    }
+    public GameObject SpawnDummy(GameObject prefab) => Instantiate(prefab, Vector3.zero, prefab.transform.rotation);
+    public void DestroyDummy(GameObject dummy) => Destroy(dummy);
 
 }

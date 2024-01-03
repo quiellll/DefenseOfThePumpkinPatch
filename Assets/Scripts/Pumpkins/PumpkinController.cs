@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class PumpkinController : MonoBehaviour
 {
-    GridCell _cell;
+    public Pumpkin Pumpkin { get => _pumpkin; }
+    public GridCell Cell { get; private set; }
+
+    [SerializeField] private Pumpkin _pumpkin;
 
     private void Start()
     {
-        _cell = WorldGrid.Instance.GetCellAt(new(transform.position.x, transform.position.z));
-        WorldGrid.Instance.AddPumpkin(_cell);
+        Cell = WorldGrid.Instance.GetCellAt(new(transform.position.x, transform.position.z));
+        WorldGrid.Instance.AddPumpkin(Cell);
     }
 
     public void DestroyPumpkin()
     {
-        WorldGrid.Instance.RemovePumpkin(_cell);
+        WorldGrid.Instance.RemovePumpkin(Cell);
         Destroy(gameObject);
     }
 }

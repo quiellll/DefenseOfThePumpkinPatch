@@ -17,9 +17,6 @@ public class Turret : ScriptableObject, IWare
     // Prefab de placeholder
     public GameObject Dummy { get => _dummyPrefab; }
     public GridCell.CellType CellType { get => GridCell.CellType.Turret; }
-
-
-
     // Prefab del proyectil a disparar
     public ATurretProjectile ProjectilePrefab { get => _projectilePrefab; }
     public float RotationSpeed { get => _rotationSpeed; } //velocidad de rotacion
@@ -30,6 +27,9 @@ public class Turret : ScriptableObject, IWare
     public float FireRate { get => _fireRate; } //disparos por segundo
     public float ProjectileMoveSpeed {  get => _projectileMoveSpeed; }
     public int Damage { get => _damage; }
+    public Sprite Icon { get => _icon; }
+    public string Description { get => _description; }
+
 
 
     [SerializeField] private int _buyPrice;
@@ -42,4 +42,7 @@ public class Turret : ScriptableObject, IWare
     [SerializeField] private float _fireRate;
     [SerializeField] private float _projectileMoveSpeed;
     [SerializeField] private int _damage;
+    [SerializeField] private Sprite _icon;
+    [SerializeField] private string _description;
+
 }

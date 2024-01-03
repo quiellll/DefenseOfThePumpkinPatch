@@ -1,47 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
-
-public abstract class ASetWareToBuy : ICommand
+public class SetWareToBuy : ICommand
 {
-    public bool Undoable { get => false; }
+    public bool Undoable => false;
     private IWare _ware;
-    public ASetWareToBuy(IWare Ware)
+    public SetWareToBuy(IWare Ware)
     {
         _ware = Ware;
     }
     public bool Execute()
     {
         if (GameManager.Instance.Gold - _ware.BuyPrice < 0) return false;
-        GameManager.Instance.SetWareToBuild(_ware);
+        GameManager.Instance.BuildManager.SetWareToBuild(_ware);
         return true;
     }
     public void Undo() { }
 }
 
 
-public abstract class ARemoveWareToBuy : ICommand
+public class RemoveWareToBuy : ICommand
 {
-    public bool Undoable { get => false; }
+    public bool Undoable => false;
 
     public bool Execute()
     {
-        GameManager.Instance.RemoveWareToBuild(); return true;
+        GameManager.Instance.BuildManager.RemoveWareToBuild(); return true;
     }
     public void Undo() { }
 }
 
 
 
-public abstract class ABuildWare : ICommand
+public  class BuildWare : ICommand
 {
-    public bool Undoable { get => true; }
+    public bool Undoable => true;
     protected IWare _ware;
     protected GridCell _cell;
 
-    public ABuildWare(IWare Ware, GridCell cell)
+    public BuildWare(IWare Ware, GridCell cell)
     {
         _ware = Ware;
         _cell = cell;
@@ -49,11 +45,11 @@ public abstract class ABuildWare : ICommand
 
     public bool Execute()
     {
-        if (!GameManager.Instance.CanBuildWare(_ware)) return false;
+        if (!GameManager.Instance.BuildManager.CanBuildWare(_ware)) return false;
 
         if(Build())
         {
-            GameManager.Instance.RemoveWareToBuild();
+            GameManager.Instance.BuildManager.RemoveWareToBuild();
             GameManager.Instance.Gold -= _ware.BuyPrice;
             return true;
         }
@@ -66,17 +62,17 @@ public abstract class ABuildWare : ICommand
         GameManager.Instance.Gold += _ware.BuyPrice;
     }
 
-    protected abstract bool Build();
+    protected virtual bool Build() => _cell.BuildWare(_ware);
 }
 
 
-public abstract class ASellWare : ICommand
+public class SellWare : ICommand
 {
-    public bool Undoable { get => true; }
+    public bool Undoable => true;
     protected IWare _ware;
     protected GridCell _cell;
 
-    public ASellWare(IWare Ware, GridCell cell)
+    public SellWare(IWare Ware, GridCell cell)
     {
         _ware = Ware;
         _cell = cell;
@@ -97,52 +93,21 @@ public abstract class ASellWare : ICommand
         GameManager.Instance.Gold -= _ware.SellPrice;
     }
 
-    protected abstract void Build();
+    protected virtual void Build() => _cell.BuildWare(_ware);
 }
 
 
 
-
-public class SetTurretToBuy : ASetWareToBuy { public SetTurretToBuy(Turret turret) : base(turret) { } }
-
-public class RemoveTurretToBuy : ARemoveWareToBuy { public RemoveTurretToBuy() : base() { } }
-
-public class BuildTurret : ABuildWare
-{
-    public BuildTurret(Turret turret, GridCell cell) : base(turret, cell) { }
-    protected override bool Build() => _cell.BuildWare(_ware);
-}
-
-public class SellTurret : ASellWare
-{
-    public SellTurret(Turret turret, GridCell cell) : base(turret, cell) { }
-    protected override void Build() => _cell.BuildWare(_ware);
-}
-
-
-public class SetPumpkinSproutToBuy : ASetWareToBuy { public SetPumpkinSproutToBuy(Pumpkin pumpkin) : base(pumpkin) { } }
-
-public class RemovePumpkinSproutToBuy : ARemoveWareToBuy { public RemovePumpkinSproutToBuy() : base() { } }
-
-public class BuildPumpkinSprout : ABuildWare
-{
-    public BuildPumpkinSprout(Pumpkin pumpkin, GridCell cell) : base(pumpkin, cell) { }
-    protected override bool Build() => _cell.BuildWare(_ware);
-}
-
-public class SellPumpkin : ASellWare
+public class SellPumpkin : SellWare
 {
     public SellPumpkin(Pumpkin pumpkin, GridCell cell) : base(pumpkin, cell) { }
-    protected override void Build() => _cell.BuildWare(_ware, (_ware as Pumpkin).PumpkinPrefab);
 
     public override bool Execute()
     {
         if (_cell.Type != GridCell.CellType.Pumpkin || !_cell.ElementOnTop ||
-            _cell.ElementOnTop.TryGetComponent<PumpkinSprout>(out _)) return false;
+            _cell.ElementOnTop.TryGetComponent<PumpkinController>(out _)) return false;
 
-        if(!base.Execute()) return false;
-
-        //WorldGrid.Instance.RemovePumpkin(_cell);
-        return true;
+        return base.Execute();
     }
+    protected override void Build() => _cell.BuildWare(_ware, (_ware as Pumpkin).PumpkinPrefab);
 }

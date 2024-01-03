@@ -11,18 +11,40 @@ public class Selectable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     public UnityEvent Selected, Deselected;
 
+    public GridCell GridCell { get; private set; }
+    public ATurretController TurretController { get; private set; }
+    public PumpkinController PumpkinController { get; private set; }
+    public PumpkinSprout PumpkinSprout { get; private set; }
+
     private SelectionManager _selectionManager;
     private Outline _outline;
+
 
     private void Start() //configuracion del outline
     {
         _selectionManager = GameManager.Instance.SelectionManager;
+
+        FindController();
 
         _outline = GetComponent<Outline>();
         _outline.OutlineMode = Outline.Mode.OutlineAll;
         _outline.OutlineColor = Color.white;
         _outline.OutlineWidth = 8f;
         _outline.enabled = false;
+    }
+
+    private void FindController()
+    {
+        GridCell = GetComponent<GridCell>();
+        if (GridCell != null) return;
+
+        TurretController = GetComponent<ATurretController>();
+        if (TurretController != null) return;
+
+        PumpkinController = GetComponent<PumpkinController>();
+        if (PumpkinController != null) return;
+
+        PumpkinSprout = GetComponent<PumpkinSprout>();
     }
 
     //cuando el raton este sobre el objeto establecerlo como el seleccionado

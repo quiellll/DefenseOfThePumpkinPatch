@@ -20,8 +20,7 @@ public class SelectionManager
     public void SetSelectedObject(Selectable selectable)
     {
         SelectedObject = selectable;
-        if (SelectedObject.TryGetComponent<GridCell>(out var cell)) SelectedCell = cell;
-        else SelectedCell = null;
+        SelectedCell = selectable.GridCell; //null si no es una celda
 
         _testTxt.text = $"Selected Object: {SelectedObject}"; //debug
     }
@@ -43,26 +42,35 @@ public class SelectionManager
     {
         if(SelectedObject != selectable) return false;
 
-        if (SelectedCell) return ClickSelectedCell();
+        if(SelectedCell != null ) return BuildWareOnCell();
 
-        //aqui poner codigo de clickar las torretas, calabazas y otros objetos seleccionables
-
-        return true;
+        return ShowContextMenu();
     }
 
-    private bool ClickSelectedCell()
+    private bool BuildWareOnCell()
     {
         ICommand command = null;
-        switch(SelectedCell.Type)
-        {
-            case GridCell.CellType.Turret:
-                command = new BuildTurret(GameManager.Instance.WareToBuild as Turret, SelectedCell);
-                break;
 
-            case GridCell.CellType.Pumpkin:
-                command = new BuildPumpkinSprout(GameManager.Instance.WareToBuild as Pumpkin, SelectedCell);
-                break;     
-        }
-        return GameManager.Instance.CommandManager.ExecuteCommand(command);
+        if(SelectedCell.Type == GridCell.CellType.Turret || SelectedCell.Type == GridCell.CellType.Pumpkin)
+            command = new BuildWare(GameManager.Instance.BuildManager.WareToBuild, SelectedCell);
+
+        return command != null && GameManager.Instance.CommandManager.ExecuteCommand(command);
+    }
+
+    private bool ShowContextMenu()
+    {
+        ICommand command = null;
+
+        if(SelectedObject.TurretController != null)
+            command = new ShowTurretContextMenu(SelectedObject.TurretController);
+
+        else if (SelectedObject.PumpkinController != null)
+            command = new ShowPumpkinContextMenu(SelectedObject.PumpkinController);
+
+        else if (SelectedObject.PumpkinSprout != null)
+            command = new ShowSproutContextMenu(SelectedObject.PumpkinSprout);
+
+
+        return command != null && GameManager.Instance.CommandManager.ExecuteCommand(command);
     }
 }

@@ -49,7 +49,7 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
         return true;
     }
 
-    //destruye torreta o calabaza
+    //destruye torreta o calabaza al venderla, o destroye torreta o brote al deshacer compra
     public bool DestroyWare()
     {
         if (!ElementOnTop) return false;
@@ -69,7 +69,7 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
     public bool BuildPumpkin(Pumpkin pumpkin)
     {
         if(Type != CellType.Pumpkin || !ElementOnTop) return false;
-        if(!ElementOnTop.TryGetComponent<PumpkinSprout>(out _)) return false;
+        if(!ElementOnTop.TryGetComponent<PumpkinController>(out _)) return false;
 
         Destroy(ElementOnTop); //se destruye el brote
         ElementOnTop = Instantiate(pumpkin.PumpkinPrefab, transform.position, pumpkin.PumpkinPrefab.transform.rotation);

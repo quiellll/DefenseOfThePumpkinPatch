@@ -26,16 +26,35 @@ public class HUDMenu : MonoBehaviour
         _shopMenu = FindObjectOfType<ShopMenu>();
     }
 
+
+    #region HUD  Listeners
+    //estas funciones se asignan a los elementos del HUD en el inspector (botones y demas) como listeners en sus eventos
+
     public void ToggleShop()
     {
         _shopMenu.ToggleShop();       
     }
 
-    //funcion asignada al boton de iniciar oleada
     public void StartWave()
     {
         WaveStarted.Invoke();
     }
 
-    
+    public void ToggleTimeScale()
+    {
+        GameManager.Instance.ToggleTimeScale();
+    }
+
+    public void UndoLastCommand()
+    {
+        GameManager.Instance.CommandManager.UndoLastCommand();
+    }
+
+    public void PauseGame()
+    {
+        //pausa tal
+    }
+
+
+    #endregion
 }

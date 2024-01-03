@@ -10,19 +10,27 @@ public class ShopMenu : MonoBehaviour
     {
         if (context.started) ToggleShop();
     }
+
     public void ToggleShop()
     {
         gameObject.SetActive(!gameObject.activeSelf);
     }
 
-    //metodo que hay que asignar a un boton de comprar torreta
-    public void BuyTurret(Turret turret)
+
+    //metodos que hay que asignar a los botones de la tienda
+    public void SetTurretToBuy(Turret turret)
     {
-        GameManager.Instance.CommandManager.ExecuteCommand(new SetTurretToBuy(turret));
+        GameManager.Instance.CommandManager.ExecuteCommand(new SetWareToBuy(turret));
     }
 
-    public void BuyPumpkinSprout(Pumpkin pumpkin)
+    public void SetPumpkinSproutToBuy(Pumpkin pumpkin)
     {
-        GameManager.Instance.CommandManager.ExecuteCommand(new SetPumpkinSproutToBuy(pumpkin));
+        GameManager.Instance.CommandManager.ExecuteCommand(new SetWareToBuy(pumpkin));
     }
+
+    public void RemoveWareToBuy()
+    {
+        GameManager.Instance.CommandManager.ExecuteCommand(new RemoveWareToBuy());
+    }
+
 }

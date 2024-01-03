@@ -37,12 +37,6 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
         _gridCells = LayerMask.GetMask("Cell");
     }
 
-    private void Start()
-    {
-        //InitPumpkins();
-    }
-
-
     
     public GridCell GetCellAt(Vector2 gridPos) //devuelve la celda en la posicion 2d gridPos si la hay
     {
@@ -148,18 +142,6 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
             Distance = Vector2.Distance(cell.XY, Instance._waypoints[^1].XY);
         }
     }
-
-    //private void InitPumpkins()
-    //{
-    //    _pumpkins = new();
-    //    for (int i = 0; i < _pumpkinCellContainer.childCount; i++)
-    //    {
-    //        var cell = _pumpkinCellContainer.GetChild(i).GetComponent<GridCell>();
-    //        if (!cell.ElementOnTop || cell.ElementOnTop.TryGetComponent<PumpkinSprout>(out _)) continue;
-
-    //        AddPumpkin(cell);
-    //    }
-    //}
 
     //funciones llamadas por las GridCell, no llamarlas directamente
     //si se quiere crear/destruir una calabaza, se hace desde la gridcell correspondiente o con un command
