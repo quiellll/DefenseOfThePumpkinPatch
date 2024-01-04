@@ -15,13 +15,18 @@ public class HUDMenu : MonoBehaviour
 {
     //boton de iniciar oleada
     public GameObject StartWaveButton { get => _startWaveButton; }
+    public GameObject UndoButton { get => _undoButton; }
+    public GameObject TimeScaleButton { get => _timeScaleButton; }
     public UnityEvent WaveStarted; //evento que se lanza al pulsar el boton de iniciar oleada
 
     [SerializeField] private GameObject _startWaveButton;
     [SerializeField] private GameObject _timeScaleButton;
+    [SerializeField] private GameObject _shopButton;
+    [SerializeField] private GameObject _undoButton;
 
     private GameObject _x1Sprite;
     private GameObject _x2Sprite;
+    private RectTransform _shopButtonCanvas;
 
     ShopMenu _shopMenu;
 
@@ -29,11 +34,13 @@ public class HUDMenu : MonoBehaviour
     {
         _x1Sprite = _timeScaleButton.transform.GetChild(0).gameObject;
         _x2Sprite = _timeScaleButton.transform.GetChild(1).gameObject;
+        _shopButtonCanvas = _shopButton.GetComponent<RectTransform>();
     }
 
     private void Start()
     {
         _shopMenu = FindObjectOfType<ShopMenu>(true);
+        UpdateUndoButton();
     }
 
 
@@ -42,6 +49,8 @@ public class HUDMenu : MonoBehaviour
 
     public void ToggleShop()
     {
+        if (_shopMenu.gameObject.activeSelf) _shopButtonCanvas.anchoredPosition += new Vector2(500f, 0f);
+        else _shopButtonCanvas.anchoredPosition -= new Vector2(500f, 0f);
         _shopMenu.ToggleShop();       
     }
 
@@ -62,7 +71,14 @@ public class HUDMenu : MonoBehaviour
     public void UndoLastCommand()
     {
         GameManager.Instance.CommandManager.UndoLastCommand();
+        UpdateUndoButton();
     }
+
+    public void UpdateUndoButton()
+    {
+        _undoButton.SetActive(GameManager.Instance.CommandManager.CanUndo());
+    }
+
 
     public void PauseGame()
     {

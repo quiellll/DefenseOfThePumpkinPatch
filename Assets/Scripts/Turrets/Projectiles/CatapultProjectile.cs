@@ -12,11 +12,14 @@ public class CatapultProjectile : ATurretProjectile
     private Catapult _catapult;
     private bool _hasTarget;
     private float _maxHeight;
+    private Vector2 _catapultPos;
 
     public override void Init(TurretProjectileSpawner spawner, AEnemyController target,
         Vector3 spawnPos, Turret turret, ATurretController controller)
     {
         base.Init(spawner, target, spawnPos, turret, controller);
+
+        _catapultPos = controller.XY;
 
         _catapult = turret as Catapult;
 
@@ -42,7 +45,7 @@ public class CatapultProjectile : ATurretProjectile
         } 
         else if (_hasTarget)
         {
-            if(Vector2.Distance(_controller.XY, EnemyTarget.XY) >= _turret.InnerRadius)
+            if(Vector2.Distance(_catapultPos, EnemyTarget.XY) >= _turret.InnerRadius)
                 _targetPos = EnemyTarget.transform.position;
             else _hasTarget = false;
         }

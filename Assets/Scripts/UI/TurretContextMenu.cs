@@ -59,6 +59,7 @@ public class TurretContextMenu : MonoBehaviour
     public void Sell()
     {
         GameManager.Instance.CommandManager.ExecuteCommand(new SellWare(Turret, _turretCell));
+        GameManager.Instance.HUD.UpdateUndoButton();
     }
 
 

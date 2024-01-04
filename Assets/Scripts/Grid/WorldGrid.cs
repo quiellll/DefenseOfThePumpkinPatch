@@ -148,7 +148,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
     //si se quiere crear/destruir una calabaza, se hace desde la gridcell correspondiente o con un command
     public bool AddPumpkin(GridCell cell)
     {
-        if(cell.Type != GridCell.CellType.Pumpkin) return false;
+        if (cell.Type != GridCell.CellType.Pumpkin) return false;
 
         var pumpkin = new PumpkinDistance(cell);
 
@@ -156,7 +156,6 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
         {
             if (_pumpkins[i].Distance < pumpkin.Distance) continue;
             if (_pumpkins[i].Cell == cell) return false;
-
             _pumpkins.Insert(i, pumpkin);
             GameManager.Instance.Pumpkins++;
             PumpkinsUpdated.Invoke(_pumpkins[0].Cell);
@@ -164,6 +163,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
         }
 
         _pumpkins.Add(pumpkin);
+        GameManager.Instance.Pumpkins++;
         PumpkinsUpdated.Invoke(_pumpkins[0].Cell);
         return true;
     }

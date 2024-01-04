@@ -12,6 +12,8 @@ public class TurretRange : MonoBehaviour
 
     private bool _isDummy = false;
     
+    private readonly float _rangeYOffset = 0.11f;
+
 
     private void Awake()
     {
@@ -27,7 +29,7 @@ public class TurretRange : MonoBehaviour
         _rangeMat = _rangeRenderer.material;
         _rangeTransform = _rangeRenderer.transform;
 
-        _rangeTransform.Translate(0f, .11f, 0f);
+        _rangeTransform.Translate(0f, _rangeYOffset, 0f);
         _rangeMat.SetFloat("_OuterRadius", _turret.OuterRadius);
         _rangeMat.SetVector("_Center", _rangeTransform.position);
 

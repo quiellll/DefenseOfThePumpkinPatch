@@ -32,7 +32,7 @@ public class PumpkinContextMenu : MonoBehaviour
         _pumpkinCell = pumpkinController.Cell;
 
         _icon.sprite = Pumpkin.PumpkinIcon;
-        _sellPrice.text = Pumpkin.SellPrice.ToString();
+        _sellPrice.text = "Sell Price: " + Pumpkin.SellPrice.ToString();
 
         return true;
     }
@@ -48,6 +48,7 @@ public class PumpkinContextMenu : MonoBehaviour
     //asignar al boton de vender del context menu
     public void Sell()
     {
-        GameManager.Instance.CommandManager.ExecuteCommand(new SellWare(Pumpkin, _pumpkinCell));
+        GameManager.Instance.CommandManager.ExecuteCommand(new SellPumpkin(Pumpkin, _pumpkinCell));
+        GameManager.Instance.HUD.UpdateUndoButton();
     }
 }

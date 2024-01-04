@@ -37,4 +37,6 @@ public class CommandManager
     {
         executedCommands.Clear();
     }
+
+    public bool CanUndo() => executedCommands != null && executedCommands.Count > 0;
 }

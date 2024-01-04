@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 
 public class ShopMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject _cancelPurchaseButton;
+
+    private GameObject _purchaseButtonPressed;
+
     //funcion llamada al presionar la telca T (de momento) que oculta/muestra la tienda
     public void ToggleShop(InputAction.CallbackContext context)
     {
@@ -20,17 +24,36 @@ public class ShopMenu : MonoBehaviour
     //metodos que hay que asignar a los botones de la tienda
     public void SetTurretToBuy(Turret turret)
     {
-        GameManager.Instance.CommandManager.ExecuteCommand(new SetWareToBuy(turret));
+        bool executed = GameManager.Instance.CommandManager.ExecuteCommand(new SetWareToBuy(turret));
+        if (!executed) 
+            ToggleCancelPurchaseButton(false);
+    }
+
+    public void SetPurchaseButtonPressed(GameObject button)
+    {
+        _purchaseButtonPressed = button;
+        ToggleCancelPurchaseButton(true);
     }
 
     public void SetPumpkinSproutToBuy(Pumpkin pumpkin)
     {
-        GameManager.Instance.CommandManager.ExecuteCommand(new SetWareToBuy(pumpkin));
+        bool executed = GameManager.Instance.CommandManager.ExecuteCommand(new SetWareToBuy(pumpkin));
+        if (!executed) ToggleCancelPurchaseButton(false);
     }
 
     public void RemoveWareToBuy()
     {
+        if (_purchaseButtonPressed == null) return;
+
         GameManager.Instance.CommandManager.ExecuteCommand(new RemoveWareToBuy());
+        ToggleCancelPurchaseButton(false);
+
+    }
+
+    public void ToggleCancelPurchaseButton(bool active)
+    {
+        _purchaseButtonPressed.SetActive(!active);
+        _cancelPurchaseButton.SetActive(active);
     }
 
 }

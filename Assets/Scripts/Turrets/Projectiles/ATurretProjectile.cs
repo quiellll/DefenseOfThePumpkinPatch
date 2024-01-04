@@ -12,7 +12,7 @@ public abstract class ATurretProjectile : MonoBehaviour, IPoolObject
     public bool Active { get => gameObject.activeSelf; set => gameObject.SetActive(value); }
 
     protected Turret _turret;
-    protected ATurretController _controller;
+    //protected ATurretController _controller;
 
     // Método de PoolObject para conocer su estado
 
@@ -39,7 +39,7 @@ public abstract class ATurretProjectile : MonoBehaviour, IPoolObject
         transform.SetPositionAndRotation(spawnPos, Quaternion.LookRotation(target.transform.position - spawnPos));
 
         _turret = turret;
-        _controller = controller;
+        //_controller = controller;
     }
 
     // Método para dañar al enemigo

@@ -47,10 +47,19 @@ public class SelectionManager
     {
         ICommand command = null;
 
-        if(SelectedCell.Type == GridCell.CellType.Turret || SelectedCell.Type == GridCell.CellType.Pumpkin)
+        if (SelectedCell.Type == GridCell.CellType.Turret || SelectedCell.Type == GridCell.CellType.Pumpkin)
+        {
             command = new BuildWare(GameManager.Instance.BuildManager.WareToBuild, SelectedCell);
+        }
+        var built = command != null && GameManager.Instance.CommandManager.ExecuteCommand(command);
 
-        return command != null && GameManager.Instance.CommandManager.ExecuteCommand(command);
+        if (built)
+        {
+            GameManager.Instance.HUD.UpdateUndoButton();
+            GameManager.Instance.Shop.ToggleCancelPurchaseButton(false);
+        }
+
+        return built;
     }
 
     private bool ShowContextMenu()

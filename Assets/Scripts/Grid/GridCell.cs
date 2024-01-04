@@ -44,8 +44,7 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
 
         prefab = prefab == null ? ware.Prefab : prefab;
 
-        ElementOnTop = Instantiate(prefab, transform.position, prefab.transform.rotation);
-        ElementOnTop.transform.Translate(0f, .1f, 0f);
+        ElementOnTop = Instantiate(prefab, transform.position + prefab.transform.position, prefab.transform.rotation);
         return true;
     }
 
@@ -69,11 +68,10 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
     public bool BuildPumpkin(Pumpkin pumpkin)
     {
         if(Type != CellType.Pumpkin || !ElementOnTop) return false;
-        if(!ElementOnTop.TryGetComponent<PumpkinController>(out _)) return false;
+        if(!ElementOnTop.TryGetComponent<PumpkinSprout>(out _)) return false;
 
         Destroy(ElementOnTop); //se destruye el brote
-        ElementOnTop = Instantiate(pumpkin.PumpkinPrefab, transform.position, pumpkin.PumpkinPrefab.transform.rotation);
-        ElementOnTop.transform.Translate(0f, .1f, 0f);
+        ElementOnTop = Instantiate(pumpkin.PumpkinPrefab, transform.position + pumpkin.PumpkinPrefab.transform.position, pumpkin.PumpkinPrefab.transform.rotation);
         return true;
     }
 

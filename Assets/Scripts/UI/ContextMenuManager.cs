@@ -68,6 +68,8 @@ public class ContextMenuManager : MonoBehaviour
         return true;
     }
 
+    public void HideMenu() => HideActiveMenu();
+
     //https://discussions.unity.com/t/how-to-convert-from-world-space-to-canvas-space/117981
     private void SetPositionOnCanvas(RectTransform rectTransform, Vector3 worldPosition)
     {

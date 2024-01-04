@@ -13,8 +13,8 @@ public class TabButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
     [SerializeField] private bool _defaultSelected;
 
     // Sistema de eventos (por si es necesario)
-    // public UnityEvent onTabSelected;
-    // public UnityEvent onTabDeselected;
+    public UnityEvent TabSelected;
+    public UnityEvent TabDeselected;
 
     private TabGroupUI _tabGroup;
     private Image _image;
@@ -41,6 +41,7 @@ public class TabButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         _tabGroup.SelectedTab?.ResetTabButton();
         _tabGroup.SelectedTab?.HideTab();
         _tabGroup.SelectedTab = this;
+        TabSelected.Invoke();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -59,7 +60,11 @@ public class TabButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
 
     public void ResetTabButton() => _image.sprite = _tabGroup.TabIdle;
 
-    public void HideTab() => _shopTab.SetActive(false);
+    public void HideTab()
+    {
+        _shopTab.SetActive(false);
+        TabDeselected.Invoke();
+    }
 
     // Eventos
     // public void Select()

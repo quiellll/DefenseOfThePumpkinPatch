@@ -25,7 +25,7 @@ public class BuildManager
         }
 
         if (!Dummy.activeSelf) Dummy.SetActive(true);
-        Dummy.transform.position = _selectionManager.SelectedCell.transform.position + Vector3.up * 0.1f;
+        Dummy.transform.position = _selectionManager.SelectedCell.transform.position + Vector3.up * Dummy.transform.position.y;
     }
 
     //instancia el dummy cuando se decide construir una torreta o calabaza
@@ -38,6 +38,11 @@ public class BuildManager
 
         WareToBuild = ware;
         Dummy = GameManager.Instance.SpawnDummy(WareToBuild.Dummy);
+
+        foreach(var mr in Dummy.GetComponentsInChildren<MeshRenderer>())
+        {
+            mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        }
 
 
         if (_selectionManager.SelectedObject && _selectionManager.SelectedCell

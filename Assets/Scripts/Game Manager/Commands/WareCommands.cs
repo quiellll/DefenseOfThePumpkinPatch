@@ -105,7 +105,7 @@ public class SellPumpkin : SellWare
     public override bool Execute()
     {
         if (_cell.Type != GridCell.CellType.Pumpkin || !_cell.ElementOnTop ||
-            _cell.ElementOnTop.TryGetComponent<PumpkinController>(out _)) return false;
+            _cell.ElementOnTop.TryGetComponent<PumpkinSprout>(out _)) return false;
 
         return base.Execute();
     }

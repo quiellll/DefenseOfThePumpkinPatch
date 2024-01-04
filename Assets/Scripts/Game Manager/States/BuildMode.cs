@@ -14,6 +14,11 @@ public class BuildMode : AGameState //estado de construccion
         _nextStateIsDay = previousState == null || previousState as NightDefenseMode != null;
         _gameManager.HUD.WaveStarted.AddListener(OnStartWave);
         _gameManager.HUD.StartWaveButton.SetActive(true);
+        _gameManager.HUD.UpdateUndoButton();
+
+        if(_gameManager.TimeScale != 1) _gameManager.HUD.ToggleTimeScale();
+        _gameManager.HUD.TimeScaleButton.SetActive(false);
+
     }
 
     private void OnStartWave() //cuando se pulsa el boton de empezar oleada, se cambia al estado de defensa
