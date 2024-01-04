@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buyPrice: 100
   _sproutGrowthPeriod: 2
-  _prefab: {fileID: 1602090943131839029, guid: c4f35f3a8ddd4ea49a5e766cb73f552c, type: 3}
+  _pumpkinPrefab: {fileID: 1602090943131839029, guid: c4f35f3a8ddd4ea49a5e766cb73f552c,
+    type: 3}
   _sproutPrefab: {fileID: 1602090943131839029, guid: 6de80b7429b86384283a467ece705717,
     type: 3}
+  _sproutDummy: {fileID: 0}
+  _pumpkinIcon: {fileID: 0}
+  _sproutIcon: {fileID: 0}

@@ -18,12 +18,22 @@ public class HUDMenu : MonoBehaviour
     public UnityEvent WaveStarted; //evento que se lanza al pulsar el boton de iniciar oleada
 
     [SerializeField] private GameObject _startWaveButton;
+    [SerializeField] private GameObject _timeScaleButton;
+
+    private GameObject _x1Sprite;
+    private GameObject _x2Sprite;
 
     ShopMenu _shopMenu;
 
+    private void Awake()
+    {
+        _x1Sprite = _timeScaleButton.transform.GetChild(0).gameObject;
+        _x2Sprite = _timeScaleButton.transform.GetChild(1).gameObject;
+    }
+
     private void Start()
     {
-        _shopMenu = FindObjectOfType<ShopMenu>();
+        _shopMenu = FindObjectOfType<ShopMenu>(true);
     }
 
 
@@ -43,6 +53,10 @@ public class HUDMenu : MonoBehaviour
     public void ToggleTimeScale()
     {
         GameManager.Instance.ToggleTimeScale();
+
+        _x1Sprite.SetActive(!_x1Sprite.activeSelf);
+        _x2Sprite.SetActive(!_x2Sprite.activeSelf);
+
     }
 
     public void UndoLastCommand()

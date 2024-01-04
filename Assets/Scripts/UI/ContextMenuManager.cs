@@ -22,6 +22,10 @@ public class ContextMenuManager : MonoBehaviour
     {
         if (!_turretMenu.Display(turretController)) return false;
 
+        if(_activeMenu != Menu.Turret) HideActiveMenu();
+
+        _activeMenu = Menu.Turret;
+
         SetPositionOnCanvas(_turretMenu.RectTransform, turretController.transform.position);
         return true;
     }
@@ -30,6 +34,10 @@ public class ContextMenuManager : MonoBehaviour
     {
         if (!_pumpkinMenu.Display(pumpkinController)) return false;
 
+        if(_activeMenu != Menu.Pumpkin) HideActiveMenu();
+
+        _activeMenu = Menu.Pumpkin;
+
         SetPositionOnCanvas(_pumpkinMenu.RectTransform, pumpkinController.transform.position);
         return true;
     }
@@ -37,6 +45,10 @@ public class ContextMenuManager : MonoBehaviour
     public bool DisplaySproutMenu(PumpkinSprout sproutController)
     {
         if (!_sproutMenu.Display(sproutController)) return false;
+
+        if(_activeMenu != Menu.Sprout) HideActiveMenu();
+
+        _activeMenu = Menu.Sprout;
 
         SetPositionOnCanvas(_sproutMenu.RectTransform, sproutController.transform.position);
         return true;
@@ -56,7 +68,7 @@ public class ContextMenuManager : MonoBehaviour
         return true;
     }
 
-
+    //https://discussions.unity.com/t/how-to-convert-from-world-space-to-canvas-space/117981
     private void SetPositionOnCanvas(RectTransform rectTransform, Vector3 worldPosition)
     {
         Vector2 _viewportPosition = Camera.main.WorldToViewportPoint(worldPosition);

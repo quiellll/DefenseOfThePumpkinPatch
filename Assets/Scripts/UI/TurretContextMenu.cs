@@ -6,7 +6,7 @@ using TMPro;
 using static UnityEngine.GraphicsBuffer;
 using Unity.VisualScripting;
 
-//https://discussions.unity.com/t/how-to-convert-from-world-space-to-canvas-space/117981
+
 
 public class TurretContextMenu : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class TurretContextMenu : MonoBehaviour
     public RectTransform RectTransform {  get; private set; }
 
     [SerializeField] private Image _icon;
-    [SerializeField] private TextMeshProUGUI _description;
+    [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _damage;
     [SerializeField] private TextMeshProUGUI _attackSpeed;
     [SerializeField] private TextMeshProUGUI _sellPrice;
@@ -38,10 +38,11 @@ public class TurretContextMenu : MonoBehaviour
         _turretCell = turretController.Cell;
 
         _icon.sprite = Turret.Icon;
-        _description.text = Turret.Description;
-        _damage.text = Turret.Damage.ToString();
-        _attackSpeed.text = Turret.FireRate.ToString();
-        _sellPrice.text = Turret.SellPrice.ToString();
+        //_name.text = Turret.Description;
+        _name.text = Turret.name;
+        _damage.text = "Attack damage: " + Turret.Damage.ToString();
+        _attackSpeed.text = "Attack Speed: " + Turret.FireRate.ToString();
+        _sellPrice.text = "Sell Price: " + Turret.SellPrice.ToString();
 
         return true;
     }

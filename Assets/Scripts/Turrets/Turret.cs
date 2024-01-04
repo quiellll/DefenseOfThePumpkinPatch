@@ -28,7 +28,7 @@ public class Turret : ScriptableObject, IWare
     public float ProjectileMoveSpeed {  get => _projectileMoveSpeed; }
     public int Damage { get => _damage; }
     public Sprite Icon { get => _icon; }
-    public string Description { get => _description; }
+    //public string Description { get => _description; }
 
 
 
@@ -43,6 +43,6 @@ public class Turret : ScriptableObject, IWare
     [SerializeField] private float _projectileMoveSpeed;
     [SerializeField] private int _damage;
     [SerializeField] private Sprite _icon;
-    [SerializeField] private string _description;
+    //[SerializeField] private string _description;
 
 }

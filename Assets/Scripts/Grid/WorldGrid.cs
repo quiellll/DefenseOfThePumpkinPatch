@@ -131,6 +131,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
 
     #region Pumpkins
 
+    [Serializable]
     private class PumpkinDistance
     {
         public GridCell Cell { get; private set; }

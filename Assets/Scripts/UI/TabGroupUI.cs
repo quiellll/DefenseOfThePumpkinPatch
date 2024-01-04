@@ -5,82 +5,94 @@ using UnityEngine.UI;
 
 public class TabGroupUI : MonoBehaviour
 {
-    // Lista de los distintos botones
-    public List<TabButtonUI> tabButtons;
 
-    // Estados de las pestañas
-    public Sprite tabIdle;
-    public Sprite tabHover;
-    public Sprite tabActive;
+    public Sprite TabIdle {get => _tabIdle; }
+    public Sprite TabHover {get => _tabHover; }
+    public Sprite TabActive {get => _tabActive; }
 
-    // Referencia a la pestaña seleccionada
-    public TabButtonUI selectedTab;
+    public TabButtonUI SelectedTab{get; set;}
 
-    // Lista de las pantallas del menú
-    public List<GameObject> tabsToSwap;
 
-    // Para suscribirse a los métodos de tabButtons
-    public void AddListener(TabButtonUI button)
+    // Estados de las pestaï¿½as
+    [SerializeField] private Sprite _tabIdle;
+    [SerializeField] private Sprite _tabHover;
+    [SerializeField] private Sprite _tabActive; 
+
+    private List<TabButtonUI> _tabButtons;
+    // Referencia a la pestaï¿½a seleccionada
+    // public TabButtonUI selectedTab;
+
+    // Lista de las pantallas del menï¿½
+    // public List<GameObject> tabsToSwap;
+
+
+    private void Awake()
     {
-        // es igual que un if == null...
-        tabButtons ??= new List<TabButtonUI>();
-
-        tabButtons.Add(button);
+        _tabButtons = new List<TabButtonUI>();
     }
 
-    public void OnTabEnter(TabButtonUI button)
+    public void AddTabButton(TabButtonUI button)
     {
-        ResetTabs();
-
-        // Cambia el sprite
-        if (selectedTab == null || button != selectedTab) 
-        { 
-            button.background.sprite = tabHover;
-        }
+        _tabButtons.Add(button);
     }
 
-    public void OnTabExit(TabButtonUI button)
-    {
-        ResetTabs();   
-    }
 
-    public void OnTabSelected(TabButtonUI button)
-    {
-        // Desmarca la pestaña que estuviese seleccionada
-        if(selectedTab != null)
-        {
-            selectedTab.Deselect();
-        }
+    // Para suscribirse a los mï¿½todos de tabButtons
 
-        // Marca la pestaña seleccionada
-        selectedTab = button;
-        selectedTab.Select();
+    // public void OnTabEnter(TabButtonUI button)
+    // {
+    //     ResetTabs();
 
-        ResetTabs();
-        button.background.sprite = tabActive;
+    //     // Cambia el sprite
+    //     //if (selectedTab == null || button != selectedTab) 
+    //         // button.background.sprite = tabHover;
+        
+    // }
 
-        // IMPORTANTE: Vincula las pestañas y los botones del menú según
-        // el orden en el que aparecen como hijos del grupo en el editor.
-        int index = button.transform.GetSiblingIndex();
-        for(int i = 0; i <tabsToSwap.Count; i++)
-        {
-            if (i == index)
-            {
-                tabsToSwap[i].SetActive(true);
-            }
-            else
-            {
-                tabsToSwap[i].SetActive(false);
-            }
-        }
-    }
+    // public void OnTabExit(TabButtonUI button)
+    // {
+    //     ResetTabs();   
+    // }
 
-    public void ResetTabs()
-    {
-        foreach(TabButtonUI button in tabButtons) 
-        {
-            if (selectedTab != null && button == selectedTab) continue;
-            button.background.sprite = tabIdle;
-        }
-    }
+    // public void OnTabSelected(TabButtonUI button)
+    // {
+    //     // Desmarca la pestaï¿½a que estuviese seleccionada
+    //     // if(selectedTab != null)
+    //     // {
+    //     //     selectedTab.Deselect();
+    //     // }
+
+    //     // Marca la pestaï¿½a seleccionada
+    //     selectedTab = button;
+    //     //selectedTab.Select();
+
+    //     //ResetTabs();
+    //     button.background.sprite = tabActive;
+
+    //     // IMPORTANTE: Vincula las pestaï¿½as y los botones del menï¿½ segï¿½n
+    //     // el orden en el que aparecen como hijos del grupo en el editor.
+    //     int index = button.transform.GetSiblingIndex();
+    //     for(int i = 0; i <tabsToSwap.Count; i++)
+    //     {
+    //         if (i == index)
+    //         {
+    //             tabsToSwap[i].SetActive(true);
+    //         }
+    //         else
+    //         {
+    //             tabsToSwap[i].SetActive(false);
+    //         }
+    //     }
+    // }
+
+    // public void ResetTabs()
+    // {
+    //     foreach(TabButtonUI button in tabButtons) 
+    //     {
+    //         // if (selectedTab != null && button == selectedTab) continue;
+    //         // button.background.sprite = tabIdle;
+
+    //         if(button != SelectedTab) button.ResetTab();
+    //     }
+    // }
 }

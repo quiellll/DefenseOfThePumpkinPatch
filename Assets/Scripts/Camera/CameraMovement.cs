@@ -42,12 +42,14 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
+        float unscaledDt = Time.deltaTime / GameManager.Instance.TimeScale;
+
         Vector3 newPos = transform.position;
 
         //movimiento con el input (del padre, no de la camara sola)
         newPos += 
-            transform.right * _xzInput.x * _moveSpeed * Time.deltaTime + 
-            transform.forward * _xzInput.y * _moveSpeed * Time.deltaTime;
+            transform.right * _xzInput.x * _moveSpeed * unscaledDt + 
+            transform.forward * _xzInput.y * _moveSpeed * unscaledDt;
         newPos.y = 0; //se cambia la y de la nueva pos a 0 para calcular la distancia a la que esta del origen
         newPos = Vector3.ClampMagnitude(newPos, _maxDistanceFromOrigin); //para evitar salirse de la max distancia
         
@@ -56,9 +58,9 @@ public class CameraMovement : MonoBehaviour
         //zoom con el input (en el zoom se mueve la camara en vez del padre)
 
         //se clampea para evitar salirse de los limites del zoom
-        //newPos.y = Mathf.Clamp(_cam.position.y - _yInput * _zoomSpeed * Time.deltaTime, _minYPos, _maxYPos);
+        //newPos.y = Mathf.Clamp(_cam.position.y - _yInput * _zoomSpeed * unscaledDt, _minYPos, _maxYPos);
 
-        newPos = _cam.position + _cam.forward * _yInput * _zoomSpeed * Time.deltaTime;
+        newPos = _cam.position + _cam.forward * _yInput * _zoomSpeed * unscaledDt;
         if(newPos.y > _minYPos && newPos.y < _maxYPos) _cam.position = newPos;
 
         //si hay input de movimiento, no se rota la camara (para evitar transformaciones raras)
@@ -67,7 +69,7 @@ public class CameraMovement : MonoBehaviour
 
         //rotacion (del padre, no de la camara, para que la camara rote pero sobre el eje del (0,0,0)
         Vector3 newRot = transform.rotation.eulerAngles;
-        newRot.y -= _rotationInput * _rotationSpeed * Time.deltaTime;
+        newRot.y -= _rotationInput * _rotationSpeed * unscaledDt;
 
         transform.rotation = Quaternion.Euler(newRot);
 

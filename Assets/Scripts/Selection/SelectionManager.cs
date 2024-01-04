@@ -8,11 +8,9 @@ public class SelectionManager
     public Selectable SelectedObject { get; private set; } //obeto seleccionable seleccionado 
     public GridCell SelectedCell { get; private set; }
 
-    private TextMeshProUGUI _testTxt; //texto de debug para saber que objerto esta seleccionado actualmente
 
     public SelectionManager()
     {
-        _testTxt = GameObject.Find("TestGMSelected").GetComponent<TextMeshProUGUI>();
     }
 
 
@@ -22,7 +20,6 @@ public class SelectionManager
         SelectedObject = selectable;
         SelectedCell = selectable.GridCell; //null si no es una celda
 
-        _testTxt.text = $"Selected Object: {SelectedObject}"; //debug
     }
 
     //cuando se hace quita el raton de un seleccionable, se quita
@@ -33,7 +30,6 @@ public class SelectionManager
         SelectedObject = null;
         SelectedCell = null;
 
-        _testTxt.text = $"Selected Object: None"; //debug
 
         return true;
     }
