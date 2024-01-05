@@ -26,12 +26,9 @@ public class SeekPumpkin : AEnemyState
 
         _distanceToPumpkin = Vector2.Distance(_enemy.XY, _currentPumpkin.XY);
 
-        if(_distanceToPumpkin < 0.05f)
+        if(_distanceToPumpkin < 0.3f)
         {
-            _currentPumpkin.DestroyPumpkin();
-
-            //nuevo estado de volver con la calabaza al waypoint
-            _enemy.State = new ReturnToPath(_enemy);
+            _enemy.InteractWithPumpkin(_currentPumpkin);
             return;
         }
 

@@ -16,6 +16,8 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     public Vector2 XY { get => new (transform.position.x, transform.position.z); }
     public Vector3 Direction { get; private set; }
 
+    protected float _rotationSpeed;
+
     [SerializeField] protected Enemy _stats; //scriptableobject flyweight con los parametros comunes
     //modelo hijo del obj de este script (para que la rotacion + traslacion no se rompa)
     [SerializeField] protected Transform _body; 
@@ -26,10 +28,22 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     private IEnemySpawner _spawner;
 
 
+    protected Animator _animator;
+
+    protected int _deadAnim, _damagedAnim, _pickUpAnim;
+
+
     protected virtual void Awake()
     {
         _currentHealth = _stats.Health;
         IsAlive = true;
+        _animator = GetComponentInChildren<Animator>();
+
+        _deadAnim = Animator.StringToHash("isDead");
+        _damagedAnim = Animator.StringToHash("isDamaged");
+        _pickUpAnim = Animator.StringToHash("isPickingUp");
+
+        _rotationSpeed = _stats.RotationSpeed;
     }
 
     protected virtual void Start()
@@ -64,13 +78,16 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
         {
             var targetRotation = Quaternion.LookRotation(direction, Vector3.up);
             _body.localRotation = 
-                Quaternion.RotateTowards(_body.localRotation, targetRotation, _stats.RotationSpeed * Time.deltaTime);
+                Quaternion.RotateTowards(_body.localRotation, targetRotation, _rotationSpeed * Time.deltaTime);
         }
         //movimiento
         transform.Translate(direction * _stats.MoveSpeed * Time.deltaTime);
 
         UpdateCurrentCell();
     }
+
+    public void ChangeRotationSpeed(float factor) => _rotationSpeed *= factor;
+    public void ResetRotationSpeed() => _rotationSpeed = _stats.RotationSpeed;
 
     public void Despawn() => _spawner.DespawnEnemy(this);
 
@@ -81,8 +98,19 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
 
         Vector2 roundedPos = new (Mathf.Round(transform.position.x), Mathf.Round(transform.position.z));
         if (_gridPos == roundedPos) return;
+
+        var lastCell = CurrentCell;
+
         _gridPos = roundedPos;
         CurrentCell = WorldGrid.Instance.GetCellAt(_gridPos);
+
+        if(lastCell == null) return;
+
+        if (lastCell.Type == GridCell.CellType.Path && CurrentCell.Type != GridCell.CellType.Path)
+            transform.Translate(0f, 0.1f, 0f);
+
+        else if (lastCell.Type != GridCell.CellType.Path && CurrentCell.Type == GridCell.CellType.Path)
+            transform.Translate(0f, -0.1f, 0f);
     }
 
     //cambia de estado (funcion llamada solo por el setter de State)
@@ -113,15 +141,26 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     {
         _currentHealth = Mathf.Max(_currentHealth - damage, 0);
 
-        if(_currentHealth == 0)
+        if (_currentHealth == 0)
         {
-            Die();
+            StartCoroutine(StartDeath());
         }
+        //else SetAnimation(_damagedAnim);
+    }
+
+    private IEnumerator StartDeath()
+    {
+        State = null;
+        SetAnimation(_deadAnim);
+        IsAlive = false;
+
+        yield return new WaitForSeconds(0.6f);
+
+        Die();
     }
 
     protected virtual void Die() //morir
     {
-        IsAlive = false;
         GameManager.Instance.Gold += State is MoveBackwards ? _stats.LootWithPumpkin : _stats.Loot;
         Despawn();
     }
@@ -139,6 +178,21 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     public virtual void Reset() //funcion de IPoolObject para "limpiar" el objeto cuando vuelve a la pool
     {
         _currentHealth = _stats.Health;
+    }
+
+    public virtual void InteractWithPumpkin(GridCell pumpkinCell) { }
+
+
+    protected void SetAnimation(int anim)
+    {
+        _animator.SetBool(anim, true);
+        StartCoroutine(ResetAnimationParam(anim));
+    }
+
+    private IEnumerator ResetAnimationParam(int anim)
+    {
+        yield return new WaitForSeconds(.01f);
+        _animator.SetBool(anim, false);
     }
 
 }

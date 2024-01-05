@@ -12,8 +12,8 @@ public class ZombieSpawner : MonoBehaviour, IEnemySpawner
     [SerializeField] private Transform _spawnPoint; //punto donde agrupar a los enemigos
     [SerializeField] private ZombieController _zombiePrefab; //prefab del zombie
     [SerializeField] private WaveSpawner _ghostSpawner;
+    [SerializeField] private int _poolSize;
 
-    private int _reachedGraves; // fantasmas que han llegado a la tumba;
 
     private ObjectPool _zombiePool;
 
@@ -24,7 +24,7 @@ public class ZombieSpawner : MonoBehaviour, IEnemySpawner
     private void Awake()
     {
         //Inicializa el pool de zombies
-        _zombiePool = new ObjectPool(_zombiePrefab, _reachedGraves, false, _spawnPoint);
+        _zombiePool = new ObjectPool(_zombiePrefab, _poolSize, false, _spawnPoint);
     }
 
     private void Start()

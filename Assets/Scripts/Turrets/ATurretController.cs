@@ -68,11 +68,13 @@ public abstract class ATurretController : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (!GameManager.Instance.IsOnDefense) return;
+
         //actualizamos el contador de tiempo entre disparos
         _fireDelayTimer += Time.deltaTime;
 
         // Si no tiene un objetivo fijado, comienza a buscar uno
-        if (!_currentTarget)
+        if (!_currentTarget || !_currentTarget.IsAlive || !_currentTarget.Active)
         {
             FindTarget();
             return;
@@ -121,13 +123,18 @@ public abstract class ATurretController : MonoBehaviour
             // Si solo hay un enemigo en todo el rango, se marca como objetivo
             else if (targetCount == 1) 
             {
-                _currentTarget = _enemyCollidersInsideOuterRadius[0].GetComponentInParent<AEnemyController>();
-                return true;
+                var enemy = _enemyCollidersInsideOuterRadius[0].GetComponentInParent<AEnemyController>();
+
+                if (enemy.IsAlive && enemy.Active)
+                {
+                    _currentTarget = enemy;
+                    return true;
+                }
             }
             // En caso de que haya más de un enemigo en todo el rango, hay que compararlos y ver cuál es la mejor opción
             _currentTarget = FindFirstEnemyInGroup(_enemyCollidersInsideOuterRadius, targetCount);
 
-            return true;
+            return _currentTarget != null;
         }
         //si hay un inner radius
         List<Collider> enemyColsInRange = new();
@@ -147,12 +154,18 @@ public abstract class ATurretController : MonoBehaviour
         // Si solo hay un enemigo en todo el rango, se marca como objetivo
         else if (enemyColsInRange.Count == 1)
         {
-            _currentTarget = enemyColsInRange[0].GetComponentInParent<AEnemyController>();
-            return true;
+            var enemy = enemyColsInRange[0].GetComponentInParent<AEnemyController>();
+            if (enemy.IsAlive && enemy.Active)
+            {
+                _currentTarget = enemy;
+                return true;
+            }
         }
+
         // En caso de que haya más de un enemigo en todo el rango, hay que compararlos y ver cuál es la mejor opción
         _currentTarget = FindFirstEnemyInGroup(enemyColsInRange.ToArray(), enemyColsInRange.Count);
-        return true;
+
+        return _currentTarget != null;
 
     }
 
@@ -175,20 +188,30 @@ public abstract class ATurretController : MonoBehaviour
     private AEnemyController FindFirstEnemyInGroup(Collider[] enemyColliders, int numberOfEnemies)
     {
         // Seleccionamos todos los enemigos en el segmento
-        EnemyAtPath[] enemiesAtPath = new EnemyAtPath[numberOfEnemies];
+        //EnemyAtPath[] enemiesAtPath = new EnemyAtPath[numberOfEnemies];
         int maxIndex = -1;
 
+        List<EnemyAtPath> enemiesAtPath = new();
 
         for (int i = 0; i < numberOfEnemies; i++)
         {
             // Vemos en que casilla está situado
             var enemy = enemyColliders[i].GetComponentInParent<AEnemyController>();
-            enemiesAtPath[i] = new EnemyAtPath(enemy, WorldGrid.Instance.GetIndexOfPathCell(enemy.CurrentCell));
 
+            if (!enemy.IsAlive || !enemy.Active) continue;
+
+            var enemyAtPath = new EnemyAtPath(enemy, WorldGrid.Instance.GetIndexOfPathCell(enemy.CurrentCell));
+            enemiesAtPath.Add(enemyAtPath);
             // Nos quedamos con la casilla más alta (cercana a la zona a defender) que tenga enemigos.
-            if (enemiesAtPath[i].PathIndex > maxIndex) maxIndex = enemiesAtPath[i].PathIndex;
+            if (enemyAtPath.PathIndex > maxIndex) maxIndex = enemyAtPath.PathIndex;
+
+            //enemiesAtPath[i] = new EnemyAtPath(enemy, WorldGrid.Instance.GetIndexOfPathCell(enemy.CurrentCell));
+
+            //if (enemiesAtPath[i].PathIndex > maxIndex) maxIndex = enemiesAtPath[i].PathIndex;
             
         }
+
+        if (enemiesAtPath.Count == 0) return null;
 
         // Se crea una lista de "candidatos" a ser disparado
         List<EnemyAtPath> candidates = new();

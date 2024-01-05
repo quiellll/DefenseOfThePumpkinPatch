@@ -91,12 +91,14 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
 
 
     //instancia una tumba y la añade a la lista de tumbas en orden de menor a mayor indice en el path
-    public void BuildGrave(GameObject gravePrefab, GridCell cell, Vector3 position, Quaternion rotation) 
+    public void BuildGrave(GameObject gravePrefab, GridCell cell, Vector2 gridPos, Quaternion rotation) 
     {
         if (cell.Type != GridCell.CellType.Path) return; //puede morir en pumpkin???
 
+        Vector3 pos = new Vector3 (gridPos.x, 0f, gridPos.y) + gravePrefab.transform.position;
+
         var g = 
-            new GraveAtPath(Instantiate(gravePrefab, position, rotation, transform).transform, GetIndexOfPathCell(cell));
+            new GraveAtPath(Instantiate(gravePrefab, pos, rotation, transform).transform, GetIndexOfPathCell(cell));
 
         for (int i = 0; i < _graves.Count; i++)
         {

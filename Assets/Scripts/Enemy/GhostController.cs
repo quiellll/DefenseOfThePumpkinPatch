@@ -7,6 +7,10 @@ public class GhostController : AEnemyController //controlador del fantasma que h
     public bool Transformed {  get; set; }
 
     private ZombieSpawner _zombieSpawner;
+
+    private Vector3 _transformPositon;
+    private Quaternion _transformRotation;
+
     protected override void Start()
     {
         base.Start();
@@ -33,8 +37,24 @@ public class GhostController : AEnemyController //controlador del fantasma que h
         Transformed = false;
     }
 
-    public void SpawnZombie()
+    public void TransformToZombie(WorldGrid.GraveAtPath grave)
     {
-        _zombieSpawner.SpawnZombie(transform.position, transform.rotation);
+        Transformed = true;
+
+        _transformPositon = transform.position;
+        _transformRotation = transform.rotation;
+
+        Despawn(); //despawneamos al fantasma
+
+        StartCoroutine(SpawnZombie(grave));
+
+    }
+
+    private IEnumerator SpawnZombie(WorldGrid.GraveAtPath grave)
+    {
+        yield return new WaitForSeconds(0.5f);
+        WorldGrid.Instance.DestroyGrave(grave); //destuimos la tumba
+        _zombieSpawner.SpawnZombie(_transformPositon, _transformRotation);
     }
 }
+

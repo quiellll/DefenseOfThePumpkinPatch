@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FarmerController : AEnemyController ///controlador del granjero que hereda del controlador comun
 {
+    [SerializeField] private GameObject _pumpkin;
+
     protected override void Start()
     {
         base.Start();
@@ -14,7 +16,7 @@ public class FarmerController : AEnemyController ///controlador del granjero que
     protected override void Die()
     {
         //al morir spawnea una tumba
-        WorldGrid.Instance.BuildGrave(_stats.GravePrefab, CurrentCell, new(XY.x, 0f, XY.y), _body.rotation);
+        WorldGrid.Instance.BuildGrave(_stats.GravePrefab, CurrentCell, XY, _body.rotation);
 
         base.Die();
     }
@@ -22,11 +24,27 @@ public class FarmerController : AEnemyController ///controlador del granjero que
     public override void InitEnemy(Vector3 pos, Quaternion rot, IEnemySpawner spawner)
     {
         base.InitEnemy(pos, rot, spawner);
+        _pumpkin.SetActive(false);
         SetInitialState(new MoveForward(this));
     }
 
     public override void Reset()
     {
         base.Reset();
+    }
+
+    public override void InteractWithPumpkin(GridCell pumpkinCell)
+    {
+        State = null;
+        SetAnimation(_pickUpAnim);
+        StartCoroutine(WaitAndReturnToPath(pumpkinCell));
+    }
+
+    private IEnumerator WaitAndReturnToPath(GridCell pumpkinCell)
+    {
+        yield return new WaitForSeconds(.4f);
+        pumpkinCell.DestroyPumpkin();
+        _pumpkin.SetActive(true);
+        State = new ReturnToPath(this);
     }
 }

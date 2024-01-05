@@ -294,7 +294,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _spawnPoint: {fileID: 6942624434610498263}
-  _zombiePrefab: {fileID: 0}
+  _zombiePrefab: {fileID: 5971208074875656737, guid: 7c97b2270a17d6847a2dc3255efeb385,
+    type: 3}
   _ghostSpawner: {fileID: 8199176404378172859}
 --- !u!1 &352911275738765941
 GameObject:

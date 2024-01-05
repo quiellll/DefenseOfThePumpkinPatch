@@ -76,7 +76,7 @@ public class HUDMenu : MonoBehaviour
 
     public void UpdateUndoButton()
     {
-        _undoButton.SetActive(GameManager.Instance.CommandManager.CanUndo());
+        _undoButton.SetActive(GameManager.Instance.CommandManager.CanUndo() && !GameManager.Instance.IsOnDefense);
     }
 
 

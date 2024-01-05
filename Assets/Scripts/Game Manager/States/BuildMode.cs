@@ -12,6 +12,8 @@ public class BuildMode : AGameState //estado de construccion
     {
         //si este es el estado inicial, o el estado anterior era noche, cambiar a dia el siguiente
         _nextStateIsDay = previousState == null || previousState as NightDefenseMode != null;
+
+        _gameManager.CommandManager.ClearCommands(); //se limpia el historial
         _gameManager.HUD.WaveStarted.AddListener(OnStartWave);
         _gameManager.HUD.StartWaveButton.SetActive(true);
         _gameManager.HUD.UpdateUndoButton();
