@@ -19,11 +19,26 @@ public class HUDMenu : MonoBehaviour
     public GameObject TimeScaleButton { get => _timeScaleButton; }
     public UnityEvent WaveStarted; //evento que se lanza al pulsar el boton de iniciar oleada
 
+    // Botón para comenzar la oleada
     [SerializeField] private GameObject _startWaveButton;
+
+    // Botón del x1/x2
     [SerializeField] private GameObject _timeScaleButton;
+
+    // Botón de la tienda
     [SerializeField] private GameObject _shopButton;
+
+    // Botón de deshacer
     [SerializeField] private GameObject _undoButton;
 
+    // Contador de días y noches
+    [SerializeField] private GameObject _journeyCounter;
+    [SerializeField] private Sprite _daytimeSprite;
+    [SerializeField] private Sprite _nighttimeSprite;
+    [SerializeField] private TextMeshProUGUI _journeyNumber;
+
+    private int _journey = 1;
+    private bool _day = false;
     private GameObject _x1Sprite;
     private GameObject _x2Sprite;
     private RectTransform _shopButtonCanvas;
@@ -79,6 +94,19 @@ public class HUDMenu : MonoBehaviour
         _undoButton.SetActive(GameManager.Instance.CommandManager.CanUndo());
     }
 
+    public void ToggleJourneyIcon()
+    {
+        if (_day) _journeyCounter.GetComponent<Image>().sprite = _daytimeSprite;
+        else _journeyCounter.GetComponent<Image>().sprite = _nighttimeSprite;
+    }
+
+    public void IncreaseJourney()
+    {
+        _journey++;
+        _journeyNumber.text = Mathf.Floor(_journey / 2).ToString();
+        _day = !_day;
+        ToggleJourneyIcon();
+    }
 
     public void PauseGame()
     {
