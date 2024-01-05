@@ -43,7 +43,7 @@ public class HUDMenu : MonoBehaviour
     [SerializeField] private Sprite _nighttimeSprite;
     [SerializeField] private TextMeshProUGUI _journeyNumber;
 
-    private int _journey = 1;
+    private int _journey = 1;   // Miguel se que has dicho que tiene que empezar en 0 (que tiene sentido) pero entonces se ve un 0 en el juego
     private bool _day = false;
     private GameObject _x1Sprite;
     private GameObject _x2Sprite;

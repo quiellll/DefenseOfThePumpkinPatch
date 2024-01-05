@@ -15,8 +15,10 @@ public class BuildMode : AGameState //estado de construccion
         _gameManager.HUD.WaveStarted.AddListener(OnStartWave);
         _gameManager.HUD.StartWaveButton.SetActive(true);
         _gameManager.HUD.UpdateUndoButton();
+        _gameManager.HUD.IncreaseJourney();
 
-        if(_gameManager.TimeScale != 1) _gameManager.HUD.ToggleTimeScale();
+
+        if (_gameManager.TimeScale != 1) _gameManager.HUD.ToggleTimeScale();
         _gameManager.HUD.TimeScaleButton.SetActive(false);
 
     }
