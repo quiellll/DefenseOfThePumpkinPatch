@@ -53,14 +53,14 @@ public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia del
     {
         if(!_enemy.Active || _reachedDestination) return;
 
-        if(_graveIsCurrentWaypoint && _reachedWaypoint && _grave != null)
+
+        if (_graveIsCurrentWaypoint && _grave != null)
         {
             //hemos llegado a la tumba!
             _reachedDestination = true;
-            _grave = null;
             Exit(null);
-
             (_enemy as GhostController).TransformToZombie(_grave);
+            _grave = null;
 
             return;
         }
@@ -94,7 +94,8 @@ public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia del
         {
             //si hemos llegado al ultimo waypoint cambiamos de estado a moverse hacia atras
             _reachedDestination = true;
-            _enemy.State = new MoveBackwards(_enemy);
+            //_enemy.State = new MoveBackwards(_enemy);
+            _enemy.State = new SeekPumpkin(_enemy);
         }
 
     }

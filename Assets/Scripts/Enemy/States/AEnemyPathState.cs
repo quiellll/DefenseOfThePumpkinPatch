@@ -6,8 +6,7 @@ public abstract class AEnemyPathState : AEnemyState //clase para agrupar func. c
 {
     protected GridCell _currentWaypoint; //waypoint actual
     protected int _currentWaypointIndex; //indice en el array de waypoint de worldgrid del waypoint actual
-    protected bool _reachedWaypoint { get => _distanceToWaypoint <= 0.04f; } //si hemos llegado al waypoint actual
-    private float _distanceToWaypoint; //distancia a waypoint actual
+    protected float _distanceToWaypoint; //distancia a waypoint actual
     private Transform _transform; //ref al transform del enemigo
     private Vector2 _gridPosition, _gridDirection; //posicion y direccion en el plano xz (sin la y)
 
@@ -23,7 +22,7 @@ public abstract class AEnemyPathState : AEnemyState //clase para agrupar func. c
         //comprobar distancia al siguiente waypoint y si esta suficientemente cerca cambiar de waypoint
         _gridPosition = new Vector2(_transform.position.x, _transform.position.z);
         _distanceToWaypoint = Vector2.Distance(_gridPosition, _currentWaypoint.XY);
-        if (_reachedWaypoint) NextWaypoint(); //cambiar de waypoint segun el estado de movimiento hijo (forward-backward)
+        if (_distanceToWaypoint <= 0.04f) NextWaypoint(); //cambiar de waypoint segun el estado de movimiento hijo (forward-backward)
 
         //calcular la direccion normalizada al waypoint y llamar al movimiento en el enemigo
         _gridDirection = (_currentWaypoint.XY - _gridPosition);

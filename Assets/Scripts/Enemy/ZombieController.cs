@@ -27,4 +27,18 @@ public class ZombieController : AEnemyController
         base.Reset();
     }
 
+    public override void InteractWithPumpkin(GridCell pumpkinCell)
+    {
+        State = null;
+        SetAnimation(_pickUpAnim, false);
+        StartCoroutine(WaitAndDie(pumpkinCell));
+    }
+
+    private IEnumerator WaitAndDie(GridCell pumpkinCell)
+    {
+        yield return new WaitForSeconds(.4f);
+        pumpkinCell.DestroyPumpkin();
+        StartCoroutine(StartDeath());
+    }
+
 }

@@ -117,8 +117,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
     //destruye una tumba, la quita de la lista y llama al evento para actualizar a los fantasmas
     public void DestroyGrave(GraveAtPath grave) 
     {
-        if(grave == null) return;
-
+        if(grave == null || !_graves.Contains(grave)) return;
         _graves.Remove(grave);
         Destroy(grave.Grave.gameObject);
         grave.Grave = null;
@@ -170,7 +169,7 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
         return true;
     }
 
-    public GridCell GetNearestPumpkinCell() => _pumpkins[0].Cell;
+    public GridCell GetNearestPumpkinCell() => _pumpkins.Count > 0 ? _pumpkins[0].Cell : null;
 
     public bool RemovePumpkin(GridCell cell)
     {
@@ -182,8 +181,12 @@ public class WorldGrid : Singleton<WorldGrid> //singleton (de momento)
             {
                 _pumpkins.RemoveAt(i);
                 GameManager.Instance.Pumpkins--;
-                PumpkinsUpdated.Invoke(_pumpkins[0].Cell);
-                return true;
+
+                if (_pumpkins.Count > 0)
+                {
+                    PumpkinsUpdated.Invoke(_pumpkins[0].Cell);
+                    return true;
+                }
             }
         }
 

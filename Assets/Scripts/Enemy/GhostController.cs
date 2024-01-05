@@ -6,6 +6,8 @@ public class GhostController : AEnemyController //controlador del fantasma que h
 {
     public bool Transformed {  get; set; }
 
+    [SerializeField] private GameObject _pumpkin;
+
     private ZombieSpawner _zombieSpawner;
 
     private Vector3 _transformPositon;
@@ -27,6 +29,7 @@ public class GhostController : AEnemyController //controlador del fantasma que h
     {
         base.InitEnemy(pos, rot, spawner);
         Transformed = false;
+        _pumpkin.SetActive(false);
         _zombieSpawner = (spawner as WaveSpawner).gameObject.GetComponent<ZombieSpawner>();
         SetInitialState(new GhostMoveForward(this));
     }
@@ -45,8 +48,10 @@ public class GhostController : AEnemyController //controlador del fantasma que h
         _transformRotation = transform.rotation;
 
         Despawn(); //despawneamos al fantasma
+        //llamo a startcoroutine desde el spawner porque
+        //unity solo deja hacer coroutines desde objetos activos
+        _zombieSpawner.StartCoroutine(SpawnZombie(grave));
 
-        StartCoroutine(SpawnZombie(grave));
 
     }
 
@@ -55,6 +60,21 @@ public class GhostController : AEnemyController //controlador del fantasma que h
         yield return new WaitForSeconds(0.5f);
         WorldGrid.Instance.DestroyGrave(grave); //destuimos la tumba
         _zombieSpawner.SpawnZombie(_transformPositon, _transformRotation);
+    }
+
+    public override void InteractWithPumpkin(GridCell pumpkinCell)
+    {
+        State = null;
+        SetAnimation(_pickUpAnim, false);
+        StartCoroutine(WaitAndAscend(pumpkinCell));
+    }
+
+    private IEnumerator WaitAndAscend(GridCell pumpkinCell)
+    {
+        yield return new WaitForSeconds(.4f);
+        pumpkinCell.DestroyPumpkin();
+        _pumpkin.SetActive(true);
+        State = new GhostAscend(this);
     }
 }
 

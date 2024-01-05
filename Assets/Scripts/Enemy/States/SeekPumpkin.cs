@@ -14,6 +14,15 @@ public class SeekPumpkin : AEnemyState
     public override void Enter(IState previousState)
     {
         _currentPumpkin = WorldGrid.Instance.GetNearestPumpkinCell();
+
+        if (_currentPumpkin == null)
+        {
+            Debug.Log("No hay calabazas");
+            //nuevo estado de no hacer nada porque el jugador perdio?
+            _enemy.State = null;
+            return;
+        }
+
         WorldGrid.Instance.PumpkinsUpdated.AddListener(OnPumpkinsUpdated);
 
         var gridDirection = _currentPumpkin.XY - _enemy.XY;
@@ -46,14 +55,18 @@ public class SeekPumpkin : AEnemyState
     private void OnPumpkinsUpdated(GridCell newPumpkinCell)
     {
         _currentPumpkin = newPumpkinCell;
-        var gridDirection = (_currentPumpkin.XY - _enemy.XY);
-        _directionToPumpkin = new Vector3(gridDirection.x, 0f, gridDirection.y).normalized;
 
         if (_currentPumpkin == null)
         {
             Debug.Log("No hay calabazas");
             //nuevo estado de no hacer nada porque el jugador perdio?
+            _enemy.State = null;
             return;
         }
+
+        var gridDirection = (_currentPumpkin.XY - _enemy.XY);
+        _directionToPumpkin = new Vector3(gridDirection.x, 0f, gridDirection.y).normalized;
+
+
     }
 }

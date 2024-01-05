@@ -23,7 +23,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     [SerializeField] protected Transform _body; 
 
     private AEnemyState _currentState;
-    private int _currentHealth;
+    protected int _currentHealth;
     private Vector2 _gridPos; //posicion redondead para saber en que celda esta
     private IEnemySpawner _spawner;
 
@@ -70,16 +70,19 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     }
 
     //funcion de movimiento llamada por los estados de movimiento
-    public void Move(Vector3 direction)
+    public void Move(Vector3 direction, bool rotate = true)
     {
         Direction = direction;
+
         //rotacion (del modelo hijo para no afectar el movimiento del padre)
-        if(Vector3.SignedAngle(_body.forward , direction, Vector3.up) != 0)
+        if(rotate && Vector3.SignedAngle(_body.forward , direction, Vector3.up) != 0)
         {
             var targetRotation = Quaternion.LookRotation(direction, Vector3.up);
             _body.localRotation = 
                 Quaternion.RotateTowards(_body.localRotation, targetRotation, _rotationSpeed * Time.deltaTime);
         }
+
+
         //movimiento
         transform.Translate(direction * _stats.MoveSpeed * Time.deltaTime);
 
@@ -134,8 +137,6 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
 
     protected void SetInitialState(AEnemyState state) => ChangeState(state, true);
 
-    void OnMouseDown() => TakeDamage(_stats.Health); //solo para debug
-
     //funcion publica para recibir daño
     public virtual void TakeDamage(int damage)
     {
@@ -148,7 +149,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
         //else SetAnimation(_damagedAnim);
     }
 
-    private IEnumerator StartDeath()
+    protected IEnumerator StartDeath()
     {
         State = null;
         SetAnimation(_deadAnim);
@@ -180,13 +181,13 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
         _currentHealth = _stats.Health;
     }
 
-    public virtual void InteractWithPumpkin(GridCell pumpkinCell) { }
+    public abstract void InteractWithPumpkin(GridCell pumpkinCell);
 
 
-    protected void SetAnimation(int anim)
+    protected void SetAnimation(int anim, bool reset = true)
     {
         _animator.SetBool(anim, true);
-        StartCoroutine(ResetAnimationParam(anim));
+        if(reset) StartCoroutine(ResetAnimationParam(anim));
     }
 
     private IEnumerator ResetAnimationParam(int anim)

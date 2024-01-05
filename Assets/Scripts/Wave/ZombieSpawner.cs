@@ -35,6 +35,7 @@ public class ZombieSpawner : MonoBehaviour, IEnemySpawner
     // Método para spawnear un zombie en una posición específica
     public void SpawnZombie(Vector3 spawnPos, Quaternion rotation)
     {
+        Debug.Log("zombie spawn");
         // Obtiene un zombie del pool
         var zombie = _zombiePool.Get() as ZombieController;
 
