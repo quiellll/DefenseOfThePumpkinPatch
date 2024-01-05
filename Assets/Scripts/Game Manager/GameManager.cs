@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
 {
 
     public UnityEvent<int> PumpkinsChanged, GoldChanged;
+    public UnityEvent StartDefense, StartBuild;
 
     public AGameState GameState { get => _gameState; set => ChangeState(value); }
     public int Gold { get => _gold; set => SetGold(value); }

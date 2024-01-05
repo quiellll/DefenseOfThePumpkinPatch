@@ -16,10 +16,10 @@ public class PumpkinSprout : MonoBehaviour
     {
         Cell = WorldGrid.Instance.GetCellAt(XY);
 
-        GameManager.Instance.HUD.WaveStarted.AddListener(OnStartWave);
+        GameManager.Instance.StartBuild.AddListener(OnStartBuild);
     }
 
-    private void OnStartWave()
+    private void OnStartBuild()
     {
         _journeys++;
         if (_journeys >= _pumpkin.SproutGrowthPeriod) GrowPumpkin();
@@ -27,7 +27,7 @@ public class PumpkinSprout : MonoBehaviour
 
     private void GrowPumpkin()
     {
-        GameManager.Instance.HUD.WaveStarted.RemoveListener(OnStartWave);
+        GameManager.Instance.HUD.WaveStarted.RemoveListener(OnStartBuild);
 
         Cell.BuildPumpkin(_pumpkin);
     }

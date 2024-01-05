@@ -13,6 +13,8 @@ public abstract class ADefenseMode : AGameState //clase comun para los estados d
         _gameManager.CommandManager.ClearCommands(); //se limpia el historial
         _gameManager.HUD.UpdateUndoButton();
         _gameManager.HUD.TimeScaleButton.SetActive(true);
+
+        _gameManager.StartDefense.Invoke();
     }
 
     protected virtual void OnWaveFinished()

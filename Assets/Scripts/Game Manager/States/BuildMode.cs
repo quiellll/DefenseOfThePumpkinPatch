@@ -21,6 +21,8 @@ public class BuildMode : AGameState //estado de construccion
         if(_gameManager.TimeScale != 1) _gameManager.HUD.ToggleTimeScale();
         _gameManager.HUD.TimeScaleButton.SetActive(false);
 
+        _gameManager.StartBuild.Invoke();
+
     }
 
     private void OnStartWave() //cuando se pulsa el boton de empezar oleada, se cambia al estado de defensa
