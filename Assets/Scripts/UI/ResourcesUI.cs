@@ -31,6 +31,6 @@ public class ResourcesUI : MonoBehaviour
     
     private void SetGoldText(int gold)
     {
-        _goldText.text = "Gold: " + gold;
+        _goldText.text = "    Gold: " + gold;
     }
 }

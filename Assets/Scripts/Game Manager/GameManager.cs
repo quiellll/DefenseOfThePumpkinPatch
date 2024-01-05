@@ -96,7 +96,7 @@ public class GameManager : Singleton<GameManager>
 
         if(_pumpkins == 0)
         {
-            //game over
+            HUD.GameOver();
         }
     }
 

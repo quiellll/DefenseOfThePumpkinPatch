@@ -19,6 +19,12 @@ public class HUDMenu : MonoBehaviour
     public GameObject TimeScaleButton { get => _timeScaleButton; }
     public UnityEvent WaveStarted; //evento que se lanza al pulsar el boton de iniciar oleada
 
+    // Panel completo
+    [SerializeField] private GameObject _HUDPanel;
+    [SerializeField] private PauseMenu _pauseMenu;
+    [SerializeField] private GameObject _gameOverScreen;
+    [SerializeField] private GameObject _gameWinScreen;
+
     // Botón para comenzar la oleada
     [SerializeField] private GameObject _startWaveButton;
 
@@ -64,8 +70,8 @@ public class HUDMenu : MonoBehaviour
 
     public void ToggleShop()
     {
-        if (_shopMenu.gameObject.activeSelf) _shopButtonCanvas.anchoredPosition += new Vector2(500f, 0f);
-        else _shopButtonCanvas.anchoredPosition -= new Vector2(500f, 0f);
+        if (_shopMenu.gameObject.activeSelf) _shopButtonCanvas.anchoredPosition += new Vector2(470f, 0f);
+        else _shopButtonCanvas.anchoredPosition -= new Vector2(470f, 0f);
         _shopMenu.ToggleShop();       
     }
 
@@ -110,9 +116,19 @@ public class HUDMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        //pausa tal
+        _HUDPanel.SetActive(false);
+        _pauseMenu.PauseGame();
     }
 
+    public void ResumeGame()
+    {
+        _HUDPanel.SetActive(true);
+    }
 
+    public void GameOver()
+    {
+        _HUDPanel.SetActive(false);
+        _gameOverScreen.SetActive(true);
+    }
     #endregion
 }
