@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia delante del fantasma
 {
-    private WorldGrid.GraveAtPath _grave; //tumba hacia la que el fantasma se mueve
+    private CellManager.GraveAtPath _grave; //tumba hacia la que el fantasma se mueve
     private GridCell _graveCell; //celda en la que esta la tumbs
     private bool _graveIsCurrentWaypoint = false; //indica si el fantasma se dirige a una tumba, o a un waypoint (si no hay tumbas mas cerca)
     private bool _reachedDestination = false; //si ha llegado al destino (tumba o ultimo waypoint del camino)
@@ -24,14 +24,14 @@ public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia del
 
         while (waypointIndexAtPath < currentCellIndexAtPath)
         {
-            _currentWaypoint = WorldGrid.Instance.Waypoints[++_currentWaypointIndex];
-            waypointIndexAtPath = WorldGrid.Instance.GetIndexOfPathCell(_currentWaypoint);
-            currentCellIndexAtPath = WorldGrid.Instance.GetIndexOfPathCell(_enemy.CurrentCell);
+            _currentWaypoint = GameManager.Instance.CellManager.Waypoints[++_currentWaypointIndex];
+            waypointIndexAtPath = GameManager.Instance.CellManager.GetIndexOfPathCell(_currentWaypoint);
+            currentCellIndexAtPath = GameManager.Instance.CellManager.GetIndexOfPathCell(_enemy.CurrentCell);
         }
 
-        _grave = WorldGrid.Instance.GetNearestGrave();
-        _graveCell = WorldGrid.Instance.Path[_grave.PathIndex];
-        WorldGrid.Instance.GravesUpdated.AddListener(UpdateGrave);
+        _grave = GameManager.Instance.CellManager.GetNearestGrave();
+        _graveCell = GameManager.Instance.CellManager.Path[_grave.PathIndex];
+        GameManager.Instance.CellManager.GravesUpdated.AddListener(UpdateGrave);
 
         if(_grave.PathIndex >= currentCellIndexAtPath &&  _grave.PathIndex <= waypointIndexAtPath)
         {
@@ -45,7 +45,7 @@ public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia del
     {
         base.Exit(nextState);
 
-        WorldGrid.Instance.GravesUpdated.RemoveListener(UpdateGrave);
+        GameManager.Instance.CellManager.GravesUpdated.RemoveListener(UpdateGrave);
 
     }
 
@@ -54,11 +54,11 @@ public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia del
         if(!_enemy.Active || _reachedDestination) return;
 
 
-        if (_graveIsCurrentWaypoint && _grave != null)
+        if (_graveIsCurrentWaypoint && _grave != null && _distanceToWaypoint <= 0.04f)
         {
             //hemos llegado a la tumba!
             _reachedDestination = true;
-            Exit(null);
+            _enemy.State = null;
             (_enemy as GhostController).TransformToZombie(_grave);
             _grave = null;
 
@@ -71,12 +71,12 @@ public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia del
         int previousWaypointIndex = _currentWaypointIndex;
         _currentWaypointIndex++;
 
-        int clampedIndex = Mathf.Min(_currentWaypointIndex, WorldGrid.Instance.Waypoints.Count - 1);
+        int clampedIndex = Mathf.Min(_currentWaypointIndex, GameManager.Instance.CellManager.Waypoints.Count - 1);
 
-        _currentWaypoint = WorldGrid.Instance.Waypoints[clampedIndex];
+        _currentWaypoint = GameManager.Instance.CellManager.Waypoints[clampedIndex];
 
         //indice del waypoint en el Path
-        int waypointIndexAtPath = WorldGrid.Instance.GetIndexOfPathCell(_currentWaypoint);
+        int waypointIndexAtPath = GameManager.Instance.CellManager.GetIndexOfPathCell(_currentWaypoint);
 
         //revisamos si hay una tumba mas cerca en el path que el waypoint
         if (_grave != null && _grave.PathIndex <= waypointIndexAtPath)
@@ -90,7 +90,7 @@ public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia del
         _graveIsCurrentWaypoint = false;
 
         //si no la hay, revisamos si hemos llegado al ultimo waypoint
-        if(_currentWaypointIndex >= WorldGrid.Instance.Waypoints.Count)
+        if(_currentWaypointIndex >= GameManager.Instance.CellManager.Waypoints.Count)
         {
             //si hemos llegado al ultimo waypoint cambiamos de estado a moverse hacia atras
             _reachedDestination = true;
@@ -102,7 +102,7 @@ public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia del
 
     //metodo llamado por un evento de worldgrid cuando un fantasma llega a una tumba y esta se despawnea
     //porque todos los fantasmas tienen que recalcular su waypoint y/o tumba a la que van
-    private void UpdateGrave(WorldGrid.GraveAtPath grave) //el argumento es la nueva tumba mas cercana
+    private void UpdateGrave(CellManager.GraveAtPath grave) //el argumento es la nueva tumba mas cercana
     {
         if (grave == _grave) return;
 
@@ -117,7 +117,7 @@ public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia del
         //_graveCell = WorldGrid.Instance.Path[_grave.PathIndex];
         //if (_graveIsCurrentWaypoint) NextWaypoint();
 
-        if(_grave != null) _graveCell = WorldGrid.Instance.Path[_grave.PathIndex];
+        if(_grave != null) _graveCell = GameManager.Instance.CellManager.Path[_grave.PathIndex];
         if (_graveIsCurrentWaypoint) NextWaypoint();
 
     }

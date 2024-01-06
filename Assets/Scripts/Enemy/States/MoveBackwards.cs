@@ -10,8 +10,8 @@ public class MoveBackwards : AEnemyPathState //estado de moverse hacia atras en 
     {
         base.Enter(previousState);
         //selecciona el ultimo waypoint porque siempre que se entra a este estado se esta al final del camino
-        _currentWaypointIndex = WorldGrid.Instance.Waypoints.Count - 1;
-        _currentWaypoint = WorldGrid.Instance.Waypoints[_currentWaypointIndex];
+        _currentWaypointIndex = GameManager.Instance.CellManager.Waypoints.Count - 1;
+        _currentWaypoint = GameManager.Instance.CellManager.Waypoints[_currentWaypointIndex];
     }
 
     protected override void NextWaypoint() //hace que se mueva por el camino hacia atras
@@ -20,7 +20,7 @@ public class MoveBackwards : AEnemyPathState //estado de moverse hacia atras en 
 
         if (_currentWaypointIndex >= 0)
         {
-            _currentWaypoint = WorldGrid.Instance.Waypoints[_currentWaypointIndex];
+            _currentWaypoint = GameManager.Instance.CellManager.Waypoints[_currentWaypointIndex];
             return;
         }
 

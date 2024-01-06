@@ -25,4 +25,6 @@ MonoBehaviour:
   _fireRate: 0.5
   _projectileMoveSpeed: 5
   _damage: 1
+  _icon: {fileID: 0}
+  _validTargets: 5
   _maxProjectileHeight: 0.3

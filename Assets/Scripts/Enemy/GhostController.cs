@@ -30,7 +30,7 @@ public class GhostController : AEnemyController //controlador del fantasma que h
         base.InitEnemy(pos, rot, spawner);
         Transformed = false;
         _pumpkin.SetActive(false);
-        _zombieSpawner = (spawner as WaveSpawner).gameObject.GetComponent<ZombieSpawner>();
+        _zombieSpawner = (spawner as AWaveSpawner).gameObject.GetComponent<ZombieSpawner>();
         SetInitialState(new GhostMoveForward(this));
     }
 
@@ -40,7 +40,7 @@ public class GhostController : AEnemyController //controlador del fantasma que h
         Transformed = false;
     }
 
-    public void TransformToZombie(WorldGrid.GraveAtPath grave)
+    public void TransformToZombie(CellManager.GraveAtPath grave)
     {
         Transformed = true;
 
@@ -55,10 +55,10 @@ public class GhostController : AEnemyController //controlador del fantasma que h
 
     }
 
-    private IEnumerator SpawnZombie(WorldGrid.GraveAtPath grave)
+    private IEnumerator SpawnZombie(CellManager.GraveAtPath grave)
     {
         yield return new WaitForSeconds(0.5f);
-        WorldGrid.Instance.DestroyGrave(grave); //destuimos la tumba
+        GameManager.Instance.CellManager.DestroyGrave(grave); //destuimos la tumba
         _zombieSpawner.SpawnZombie(_transformPositon, _transformRotation);
     }
 

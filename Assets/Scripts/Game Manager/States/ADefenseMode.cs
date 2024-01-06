@@ -14,7 +14,7 @@ public abstract class ADefenseMode : AGameState //clase comun para los estados d
         _gameManager.HUD.UpdateUndoButton();
         _gameManager.HUD.TimeScaleButton.SetActive(true);
 
-        _gameManager.StartDefense.Invoke();
+        _gameManager.StartDefenseMode.Invoke();
     }
 
     protected virtual void OnWaveFinished()

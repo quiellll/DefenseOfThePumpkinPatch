@@ -14,9 +14,9 @@ public class PumpkinSprout : MonoBehaviour
 
     private void Start()
     {
-        Cell = WorldGrid.Instance.GetCellAt(XY);
+        Cell = GameManager.Instance.CellManager.GetCellAt(XY);
 
-        GameManager.Instance.StartBuild.AddListener(OnStartBuild);
+        GameManager.Instance.StartBuildMode.AddListener(OnStartBuild);
     }
 
     private void OnStartBuild()

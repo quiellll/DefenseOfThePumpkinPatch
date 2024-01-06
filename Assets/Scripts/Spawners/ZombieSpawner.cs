@@ -11,8 +11,10 @@ public class ZombieSpawner : MonoBehaviour, IEnemySpawner
 
     [SerializeField] private Transform _spawnPoint; //punto donde agrupar a los enemigos
     [SerializeField] private ZombieController _zombiePrefab; //prefab del zombie
-    [SerializeField] private WaveSpawner _ghostSpawner;
-    [SerializeField] private int _poolSize;
+    [SerializeField] private Level _level;
+
+    private GhostSpawner _ghostSpawner;
+    private int _poolSize;
 
 
     private ObjectPool _zombiePool;
@@ -21,14 +23,17 @@ public class ZombieSpawner : MonoBehaviour, IEnemySpawner
     private int _aliveEnemies = 0;
     private int _activeEnemies = 0;
 
+
     private void Awake()
     {
-        //Inicializa el pool de zombies
+        _ghostSpawner = GetComponent<GhostSpawner>();
+        _poolSize = _level.Days[^1].Ghosts;
         _zombiePool = new ObjectPool(_zombiePrefab, _poolSize, false, _spawnPoint);
     }
 
     private void Start()
     {
+        //Inicializa el pool de zombies
         _ghostSpawner.WaveFinished.AddListener(OnGhostWaveFinished);
     }
 

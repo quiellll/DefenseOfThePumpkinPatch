@@ -16,9 +16,9 @@ public class MoveForward : AEnemyPathState //estado de moverse hacia delante por
 
         while (wpIndex < cellIndex)
         {
-            _currentWaypoint = WorldGrid.Instance.Waypoints[++_currentWaypointIndex];
-            wpIndex = WorldGrid.Instance.GetIndexOfPathCell(_currentWaypoint);
-            cellIndex = WorldGrid.Instance.GetIndexOfPathCell(_enemy.CurrentCell);
+            _currentWaypoint = GameManager.Instance.CellManager.Waypoints[++_currentWaypointIndex];
+            wpIndex = GameManager.Instance.CellManager.GetIndexOfPathCell(_currentWaypoint);
+            cellIndex = GameManager.Instance.CellManager.GetIndexOfPathCell(_enemy.CurrentCell);
         }
     }
 
@@ -26,9 +26,9 @@ public class MoveForward : AEnemyPathState //estado de moverse hacia delante por
     {
         _currentWaypointIndex++;
 
-        if(_currentWaypointIndex < WorldGrid.Instance.Waypoints.Count)
+        if(_currentWaypointIndex < GameManager.Instance.CellManager.Waypoints.Count)
         {
-            _currentWaypoint = WorldGrid.Instance.Waypoints[_currentWaypointIndex];
+            _currentWaypoint = GameManager.Instance.CellManager.Waypoints[_currentWaypointIndex];
             return;
         }
 

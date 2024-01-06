@@ -50,7 +50,7 @@ public abstract class ATurretController : MonoBehaviour
 
     private void Start()
     {
-        Cell = WorldGrid.Instance.GetCellAt(XY);
+        Cell = GameManager.Instance.CellManager.GetCellAt(XY);
     }
 
     // DEBUG. Para dibujar la esfera que muestra el rango de ataque
@@ -125,7 +125,7 @@ public abstract class ATurretController : MonoBehaviour
             {
                 var enemy = _enemyCollidersInsideOuterRadius[0].GetComponentInParent<AEnemyController>();
 
-                if (enemy.IsAlive && enemy.Active)
+                if (enemy.IsAlive && enemy.Active && _turret.CanTarget(enemy))
                 {
                     _currentTarget = enemy;
                     return true;
@@ -136,6 +136,10 @@ public abstract class ATurretController : MonoBehaviour
 
             return _currentTarget != null;
         }
+
+
+
+
         //si hay un inner radius
         List<Collider> enemyColsInRange = new();
         for (int i = 0; i < targetCount; i++) //metemos en la lista los que esten fuera del inner radius
@@ -155,7 +159,7 @@ public abstract class ATurretController : MonoBehaviour
         else if (enemyColsInRange.Count == 1)
         {
             var enemy = enemyColsInRange[0].GetComponentInParent<AEnemyController>();
-            if (enemy.IsAlive && enemy.Active)
+            if (enemy.IsAlive && enemy.Active && _turret.CanTarget(enemy))
             {
                 _currentTarget = enemy;
                 return true;
@@ -198,9 +202,9 @@ public abstract class ATurretController : MonoBehaviour
             // Vemos en que casilla está situado
             var enemy = enemyColliders[i].GetComponentInParent<AEnemyController>();
 
-            if (!enemy.IsAlive || !enemy.Active) continue;
+            if (!enemy.IsAlive || !enemy.Active || !_turret.CanTarget(enemy)) continue;
 
-            var enemyAtPath = new EnemyAtPath(enemy, WorldGrid.Instance.GetIndexOfPathCell(enemy.CurrentCell));
+            var enemyAtPath = new EnemyAtPath(enemy, GameManager.Instance.CellManager.GetIndexOfPathCell(enemy.CurrentCell));
             enemiesAtPath.Add(enemyAtPath);
             // Nos quedamos con la casilla más alta (cercana a la zona a defender) que tenga enemigos.
             if (enemyAtPath.PathIndex > maxIndex) maxIndex = enemyAtPath.PathIndex;
@@ -224,10 +228,10 @@ public abstract class ATurretController : MonoBehaviour
         
         // Si hay más de un enemigo, se busca al que esté más adelantado dentro de la propia casilla de la siguiente forma
         // Se obtiene la casilla siguiente a la seleccionada.
-        int nextCellIndex = Mathf.Clamp(candidates[0].PathIndex + 1, 0, WorldGrid.Instance.Path.Count - 1);
+        int nextCellIndex = Mathf.Clamp(candidates[0].PathIndex + 1, 0, GameManager.Instance.CellManager.Path.Count - 1);
 
         // Se obtiene la posición de esta casilla nueva
-        Vector2 nextCellPos = WorldGrid.Instance.Path[nextCellIndex].XY;
+        Vector2 nextCellPos = GameManager.Instance.CellManager.Path[nextCellIndex].XY;
 
         float minDistanceToNextCell = float.MaxValue;
         AEnemyController best = null;

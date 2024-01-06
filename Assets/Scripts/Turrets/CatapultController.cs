@@ -24,8 +24,6 @@ public class CatapultController : ATurretController
 
     protected override void Fire()
     {
-        //Debug.Log("Catapulta dispara");
-
         // Crea un proyectil en el spawner y lo inicializa llamando al método del Spawner (Object Pool)
         var projectile = _projectileSpawner.SpawnProjectile();
         projectile.Init(_projectileSpawner, _currentTarget, _projectileSpawnPoint.position,

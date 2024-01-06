@@ -97,7 +97,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     //actualiza la celda actual si ha cambiado
     protected void UpdateCurrentCell()
     {
-        if (!WorldGrid.Instance) return;
+        if (!GameManager.Instance.CellManager) return;
 
         Vector2 roundedPos = new (Mathf.Round(transform.position.x), Mathf.Round(transform.position.z));
         if (_gridPos == roundedPos) return;
@@ -105,7 +105,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
         var lastCell = CurrentCell;
 
         _gridPos = roundedPos;
-        CurrentCell = WorldGrid.Instance.GetCellAt(_gridPos);
+        CurrentCell = GameManager.Instance.CellManager.GetCellAt(_gridPos);
 
         if(lastCell == null) return;
 

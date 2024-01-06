@@ -13,7 +13,7 @@ public class SeekPumpkin : AEnemyState
 
     public override void Enter(IState previousState)
     {
-        _currentPumpkin = WorldGrid.Instance.GetNearestPumpkinCell();
+        _currentPumpkin = GameManager.Instance.CellManager.GetNearestPumpkinCell();
 
         if (_currentPumpkin == null)
         {
@@ -23,7 +23,7 @@ public class SeekPumpkin : AEnemyState
             return;
         }
 
-        WorldGrid.Instance.PumpkinsUpdated.AddListener(OnPumpkinsUpdated);
+        GameManager.Instance.CellManager.PumpkinsUpdated.AddListener(OnPumpkinsUpdated);
 
         var gridDirection = _currentPumpkin.XY - _enemy.XY;
         _directionToPumpkin = new Vector3(gridDirection.x, 0f, gridDirection.y).normalized;
@@ -49,7 +49,7 @@ public class SeekPumpkin : AEnemyState
     {
         base.Exit(nextState);
 
-        WorldGrid.Instance.PumpkinsUpdated.RemoveListener(OnPumpkinsUpdated);
+        GameManager.Instance.CellManager.PumpkinsUpdated.RemoveListener(OnPumpkinsUpdated);
     }
 
     private void OnPumpkinsUpdated(GridCell newPumpkinCell)

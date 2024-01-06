@@ -10,8 +10,9 @@ public class GameManager : Singleton<GameManager>
 {
 
     public UnityEvent<int> PumpkinsChanged, GoldChanged;
-    public UnityEvent StartDefense, StartBuild;
+    public UnityEvent StartDefenseMode, StartBuildMode;
 
+    public Level Level { get => _level; }
     public AGameState GameState { get => _gameState; set => ChangeState(value); }
     public int Gold { get => _gold; set => SetGold(value); }
     public int Pumpkins { get => _pumpkins; set => SetPumpkins(value); }
@@ -20,8 +21,8 @@ public class GameManager : Singleton<GameManager>
     public bool Paused { get; set; }
 
     //spawners de cada tipo de enemigo
-    public WaveSpawner FarmerWaveSpawner { get; private set; }
-    public WaveSpawner GhostWaveSpawner { get; private set; }
+    public FarmerSpawner FarmerSpawner { get; private set; }
+    public GhostSpawner GhostSpawner { get; private set; }
     public ZombieSpawner ZombieSpawner { get; private set; }
     public HUDMenu HUD { get; private set; } //ref al hud
     public ShopMenu Shop { get; private set; }
@@ -29,6 +30,11 @@ public class GameManager : Singleton<GameManager>
     public CommandManager CommandManager { get; private set; }
     public BuildManager BuildManager { get; private set; }
     public ContextMenuManager ContextMenuManager { get; private set; }
+    public CellManager CellManager { get; private set; }
+
+
+
+    [SerializeField] private Level _level;
 
 
     private AGameState _gameState;
@@ -42,15 +48,10 @@ public class GameManager : Singleton<GameManager>
 
         HUD = transform.parent.GetComponentInChildren<HUDMenu>();
         Shop = HUD.GetComponentInChildren<ShopMenu>(true);
-
         ContextMenuManager = transform.parent.GetComponentInChildren<ContextMenuManager>();
-
-        foreach(var spawner in transform.parent.GetComponentsInChildren<WaveSpawner>())
-        {
-            if (spawner.EnemyPrefab as GhostController) GhostWaveSpawner = spawner;
-            else if(spawner.EnemyPrefab as FarmerController) FarmerWaveSpawner = spawner;
-        }
-
+        CellManager = transform.parent.GetComponentInChildren<CellManager>();
+        FarmerSpawner = transform.parent.GetComponentInChildren<FarmerSpawner>();
+        GhostSpawner = transform.parent.GetComponentInChildren<GhostSpawner>();
         ZombieSpawner = transform.parent.GetComponentInChildren<ZombieSpawner>();
 
         SelectionManager = new();
@@ -59,6 +60,8 @@ public class GameManager : Singleton<GameManager>
 
         Gold = 200;
         TimeScale = 1;
+
+        _level.ResetLevel();
     }
 
     private void Start()
@@ -109,5 +112,13 @@ public class GameManager : Singleton<GameManager>
 
     public GameObject SpawnDummy(GameObject prefab) => Instantiate(prefab, prefab.transform.position, prefab.transform.rotation);
     public void DestroyDummy(GameObject dummy) => Destroy(dummy);
+
+
+    public void AdvanceDay()
+    {
+        if (_level.NextDay() != null) return;
+
+        //FIN DE NIVEL GG
+    }
 
 }

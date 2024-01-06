@@ -11,13 +11,13 @@ public class PumpkinController : MonoBehaviour
 
     private void Start()
     {
-        Cell = WorldGrid.Instance.GetCellAt(new(transform.position.x, transform.position.z));
-        WorldGrid.Instance.AddPumpkin(Cell);
+        Cell = GameManager.Instance.CellManager.GetCellAt(new(transform.position.x, transform.position.z));
+        GameManager.Instance.CellManager.AddPumpkin(Cell);
     }
 
     public void DestroyPumpkin()
     {
-        WorldGrid.Instance.RemovePumpkin(Cell);
+        GameManager.Instance.CellManager.RemovePumpkin(Cell);
         Destroy(gameObject);
     }
 }

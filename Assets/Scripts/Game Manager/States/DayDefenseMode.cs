@@ -10,13 +10,13 @@ public class DayDefenseMode : ADefenseMode //defensa de dia (granjeros)
     {
         base.Enter(previousState);
 
-        _gameManager.FarmerWaveSpawner.WaveFinished.AddListener(OnWaveFinished);
-        _gameManager.FarmerWaveSpawner.SpawnWave();
+        _gameManager.FarmerSpawner.WaveFinished.AddListener(OnWaveFinished);
+        _gameManager.FarmerSpawner.SpawnWave();
     }
 
     public override void Exit(IState nextState)
     {
         base.Exit(nextState);
-        _gameManager.FarmerWaveSpawner.WaveFinished?.RemoveListener(OnWaveFinished);
+        _gameManager.FarmerSpawner.WaveFinished?.RemoveListener(OnWaveFinished);
     }
 }
