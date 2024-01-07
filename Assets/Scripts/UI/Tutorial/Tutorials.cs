@@ -37,11 +37,13 @@ public class Tutorial
     public string Title { get => _title; }
     public string Text { get => _text; }
     public bool UseSmall { get => _useSmall; }
+    public Vector2 Position { get => _position; }
 
 
     [SerializeField] private string _title;
     [SerializeField][TextArea(5,10)] private string _text;
     [SerializeField] private bool _useSmall;
+    [SerializeField] private Vector2 _position;
 }
 
 

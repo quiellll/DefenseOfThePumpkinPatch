@@ -16,7 +16,6 @@ public class TutorialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         _bigTutorialPanel.gameObject.SetActive(false);
         _smallTutorialPanel.gameObject.SetActive(false);
 
@@ -24,12 +23,14 @@ public class TutorialManager : MonoBehaviour
             return;
         
 
+        GameManager.Instance.HUD.StartWaveButton.SetActive(false);
         SetTutorialToPanel(_dayTutorials.GetFirstTutorial());
 
     }
 
     public void EndTutorial()
     {
+        GameManager.Instance.HUD.StartWaveButton.SetActive(true);
         PlayerPrefs.SetInt("TutorialEnded", 1);
     }
 

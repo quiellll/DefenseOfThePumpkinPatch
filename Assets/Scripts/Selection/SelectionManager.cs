@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class SelectionManager
 {
-    public UnityEvent WareBuilt;
+    public UnityEvent WareBuilt = new();
 
     public Selectable SelectedObject { get; private set; } //obeto seleccionable seleccionado 
     public GridCell SelectedCell { get; private set; }
