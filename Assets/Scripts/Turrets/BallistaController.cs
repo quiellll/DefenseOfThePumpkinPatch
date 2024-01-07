@@ -6,9 +6,10 @@ public class BallistaController : ATurretController
 {
     private TurretProjectileSpawner _projectileSpawner; // Spawner/Generador de proyectiles
 
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
+
         foreach (TurretProjectileSpawner spawner in FindObjectsOfType<TurretProjectileSpawner>())
         {
             // Si el spawner de balas es igual que la bala de mi torreta
@@ -19,7 +20,6 @@ public class BallistaController : ATurretController
                 break;
             }
         }
-
     }
 
     protected override void Fire()

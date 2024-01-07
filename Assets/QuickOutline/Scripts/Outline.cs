@@ -88,6 +88,7 @@ public class Outline : MonoBehaviour {
     var renderersList = new List<Renderer>();
         foreach(var r in renderers)
         {
+            if (r == null) continue;
             if(r.gameObject.name != "Range") renderersList.Add(r);
         }
 
@@ -110,7 +111,7 @@ public class Outline : MonoBehaviour {
   void OnEnable() {
     foreach (var renderer in renderers) {
 
-
+            if(renderer == null) continue;
             var materials = renderer.sharedMaterials.ToList();
 
       materials.Add(outlineMaskMaterial);
@@ -148,7 +149,7 @@ public class Outline : MonoBehaviour {
   void OnDisable() {
     foreach (var renderer in renderers) {
 
-
+            if(renderer == null) continue;
             // Remove outline shaders
             var materials = renderer.sharedMaterials.ToList();
 

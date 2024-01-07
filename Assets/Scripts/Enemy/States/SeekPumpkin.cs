@@ -13,8 +13,17 @@ public class SeekPumpkin : AEnemyState
 
     public override void Enter(IState previousState)
     {
-        _currentPumpkin = WorldGrid.Instance.GetNearestPumpkinCell();
-        WorldGrid.Instance.PumpkinsUpdated.AddListener(OnPumpkinsUpdated);
+        _currentPumpkin = GameManager.Instance.CellManager.GetNearestPumpkinCell();
+
+        if (_currentPumpkin == null)
+        {
+            Debug.Log("No hay calabazas");
+            //nuevo estado de no hacer nada porque el jugador perdio?
+            _enemy.State = null;
+            return;
+        }
+
+        GameManager.Instance.CellManager.PumpkinsUpdated.AddListener(OnPumpkinsUpdated);
 
         var gridDirection = _currentPumpkin.XY - _enemy.XY;
         _directionToPumpkin = new Vector3(gridDirection.x, 0f, gridDirection.y).normalized;
@@ -26,12 +35,9 @@ public class SeekPumpkin : AEnemyState
 
         _distanceToPumpkin = Vector2.Distance(_enemy.XY, _currentPumpkin.XY);
 
-        if(_distanceToPumpkin < 0.05f)
+        if(_distanceToPumpkin < 0.3f)
         {
-            _currentPumpkin.DestroyPumpkin();
-
-            //nuevo estado de volver con la calabaza al waypoint
-            _enemy.State = new ReturnToPath(_enemy);
+            _enemy.InteractWithPumpkin(_currentPumpkin);
             return;
         }
 
@@ -43,20 +49,24 @@ public class SeekPumpkin : AEnemyState
     {
         base.Exit(nextState);
 
-        WorldGrid.Instance.PumpkinsUpdated.RemoveListener(OnPumpkinsUpdated);
+        GameManager.Instance.CellManager.PumpkinsUpdated.RemoveListener(OnPumpkinsUpdated);
     }
 
     private void OnPumpkinsUpdated(GridCell newPumpkinCell)
     {
         _currentPumpkin = newPumpkinCell;
-        var gridDirection = (_currentPumpkin.XY - _enemy.XY);
-        _directionToPumpkin = new Vector3(gridDirection.x, 0f, gridDirection.y).normalized;
 
         if (_currentPumpkin == null)
         {
             Debug.Log("No hay calabazas");
             //nuevo estado de no hacer nada porque el jugador perdio?
+            _enemy.State = null;
             return;
         }
+
+        var gridDirection = (_currentPumpkin.XY - _enemy.XY);
+        _directionToPumpkin = new Vector3(gridDirection.x, 0f, gridDirection.y).normalized;
+
+
     }
 }

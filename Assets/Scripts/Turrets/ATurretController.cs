@@ -48,9 +48,16 @@ public abstract class ATurretController : MonoBehaviour
 
     }
 
-    private void Start()
+    protected virtual void Start()
     {
-        Cell = WorldGrid.Instance.GetCellAt(XY);
+        Cell = GameManager.Instance.CellManager.GetCellAt(XY);
+
+        GameManager.Instance.ServiceLocator.Get<IGameDataUpdater>().AddTurret(Turret, XY);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance?.ServiceLocator?.Get<IGameDataUpdater>()?.RemoveTurret(Turret, XY);
     }
 
     // DEBUG. Para dibujar la esfera que muestra el rango de ataque
@@ -66,13 +73,16 @@ public abstract class ATurretController : MonoBehaviour
     }
 
 
+
     protected virtual void Update()
     {
+        if (!GameManager.Instance.IsOnDefense) return;
+
         //actualizamos el contador de tiempo entre disparos
         _fireDelayTimer += Time.deltaTime;
 
         // Si no tiene un objetivo fijado, comienza a buscar uno
-        if (!_currentTarget)
+        if (!_currentTarget || !_currentTarget.IsAlive || !_currentTarget.Active)
         {
             FindTarget();
             return;
@@ -121,14 +131,23 @@ public abstract class ATurretController : MonoBehaviour
             // Si solo hay un enemigo en todo el rango, se marca como objetivo
             else if (targetCount == 1) 
             {
-                _currentTarget = _enemyCollidersInsideOuterRadius[0].GetComponentInParent<AEnemyController>();
-                return true;
+                var enemy = _enemyCollidersInsideOuterRadius[0].GetComponentInParent<AEnemyController>();
+
+                if (enemy.IsAlive && enemy.Active && _turret.CanTarget(enemy))
+                {
+                    _currentTarget = enemy;
+                    return true;
+                }
             }
             // En caso de que haya más de un enemigo en todo el rango, hay que compararlos y ver cuál es la mejor opción
             _currentTarget = FindFirstEnemyInGroup(_enemyCollidersInsideOuterRadius, targetCount);
 
-            return true;
+            return _currentTarget != null;
         }
+
+
+
+
         //si hay un inner radius
         List<Collider> enemyColsInRange = new();
         for (int i = 0; i < targetCount; i++) //metemos en la lista los que esten fuera del inner radius
@@ -147,12 +166,18 @@ public abstract class ATurretController : MonoBehaviour
         // Si solo hay un enemigo en todo el rango, se marca como objetivo
         else if (enemyColsInRange.Count == 1)
         {
-            _currentTarget = enemyColsInRange[0].GetComponentInParent<AEnemyController>();
-            return true;
+            var enemy = enemyColsInRange[0].GetComponentInParent<AEnemyController>();
+            if (enemy.IsAlive && enemy.Active && _turret.CanTarget(enemy))
+            {
+                _currentTarget = enemy;
+                return true;
+            }
         }
+
         // En caso de que haya más de un enemigo en todo el rango, hay que compararlos y ver cuál es la mejor opción
         _currentTarget = FindFirstEnemyInGroup(enemyColsInRange.ToArray(), enemyColsInRange.Count);
-        return true;
+
+        return _currentTarget != null;
 
     }
 
@@ -175,20 +200,30 @@ public abstract class ATurretController : MonoBehaviour
     private AEnemyController FindFirstEnemyInGroup(Collider[] enemyColliders, int numberOfEnemies)
     {
         // Seleccionamos todos los enemigos en el segmento
-        EnemyAtPath[] enemiesAtPath = new EnemyAtPath[numberOfEnemies];
+        //EnemyAtPath[] enemiesAtPath = new EnemyAtPath[numberOfEnemies];
         int maxIndex = -1;
 
+        List<EnemyAtPath> enemiesAtPath = new();
 
         for (int i = 0; i < numberOfEnemies; i++)
         {
             // Vemos en que casilla está situado
             var enemy = enemyColliders[i].GetComponentInParent<AEnemyController>();
-            enemiesAtPath[i] = new EnemyAtPath(enemy, WorldGrid.Instance.GetIndexOfPathCell(enemy.CurrentCell));
 
+            if (!enemy.IsAlive || !enemy.Active || !_turret.CanTarget(enemy)) continue;
+
+            var enemyAtPath = new EnemyAtPath(enemy, GameManager.Instance.CellManager.GetIndexOfPathCell(enemy.CurrentCell));
+            enemiesAtPath.Add(enemyAtPath);
             // Nos quedamos con la casilla más alta (cercana a la zona a defender) que tenga enemigos.
-            if (enemiesAtPath[i].PathIndex > maxIndex) maxIndex = enemiesAtPath[i].PathIndex;
+            if (enemyAtPath.PathIndex > maxIndex) maxIndex = enemyAtPath.PathIndex;
+
+            //enemiesAtPath[i] = new EnemyAtPath(enemy, WorldGrid.Instance.GetIndexOfPathCell(enemy.CurrentCell));
+
+            //if (enemiesAtPath[i].PathIndex > maxIndex) maxIndex = enemiesAtPath[i].PathIndex;
             
         }
+
+        if (enemiesAtPath.Count == 0) return null;
 
         // Se crea una lista de "candidatos" a ser disparado
         List<EnemyAtPath> candidates = new();
@@ -201,10 +236,10 @@ public abstract class ATurretController : MonoBehaviour
         
         // Si hay más de un enemigo, se busca al que esté más adelantado dentro de la propia casilla de la siguiente forma
         // Se obtiene la casilla siguiente a la seleccionada.
-        int nextCellIndex = Mathf.Clamp(candidates[0].PathIndex + 1, 0, WorldGrid.Instance.Path.Count - 1);
+        int nextCellIndex = Mathf.Clamp(candidates[0].PathIndex + 1, 0, GameManager.Instance.CellManager.Path.Count - 1);
 
         // Se obtiene la posición de esta casilla nueva
-        Vector2 nextCellPos = WorldGrid.Instance.Path[nextCellIndex].XY;
+        Vector2 nextCellPos = GameManager.Instance.CellManager.Path[nextCellIndex].XY;
 
         float minDistanceToNextCell = float.MaxValue;
         AEnemyController best = null;

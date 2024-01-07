@@ -13,9 +13,16 @@ public class ReturnToPath : AEnemyState
 
     public override void Enter(IState previousState)
     {
-        _endWaypoint = WorldGrid.Instance.Waypoints[WorldGrid.Instance.Waypoints.Count - 1];
+        _endWaypoint = GameManager.Instance.CellManager.Waypoints[GameManager.Instance.CellManager.Waypoints.Count - 1];
         var gridDirection = _endWaypoint.XY - _enemy.XY;
         _directionToWaypoint = new Vector3(gridDirection.x, 0f, gridDirection.y).normalized;
+        _enemy.ChangeRotationSpeed(3f);
+    }
+
+    public override void Exit(IState nextState)
+    {
+        base.Exit(nextState);
+        _enemy.ResetRotationSpeed();
     }
 
 

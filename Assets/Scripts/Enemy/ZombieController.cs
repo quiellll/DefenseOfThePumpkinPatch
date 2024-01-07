@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +24,20 @@ public class ZombieController : AEnemyController
     public override void Reset()
     {
         base.Reset();
+    }
+
+    public override void InteractWithPumpkin(GridCell pumpkinCell)
+    {
+        State = null;
+        SetAnimation(_pickUpAnim, false);
+        StartCoroutine(WaitAndDie(pumpkinCell));
+    }
+
+    private IEnumerator WaitAndDie(GridCell pumpkinCell)
+    {
+        yield return new WaitForSeconds(.4f);
+        pumpkinCell.DestroyPumpkin();
+        StartCoroutine(StartDeath());
     }
 
 }

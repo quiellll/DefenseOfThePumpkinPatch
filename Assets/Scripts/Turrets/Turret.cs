@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class Turret : ScriptableObject, IWare
     //IWare
     public static readonly int SellPercentage = 75;
 
+    public string Name { get => _name; }
     public int BuyPrice { get => _buyPrice; }
     public int SellPrice { get => Mathf.FloorToInt(_buyPrice * SellPercentage / 100f); }
     // Prefab de la torreta
@@ -29,9 +31,10 @@ public class Turret : ScriptableObject, IWare
     public int Damage { get => _damage; }
     public Sprite Icon { get => _icon; }
     //public string Description { get => _description; }
+    public EnemyTarget ValidTargets { get => _validTargets; }
 
 
-
+    [SerializeField] private string _name;
     [SerializeField] private int _buyPrice;
     [SerializeField] private GameObject _turretPrefab;
     [SerializeField] private GameObject _dummyPrefab;
@@ -43,6 +46,27 @@ public class Turret : ScriptableObject, IWare
     [SerializeField] private float _projectileMoveSpeed;
     [SerializeField] private int _damage;
     [SerializeField] private Sprite _icon;
-    //[SerializeField] private string _description;
+    //[SerializeField] private string _description
+    [SerializeField] private EnemyTarget _validTargets;
 
+    [Flags] public enum EnemyTarget
+    {
+        None = 0,
+        Farmer = 1,
+        Ghost = 2,
+        Zombie = 4,
+    }
+
+
+    public bool CanTarget(AEnemyController enemy)
+    {
+        EnemyTarget target;
+
+        if (enemy is FarmerController) target = EnemyTarget.Farmer;
+        else if (enemy is GhostController) target = EnemyTarget.Ghost;
+        else if(enemy is ZombieController) target = EnemyTarget.Zombie;
+        else return false;
+
+        return _validTargets.HasFlag(target);
+    }
 }

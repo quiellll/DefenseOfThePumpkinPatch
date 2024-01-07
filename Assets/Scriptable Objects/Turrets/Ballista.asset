@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c30e0aaa60516b4c9ae036d06d271c7, type: 3}
   m_Name: Ballista
   m_EditorClassIdentifier: 
+  _name: Ballista
   _buyPrice: 100
   _turretPrefab: {fileID: 6891146182113863401, guid: f7e8f012657f99c4a8dbc191cdb06395,
     type: 3}
@@ -25,3 +26,5 @@ MonoBehaviour:
   _fireRate: 1
   _projectileMoveSpeed: 7
   _damage: 1
+  _icon: {fileID: 0}
+  _validTargets: 5
