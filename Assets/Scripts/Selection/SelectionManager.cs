@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SelectionManager
 {
+    public UnityEvent WareBuilt;
+
     public Selectable SelectedObject { get; private set; } //obeto seleccionable seleccionado 
     public GridCell SelectedCell { get; private set; }
 
@@ -55,8 +58,7 @@ public class SelectionManager
 
         if (built)
         {
-            GameManager.Instance.HUD.UpdateUndoButton();
-            GameManager.Instance.Shop.ToggleCancelPurchaseButton(false);
+            WareBuilt.Invoke();
         }
 
         return built;

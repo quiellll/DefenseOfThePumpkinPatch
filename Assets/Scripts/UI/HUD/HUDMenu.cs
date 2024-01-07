@@ -62,6 +62,15 @@ public class HUDMenu : MonoBehaviour
     {
         _shopMenu = FindObjectOfType<ShopMenu>(true);
         UpdateUndoButton();
+
+        GameManager.Instance.SelectionManager.WareBuilt.AddListener(UpdateUndoButton);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance?.SelectionManager?.WareBuilt.RemoveListener(UpdateUndoButton);
+
+        
     }
 
 

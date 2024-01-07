@@ -9,6 +9,17 @@ public class ShopMenu : MonoBehaviour
 
     private GameObject _purchaseButtonPressed;
 
+
+    private void Start()
+    {
+        GameManager.Instance.SelectionManager.WareBuilt.AddListener(HideCancelPurchaseButton);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance?.SelectionManager?.WareBuilt.RemoveListener(HideCancelPurchaseButton);
+    }
+
     //funcion llamada al presionar la telca T (de momento) que oculta/muestra la tienda
     public void ToggleShop(InputAction.CallbackContext context)
     {
@@ -49,6 +60,8 @@ public class ShopMenu : MonoBehaviour
         ToggleCancelPurchaseButton(false);
 
     }
+
+    private void HideCancelPurchaseButton() => ToggleCancelPurchaseButton(false);
 
     public void ToggleCancelPurchaseButton(bool active)
     {
