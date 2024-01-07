@@ -16,7 +16,7 @@ public class FarmerController : AEnemyController ///controlador del granjero que
     protected override void Die()
     {
         //al morir spawnea una tumba
-        GameManager.Instance.CellManager.BuildGrave(_stats.GravePrefab, CurrentCell, XY, _body.rotation);
+        GameManager.Instance.CellManager.BuildGrave(CurrentCell, XY, _body.rotation);
 
         base.Die();
     }

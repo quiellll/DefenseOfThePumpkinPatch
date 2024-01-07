@@ -11,7 +11,7 @@ public class Level : ScriptableObject
     public int DayCount { get => _days.Length; }
     public Day CurrentDay { get => _days[_currentDayIndex]; }
     public bool IsOnLastDay { get => _currentDayIndex == DayCount - 1; }
-
+    public int CurrentDayIndex { get => _currentDayIndex; }
 
     [SerializeField] private Day[] _days;
 
@@ -26,7 +26,7 @@ public class Level : ScriptableObject
         return null;
     }
 
-    public void ResetLevel() => _currentDayIndex = 0;
+    public void SetDay(int dayIndex) => _currentDayIndex = dayIndex;
 
 }
 

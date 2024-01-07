@@ -48,9 +48,16 @@ public abstract class ATurretController : MonoBehaviour
 
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         Cell = GameManager.Instance.CellManager.GetCellAt(XY);
+
+        GameManager.Instance.ServiceLocator.Get<IGameDataUpdater>().AddTurret(Turret, XY);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance?.ServiceLocator?.Get<IGameDataUpdater>()?.RemoveTurret(Turret, XY);
     }
 
     // DEBUG. Para dibujar la esfera que muestra el rango de ataque
@@ -64,6 +71,7 @@ public abstract class ATurretController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(new Vector3(transform.position.x, 0.1f, transform.position.z), _turret.InnerRadius);
     }
+
 
 
     protected virtual void Update()

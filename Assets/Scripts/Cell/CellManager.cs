@@ -18,28 +18,35 @@ public class CellManager : MonoBehaviour// : Singleton<WorldGrid> //singleton (d
     [SerializeField] private Transform _turretCellContainer;
     [SerializeField] private Transform _decorationCellContainer;
     [SerializeField] private Transform _pumpkinCellContainer;
+    [SerializeField] private GameObject _gravePrefab;
 
     //arrays del camino y los waypoints (esquinas del camino + inicio + fin, en orden)
     private GridCell[] _path;
     private GridCell[] _waypoints;
     private List<GraveAtPath> _graves = new(); //array con las tumbas en orden
-    private LayerMask _gridCells;
+    private LayerMask _cellsMask;
     private List<PumpkinDistance> _pumpkins = new();
     private Collider[] _overlaps = new Collider[4];
+
+    private bool _cellsMaskInit = false;
+    private bool _pathInit = false;
 
     //protected override void Awake()
     private void Awake()
     {
-        //base.Awake();
-        InitPath();
-
-        _gridCells = LayerMask.GetMask("Cell");
+        if(!_pathInit) InitPath();
     }
 
 
     public GridCell GetCellAt(Vector2 gridPos) //devuelve la celda en la posicion 2d gridPos si la hay
     {
-        if (Physics.OverlapSphereNonAlloc(new Vector3(gridPos.x, 0f, gridPos.y), .1f, _overlaps, _gridCells) == 0)
+        if (!_cellsMaskInit)
+        {
+            _cellsMaskInit = true;
+            _cellsMask = LayerMask.GetMask("Cell");
+        }
+
+        if (Physics.OverlapSphereNonAlloc(new Vector3(gridPos.x, 0f, gridPos.y), .1f, _overlaps, _cellsMask) == 0)
             return null;
 
         if (_overlaps[0].TryGetComponent<GridCell>(out var cell)) return cell;
@@ -51,6 +58,7 @@ public class CellManager : MonoBehaviour// : Singleton<WorldGrid> //singleton (d
     #region Path
     private void InitPath() //guarda el camino y los waypoints en los arrays
     {
+        _pathInit = true;
         var waypointsList = new List<GridCell>();
         _path = new GridCell[_pathCellContainer.childCount];
 
@@ -65,6 +73,8 @@ public class CellManager : MonoBehaviour// : Singleton<WorldGrid> //singleton (d
 
     public int GetIndexOfPathCell(GridCell cell) //devuelve el indice en el path de una celda (si esta en el path)
     {
+        if (!_pathInit) InitPath();
+
         if (cell == null || cell.Type != GridCell.CellType.Path) return -1;
 
         return Array.IndexOf(_path, cell);
@@ -80,24 +90,27 @@ public class CellManager : MonoBehaviour// : Singleton<WorldGrid> //singleton (d
     //clase con una tumba y su indice en el path
     public class GraveAtPath
     {
-        public Transform Grave; public int PathIndex;
-        public GraveAtPath(Transform grave, int index)
+        public Transform Grave; public int PathIndex; public Vector2 XY;
+        public GraveAtPath(Transform grave, int index, Vector2 xy)
         {
             Grave = grave;
             PathIndex = index;
+            XY = xy;
         }
     }
 
 
     //instancia una tumba y la añade a la lista de tumbas en orden de menor a mayor indice en el path
-    public void BuildGrave(GameObject gravePrefab, GridCell cell, Vector2 gridPos, Quaternion rotation) 
+    public void BuildGrave(GridCell cell, Vector2 gridPos, Quaternion rotation) 
     {
         if (cell.Type != GridCell.CellType.Path) return; //puede morir en pumpkin???
 
-        Vector3 pos = new Vector3 (gridPos.x, 0f, gridPos.y) + gravePrefab.transform.position;
+        Vector3 pos = new Vector3 (gridPos.x, 0f, gridPos.y) + _gravePrefab.transform.position;
 
         var g = 
-            new GraveAtPath(Instantiate(gravePrefab, pos, rotation, transform).transform, GetIndexOfPathCell(cell));
+            new GraveAtPath(Instantiate(_gravePrefab, pos, rotation, transform).transform, GetIndexOfPathCell(cell), gridPos);
+
+        GameManager.Instance.ServiceLocator.Get<IGameDataUpdater>().AddGrave(gridPos, rotation.eulerAngles.y);
 
         for (int i = 0; i < _graves.Count; i++)
         {
@@ -117,9 +130,13 @@ public class CellManager : MonoBehaviour// : Singleton<WorldGrid> //singleton (d
     public void DestroyGrave(GraveAtPath grave) 
     {
         if(grave == null || !_graves.Contains(grave)) return;
+        
+        GameManager.Instance.ServiceLocator.Get<IGameDataUpdater>().RemoveGrave(grave.XY, grave.Grave.rotation.eulerAngles.y);
+        
         _graves.Remove(grave);
         Destroy(grave.Grave.gameObject);
         grave.Grave = null;
+
 
         GravesUpdated.Invoke(_graves.Count > 0 ? _graves[0] : null);
     }
@@ -128,6 +145,7 @@ public class CellManager : MonoBehaviour// : Singleton<WorldGrid> //singleton (d
     {
         foreach(GraveAtPath g in _graves)
         {
+            GameManager.Instance.ServiceLocator.Get<IGameDataUpdater>().RemoveGrave(g.XY, g.Grave.rotation.eulerAngles.y);
             Destroy(g.Grave.gameObject);
         }
 

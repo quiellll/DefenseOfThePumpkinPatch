@@ -11,6 +11,7 @@ public class Turret : ScriptableObject, IWare
     //IWare
     public static readonly int SellPercentage = 75;
 
+    public string Name { get => _name; }
     public int BuyPrice { get => _buyPrice; }
     public int SellPrice { get => Mathf.FloorToInt(_buyPrice * SellPercentage / 100f); }
     // Prefab de la torreta
@@ -33,7 +34,7 @@ public class Turret : ScriptableObject, IWare
     public EnemyTarget ValidTargets { get => _validTargets; }
 
 
-
+    [SerializeField] private string _name;
     [SerializeField] private int _buyPrice;
     [SerializeField] private GameObject _turretPrefab;
     [SerializeField] private GameObject _dummyPrefab;

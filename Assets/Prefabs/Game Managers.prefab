@@ -1269,6 +1269,7 @@ Transform:
   - {fileID: 678940155009675970}
   - {fileID: 542308582142769892}
   - {fileID: 6699643410720699970}
+  - {fileID: 6493901818771353690}
   - {fileID: 4790184322790079970}
   - {fileID: 1883723093519117223}
   - {fileID: 6172241890558426906}
@@ -4689,7 +4690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 20
-  _maxDistanceFromOrigin: 10
+  _maxDistanceFromOrigin: 14
   _zoomSpeed: 60
   _minYPos: 2
   _maxYPos: 15
@@ -6988,6 +6989,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _level: {fileID: 11400000, guid: 6f391dc717118fa468d03fbc3dcbcfe4, type: 2}
+  _saveFileName: saved_game
+  _turrets:
+  - {fileID: 11400000, guid: a4d6a357e5b7f8c4c81e6ff0364e014c, type: 2}
+  - {fileID: 11400000, guid: 2782564eaf0be6e40b8cb162880ad361, type: 2}
+  - {fileID: 11400000, guid: b400564d4c3bfdd4aac5ebc79f4b68b6, type: 2}
+  _pumpkin: {fileID: 11400000, guid: d3f9d904abc9f7d459d5a29ca652597a, type: 2}
 --- !u!1 &4422647529413181626
 GameObject:
   m_ObjectHideFlags: 0
@@ -10551,8 +10558,8 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -11306,7 +11313,7 @@ GameObject:
   - component: {fileID: 1883723093519117223}
   - component: {fileID: 649401493968447871}
   m_Layer: 0
-  m_Name: World Grid
+  m_Name: Cell Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11353,6 +11360,8 @@ MonoBehaviour:
   _turretCellContainer: {fileID: 4232534459691910167}
   _decorationCellContainer: {fileID: 7570523799264638983}
   _pumpkinCellContainer: {fileID: 1917769577223191165}
+  _gravePrefab: {fileID: 2126682428481223955, guid: 004a862347d5fed4f8d9278abf704ded,
+    type: 3}
 --- !u!1 &7411107503090390645
 GameObject:
   m_ObjectHideFlags: 0
@@ -11549,6 +11558,55 @@ MonoBehaviour:
   _timeScaleButton: {fileID: 1065321834015174316}
   _shopButton: {fileID: 8522574681929443681}
   _undoButton: {fileID: 7232687043400646887}
+--- !u!1 &7432982064656237258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6493901818771353690}
+  - component: {fileID: 1681287286361655507}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6493901818771353690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7432982064656237258}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.0145774, y: -1.8868155, z: 22.675423}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2683540747870480309}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1681287286361655507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7432982064656237258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: c4fb1b6b88c36124fa60b385fc423ae0, type: 2}
 --- !u!1 &7439473385890798633
 GameObject:
   m_ObjectHideFlags: 0
@@ -14734,7 +14792,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8925976627281456474}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.59636784, y: -0.37992823, z: 0.37992823, w: 0.59636784}
+  m_LocalRotation: {x: 0.38289174, y: -0.47873747, z: 0.24392895, w: 0.7514673}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14752,7 +14810,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.85490197, g: 0.8392157, b: 0.79607844, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -14841,7 +14899,7 @@ MonoBehaviour:
   DirectionalLight: {fileID: 2006770690921247571}
   Preset: {fileID: 11400000, guid: 6d10a6c81110b6043b0a52539140c20d, type: 2}
   _initialTimePercent: 0.4
-  _cycleSpeed: 0.5
+  _cycleSpeed: 0.2
 --- !u!1 &9037466238216386575
 GameObject:
   m_ObjectHideFlags: 0

@@ -40,7 +40,6 @@ public class ZombieSpawner : MonoBehaviour, IEnemySpawner
     // Método para spawnear un zombie en una posición específica
     public void SpawnZombie(Vector3 spawnPos, Quaternion rotation)
     {
-        Debug.Log("zombie spawn");
         // Obtiene un zombie del pool
         var zombie = _zombiePool.Get() as ZombieController;
 
@@ -71,6 +70,13 @@ public class ZombieSpawner : MonoBehaviour, IEnemySpawner
     private void OnGhostWaveFinished()
     {
         _ghostWaveFinished = true;
+
+        if(_activeEnemies == 0)
+        {
+            _ghostWaveFinished = false;
+            _aliveEnemies = 0;
+            WaveFinished.Invoke();//fin de la oleada 
+        }
     }
 
     private void OnDestroy()

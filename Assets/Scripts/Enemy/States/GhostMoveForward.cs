@@ -30,6 +30,9 @@ public class GhostMoveForward : AEnemyPathState //estado de movimiento hacia del
         }
 
         _grave = GameManager.Instance.CellManager.GetNearestGrave();
+
+        if (_grave == null) return;
+
         _graveCell = GameManager.Instance.CellManager.Path[_grave.PathIndex];
         GameManager.Instance.CellManager.GravesUpdated.AddListener(UpdateGrave);
 

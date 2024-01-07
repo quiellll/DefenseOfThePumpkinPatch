@@ -13,10 +13,12 @@ public class PumpkinController : MonoBehaviour
     {
         Cell = GameManager.Instance.CellManager.GetCellAt(new(transform.position.x, transform.position.z));
         GameManager.Instance.CellManager.AddPumpkin(Cell);
+        GameManager.Instance.ServiceLocator.Get<IGameDataUpdater>().AddPumpkin(Cell.XY);
     }
 
-    public void DestroyPumpkin()
+    public void DestroyPumpkin(bool destroyOnStart = false)
     {
+        GameManager.Instance.ServiceLocator.Get<IGameDataUpdater>().RemovePumpkin(Cell.XY);
         GameManager.Instance.CellManager.RemovePumpkin(Cell);
         Destroy(gameObject);
     }

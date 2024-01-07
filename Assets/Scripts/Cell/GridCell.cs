@@ -15,23 +15,22 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
     public CellType Type { get => _type; }
     public bool IsWaypoint {  get => _isWaypoint; } //solo tiene sentido si es de tipo Path
     //objeto sobre la celda, de momento torreta o calabaza
-    public GameObject ElementOnTop { get; private set; } 
+    public GameObject ElementOnTop { get; private set; }
 
     [SerializeField] private CellType _type;
     [SerializeField] private bool _isWaypoint;
+
+
 
     private void Awake()
     {
         if(Type == CellType.Pumpkin)
         {
-            if(transform.childCount == 0)
-            {
-                ElementOnTop = null;
-                return;
-            }
+            if(transform.childCount == 0)  return;
+            
 
             //le quitamos la calabaza de hija para que pueda ser seleccionada
-            ElementOnTop = transform.GetChild(0).gameObject;
+            if(ElementOnTop == null) ElementOnTop = transform.GetChild(0).gameObject;
             ElementOnTop.transform.SetParent(null);
 
         }
@@ -73,6 +72,14 @@ public class GridCell : MonoBehaviour //clase de cada celda del mapa
         Destroy(ElementOnTop); //se destruye el brote
         ElementOnTop = Instantiate(pumpkin.PumpkinPrefab, transform.position + pumpkin.PumpkinPrefab.transform.position, pumpkin.PumpkinPrefab.transform.rotation);
         return true;
+    }
+
+    public bool BuildPumpkinOnLoad(Pumpkin pumpkin)
+    {
+        if (Type != CellType.Pumpkin || ElementOnTop != null) return false;
+        ElementOnTop = Instantiate(pumpkin.PumpkinPrefab, transform.position + pumpkin.PumpkinPrefab.transform.position, pumpkin.PumpkinPrefab.transform.rotation);
+        return true;
+
     }
 
     //esta se usa para cuando los enemigos destruyen la calabaza, para venderla se usa el command SellPumpkin

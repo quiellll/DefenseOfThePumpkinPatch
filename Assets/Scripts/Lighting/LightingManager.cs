@@ -1,9 +1,13 @@
-using Unity.VisualScripting;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 //https://gist.github.com/Glynn-Taylor/08da28896147faa6ba8f9654057d38e6
 public class LightingManager : MonoBehaviour
 {
+    public float InitialTimePercent { get => _initialTimePercent; set => _initialTimePercent = value; }
+
     //Scene References
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
@@ -21,10 +25,26 @@ public class LightingManager : MonoBehaviour
 
     private Vector3 _initialEulers;
 
+    private List<Light> _lights;
+
+    private bool _lightsEnabled = false, _lightsDisabled = false;
+
     private void Awake()
     {
         _timePercent = _initialTimePercent;
         _initialEulers = transform.localRotation.eulerAngles;
+
+        _lights = FindObjectsOfType<Light>().ToList();
+
+        foreach (Light light in _lights)
+        {
+            if (light == DirectionalLight)
+            {
+                _lights.Remove(light);
+                break;
+            }
+        }
+
 
         UpdateLighting(_timePercent);
     }
@@ -67,6 +87,19 @@ public class LightingManager : MonoBehaviour
 
             DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((t * 360f) - 90, -65, 0));
 
+        }
+
+        if(t > 0.8 || t < 0.2)
+        {
+            _lightsEnabled = true;
+            _lightsDisabled = false;
+            foreach (var light in _lights) light.enabled = true;
+        }
+        else
+        {
+            _lightsDisabled = true;
+            _lightsEnabled = false;
+            foreach (var light in _lights) light.enabled = false;
         }
 
     }

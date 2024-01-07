@@ -36,7 +36,6 @@ public class TurretProjectileSpawner : MonoBehaviour
     {
         if(!projectile.Active)
         {
-            //Debug.Log("ya esta despawneado el proyectil");
             return;
         }
         _projectilePool.Return(projectile);

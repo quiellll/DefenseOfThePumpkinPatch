@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9b11dc829691c41b736db3c30f1fc3, type: 3}
   m_Name: Catapult
   m_EditorClassIdentifier: 
+  _name: Catapult
   _buyPrice: 100
   _turretPrefab: {fileID: 6891146182113863401, guid: 7bee8ab66f3dfbc45b293ff47142064d,
     type: 3}

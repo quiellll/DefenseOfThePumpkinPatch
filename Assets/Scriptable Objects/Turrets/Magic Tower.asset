@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d4a07a86bf6d34b8ff5787f95a6e1e, type: 3}
   m_Name: Magic Tower
   m_EditorClassIdentifier: 
+  _name: Magic Tower
   _buyPrice: 100
   _turretPrefab: {fileID: 6891146182113863401, guid: 54674e5532a7f3747954d03660891f1c,
     type: 3}
