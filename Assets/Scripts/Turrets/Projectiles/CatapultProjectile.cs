@@ -15,9 +15,9 @@ public class CatapultProjectile : ATurretProjectile
     private Vector2 _catapultPos;
 
     public override void Init(TurretProjectileSpawner spawner, AEnemyController target,
-        Vector3 spawnPos, Turret turret, ATurretController controller)
+        Vector3 spawnPos, Quaternion rot, Turret turret, ATurretController controller)
     {
-        base.Init(spawner, target, spawnPos, turret, controller);
+        base.Init(spawner, target, spawnPos, rot, turret, controller);
 
         _catapultPos = controller.XY;
 

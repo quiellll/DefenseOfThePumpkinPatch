@@ -29,6 +29,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
 
 
     protected Animator _animator;
+    private ParticleSystem _damageParticles;
 
     protected int _deadAnim, _damagedAnim, _pickUpAnim;
 
@@ -38,6 +39,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
         _currentHealth = _stats.Health;
         IsAlive = true;
         _animator = GetComponentInChildren<Animator>();
+        _damageParticles = GetComponentInChildren<ParticleSystem>();
 
         _deadAnim = Animator.StringToHash("isDead");
         _damagedAnim = Animator.StringToHash("isDamaged");
@@ -140,7 +142,10 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     //funcion publica para recibir daño
     public virtual void TakeDamage(int damage)
     {
-        _currentHealth = Mathf.Max(_currentHealth - damage, 0);
+        if (_currentHealth - damage < 0) return;
+        _currentHealth -= damage;
+
+        _damageParticles.Play();
 
         if (_currentHealth == 0)
         {

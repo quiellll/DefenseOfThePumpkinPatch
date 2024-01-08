@@ -53,6 +53,7 @@ public class GhostController : AEnemyController //controlador del fantasma que h
         Despawn(); //despawneamos al fantasma
         //llamo a startcoroutine desde el spawner porque
         //unity solo deja hacer coroutines desde objetos activos
+        GameManager.Instance.CellManager.DestroyGrave(grave); //destuimos la tumba
         _zombieSpawner.StartCoroutine(SpawnZombie(grave));
 
 
@@ -61,7 +62,6 @@ public class GhostController : AEnemyController //controlador del fantasma que h
     private IEnumerator SpawnZombie(CellManager.GraveAtPath grave)
     {
         yield return new WaitForSeconds(0.5f);
-        GameManager.Instance.CellManager.DestroyGrave(grave); //destuimos la tumba
         _zombieSpawner.SpawnZombie(_transformPositon, _transformRotation);
     }
 

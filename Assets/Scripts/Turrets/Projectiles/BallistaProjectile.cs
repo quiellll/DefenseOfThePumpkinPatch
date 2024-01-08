@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BallistaProjectile : ATurretProjectile
 {
+    [SerializeField] private float _rotSpeed;
     private Transform _body;
     // Almacena todos los objetos con los que colisiona
     private Collider[] _overlaps = new Collider[5];
@@ -23,10 +24,10 @@ public class BallistaProjectile : ATurretProjectile
     }
 
     public override void Init(TurretProjectileSpawner spawner, AEnemyController target, 
-        Vector3 spawnPos, Turret turret, ATurretController controller)
+        Vector3 spawnPos, Quaternion rot, Turret turret, ATurretController controller)
     {
-        base.Init(spawner, target, spawnPos, turret, controller);
-        _body.rotation = Quaternion.LookRotation(EnemyTarget.transform.position - _body.position);
+        base.Init(spawner, target, spawnPos, rot, turret, controller);
+        _body.rotation = Quaternion.Euler(0f, Quaternion.LookRotation(EnemyTarget.transform.position - _body.position).eulerAngles.y, 0f);
         _hasTarget = true;
     }
 
@@ -43,13 +44,13 @@ public class BallistaProjectile : ATurretProjectile
             }
             CheckCollisions();
         }
-        if(_hasTarget) _direction = (EnemyTarget.transform.position - _body.position);
+        if(_hasTarget) _direction = ((EnemyTarget.transform.position + Vector3.up * .2f) - _body.position);
+        _body.rotation = Quaternion.Lerp(_body.rotation, Quaternion.LookRotation(_direction), _rotSpeed * Time.deltaTime);
 
         // Si el enemigo sigue vivo, la dirección será el vector hacia la posición del propio enemigo.
-        transform.Translate(_turret.ProjectileMoveSpeed * Time.deltaTime * _direction.normalized, Space.World);
+        transform.Translate(_turret.ProjectileMoveSpeed * Time.deltaTime * _body.forward.normalized, Space.World);
 
         //rotar en la direccion de movimiento
-        _body.rotation = Quaternion.LookRotation(_direction);
 
         // Comprueba si ha alcanzado al target
 

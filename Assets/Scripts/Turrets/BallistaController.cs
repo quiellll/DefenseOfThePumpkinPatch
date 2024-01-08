@@ -26,7 +26,7 @@ public class BallistaController : ATurretController
     {
         // Crea un proyectil en el spawner y lo inicializa llamando al método del Spawner (Object Pool)
         var projectile = _projectileSpawner.SpawnProjectile();
-        projectile.Init(_projectileSpawner, _currentTarget, _projectileSpawnPoint.position, 
+        projectile.Init(_projectileSpawner, _currentTarget, _projectileSpawnPoint.position, _partToRotate.rotation,
             _turret, this);
     }
 }

@@ -30,13 +30,13 @@ public abstract class ATurretProjectile : MonoBehaviour, IPoolObject
 
     // Método de PoolObject para inicializar el objeto
     public virtual void Init (TurretProjectileSpawner spawner, AEnemyController target, 
-        Vector3 spawnPos, Turret turret, ATurretController controller) 
+        Vector3 spawnPos, Quaternion rot, Turret turret, ATurretController controller) 
     {
         Spawner = spawner;
         EnemyTarget = target;
         // Se coloca el proyectil en la posición del spawner de la torre (punta del cañón, base de la ballesta, cuchara de la catapulta...)
         // Y se rota para que su vector forward apunte hacia el enemigo.
-        transform.SetPositionAndRotation(spawnPos, Quaternion.LookRotation(target.transform.position - spawnPos));
+        transform.SetPositionAndRotation(spawnPos, rot);//Quaternion.LookRotation(target.transform.position - spawnPos));
 
         _turret = turret;
         //_controller = controller;

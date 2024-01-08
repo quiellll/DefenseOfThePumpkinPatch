@@ -17,9 +17,10 @@ public abstract class ATurretController : MonoBehaviour
     // Referencia al ScriptableObject de la torreta
     [SerializeField] protected Turret _turret;
     // Parte del modelo que gira
-    [SerializeField] private Transform _partToRotate;
+    [SerializeField] protected Transform _partToRotate;
     // Punto de partida del proyectil
     [SerializeField] protected Transform _projectileSpawnPoint;
+    [SerializeField] protected GameObject _partToHide;
 
     // Herramientas para controlar el disparo
     private float _fireDelay;
@@ -107,8 +108,16 @@ public abstract class ATurretController : MonoBehaviour
             Fire();
             _fireDelayTimer = 0.0f;
             GameManager.Instance.ServiceLocator.Get<IAudioManager>().PlayAudio(Turret.FireSound);
+            
+            if(_partToHide != null)
+            {
+                _partToHide.SetActive(false);
+                Invoke(nameof(ShowHiddenPart), _fireDelay / 2f);
+            }
         }
     }
+
+    private void ShowHiddenPart() => _partToHide.SetActive(true);
 
 
     // Este método se encarga de encontrar un enemigo y marcarlo como objetivo
