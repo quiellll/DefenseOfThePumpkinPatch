@@ -19,14 +19,9 @@ public class BuildMode : AGameState //estado de construccion
         _gameManager.ServiceLocator.Get<IGameDataUpdater>().UpdateNextDefenseIsDay(_isDay);
 
         _gameManager.CommandManager.ClearCommands(); //se limpia el historial
-        _gameManager.HUD.WaveStarted.AddListener(OnStartWave);
-        _gameManager.HUD.StartWaveButton.SetActive(true);
-        _gameManager.HUD.UpdateUndoButton();
-        _gameManager.HUD.IncreaseJourney();
 
 
-        if (_gameManager.TimeScale != 1) _gameManager.HUD.ToggleTimeScale();
-        _gameManager.HUD.TimeScaleButton.SetActive(false);
+        _gameManager.HUD.WaveStarted.AddListener(OnStartWave); //boton iniciar oleada
 
         _gameManager.StartBuildMode.Invoke();
 
