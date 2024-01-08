@@ -13,8 +13,7 @@ public class MagicTowerController : ATurretController
         base.Awake();
         _magicTower = _turret as MagicTower;
         _beam  = GetComponentInChildren<LineRenderer>();
-        _beam.startColor = _magicTower.BeamColor;
-        _beam.endColor = _magicTower.BeamColor;
+        _beam.material = _magicTower.BeamMaterial;
     }
 
     protected override void Update()
@@ -39,15 +38,13 @@ public class MagicTowerController : ATurretController
         _currentTarget.TakeDamage(_turret.Damage);
 
         _hasAttackColor = true;
-        _beam.startColor = _magicTower.AttackColor;
-        _beam.endColor = _magicTower.AttackColor;
-        Invoke(nameof(ResetBeamColor), _magicTower.AttackColorDuration);
+        _beam.material = _magicTower.AttackMaterial;
+        Invoke(nameof(ResetBeamColor), _magicTower.AttackDuration);
     }
 
     private void ResetBeamColor()
     {
-        _beam.startColor = _magicTower.BeamColor;
-        _beam.endColor = _magicTower.BeamColor;
+        _beam.material = _magicTower.BeamMaterial;
         _hasAttackColor = false;
     }
 

@@ -27,7 +27,7 @@ public class LightingManager : MonoBehaviour
 
     private List<Light> _lights;
 
-    private bool _lightsEnabled = false, _lightsDisabled = false;
+    private bool _lightsOn;
 
     private void Awake()
     {
@@ -44,6 +44,11 @@ public class LightingManager : MonoBehaviour
                 break;
             }
         }
+
+        bool on = _timePercent > 0.8 || _timePercent < 0.2f;
+
+        _lightsOn = on;
+        foreach (var light in _lights) light.enabled = on;
 
 
         UpdateLighting(_timePercent);
@@ -89,16 +94,17 @@ public class LightingManager : MonoBehaviour
 
         }
 
-        if(t > 0.8 || t < 0.2)
+        if(!_lightsOn && t > 0.8f && t < 0.9f)
         {
-            _lightsEnabled = true;
-            _lightsDisabled = false;
+            Debug.Log("lightsOn");
+            _lightsOn = true;
             foreach (var light in _lights) light.enabled = true;
         }
-        else
+
+        else if(_lightsOn && t > 0.2f && t < 0.3f)
         {
-            _lightsDisabled = true;
-            _lightsEnabled = false;
+            Debug.Log("lightsOff");
+            _lightsOn = false;
             foreach (var light in _lights) light.enabled = false;
         }
 

@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class MagicTower : Turret
 {
-    public Color BeamColor { get => _beamColor; }
-    public Color AttackColor { get => _attackColor; }
-    public float AttackColorDuration { get => _attackColorDuration; }
+    public Material BeamMaterial { get => _beamMaterial; }
+    public Material AttackMaterial { get => _attackMaterial; }
+    public float AttackDuration { get => _attackDuration; }
 
-    [SerializeField] private Color _beamColor;
-    [SerializeField] private Color _attackColor;
-    [SerializeField] private float _attackColorDuration;
+    [SerializeField] private Material _beamMaterial;
+    [SerializeField] private Material _attackMaterial;
+    [SerializeField] private float _attackDuration;
 }

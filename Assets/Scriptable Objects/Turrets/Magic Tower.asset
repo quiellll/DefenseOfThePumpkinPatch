@@ -27,6 +27,6 @@ MonoBehaviour:
   _damage: 1
   _icon: {fileID: 0}
   _validTargets: 2
-  _beamColor: {r: 1, g: 0.6745283, b: 0.77783036, a: 1}
-  _attackColor: {r: 0.8679245, g: 0.1500664, b: 0.13510147, a: 1}
-  _attackColorDuration: 0.2
+  _beamMaterial: {fileID: 2100000, guid: 335f150c8d040f04c842fd7221c1635c, type: 2}
+  _attackMaterial: {fileID: 2100000, guid: 1e16dd60daec5c84aa0c8615ed55daa1, type: 2}
+  _attackDuration: 0.2
