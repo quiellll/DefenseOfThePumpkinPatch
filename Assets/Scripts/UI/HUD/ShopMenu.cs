@@ -5,6 +5,11 @@ using UnityEngine.InputSystem;
 
 public class ShopMenu : MonoBehaviour
 {
+    public GameObject BalistaTabButton;
+    public GameObject CatapultTabButton;
+    public GameObject MagicTabButton;
+    public GameObject SeedsTabButton;
+
     [SerializeField] private GameObject _cancelPurchaseButton;
 
     private GameObject _purchaseButtonPressed;
@@ -20,16 +25,6 @@ public class ShopMenu : MonoBehaviour
         GameManager.Instance?.SelectionManager?.WareBuilt.RemoveListener(HideCancelPurchaseButton);
     }
 
-    //funcion llamada al presionar la telca T (de momento) que oculta/muestra la tienda
-    public void ToggleShop(InputAction.CallbackContext context)
-    {
-        if (context.started) ToggleShop();
-    }
-
-    public void ToggleShop()
-    {
-        gameObject.SetActive(!gameObject.activeSelf);
-    }
 
 
     //metodos que hay que asignar a los botones de la tienda

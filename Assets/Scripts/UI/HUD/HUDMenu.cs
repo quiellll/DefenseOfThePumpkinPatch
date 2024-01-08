@@ -17,8 +17,9 @@ public class HUDMenu : MonoBehaviour
     public GameObject StartWaveButton { get => _startWaveButton; }
     public GameObject UndoButton { get => _undoButton; }
     public GameObject TimeScaleButton { get => _timeScaleButton; }
+    public GameObject ShopButton { get => _shopButton; }
     public UnityEvent WaveStarted; //evento que se lanza al pulsar el boton de iniciar oleada
-
+    
     // Panel completo
     [SerializeField] private GameObject _HUDPanel;
     [SerializeField] private PauseMenu _pauseMenu;
@@ -43,7 +44,8 @@ public class HUDMenu : MonoBehaviour
     [SerializeField] private Sprite _nighttimeSprite;
     [SerializeField] private TextMeshProUGUI _journeyNumber;
 
-    private int _journey = 1;   // Miguel se que has dicho que tiene que empezar en 0 (que tiene sentido) pero entonces se ve un 0 en el juego
+
+    private int _journey = -1;  
     private bool _day = false;
     private GameObject _x1Sprite;
     private GameObject _x2Sprite;
@@ -56,32 +58,47 @@ public class HUDMenu : MonoBehaviour
         _x1Sprite = _timeScaleButton.transform.GetChild(0).gameObject;
         _x2Sprite = _timeScaleButton.transform.GetChild(1).gameObject;
         _shopButtonCanvas = _shopButton.GetComponent<RectTransform>();
+
+        GameManager.Instance.StartBuildMode.AddListener(OnStartBuildMode);
     }
 
     private void Start()
     {
         _shopMenu = FindObjectOfType<ShopMenu>(true);
         UpdateUndoButton();
-
         GameManager.Instance.SelectionManager.WareBuilt.AddListener(UpdateUndoButton);
     }
 
     private void OnDestroy()
     {
-        GameManager.Instance?.SelectionManager?.WareBuilt.RemoveListener(UpdateUndoButton);
+        if (GameManager.Instance)
+        {
+            GameManager.Instance.SelectionManager?.WareBuilt.RemoveListener(UpdateUndoButton);
+            GameManager.Instance.StartBuildMode.RemoveListener(OnStartBuildMode);
+        }
+    }
 
-        
+    private void OnStartBuildMode()
+    {
+        StartWaveButton.SetActive(true);
+        UpdateUndoButton();
+        IncreaseJourney();
+
+
+        if (GameManager.Instance.TimeScale != 1) ToggleTimeScale();
+        TimeScaleButton.SetActive(false);
+
     }
 
 
-    #region HUD  Listeners
-    //estas funciones se asignan a los elementos del HUD en el inspector (botones y demas) como listeners en sus eventos
+#region HUD  Listeners
+//estas funciones se asignan a los elementos del HUD en el inspector (botones y demas) como listeners en sus eventos
 
-    public void ToggleShop()
+public void ToggleShop()
     {
         if (_shopMenu.gameObject.activeSelf) _shopButtonCanvas.anchoredPosition += new Vector2(470f, 0f);
         else _shopButtonCanvas.anchoredPosition -= new Vector2(470f, 0f);
-        _shopMenu.ToggleShop();       
+        _shopMenu.gameObject.SetActive(!_shopMenu.gameObject.activeSelf);     
     }
 
     public void StartWave()
@@ -109,18 +126,17 @@ public class HUDMenu : MonoBehaviour
         _undoButton.SetActive(GameManager.Instance.CommandManager.CanUndo() && !GameManager.Instance.IsOnDefense);
     }
 
-    public void ToggleJourneyIcon()
-    {
-        if (_day) _journeyCounter.GetComponent<Image>().sprite = _daytimeSprite;
-        else _journeyCounter.GetComponent<Image>().sprite = _nighttimeSprite;
-    }
+
+
 
     public void IncreaseJourney()
     {
-        _journey++;
-        _journeyNumber.text = Mathf.Floor(_journey / 2).ToString();
-        _day = !_day;
-        ToggleJourneyIcon();
+
+        _day = _journey < 0 ? GameManager.Instance.StartsOnDay : !_day;
+        _journey = GameManager.Instance.Level.CurrentDayIndex + 1;
+        _journeyNumber.text = _journey.ToString();
+
+        _journeyCounter.GetComponent<Image>().sprite = _day ? _daytimeSprite : _nighttimeSprite;
     }
 
     public void PauseGame()

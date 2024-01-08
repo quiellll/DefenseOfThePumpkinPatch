@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene("UI Test");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void SettingsButton()

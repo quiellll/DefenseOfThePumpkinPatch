@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6fe2fffae9bd74589997530ada1b86, type: 3}
+  m_Name: Night Tutorials
+  m_EditorClassIdentifier: 
+  _tutorials:
+  - _title: Night Time
+    _text: "You made it through a long day!\n\nBe careful... foes don't ever rest.
+      \nWatch out for those ghosts! They become zombies once they reach a tomb.\n\nBuild
+      different turrets with magic powers to stop those evil souls!"
+    _useSmall: 0
+    _position: {x: 0, y: 0}
