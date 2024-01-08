@@ -20,5 +20,5 @@ MonoBehaviour:
     type: 3}
   _sproutDummy: {fileID: 1602090943131839029, guid: d1262a4003d1c734da8bafbe0662463f,
     type: 3}
-  _pumpkinIcon: {fileID: 0}
-  _sproutIcon: {fileID: 0}
+  _pumpkinIcon: {fileID: 21300000, guid: b74ce41f6cabb9b43980cefdc41300a4, type: 3}
+  _sproutIcon: {fileID: 21300000, guid: ba38f8c1f4fbec842ad6205855639911, type: 3}

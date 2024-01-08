@@ -14,6 +14,9 @@ public class TurretContextMenu : MonoBehaviour
     public bool Active => gameObject.activeSelf;
     public RectTransform RectTransform {  get; private set; }
 
+    [SerializeField] private Image _balistaIcon;
+    [SerializeField] private Image _catapultIcon;
+    [SerializeField] private Image _magicIcon;
     [SerializeField] private Image _icon;
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _damage;

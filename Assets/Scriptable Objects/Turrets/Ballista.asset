@@ -26,5 +26,5 @@ MonoBehaviour:
   _fireRate: 1
   _projectileMoveSpeed: 7
   _damage: 1
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 5b0117c295f2337459ec1d0d03906727, type: 3}
   _validTargets: 5

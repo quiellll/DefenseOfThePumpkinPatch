@@ -26,11 +26,13 @@ public class ResourcesUI : MonoBehaviour
 
     private void SetPumpkinsText(int pumpkins)
     {
-        _pumpkinsText.text = "Pumpkins: " + pumpkins;
+        //_pumpkinsText.text = "Pumpkins: " + pumpkins;
+        _pumpkinsText.text = pumpkins.ToString();
     }
     
     private void SetGoldText(int gold)
     {
-        _goldText.text = "    Gold: " + gold;
+        //_goldText.text = "    Gold: " + gold;
+        _goldText.text = gold.ToString();
     }
 }

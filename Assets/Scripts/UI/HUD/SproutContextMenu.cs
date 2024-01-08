@@ -29,7 +29,7 @@ public class SproutContextMenu : MonoBehaviour
         Pumpkin = sproutController.Pumpkin;
 
         _icon.sprite = Pumpkin.SproutIcon;
-        _timeToGrow.text = "Days until full growth: " + Pumpkin.SellPrice.ToString();
+        _timeToGrow.text = "Full growth in: " + Pumpkin.SproutGrowthPeriod + " days.";
 
         return true;
     }
