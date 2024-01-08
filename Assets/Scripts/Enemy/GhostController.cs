@@ -47,6 +47,9 @@ public class GhostController : AEnemyController //controlador del fantasma que h
         _transformPositon = transform.position;
         _transformRotation = transform.rotation;
 
+        var particles = Instantiate(_stats.SpawnZombieParticles, transform.position, Quaternion.identity);
+        Destroy(particles.gameObject, 2f);
+
         Despawn(); //despawneamos al fantasma
         //llamo a startcoroutine desde el spawner porque
         //unity solo deja hacer coroutines desde objetos activos

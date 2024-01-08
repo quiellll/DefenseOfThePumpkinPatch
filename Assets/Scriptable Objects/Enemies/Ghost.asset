@@ -22,3 +22,5 @@ MonoBehaviour:
     type: 3}
   _interactSound: {fileID: 8300000, guid: 644837ade1a435947bb0b7d145fd960e, type: 3}
   _dieSound: {fileID: 8300000, guid: 7ce6f7675af2c7545a5a8457fa987a45, type: 3}
+  _spawnZombieParticles: {fileID: 8381095872185128934, guid: bad695ba81869d5488fd6de55b6c4a8c,
+    type: 3}
