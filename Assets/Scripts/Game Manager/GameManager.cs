@@ -39,6 +39,8 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private string _saveFileName;
     [SerializeField] private Turret[] _turrets;
     [SerializeField] private Pumpkin _pumpkin;
+    [SerializeField] private bool _saveGame;
+    [SerializeField] private bool _loadGame;
 
 
     private ServiceLocator _serviceLocator;
@@ -78,7 +80,7 @@ public class GameManager : Singleton<GameManager>
         _gameDataUpdater = _serviceLocator.Get<IGameDataUpdater>();
 
 
-        if (_gameDataSaver.ExistsSave(_saveFileName))
+        if (_loadGame && _gameDataSaver.ExistsSave(_saveFileName))
             if (LoadSaveToGame()) return;
         
 
@@ -100,7 +102,7 @@ public class GameManager : Singleton<GameManager>
 
         if(_gameDataUpdater.IsDirty() && !IsOnDefense)
         {
-            //_gameDataSaver.Save(_saveFileName, _gameDataUpdater.GetDataToSave<GameData>());
+            if(_saveGame) _gameDataSaver.Save(_saveFileName, _gameDataUpdater.GetDataToSave<GameData>());
             _gameDataUpdater.ClearDirty();
         }
     }
