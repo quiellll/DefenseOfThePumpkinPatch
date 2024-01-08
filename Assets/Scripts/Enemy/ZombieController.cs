@@ -35,9 +35,11 @@ public class ZombieController : AEnemyController
 
     private IEnumerator WaitAndDie(GridCell pumpkinCell)
     {
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(0.1f);
+        SetAnimation(_deadAnim, false);
         pumpkinCell.DestroyPumpkin();
-        StartCoroutine(StartDeath());
+        yield return new WaitForSeconds(0.6f);
+        Die();
     }
 
 }
