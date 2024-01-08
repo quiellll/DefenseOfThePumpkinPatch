@@ -61,9 +61,7 @@ public class ZombieSpawner : MonoBehaviour, IEnemySpawner
 
         if (_ghostWaveFinished && _activeEnemies == 0)
         {
-            _ghostWaveFinished = false;
-            _aliveEnemies = 0;
-            WaveFinished.Invoke();//fin de la oleada 
+            Invoke(nameof(CheckWaveFinishedAfterSpawnTime), 0.6f);
         }
     }
 
@@ -71,6 +69,15 @@ public class ZombieSpawner : MonoBehaviour, IEnemySpawner
     {
         _ghostWaveFinished = true;
 
+        if(_activeEnemies == 0)
+        {
+            Invoke(nameof(CheckWaveFinishedAfterSpawnTime), 0.6f);
+        }
+    }
+
+    //para checkear despues del tiempo entre que el fantasma muere y el zombie spawnea
+    private void CheckWaveFinishedAfterSpawnTime() 
+    {
         if(_activeEnemies == 0)
         {
             _ghostWaveFinished = false;
