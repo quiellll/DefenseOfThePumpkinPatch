@@ -26,6 +26,7 @@ public class TutorialManager : MonoBehaviour
         _bigTutorialPanel.gameObject.SetActive(false);
         _smallTutorialPanel.gameObject.SetActive(false);
 
+        
 
         if(PlayerPrefs.GetInt($"{_nightTutorials.name}TutorialEnded", 0) == 0)
         {
@@ -38,32 +39,31 @@ public class TutorialManager : MonoBehaviour
         }
 
         if(PlayerPrefs.GetInt($"{_defenseTutorials.name}TutorialEnded", 0) == 0)
-        {
-            if (GameManager.Instance.StartsOnDay) GameManager.Instance.StartDefenseMode.AddListener(OnFirstDefense);
-            else
-            { 
-                OnFirstNight();
-                return;
-            }
+        {           
+            GameManager.Instance.StartDefenseMode.AddListener(OnFirstDefense);
         }
 
 
-        if (PlayerPrefs.GetInt($"{_dayTutorials.name}TutorialEnded", 0) == 1)
-        {
-            return;
-        }
-        
         //on first day
+        if (PlayerPrefs.GetInt($"{_dayTutorials.name}TutorialEnded", 0) == 0)
+        {
+            GameManager.Instance.HUD.StartWaveButton.SetActive(false);
+            GameManager.Instance.HUD.ShopButton.SetActive(false);
+            GameManager.Instance.Shop.SeedsTabButton.SetActive(false);
+            _currentTutorials = _dayTutorials;
+            SetTutorialToPanel(_dayTutorials.GetFirstTutorial());
+        }
 
-        GameManager.Instance.HUD.StartWaveButton.SetActive(false);
-        _currentTutorials = _dayTutorials;
-        SetTutorialToPanel(_dayTutorials.GetFirstTutorial());
+
 
     }
 
     private void OnFirstNight()
     {
         GameManager.Instance.StartBuildMode.RemoveListener(OnFirstNight);
+
+        if (PlayerPrefs.GetInt($"{_nightTutorials.name}TutorialEnded", 0) == 1) return;
+
         GameManager.Instance.HUD.StartWaveButton.SetActive(false);
         _currentTutorials = _nightTutorials;
         SetTutorialToPanel(_nightTutorials.GetFirstTutorial());
@@ -72,6 +72,9 @@ public class TutorialManager : MonoBehaviour
     private void OnFirstDefense() 
     {
         GameManager.Instance.StartDefenseMode.RemoveListener(OnFirstDefense);
+
+        if (PlayerPrefs.GetInt($"{_defenseTutorials.name}TutorialEnded", 0) == 1) return;
+
         _currentTutorials = _defenseTutorials;
         SetTutorialToPanel(_defenseTutorials.GetFirstTutorial());
     }
@@ -85,6 +88,7 @@ public class TutorialManager : MonoBehaviour
         {
             GameManager.Instance.HUD.StartWaveButton.SetActive(true);
             GameManager.Instance.HUD.ShopButton.SetActive(true);
+            GameManager.Instance.Shop.SeedsTabButton.SetActive(true);
         }
 
         PlayerPrefs.SetInt($"{_currentTutorials.name}TutorialEnded", 1);
@@ -127,6 +131,8 @@ public class TutorialManager : MonoBehaviour
     {
         // Para activar los botones
         EndCurrentTutorial();
+
+        
 
         // Guardar en PlayerPrefs que no quiero ver los tutoriales
         PlayerPrefs.SetInt($"{_dayTutorials.name}TutorialEnded", 1);

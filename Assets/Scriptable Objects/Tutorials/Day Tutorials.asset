@@ -70,14 +70,14 @@ MonoBehaviour:
       sell a turret for a fraction of its original price!'
     _useSmall: 1
     _position: {x: -720, y: -95}
-    _event: 0
+    _event: 4
   - _title: Resources
     _text: 'Here, you can check your available resources.
 
 '
     _useSmall: 1
     _position: {x: -540, y: 200}
-    _event: 4
+    _event: 0
   - _title: Pumpkins
     _text: 'You can check how many pumpkins are remaining.
 
