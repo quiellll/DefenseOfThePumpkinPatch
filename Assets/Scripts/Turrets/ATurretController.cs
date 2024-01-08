@@ -106,6 +106,7 @@ public abstract class ATurretController : MonoBehaviour
         {
             Fire();
             _fireDelayTimer = 0.0f;
+            GameManager.Instance.ServiceLocator.Get<IAudioManager>().PlayAudio(Turret.FireSound);
         }
     }
 

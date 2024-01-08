@@ -34,5 +34,6 @@ public class ServicesBootstraper
     {
        GameManager.Instance.ServiceLocator.Register<IGameDataSaver>(new BinaryGameDataSaver());
        GameManager.Instance.ServiceLocator.Register<IGameDataUpdater>(new GameDataUpdater());
+       GameManager.Instance.ServiceLocator.Register<IAudioManager>(Object.FindAnyObjectByType<AudioManager>(FindObjectsInactive.Include));
     }
 }

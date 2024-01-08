@@ -151,6 +151,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
 
     protected IEnumerator StartDeath()
     {
+        GameManager.Instance.ServiceLocator.Get<IAudioManager>().PlayAudio(_stats.DieSound);
         State = null;
         SetAnimation(_deadAnim);
         IsAlive = false;
@@ -181,7 +182,10 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
         _currentHealth = _stats.Health;
     }
 
-    public abstract void InteractWithPumpkin(GridCell pumpkinCell);
+    public virtual void InteractWithPumpkin(GridCell pumpkinCell)
+    {
+        GameManager.Instance.ServiceLocator.Get<IAudioManager>().PlayAudio(_stats.InteractSound);
+    }
 
 
     protected void SetAnimation(int anim, bool reset = true)

@@ -47,6 +47,7 @@ public class GameManager : Singleton<GameManager>
 
     private IGameDataUpdater _gameDataUpdater;
     private IGameDataSaver _gameDataSaver;
+    private IAudioManager _audioManager;
 
     private AGameState _gameState;
     private int _gold;
@@ -78,6 +79,8 @@ public class GameManager : Singleton<GameManager>
         ServicesBootstraper.BootstrapServices();
         _gameDataSaver = _serviceLocator.Get<IGameDataSaver>();
         _gameDataUpdater = _serviceLocator.Get<IGameDataUpdater>();
+        _audioManager = _serviceLocator.Get<IAudioManager>();
+        _audioManager.PlayMusic();
 
 
         if (_loadGame && _gameDataSaver.ExistsSave(_saveFileName))

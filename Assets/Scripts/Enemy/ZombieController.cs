@@ -28,6 +28,7 @@ public class ZombieController : AEnemyController
 
     public override void InteractWithPumpkin(GridCell pumpkinCell)
     {
+        base.InteractWithPumpkin(pumpkinCell);
         State = null;
         SetAnimation(_pickUpAnim, false);
         StartCoroutine(WaitAndDie(pumpkinCell));
@@ -35,6 +36,7 @@ public class ZombieController : AEnemyController
 
     private IEnumerator WaitAndDie(GridCell pumpkinCell)
     {
+        GameManager.Instance.ServiceLocator.Get<IAudioManager>().PlayAudio(_stats.DieSound);
         yield return new WaitForSeconds(0.1f);
         SetAnimation(_deadAnim, false);
         pumpkinCell.DestroyPumpkin();

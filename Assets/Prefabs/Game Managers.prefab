@@ -12417,6 +12417,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2782564eaf0be6e40b8cb162880ad361, type: 2}
   - {fileID: 11400000, guid: b400564d4c3bfdd4aac5ebc79f4b68b6, type: 2}
   _pumpkin: {fileID: 11400000, guid: d3f9d904abc9f7d459d5a29ca652597a, type: 2}
+  _saveGame: 0
+  _loadGame: 0
 --- !u!1 &4429089900087449186
 GameObject:
   m_ObjectHideFlags: 0

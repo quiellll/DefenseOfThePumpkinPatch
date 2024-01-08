@@ -64,6 +64,7 @@ public class GhostController : AEnemyController //controlador del fantasma que h
 
     public override void InteractWithPumpkin(GridCell pumpkinCell)
     {
+        base.InteractWithPumpkin(pumpkinCell);
         State = null;
         SetAnimation(_pickUpAnim, false);
         StartCoroutine(WaitAndAscend(pumpkinCell));

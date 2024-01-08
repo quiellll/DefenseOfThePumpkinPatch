@@ -30,6 +30,7 @@ public class Turret : ScriptableObject, IWare
     public float ProjectileMoveSpeed {  get => _projectileMoveSpeed; }
     public int Damage { get => _damage; }
     public Sprite Icon { get => _icon; }
+    public AudioClip FireSound { get => _fireSound; }
     //public string Description { get => _description; }
     public EnemyTarget ValidTargets { get => _validTargets; }
 
@@ -46,6 +47,7 @@ public class Turret : ScriptableObject, IWare
     [SerializeField] private float _projectileMoveSpeed;
     [SerializeField] private int _damage;
     [SerializeField] private Sprite _icon;
+    [SerializeField] private AudioClip _fireSound;
     //[SerializeField] private string _description
     [SerializeField] private EnemyTarget _validTargets;
 

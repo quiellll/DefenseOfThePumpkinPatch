@@ -35,6 +35,7 @@ public class FarmerController : AEnemyController ///controlador del granjero que
 
     public override void InteractWithPumpkin(GridCell pumpkinCell)
     {
+        base.InteractWithPumpkin(pumpkinCell);
         State = null;
         SetAnimation(_pickUpAnim);
         StartCoroutine(WaitAndReturnToPath(pumpkinCell));
