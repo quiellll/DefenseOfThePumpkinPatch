@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
     public bool IsOnDefense { get => _gameState.GetType() != typeof(BuildMode); }
     public int TimeScale { get; private set; }
     public bool Paused { get; set; }
+    public bool StartsOnDay { get; set; }
 
     public FarmerSpawner FarmerSpawner { get; private set; }
     public GhostSpawner GhostSpawner { get; private set; }
@@ -52,7 +53,6 @@ public class GameManager : Singleton<GameManager>
     private int _gold;
     private int _pumpkins;
 
-    private bool _nextIsDay;
 
 
     protected override void Awake()
@@ -86,13 +86,13 @@ public class GameManager : Singleton<GameManager>
 
         Gold = 200;
         _level.SetDay(0);
-        _nextIsDay = true;
+        StartsOnDay = true;
         
     }
 
     private void Start()
     {
-        GameState = new BuildMode(this, _nextIsDay); //inicia en construccion
+        GameState = new BuildMode(this, StartsOnDay); //inicia en construccion
     }
 
     private void Update()
@@ -173,9 +173,9 @@ public class GameManager : Singleton<GameManager>
 
         _level.SetDay(data.DayIndex);
 
-        _nextIsDay = data.NextDefenseIsDay;
+        StartsOnDay = data.NextDefenseIsDay;
 
-        if(!_nextIsDay)
+        if(!StartsOnDay)
         {
             FindObjectOfType<LightingManager>().InitialTimePercent += 0.5f;
         }
