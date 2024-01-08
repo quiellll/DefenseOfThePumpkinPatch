@@ -26,13 +26,19 @@ public class TutorialManager : MonoBehaviour
         if(PlayerPrefs.GetInt($"{_nightTutorials.name}TutorialEnded", 0) == 0)
         {
             if (GameManager.Instance.StartsOnDay) GameManager.Instance.StartBuildMode.AddListener(OnFirstNight);
-            else OnFirstNight();
-            return;
+            else
+            {
+                OnFirstNight();
+                return;
+            }
         }
             
 
         if (PlayerPrefs.GetInt($"{_dayTutorials.name}TutorialEnded", 0) == 1)
+        {
+            Debug.Log("Tutorial acabado");
             return;
+        }
         
         //on first day
 
@@ -55,12 +61,15 @@ public class TutorialManager : MonoBehaviour
     {
         GameManager.Instance.HUD.StartWaveButton.SetActive(true);
         PlayerPrefs.SetInt($"{_currentTutorials.name}TutorialEnded", 1);
+        Debug.Log($"{_currentTutorials.name} Ended");
     }
 
     private void SetTutorialToPanel(Tutorial tutorial)
     {
         if (tutorial.UseSmall) _smallTutorialPanel.SetTutorial(tutorial);
         else _bigTutorialPanel.SetTutorial(tutorial);
+
+        _currentTutorials.ExecuteCurrentTutorialEvent();
     }
 
     public void NextTutorial(Tutorial current)

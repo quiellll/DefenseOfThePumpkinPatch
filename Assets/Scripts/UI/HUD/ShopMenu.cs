@@ -21,15 +21,11 @@ public class ShopMenu : MonoBehaviour
     }
 
     //funcion llamada al presionar la telca T (de momento) que oculta/muestra la tienda
-    public void ToggleShop(InputAction.CallbackContext context)
-    {
-        if (context.started) ToggleShop();
-    }
+    //public void ToggleShop(InputAction.CallbackContext context)
+    //{
+    //    if (context.started) ToggleShop();
+    //}
 
-    public void ToggleShop()
-    {
-        gameObject.SetActive(!gameObject.activeSelf);
-    }
 
 
     //metodos que hay que asignar a los botones de la tienda

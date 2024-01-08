@@ -32,6 +32,7 @@ public class TutorialPanel : MonoBehaviour
     {
         gameObject.SetActive(false);
         _manager.NextTutorial(_currentTutorial);
+
     }
 
     public void EndTutorial()

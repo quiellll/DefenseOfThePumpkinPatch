@@ -104,7 +104,7 @@ public class GameManager : Singleton<GameManager>
 
         if(_gameDataUpdater.IsDirty() && !IsOnDefense)
         {
-            //_gameDataSaver.Save(_saveFileName, _gameDataUpdater.GetDataToSave<GameData>());
+            _gameDataSaver.Save(_saveFileName, _gameDataUpdater.GetDataToSave<GameData>());
             _gameDataUpdater.ClearDirty();
         }
     }

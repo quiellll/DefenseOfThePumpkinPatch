@@ -13,12 +13,117 @@ MonoBehaviour:
   m_Name: Day Tutorials
   m_EditorClassIdentifier: 
   _tutorials:
-  - _title: 1
-    _text: 1
+  - _title: Howdy, fellow countryman?
+    _text: 'This is your brand new farm plot! Do ya'' like it?
+
+
+      Hope ya do,
+      ''cause there''s a lot of angry farmers striving to steal your crops!
+
+
+      Fear
+      not! I will teach ya how to protect yourself and your beloved pumpkins'
     _useSmall: 0
-  - _title: 1
-    _text: 1
+    _position: {x: 0, y: 0}
+    _event: 0
+  - _title: Shop
+    _text: 'Press here to open the shop.
+
+
+
+      You can buy some goodies to help
+      you protect your farm!'
     _useSmall: 1
-  - _title: 1
-    _text: 1
-    _useSmall: 0
+    _position: {x: 540, y: -300}
+    _event: 0
+  - _title: Shop
+    _text: 'Click the tabs at the top of the shop to explore all the ware on sale.
+
+
+      Click
+      the shop button again to hide the shop tab.'
+    _useSmall: 1
+    _position: {x: 220, y: -120}
+    _event: 1
+  - _title: Place Turret
+    _text: 'You bought a flagrant turret!
+
+
+      Select a valid tile, which are
+      light green coloured, and click again to confirm its placement.'
+    _useSmall: 1
+    _position: {x: -720, y: 0}
+    _event: 0
+  - _title: Undo Action
+    _text: 'Messed up?
+
+
+      Press here to revert your last action and get your
+      money back!'
+    _useSmall: 1
+    _position: {x: -180, y: -300}
+    _event: 0
+  - _title: Resources
+    _text: 'Here, you can check your available resources.
+
+'
+    _useSmall: 1
+    _position: {x: -540, y: 200}
+    _event: 0
+  - _title: Pumpkins
+    _text: 'You can check how many pumpkins are remaining.
+
+      If the counter
+      reaches 0, you are in great danger!'
+    _useSmall: 1
+    _position: {x: -610, y: 200}
+    _event: 0
+  - _title: Gold
+    _text: 'You can also check your gold reserves up here.
+
+      Don''t be greedy
+      and check the shop regularly!'
+    _useSmall: 1
+    _position: {x: -410, y: 200}
+    _event: 0
+  - _title: Place Seed
+    _text: 'You bought a tiny seed!
+
+
+      Select a valid dirt tile, and click again
+      to plant your pumpkin seed.'
+    _useSmall: 1
+    _position: {x: -720, y: 0}
+    _event: 0
+  - _title: Pumpkin Context
+    _text: 'Like with turrets, you can press on a pumpkin or a sprout to get some
+      info.
+
+
+      You can even sell your pumpkins!'
+    _useSmall: 1
+    _position: {x: -720, y: 0}
+    _event: 0
+  - _title: Start Wave
+    _text: 'All set?
+
+
+      Press here to start the wave!
+
+
+      Will you be able
+      to hold back all of your foes?'
+    _useSmall: 1
+    _position: {x: -720, y: -95}
+    _event: 0
+  - _title: Change Speed
+    _text: 'In a hurry?
+
+
+      Click this fancy arrow to speed things up!
+
+      Click
+      it again to return back to normal, in case you need it.'
+    _useSmall: 1
+    _position: {x: -720, y: -95}
+    _event: 0
