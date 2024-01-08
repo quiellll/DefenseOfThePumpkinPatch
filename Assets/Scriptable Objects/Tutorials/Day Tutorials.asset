@@ -30,12 +30,11 @@ MonoBehaviour:
     _text: 'Press here to open the shop.
 
 
-
       You can buy some goodies to help
       you protect your farm!'
     _useSmall: 1
     _position: {x: 540, y: -300}
-    _event: 0
+    _event: 1
   - _title: Shop
     _text: 'Click the tabs at the top of the shop to explore all the ware on sale.
 
@@ -44,13 +43,13 @@ MonoBehaviour:
       the shop button again to hide the shop tab.'
     _useSmall: 1
     _position: {x: 220, y: -120}
-    _event: 1
+    _event: 2
   - _title: Place Turret
-    _text: 'You bought a flagrant turret!
+    _text: 'Have you bought a turret?
 
 
-      Select a valid tile, which are
-      light green coloured, and click again to confirm its placement.'
+      Select a valid tile, which are light
+      green coloured, and click again to confirm its placement.'
     _useSmall: 1
     _position: {x: -720, y: 0}
     _event: 0
@@ -62,6 +61,15 @@ MonoBehaviour:
       money back!'
     _useSmall: 1
     _position: {x: -180, y: -300}
+    _event: 3
+  - _title: Turrets
+    _text: 'Click on a placed turret to get some info about it.
+
+
+      You can even
+      sell a turret for a fraction of its original price!'
+    _useSmall: 1
+    _position: {x: -720, y: -95}
     _event: 0
   - _title: Resources
     _text: 'Here, you can check your available resources.
@@ -69,7 +77,7 @@ MonoBehaviour:
 '
     _useSmall: 1
     _position: {x: -540, y: 200}
-    _event: 0
+    _event: 4
   - _title: Pumpkins
     _text: 'You can check how many pumpkins are remaining.
 
@@ -87,15 +95,15 @@ MonoBehaviour:
     _position: {x: -410, y: 200}
     _event: 0
   - _title: Place Seed
-    _text: 'You bought a tiny seed!
+    _text: 'Now go buy a tiny seed!
 
 
       Select a valid dirt tile, and click again
       to plant your pumpkin seed.'
     _useSmall: 1
     _position: {x: -720, y: 0}
-    _event: 0
-  - _title: Pumpkin Context
+    _event: 5
+  - _title: Pumpkins
     _text: 'Like with turrets, you can press on a pumpkin or a sprout to get some
       info.
 
@@ -115,15 +123,4 @@ MonoBehaviour:
       to hold back all of your foes?'
     _useSmall: 1
     _position: {x: -720, y: -95}
-    _event: 0
-  - _title: Change Speed
-    _text: 'In a hurry?
-
-
-      Click this fancy arrow to speed things up!
-
-      Click
-      it again to return back to normal, in case you need it.'
-    _useSmall: 1
-    _position: {x: -720, y: -95}
-    _event: 0
+    _event: 6

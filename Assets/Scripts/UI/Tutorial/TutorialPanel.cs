@@ -31,14 +31,13 @@ public class TutorialPanel : MonoBehaviour
     public void NextTutorial()
     {
         gameObject.SetActive(false);
-        _manager.NextTutorial(_currentTutorial);
+        _manager.NextTutorial();
 
     }
 
     public void EndTutorial()
     {
-        _manager.EndTutorial();
-        gameObject.SetActive(false);
+        _manager.ConfirmTutorialClosing(this);
     }
 
 }

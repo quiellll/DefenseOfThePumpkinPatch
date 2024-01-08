@@ -17,8 +17,12 @@ public class Tutorials : ScriptableObject
 
     private Dictionary<TutorialEvents, ITutorialEvent> _events = new()
     {
-        {TutorialEvents.OpenShop, new OpenShop() },
-        {TutorialEvents.Event2, new Event2() }
+        {TutorialEvents.ActivateShopButton, new ActivateShopButton()},
+        {TutorialEvents.OpenShop, new OpenShop()},
+        {TutorialEvents.ShowUndoButton, new ShowUndoButton()},
+        {TutorialEvents.TutorialUpdateUndoButton, new TutorialUpdateUndoButton()},
+        {TutorialEvents.ActivateSeedsTab, new ActivateSeedsTab()},
+        {TutorialEvents.ActivateStartButton, new ActivateStartButton()},
     };
 
 
@@ -60,17 +64,15 @@ public class Tutorial
 
 
     [SerializeField] private string _title;
-    [SerializeField][TextArea(5,10)] private string _text;
+    [SerializeField] [TextArea(5,10)] private string _text;
     [SerializeField] private bool _useSmall;
     [SerializeField] private Vector2 _position;
     [SerializeField] private TutorialEvents _event;
-
-
 }
 
 public enum TutorialEvents
 {
-    None, OpenShop, Event2
+    None, ActivateShopButton, OpenShop, ShowUndoButton, TutorialUpdateUndoButton, ActivateSeedsTab, ActivateStartButton
 }
 
 public interface ITutorialEvent
@@ -79,25 +81,67 @@ public interface ITutorialEvent
     public bool Execute();
 }
 
+public class ActivateShopButton : ITutorialEvent
+{
+    public bool Execute()
+    {
+        var shopButton = GameManager.Instance.HUD.ShopButton.gameObject;
+
+        if (shopButton.activeSelf) return false;
+        else shopButton.SetActive(true);
+        return true;
+    }
+}
+
 public class OpenShop : ITutorialEvent
 {
     public bool Execute()
     {
         if (GameManager.Instance.Shop.gameObject.activeSelf) return false;
         GameManager.Instance.HUD.ToggleShop();
-        Debug.Log("hola");
         return true;
     }
 }
-public class Event2 : ITutorialEvent
+
+public class ShowUndoButton : ITutorialEvent 
 {
     public bool Execute()
     {
-        Debug.Log("Hola");
+        var undoButton = GameManager.Instance.HUD.UndoButton;
+        if (undoButton.activeSelf) return false;
+        else undoButton.SetActive(true);
         return true;
     }
 }
 
+public class TutorialUpdateUndoButton : ITutorialEvent
+{
+    public bool Execute()
+    {
+        if (!GameManager.Instance.HUD.isActiveAndEnabled) return false;
+        GameManager.Instance.HUD.UpdateUndoButton();
+        return true;
+    }
+}
 
+public class ActivateSeedsTab : ITutorialEvent
+{
+    public bool Execute()
+    {
+        var seedsButton = GameManager.Instance.Shop.SeedsTabButton;
+        if (seedsButton.activeSelf) return false;
+        else seedsButton.SetActive(true);
+        return true;
+    }
+}
 
-
+public class ActivateStartButton : ITutorialEvent
+{
+    public bool Execute()
+    {
+        var startButton = GameManager.Instance.HUD.StartWaveButton;
+        if (startButton.activeSelf) return false;
+        else startButton.SetActive(true);
+        return true;
+    }
+}

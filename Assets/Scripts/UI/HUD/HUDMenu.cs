@@ -17,8 +17,9 @@ public class HUDMenu : MonoBehaviour
     public GameObject StartWaveButton { get => _startWaveButton; }
     public GameObject UndoButton { get => _undoButton; }
     public GameObject TimeScaleButton { get => _timeScaleButton; }
+    public GameObject ShopButton { get => _shopButton; }
     public UnityEvent WaveStarted; //evento que se lanza al pulsar el boton de iniciar oleada
-
+    
     // Panel completo
     [SerializeField] private GameObject _HUDPanel;
     [SerializeField] private PauseMenu _pauseMenu;
