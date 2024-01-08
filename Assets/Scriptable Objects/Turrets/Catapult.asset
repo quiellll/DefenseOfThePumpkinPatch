@@ -27,5 +27,6 @@ MonoBehaviour:
   _projectileMoveSpeed: 5
   _damage: 1
   _icon: {fileID: 0}
+  _fireSound: {fileID: 8300000, guid: de840d8a59d5bf14b9b97956f784fb15, type: 3}
   _validTargets: 5
   _maxProjectileHeight: 0.3

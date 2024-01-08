@@ -20,3 +20,5 @@ MonoBehaviour:
     type: 3}
   _gravePrefab: {fileID: 2126682428481223955, guid: 004a862347d5fed4f8d9278abf704ded,
     type: 3}
+  _interactSound: {fileID: 8300000, guid: 644837ade1a435947bb0b7d145fd960e, type: 3}
+  _dieSound: {fileID: 8300000, guid: 7ce6f7675af2c7545a5a8457fa987a45, type: 3}

@@ -26,6 +26,7 @@ MonoBehaviour:
   _projectileMoveSpeed: 0
   _damage: 1
   _icon: {fileID: 0}
+  _fireSound: {fileID: 8300000, guid: a94b30674398d3046a712094de2fa218, type: 3}
   _validTargets: 2
   _beamMaterial: {fileID: 2100000, guid: 335f150c8d040f04c842fd7221c1635c, type: 2}
   _attackMaterial: {fileID: 2100000, guid: 1e16dd60daec5c84aa0c8615ed55daa1, type: 2}

@@ -30,7 +30,7 @@ public class MagicTowerController : ATurretController
         if(!_beam.enabled) _beam.enabled = true;
 
         _beam.SetPosition(0, _projectileSpawnPoint.position);
-        _beam.SetPosition(1, _currentTarget.transform.position);
+        _beam.SetPosition(1, _currentTarget.transform.position + Vector3.up * .25f);
     }
 
     protected override void Fire()
