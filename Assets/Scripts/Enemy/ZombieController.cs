@@ -36,7 +36,7 @@ public class ZombieController : AEnemyController
 
     private IEnumerator WaitAndDie(GridCell pumpkinCell)
     {
-        GameManager.Instance.ServiceLocator.Get<IAudioManager>().PlayAudio(_stats.DieSound);
+        GameManager.Instance.ServiceLocator.Get<IAudioManager>().PlaySoundEffect(_stats.DieSound);
         yield return new WaitForSeconds(0.1f);
         SetAnimation(_deadAnim, false);
         pumpkinCell.DestroyPumpkin();

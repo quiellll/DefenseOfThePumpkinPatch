@@ -22,9 +22,19 @@ public class AudioManager : MonoBehaviour, IAudioManager
         _musicSrc.Stop();
     }
 
-    public void PlayAudio(AudioClip clip)
+    public void PlaySoundEffect(AudioClip clip)
     {
         _sfxSrc.PlayOneShot(clip);
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        _musicSrc.volume = Mathf.Clamp01(volume);
+    }
+
+    public void SetSoundEffectsVolume(float volume)
+    {
+        _sfxSrc.volume = Mathf.Clamp01(volume);
     }
 
 }
