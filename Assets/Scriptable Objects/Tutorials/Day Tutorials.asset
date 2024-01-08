@@ -26,6 +26,25 @@ MonoBehaviour:
     _useSmall: 0
     _position: {x: 0, y: 0}
     _event: 0
+  - _title: Camera Movement
+    _text: 'First of all, you can get a look of the world using the following keys:
+
+
+      WASD:
+      Move camera
+
+      Q: Rotate left
+
+      E: Rotate right
+
+      Mouse wheel
+      scroll: Zoom
+
+
+      Try it!'
+    _useSmall: 0
+    _position: {x: 0, y: 0}
+    _event: 0
   - _title: Shop
     _text: 'Press here to open the shop.
 
@@ -81,8 +100,8 @@ MonoBehaviour:
   - _title: Pumpkins
     _text: 'You can check how many pumpkins are remaining.
 
-      If the counter
-      reaches 0, you are in great danger!'
+      Don''t let it get
+      to zero!'
     _useSmall: 1
     _position: {x: -610, y: 200}
     _event: 0
@@ -98,8 +117,8 @@ MonoBehaviour:
     _text: 'Now go buy a tiny seed!
 
 
-      Select a valid dirt tile, and click again
-      to plant your pumpkin seed.'
+      Select a valid farm crop tile, and click
+      again to plant your pumpkin seed.'
     _useSmall: 1
     _position: {x: -720, y: 0}
     _event: 5
