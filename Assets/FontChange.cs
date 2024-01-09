@@ -13,6 +13,7 @@ public class FontChange : MonoBehaviour
         foreach(var t in FindObjectsOfType<TextMeshProUGUI>(true))
         {
             t.font = _fontAsset;
+            t.UpdateFontAsset();
         }
     }
 }

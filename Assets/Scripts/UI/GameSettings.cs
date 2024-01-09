@@ -5,46 +5,48 @@ using UnityEngine.UI;
 public class GameSettings : MonoBehaviour
 {
 
-    [SerializeField] private Slider _volumeSlider;
+    [SerializeField] private Slider _musicSlider;
+    [SerializeField] private Slider _sfxSlider;
     [SerializeField] private TMP_Dropdown _graphicsDropdown;
 
-    [SerializeField] private float _defaultVolume;
+    [SerializeField] private float _defaultMusicVolume;
+    [SerializeField] private float _defaultSFXVolume;
     [SerializeField] private int _defaultGraphics;
+
+    private IAudioManager _audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        _audioManager = GameManager.Instance.ServiceLocator.Get<IAudioManager>();
+
         LoadSettings();
+
     }
 
     private void LoadSettings()
     {
-        if (PlayerPrefs.HasKey("Volume")) _volumeSlider.value = PlayerPrefs.GetFloat("Volume");
-        else SetDefaultVolume();
+        _musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", _defaultMusicVolume);
+        _sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", _defaultSFXVolume);
 
-        if (PlayerPrefs.HasKey("Graphics")) _graphicsDropdown.value = PlayerPrefs.GetInt("Graphics");
-        else SetDefaultGraphics();
+        _graphicsDropdown.value = PlayerPrefs.GetInt("Graphics", _defaultGraphics);
     }
 
-    public void SetVolume()
+    public void SetMusicVolume(float value)
     {
-        PlayerPrefs.SetFloat("Volume", _volumeSlider.value);
+        PlayerPrefs.SetFloat("MusicVolume",value);
+        _audioManager.SetMusicVolume(value);
     }
 
-    public void SetDefaultVolume()
+    public void SetSFXVolume(float value)
     {
-        _volumeSlider.value = _defaultVolume;
-        PlayerPrefs.SetFloat("Volume", _defaultVolume);
+        PlayerPrefs.SetFloat("SFXVolume", value);
+        _audioManager.SetSoundEffectsVolume(value);
     }
 
-    public void SetGraphics()
+    public void SetGraphics(int value)
     {
-        PlayerPrefs.SetInt("Graphics", _graphicsDropdown.value);
+        PlayerPrefs.SetInt("Graphics", value);
     }
 
-    public void SetDefaultGraphics()
-    {
-        _graphicsDropdown.value = _defaultGraphics;
-        PlayerPrefs.SetInt("Graphics", _defaultGraphics);
-    }
 }

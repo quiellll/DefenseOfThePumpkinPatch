@@ -656,7 +656,7 @@ TextureImporter:
         width: 9
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -677,7 +677,7 @@ TextureImporter:
         width: 9
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -685,6 +685,27 @@ TextureImporter:
       bones: []
       spriteID: 7998f9914924e034c861b8259db2ea4a
       internalID: -1871750934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab101ff0e10f2734ab614b223341057c
+      internalID: 1429710141
       vertices: []
       indices: 
       edges: []
@@ -708,6 +729,7 @@ TextureImporter:
       UI Spritesheet_5: -107055167
       UI Spritesheet_6: 536404442
       UI Spritesheet_7: -1871750934
+      UI Spritesheet_8: 1429710141
       uipack_rpg_sheet_0: 903258978
       uipack_rpg_sheet_1: -2064177633
       uipack_rpg_sheet_10: 136140356

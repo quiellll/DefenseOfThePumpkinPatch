@@ -143,6 +143,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Rotated UI Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 368
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6bac1375138fc046901335e46dd6695
+      internalID: 1971073923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -154,6 +175,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Rotated UI Spritesheet_0: 692324304
       UI Spritesheet_0: 954063748
       UI Spritesheet_1: -676968529
       UI Spritesheet_2: -1784319832
