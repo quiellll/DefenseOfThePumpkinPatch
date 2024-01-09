@@ -29,7 +29,7 @@ public class SproutContextMenu : MonoBehaviour
         Pumpkin = sproutController.Pumpkin;
 
         _icon.sprite = Pumpkin.SproutIcon;
-        _timeToGrow.text = "Full growth in: " + Pumpkin.SproutGrowthPeriod + " days.";
+        _timeToGrow.text = "Full growth in: " + (Pumpkin.SproutGrowthPeriod - sproutController.Journeys) + " days/nights.";
 
         return true;
     }

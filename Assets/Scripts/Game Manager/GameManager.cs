@@ -162,6 +162,8 @@ public class GameManager : Singleton<GameManager>
         }
 
         //FIN DE NIVEL GG
+        HUD.GameWin();
+
     }
 
 

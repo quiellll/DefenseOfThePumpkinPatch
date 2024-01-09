@@ -155,5 +155,12 @@ public void ToggleShop()
         _HUDPanel.SetActive(false);
         _gameOverScreen.SetActive(true);
     }
+
+    public void GameWin()
+    {
+        _HUDPanel.SetActive(false);
+        _gameWinScreen.SetActive(true);
+    }
+
     #endregion
 }
