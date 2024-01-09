@@ -8,14 +8,12 @@ public class LightingManager : MonoBehaviour
 {
     public float InitialTimePercent { get => _initialTimePercent; set => _initialTimePercent = value; }
 
-    //Scene References
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
-    //Variables
-    //[SerializeField][Range(0f,1f)]private float TimeOfDay;
 
     [SerializeField][Range(0f, 1f)] private float _initialTimePercent;
     [SerializeField] float _cycleSpeed;
+    [SerializeField] private bool _isOnMainMenu;
 
     private bool _advanceDay;
 
@@ -56,12 +54,12 @@ public class LightingManager : MonoBehaviour
 
     private void Start() //se ejecuta de ultimo para no recibir el primer evento de buildmode
     {
-        GameManager.Instance.StartBuildMode.AddListener(AdvanceDay);
+        if(!_isOnMainMenu) GameManager.Instance.StartBuildMode.AddListener(AdvanceDay);
     }
 
     private void OnDestroy()
     {
-        GameManager.Instance?.StartBuildMode.RemoveListener(AdvanceDay);
+        if(!_isOnMainMenu) GameManager.Instance?.StartBuildMode.RemoveListener(AdvanceDay);
     }
 
     private void Update()

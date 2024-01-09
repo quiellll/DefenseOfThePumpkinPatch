@@ -1,6 +1,7 @@
 Sonidos:
 musica:
 https://pixabay.com/es/music/grupo-acustico-the-britons-127687/
+https://freesound.org/people/PianoFarm/sounds/494497/
 risa fantasma:
 https://freesound.org/people/Domarius/sounds/459345/
 comer calabaza:
