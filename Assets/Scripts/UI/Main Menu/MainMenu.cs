@@ -9,6 +9,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _creditsPanel;
 
+    private void Start()
+    {
+        _settingsPanel.GetComponent<MenuSettings>().LoadSettings();
+    }
+
     public void PlayButton()
     {
         SceneManager.LoadScene("Level 1");

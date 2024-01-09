@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class GameSettings : MonoBehaviour
 {
@@ -15,21 +16,20 @@ public class GameSettings : MonoBehaviour
 
     private IAudioManager _audioManager;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public void LoadSettings()
     {
         _audioManager = GameManager.Instance.ServiceLocator.Get<IAudioManager>();
 
-        LoadSettings();
-
-    }
-
-    private void LoadSettings()
-    {
         _musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", _defaultMusicVolume);
+        _audioManager.SetMusicVolume(_musicSlider.value);
         _sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", _defaultSFXVolume);
+        _audioManager.SetSoundEffectsVolume(_sfxSlider.value);
 
         _graphicsDropdown.value = PlayerPrefs.GetInt("Graphics", _defaultGraphics);
+        if(QualitySettings.GetQualityLevel() != _graphicsDropdown.value)
+            QualitySettings.SetQualityLevel(_graphicsDropdown.value, true);
+
     }
 
     public void SetMusicVolume(float value)

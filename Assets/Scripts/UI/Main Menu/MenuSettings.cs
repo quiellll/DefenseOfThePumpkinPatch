@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class MenuSettings : MonoBehaviour
 {
@@ -15,18 +16,17 @@ public class MenuSettings : MonoBehaviour
 
     [SerializeField] private AudioSource _menuMusic;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        LoadSettings();
-        //_menuMusic = GetComponent<AudioSource>();
-    }
 
-    private void LoadSettings()
+    public void LoadSettings()
     {
         _musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", _defaultMusicVolume);
+        _menuMusic.volume = _musicSlider.value;
         _sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", _defaultSFXVolume);
+
         _graphicsDropdown.value = PlayerPrefs.GetInt("Graphics", _defaultGraphics);
+        if (QualitySettings.GetQualityLevel() != _graphicsDropdown.value)
+            QualitySettings.SetQualityLevel(_graphicsDropdown.value, true);
+
     }
 
     public void SetMusicVolume(float value)

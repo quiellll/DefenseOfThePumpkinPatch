@@ -34,5 +34,6 @@ public class TurretAttributesMenu : MonoBehaviour
         if (TurretType.CanTarget(Turret.EnemyTarget.Zombie)) _targets[i++].sprite = _zombieSprite;
 
 
+        foreach(var target in _targets) if(target.sprite == null) target.enabled = false;
     }
 }
