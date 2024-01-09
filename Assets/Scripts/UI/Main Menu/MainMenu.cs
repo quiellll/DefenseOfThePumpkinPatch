@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _menuPanel;
     [SerializeField] private GameObject _settingsPanel;
+    [SerializeField] private GameObject _creditsPanel;
 
     public void PlayButton()
     {
@@ -19,6 +20,12 @@ public class MainMenu : MonoBehaviour
         _settingsPanel.SetActive(true);
     }
 
+    public void CreditsButton()
+    {
+        _menuPanel.SetActive(false);
+        _creditsPanel.SetActive(true);
+    }
+
     public void QuitButton()
     {
         Debug.Log("Quit Game");
@@ -29,5 +36,11 @@ public class MainMenu : MonoBehaviour
     {
         _menuPanel.SetActive(true);
         _settingsPanel.SetActive(false);
+    }
+
+    public void CloseCredits()
+    {
+        _menuPanel.SetActive(true);
+        _creditsPanel.SetActive(false);
     }
 }
