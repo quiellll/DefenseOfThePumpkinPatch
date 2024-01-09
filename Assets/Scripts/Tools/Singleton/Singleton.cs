@@ -16,6 +16,6 @@ public class Singleton<T> : MonoBehaviour where T : Component
         var root = gameObject.transform;
         while(root.parent != null) root = root.parent;
 
-        DontDestroyOnLoad(root);
+        //DontDestroyOnLoad(root);
     }
 }
