@@ -35,9 +35,11 @@ public class Day
 {
     public int Farmers { get => _farmers; }
     public int Ghosts { get => _ghosts; }
-    public int SpawnDelay { get => _spawnDelay; }
+    public float FarmerSpawnDelay { get => _farmerSpawnDelay; }
+    public float GhostSpawnDelay { get => _ghostSpawnDelay; }
 
     [SerializeField] private int _farmers;
     [SerializeField] private int _ghosts;
-    [SerializeField] private int _spawnDelay;
+    [SerializeField] private float _farmerSpawnDelay;
+    [SerializeField] private float _ghostSpawnDelay;
 }

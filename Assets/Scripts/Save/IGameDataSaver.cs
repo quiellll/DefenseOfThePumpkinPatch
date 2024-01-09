@@ -28,4 +28,5 @@ public interface IGameDataSaver : IService
     public void Save<T>(string storage, T data);
     public bool Load<T>(string storage, out T data);
     public bool ExistsSave(string storage);
+    public void Delete(string storage);
 }

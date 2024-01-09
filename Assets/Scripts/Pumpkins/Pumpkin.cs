@@ -7,9 +7,9 @@ using UnityEngine;
 public class Pumpkin : ScriptableObject, IWare
 {
     //IWare
-    public static readonly int SellPercentage = 75;
+
     public int BuyPrice { get => _buyPrice; }
-    public int SellPrice { get => Mathf.FloorToInt(_buyPrice * SellPercentage / 100f); }
+    public int SellPrice { get => _sellPrice; }
     public GameObject Prefab { get => _sproutPrefab; }
     public GameObject Dummy { get => _sproutDummy; }
 
@@ -25,6 +25,7 @@ public class Pumpkin : ScriptableObject, IWare
 
 
     [SerializeField] private int _buyPrice;
+    [SerializeField] private int _sellPrice;
     [SerializeField] private int _sproutGrowthPeriod;
     [SerializeField] private GameObject _pumpkinPrefab;
     [SerializeField] private GameObject _sproutPrefab;

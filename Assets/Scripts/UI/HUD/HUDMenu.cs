@@ -155,10 +155,13 @@ public void ToggleShop()
     {
         _HUDPanel.SetActive(false);
         _gameOverScreen.SetActive(true);
+        Time.timeScale = 0f;
+        GameManager.Instance.Paused = true;
     }
 
     public void GameWin()
     {
+
         _HUDPanel.SetActive(false);
         _gameWinScreen.SetActive(true);
     }

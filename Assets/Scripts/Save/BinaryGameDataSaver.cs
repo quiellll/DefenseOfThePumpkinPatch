@@ -72,4 +72,19 @@ public class BinaryGameDataSaver : IGameDataSaver
     }
 
     public bool ExistsSave(string fileName) => File.Exists($"{_dataFolder}/{fileName}.save");
+
+    public void Delete(string fileName)
+    {
+        string filePath = $"{_dataFolder}/{fileName}.save";
+
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
+            Debug.Log($"Save file '{fileName}.save' deleted");
+        }
+        else
+        {
+            Debug.LogWarning($"Save file '{fileName}.save' not found. Unable to delete.");
+        }
+    }
 }

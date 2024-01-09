@@ -10,7 +10,7 @@ public class Enemy : ScriptableObject
     public float MoveSpeed { get => _moveSpeed; }
     public float RotationSpeed { get => _rotationSpeed; }
     public int Loot { get => _loot; }
-    public int LootWithPumpkin { get => _loot + 10; }
+    public int LootWithPumpkin { get => _lootWithPumpkin; }
     public AEnemyController Prefab { get => _enemyPrefab; }
     public GameObject GravePrefab { get => _gravePrefab; }
     public AudioClip InteractSound { get => _interactSound; }
@@ -21,6 +21,7 @@ public class Enemy : ScriptableObject
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private int _loot;
+    [SerializeField] private int _lootWithPumpkin;
     [SerializeField] private AEnemyController _enemyPrefab;
     [SerializeField] private GameObject _gravePrefab;
     [SerializeField] private AudioClip _interactSound;

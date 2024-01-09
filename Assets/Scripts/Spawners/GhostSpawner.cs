@@ -10,6 +10,6 @@ public class GhostSpawner : AWaveSpawner
     {
         _poolSize = _level.Days[^1].Ghosts;
         _enemiesPerWave = _level.CurrentDay.Ghosts;
-        _spawnDelay = _level.CurrentDay.SpawnDelay;
+        _spawnDelay = _level.CurrentDay.GhostSpawnDelay;
     }
 }

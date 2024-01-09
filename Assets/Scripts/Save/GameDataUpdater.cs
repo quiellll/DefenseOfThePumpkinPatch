@@ -35,6 +35,12 @@ public class GameDataUpdater : IGameDataUpdater
         _dirty = true;
     }
 
+    public void UpdateGiftGiven(bool giftGiven)
+    {
+        _data.FirstNightGiftReceived = giftGiven;
+        _dirty = true;
+    }
+
     public void AddTurret(Turret turret, Vector2 cellPos)
     {
         string s = _data.ParseFromVector2(cellPos);

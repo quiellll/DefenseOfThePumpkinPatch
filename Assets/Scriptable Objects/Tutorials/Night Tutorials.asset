@@ -15,7 +15,13 @@ MonoBehaviour:
   _tutorials:
   - _title: Night Time
     _text: "You made it through a long day!\n\nBe careful... foes don't ever rest.
-      \nWatch out for those ghosts! They become zombies once they reach a tomb.\n\nBuild
-      different turrets with magic powers to stop those evil souls!"
+      \nWatch out for those ghosts! They become zombies once they reach a tomb.\n"
     _useSmall: 0
     _position: {x: 0, y: 0}
+    _event: 0
+  - _title: A little gift...
+    _text: Take these coins and build a Magic Tower. Those evil spirits cannot be
+      killed by normal means!
+    _useSmall: 1
+    _position: {x: -410, y: 200}
+    _event: 0

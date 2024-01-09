@@ -8,6 +8,7 @@ public class GameData
     public int Gold = 0;
     public int DayIndex = 0;
     public bool NextDefenseIsDay = true;
+    public bool FirstNightGiftReceived = false;
     public List<string/*parsed vector2 pos*/> Pumpkins = new();
     public Dictionary<string/*parsed vector2 pos*/, int/*journeys*/> Sprouts = new();
     public Dictionary<string/*parsed vector2 pos*/, string/*turret name*/> Turrets = new();
@@ -36,6 +37,7 @@ public class GameData
         Debug.Log($"gold: {Gold}");
         Debug.Log($"day: {DayIndex}");
         Debug.Log($"next day?: {NextDefenseIsDay}");
+        Debug.Log($"gift?: {FirstNightGiftReceived}");
         Debug.Log("turrets");
         foreach (var kv in Turrets) Debug.Log(kv.Key + " -> " + kv.Value);
         Debug.Log("sprouts");

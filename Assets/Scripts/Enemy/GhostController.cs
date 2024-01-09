@@ -20,11 +20,6 @@ public class GhostController : AEnemyController //controlador del fantasma que h
         SetInitialState(new GhostMoveForward(this));
     }
 
-    protected override void Die()
-    {
-        base.Die();
-    }
-
     public override void InitEnemy(Vector3 pos, Quaternion rot, IEnemySpawner spawner)
     {
         base.InitEnemy(pos, rot, spawner);

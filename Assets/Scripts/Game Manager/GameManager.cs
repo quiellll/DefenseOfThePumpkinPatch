@@ -20,6 +20,8 @@ public class GameManager : Singleton<GameManager>
     public int TimeScale { get; private set; }
     public bool Paused { get; set; }
     public bool StartsOnDay { get; set; }
+    public bool FirstNightGiftGiven { get; set; }
+    public bool IsGameOver { get; private set; }
 
     public FarmerSpawner FarmerSpawner { get; private set; }
     public GhostSpawner GhostSpawner { get; private set; }
@@ -42,6 +44,8 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private Pumpkin _pumpkin;
     [SerializeField] private bool _saveGame;
     [SerializeField] private bool _loadGame;
+    [SerializeField] private int _initialGold;
+    [SerializeField] private int _goldGiftOnFirstNight;
 
 
     private ServiceLocator _serviceLocator;
@@ -73,6 +77,7 @@ public class GameManager : Singleton<GameManager>
         CommandManager = new();
         BuildManager = new(SelectionManager);
         TimeScale = 1;
+        IsGameOver = false;
 
 
         _serviceLocator = new ServiceLocator();
@@ -82,24 +87,49 @@ public class GameManager : Singleton<GameManager>
         _audioManager = _serviceLocator.Get<IAudioManager>();
         _audioManager.PlayMusic();
 
+        var newGame = PlayerPrefs.GetInt("NewGame", 0) == 1;
 
-        if (_loadGame && _gameDataSaver.ExistsSave(_saveFileName))
+        if (!newGame && _loadGame && _gameDataSaver.ExistsSave(_saveFileName))
             if (LoadSaveToGame()) return;
         
 
-        Gold = 200;
+        Gold = _initialGold;
         _level.SetDay(0);
         StartsOnDay = true;
+        FirstNightGiftGiven = false;
         
     }
 
     private void Start()
     {
         GameState = new BuildMode(this, StartsOnDay); //inicia en construccion
+
+        if(!FirstNightGiftGiven && _level.CurrentDayIndex == 0)
+        {
+            if(!StartsOnDay)
+            {
+                AddGoldOnFirstNight();
+            }
+            else
+            {
+                StartBuildMode.AddListener(AddGoldOnFirstNight);
+            }
+
+        }
+    }
+
+    private void AddGoldOnFirstNight()
+    {
+        FirstNightGiftGiven = true;
+        _gameDataUpdater.UpdateGiftGiven(true);
+        Gold += _goldGiftOnFirstNight;
+        StartBuildMode.RemoveListener(AddGoldOnFirstNight);
     }
 
     private void Update()
     {
+        if (IsGameOver) return;
+
         BuildManager.DummyPlacing();
 
 
@@ -115,6 +145,14 @@ public class GameManager : Singleton<GameManager>
     //cambia de estado de juego
     private void ChangeState(AGameState newState)
     {
+        if (IsGameOver)
+        {
+            _gameState.Exit(null);
+            _gameState = null;
+            return;
+        }
+
+
         _gameState?.Exit(newState);
         var lastState = _gameState;
         _gameState = newState;
@@ -132,12 +170,14 @@ public class GameManager : Singleton<GameManager>
 
     private void SetPumpkins(int amount)
     {
+        if (IsGameOver) return;
         if(amount < 0) return;
         PumpkinsChanged.Invoke(amount); 
         _pumpkins = amount;
 
         if(_pumpkins == 0)
         {
+            IsGameOver = true;
             HUD.GameOver();
         }
     }
@@ -154,6 +194,7 @@ public class GameManager : Singleton<GameManager>
 
     public void AdvanceDay()
     {
+        if (IsGameOver) return;
         if (_level.NextDay() != null)
         {
             _gameDataUpdater.UpdateDay(_level.CurrentDayIndex);
@@ -162,6 +203,9 @@ public class GameManager : Singleton<GameManager>
         }
 
         //FIN DE NIVEL GG
+        IsGameOver = true;
+        FindObjectOfType<CameraMovement>().enabled = false;
+        _gameDataSaver.Delete(_saveFileName);
         HUD.GameWin();
 
     }
@@ -178,7 +222,10 @@ public class GameManager : Singleton<GameManager>
 
         _level.SetDay(data.DayIndex);
 
+        _gameDataUpdater.UpdateDay(_level.CurrentDayIndex);
+
         StartsOnDay = data.NextDefenseIsDay;
+        FirstNightGiftGiven = data.FirstNightGiftReceived;
 
         if(!StartsOnDay)
         {

@@ -10,6 +10,6 @@ public class FarmerSpawner : AWaveSpawner
     {
         _poolSize = _level.Days[^1].Farmers;
         _enemiesPerWave = _level.CurrentDay.Farmers;
-        _spawnDelay = _level.CurrentDay.SpawnDelay;
+        _spawnDelay = _level.CurrentDay.FarmerSpawnDelay;
     }
 }

@@ -10,20 +10,10 @@ public class ZombieController : AEnemyController
         SetInitialState(new MoveForward(this));
     }
 
-    protected override void Die()
-    {
-        base.Die();
-    }
-
     public override void InitEnemy(Vector3 pos, Quaternion rot, IEnemySpawner spawner)
     {
         base.InitEnemy(pos, rot, spawner);
         SetInitialState(new MoveForward(this));
-    }
-
-    public override void Reset()
-    {
-        base.Reset();
     }
 
     public override void InteractWithPumpkin(GridCell pumpkinCell)

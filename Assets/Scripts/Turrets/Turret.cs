@@ -9,11 +9,9 @@ using UnityEngine;
 public class Turret : ScriptableObject, IWare
 {
     //IWare
-    public static readonly int SellPercentage = 75;
-
     public string Name { get => _name; }
     public int BuyPrice { get => _buyPrice; }
-    public int SellPrice { get => Mathf.FloorToInt(_buyPrice * SellPercentage / 100f); }
+    public int SellPrice { get => _sellPrice; }
     // Prefab de la torreta
     public GameObject Prefab { get => _turretPrefab; }
     // Prefab de placeholder
@@ -37,6 +35,7 @@ public class Turret : ScriptableObject, IWare
 
     [SerializeField] private string _name;
     [SerializeField] private int _buyPrice;
+    [SerializeField] private int _sellPrice;
     [SerializeField] private GameObject _turretPrefab;
     [SerializeField] private GameObject _dummyPrefab;
     [SerializeField] private ATurretProjectile _projectilePrefab;

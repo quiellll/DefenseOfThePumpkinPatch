@@ -8,6 +8,7 @@ public interface IGameDataUpdater : IService
     public void UpdateGold(int gold);
     public void UpdateDay(int dayIndex);
     public void UpdateNextDefenseIsDay(bool isDay);
+    public void UpdateGiftGiven(bool isGiven);
     public void AddTurret(Turret turret, Vector2 cellPos);
     public void RemoveTurret(Turret turret, Vector2 cellPos);
     public void AddPumpkin(Vector2 cellPos);

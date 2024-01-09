@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e190bc426aacf048b490a9c3e733f23, type: 3}
   m_Name: Pumpkin
   m_EditorClassIdentifier: 
-  _buyPrice: 100
+  _buyPrice: 30
+  _sellPrice: 35
   _sproutGrowthPeriod: 2
   _pumpkinPrefab: {fileID: 1602090943131839029, guid: c4f35f3a8ddd4ea49a5e766cb73f552c,
     type: 3}

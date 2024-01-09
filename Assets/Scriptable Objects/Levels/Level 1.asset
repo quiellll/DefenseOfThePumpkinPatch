@@ -13,12 +13,23 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   _days:
-  - _farmers: 5
-    _ghosts: 5
-    _spawnDelay: 3
   - _farmers: 7
     _ghosts: 7
-    _spawnDelay: 3
+    _farmerSpawnDelay: 4
+    _ghostSpawnDelay: 3.75
   - _farmers: 9
-    _ghosts: 9
-    _spawnDelay: 2
+    _ghosts: 12
+    _farmerSpawnDelay: 2
+    _ghostSpawnDelay: 2
+  - _farmers: 15
+    _ghosts: 20
+    _farmerSpawnDelay: 1.5
+    _ghostSpawnDelay: 1.5
+  - _farmers: 20
+    _ghosts: 25
+    _farmerSpawnDelay: 1.25
+    _ghostSpawnDelay: 1.25
+  - _farmers: 35
+    _ghosts: 80
+    _farmerSpawnDelay: 1
+    _ghostSpawnDelay: 0.7

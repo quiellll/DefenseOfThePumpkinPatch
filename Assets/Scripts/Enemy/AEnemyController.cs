@@ -142,8 +142,8 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     //funcion publica para recibir daño
     public virtual void TakeDamage(int damage)
     {
-        if (_currentHealth - damage < 0) return;
-        _currentHealth -= damage;
+        if (_currentHealth <= 0) return;
+        _currentHealth = Mathf.Max(0, _currentHealth - damage);
 
         _damageParticles.Play();
 
@@ -157,10 +157,11 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
     protected IEnumerator StartDeath()
     {
         GameManager.Instance.ServiceLocator.Get<IAudioManager>().PlaySoundEffect(_stats.DieSound);
+
+        GameManager.Instance.Gold += State is MoveBackwards ? _stats.LootWithPumpkin : _stats.Loot;
         State = null;
         SetAnimation(_deadAnim);
         IsAlive = false;
-
         yield return new WaitForSeconds(0.6f);
 
         Die();
@@ -168,7 +169,6 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
 
     protected virtual void Die() //morir
     {
-        GameManager.Instance.Gold += State is MoveBackwards ? _stats.LootWithPumpkin : _stats.Loot;
         Despawn();
     }
 
