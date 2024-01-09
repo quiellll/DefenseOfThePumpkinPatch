@@ -40,5 +40,7 @@ https://discussions.unity.com/t/how-to-convert-from-world-space-to-canvas-space/
 mov parabolico proyectil catapulta:
 https://gamedev.stackexchange.com/questions/183507/add-parabola-curve-to-straight-movetowards-movement
 
+Fuentes:
+https://www.dafont.com/es/optimusprinceps.font?text=Start+Wave&back=theme
 
 
