@@ -1,0 +1,44 @@
+Sonidos:
+musica:
+https://pixabay.com/es/music/grupo-acustico-the-britons-127687/
+risa fantasma:
+https://freesound.org/people/Domarius/sounds/459345/
+comer calabaza:
+https://freesound.org/people/orginaljun/sounds/152313/
+risa hombre:
+https://freesound.org/people/ptrmax/sounds/134720/
+
+fantsma muerte:
+https://freesound.org/people/Michel88/sounds/76961/
+granj muerte:
+https://freesound.org/people/DeltaCode/sounds/668351/
+zombie muerte:
+https://freesound.org/people/BehanSean/sounds/422421/
+
+catapulta:
+https://freesound.org/people/Alex-Fullam/sounds/553906/
+ballesta:
+https://pixabay.com/es/sound-effects/whoosh-transitions-sfx-01-118227/
+magica:
+https://freesound.org/people/Krosenut/sounds/592004/
+
+
+Outline:
+https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488
+
+Codigo de patrones servicelocator, singleton y object pool: David María Arribas
+
+modelos:
+https://kenney.nl
+
+script ciclo dia noche:
+https://gist.github.com/Glynn-Taylor/08da28896147faa6ba8f9654057d38e6
+
+funcion para pasar de coords del mundo a canvas
+https://discussions.unity.com/t/how-to-convert-from-world-space-to-canvas-space/117981
+
+mov parabolico proyectil catapulta:
+https://gamedev.stackexchange.com/questions/183507/add-parabola-curve-to-straight-movetowards-movement
+
+
+
