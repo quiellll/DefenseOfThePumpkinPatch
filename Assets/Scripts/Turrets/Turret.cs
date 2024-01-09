@@ -69,6 +69,10 @@ public class Turret : ScriptableObject, IWare
         else if(enemy is ZombieController) target = EnemyTarget.Zombie;
         else return false;
 
-        return _validTargets.HasFlag(target);
+        return CanTarget(target);
     }
+
+    public bool CanTarget(EnemyTarget target) => _validTargets.HasFlag(target);
+
+   
 }

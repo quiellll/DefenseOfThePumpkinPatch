@@ -23,6 +23,7 @@ public class TurretContextMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _attackSpeed;
     [SerializeField] private TextMeshProUGUI _sellPrice;
 
+
     private GridCell _turretCell;
 
 
@@ -64,6 +65,7 @@ public class TurretContextMenu : MonoBehaviour
         GameManager.Instance.CommandManager.ExecuteCommand(new SellWare(Turret, _turretCell));
         GameManager.Instance.HUD.UpdateUndoButton();
     }
+
 
 
 }
