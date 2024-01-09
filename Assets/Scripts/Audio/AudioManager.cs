@@ -37,4 +37,6 @@ public class AudioManager : MonoBehaviour, IAudioManager
         _sfxSrc.volume = Mathf.Clamp01(volume);
     }
 
+    public void DestroyAudioManager() => Destroy(gameObject);
+
 }

@@ -31,14 +31,16 @@ public class ServiceLocator
 
     private readonly Dictionary<string, IService> _services = new();
 
-    public void Register<T>(IService service) where T : IService
+    public bool Register<T>(IService service) where T : IService
     {
         string key = typeof(T).Name;
         if (!_services.ContainsKey(key))
         {
             service.Initialize();
             _services.Add(key, service);
+            return true;
         }
+        else return false;
     }
         
     public T Get<T>() where T : IService

@@ -47,6 +47,7 @@ public class GameSettings : MonoBehaviour
     public void SetGraphics(int value)
     {
         PlayerPrefs.SetInt("Graphics", value);
+        QualitySettings.SetQualityLevel(value, true);
     }
 
 }
