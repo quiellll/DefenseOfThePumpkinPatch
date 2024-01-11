@@ -9,12 +9,14 @@ public class GameSettings : MonoBehaviour
     [SerializeField] private Slider _musicSlider;
     [SerializeField] private Slider _sfxSlider;
     [SerializeField] private TMP_Dropdown _graphicsDropdown;
+    [SerializeField] private Toggle _accesibilityToggle;
 
     [SerializeField] private float _defaultMusicVolume;
     [SerializeField] private float _defaultSFXVolume;
     [SerializeField] private int _defaultGraphics;
 
     private IAudioManager _audioManager;
+    private TextZoomController _textZoomController;
 
 
     public void LoadSettings()
@@ -30,6 +32,10 @@ public class GameSettings : MonoBehaviour
         if(QualitySettings.GetQualityLevel() != _graphicsDropdown.value)
             QualitySettings.SetQualityLevel(_graphicsDropdown.value, true);
 
+        _textZoomController = FindObjectOfType<TextZoomController>();
+        bool accOn = PlayerPrefs.GetInt("Accesibility", 0) == 1;
+        _textZoomController.ToggleAccesibility(accOn);
+        _accesibilityToggle.isOn = accOn;
     }
 
     public void SetMusicVolume(float value)
@@ -48,6 +54,13 @@ public class GameSettings : MonoBehaviour
     {
         PlayerPrefs.SetInt("Graphics", value);
         QualitySettings.SetQualityLevel(value, true);
+    }
+
+    public void SetAccesibility(bool value)
+    {
+        _textZoomController.ToggleAccesibility(value);
+        int acc = value ? 1 : 0;
+        PlayerPrefs.SetInt("Accesibility", acc);
     }
 
 }
