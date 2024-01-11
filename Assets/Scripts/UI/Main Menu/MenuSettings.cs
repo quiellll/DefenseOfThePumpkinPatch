@@ -59,6 +59,12 @@ public class MenuSettings : MonoBehaviour
         _textZoomController.ToggleAccesibility(value);
         int acc = value ? 1 : 0;
         PlayerPrefs.SetInt("Accesibility", acc);
+
+        if(value && PlayerPrefs.GetInt("AccTutorialDone", 0) == 0)
+        {
+            PlayerPrefs.SetInt("AccTutorialDone", 1);
+            _textZoomController.SayTutorial();
+        }
     }
 
 }

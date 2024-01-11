@@ -18,6 +18,7 @@ public class TextZoomController : MonoBehaviour
     private bool _accesibilityOn;
     private SpVoice _voice;
     private string _displayedText;
+    private bool _tutorialPlaying = false;
 
 
     private void Awake()
@@ -59,7 +60,7 @@ public class TextZoomController : MonoBehaviour
 
     public void OnSpeakKey(InputAction.CallbackContext context)
     {
-        if (!_accesibilityOn) return;
+        if (!_accesibilityOn || _tutorialPlaying) return;
         if (!context.started) return;
         if (_displayedText == "") return;
 
@@ -78,5 +79,27 @@ public class TextZoomController : MonoBehaviour
     {
         _accesibilityOn = on;
         if (!on) ClearZoomedText();
+    }
+
+    public void SayTutorial()
+    {
+        string tutorial = "Accessibility mode is on. use your mouse to hover over any text, " +
+            "and it will be displayed magnified at the center of the screen. " +
+            "Press the SPACE key to have the text narrated by a voice.";
+
+        SetZoomedText(tutorial);
+        Invoke(nameof(SpeakTutorial), .1f);
+    }
+
+    private void SpeakTutorial()
+    {
+        _tutorialPlaying = true;
+        string tts = "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>"
+            + _displayedText + "</speak>";
+        _voice.Speak(tts,
+            SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak |
+            SpeechVoiceSpeakFlags.SVSFIsXML);
+        ClearZoomedText();
+        _tutorialPlaying = false;
     }
 }
