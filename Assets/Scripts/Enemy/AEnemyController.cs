@@ -33,12 +33,13 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
 
     protected int _deadAnim, _damagedAnim, _pickUpAnim;
 
-
     protected virtual void Awake()
     {
         _currentHealth = _stats.Health;
         IsAlive = true;
         _animator = GetComponentInChildren<Animator>();
+        _animator.keepAnimatorStateOnDisable = false;
+
         _damageParticles = GetComponentInChildren<ParticleSystem>();
 
         _deadAnim = Animator.StringToHash("isDead");
@@ -70,6 +71,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
         IsAlive = true;
         UpdateCurrentCell();
     }
+
 
     //funcion de movimiento llamada por los estados de movimiento
     public void Move(Vector3 direction, bool rotate = true)
@@ -139,7 +141,7 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
 
     protected void SetInitialState(AEnemyState state) => ChangeState(state, true);
 
-    //funcion publica para recibir daño
+    //funcion publica para recibir daï¿½o
     public virtual void TakeDamage(int damage)
     {
         if (_currentHealth <= 0) return;
@@ -195,9 +197,11 @@ public abstract class AEnemyController : MonoBehaviour, IPoolObject
 
     protected void SetAnimation(int anim, bool reset = true)
     {
+        if (_animator == null) return;
         _animator.SetBool(anim, true);
-        if(reset) StartCoroutine(ResetAnimationParam(anim));
+        if (reset) StartCoroutine(ResetAnimationParam(anim));
     }
+
 
     private IEnumerator ResetAnimationParam(int anim)
     {
