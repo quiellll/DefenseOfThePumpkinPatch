@@ -45,5 +45,12 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void Retry()
+    {
+        Time.timeScale = 1f;
+        PlayerPrefs.SetInt("NewGame", 0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void Quit() => Application.Quit();
 }
